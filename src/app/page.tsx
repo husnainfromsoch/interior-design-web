@@ -1,19 +1,29 @@
 import Hero from "@/components/sections/Hero";
+import CapabilityStrip from "@/components/sections/CapabilityStrip";
+import ProjectsPreview from "@/components/sections/ProjectsPreview";
 import Services from "@/components/sections/Services";
-import PortfolioPreview from "@/components/sections/PortfolioPreview";
+import WhyUs from "@/components/sections/WhyUs";
+import Process from "@/components/sections/Process";
+import Risks from "@/components/sections/Risks";
+import MaterialsTeaser from "@/components/sections/MaterialsTeaser";
+import ApprovalsTeaser from "@/components/sections/ApprovalsTeaser";
 import AboutTeaser from "@/components/sections/AboutTeaser";
-import Testimonials from "@/components/sections/Testimonials";
-import CtaBanner from "@/components/sections/CtaBanner";
+import FinalCta from "@/components/sections/FinalCta";
 
 export default function Home() {
   return (
     <>
       <Hero />
+      <CapabilityStrip />
+      <ProjectsPreview />
       <Services />
-      <PortfolioPreview />
+      <WhyUs />
+      <Process />
+      <Risks />
+      <MaterialsTeaser />
+      <ApprovalsTeaser />
       <AboutTeaser />
-      <Testimonials />
-      <CtaBanner />
+      <FinalCta />
     </>
   );
 }

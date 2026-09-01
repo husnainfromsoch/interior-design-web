@@ -3,8 +3,8 @@ import PageHeader from "@/components/ui/PageHeader";
 import Services from "@/components/sections/Services";
 
 export const metadata: Metadata = {
-  title: "Services | Studio Interiors",
-  description: "Residential, commercial, hospitality and turnkey interior design services across the UAE.",
+  title: "Services | G.A.G Interiors Dubai",
+  description: "Interior design, approvals, renovation, fit-out, custom kitchens, wardrobes and joinery services across the UAE.",
 };
 
 export default function ServicesPage() {
@@ -12,8 +12,8 @@ export default function ServicesPage() {
     <>
       <PageHeader
         eyebrow="Our Services"
-        title="Design services across the UAE"
-        description="From concept to final styling, we manage every detail of your project."
+        title="The full-cycle workflow, explained"
+        description="Design, approvals, renovation, fit-out, custom kitchens, wardrobes, joinery and materials — one coordinated team."
       />
       <Services />
     </>

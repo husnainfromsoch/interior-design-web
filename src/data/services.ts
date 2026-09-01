@@ -1,22 +1,37 @@
 export const services = [
   {
-    title: "Residential Design",
-    description:
-      "Full-service interiors for villas, apartments and penthouses across the UAE.",
+    title: "Interior Design & Technical Drawings",
+    description: "Concept to construction-ready drawings.",
+    href: "/services/interior-design",
   },
   {
-    title: "Commercial Interiors",
-    description:
-      "Offices, retail and hospitality spaces designed to elevate brand experience.",
+    title: "Approvals, NOCs & Permits",
+    description: "Building management approvals, handled for you.",
+    href: "/services/approvals-noc-permits",
   },
   {
-    title: "Turnkey Fit-Out",
-    description:
-      "End-to-end project management from concept through final installation.",
+    title: "Renovation & Fit-Out",
+    description: "Full execution, start to finish.",
+    href: "/services/renovation-fit-out-dubai",
   },
   {
-    title: "Furniture & Styling",
-    description:
-      "Bespoke furniture sourcing and styling to complete every space.",
+    title: "Custom Kitchens",
+    description: "Designed, built and installed to fit your space.",
+    href: "/services/custom-kitchens-dubai",
+  },
+  {
+    title: "Wardrobes & Storage",
+    description: "Wardrobes, storage, vanities and wall panels.",
+    href: "/services/custom-wardrobes-dubai",
+  },
+  {
+    title: "Custom Joinery & Furniture",
+    description: "Bespoke furniture, made in-house.",
+    href: "/services/custom-joinery-furniture",
+  },
+  {
+    title: "Materials & Finishes",
+    description: "Stone, wood and finish sourcing, done right.",
+    href: "/services/materials-finishes",
   },
 ];

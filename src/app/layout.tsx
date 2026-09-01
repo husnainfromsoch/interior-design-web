@@ -1,25 +1,27 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Fraunces, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
-const heading = Playfair_Display({
+const heading = Fraunces({
   variable: "--font-heading",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const body = Inter({
-  variable: "--font-body",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
 });
 
+const body = Instrument_Sans({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
 export const metadata: Metadata = {
-  title: "Studio Interiors | Luxury Interior Design in Dubai & UAE",
+  title: "G.A.G Interiors | Interior Renovation & Fit-Out in Dubai, UAE",
   description:
-    "Bespoke interior design studio serving Dubai, Abu Dhabi and the UAE. Residential, commercial and hospitality interiors crafted with timeless elegance.",
+    "G.A.G Interiors is a full-cycle interior renovation, fit-out and custom joinery company in Dubai. Design, approvals, custom kitchens, wardrobes in Dubai and villa renovation and fit-out in Dubai — one coordinated team.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -28,10 +30,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${heading.variable} ${body.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
+      <body className="min-h-full flex flex-col bg-ivory text-charcoal font-sans">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <WhatsAppButton />
+        <ScrollReveal />
       </body>
     </html>
   );

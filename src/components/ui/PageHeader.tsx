@@ -8,14 +8,14 @@ export default function PageHeader({
   description?: string;
 }) {
   return (
-    <section className="bg-beige px-6 py-24 lg:px-10">
+    <section className="bg-beige px-6 py-24 lg:px-8">
       <div className="mx-auto max-w-3xl text-center">
-        <p className="text-sm tracking-[0.3em] text-gold uppercase">
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-wood">
           {eyebrow}
         </p>
-        <h1 className="mt-4 font-serif text-5xl text-charcoal">{title}</h1>
+        <h1 className="mt-4 font-serif text-[40px] text-charcoal sm:text-5xl">{title}</h1>
         {description && (
-          <p className="mt-6 text-base leading-relaxed text-muted">
+          <p className="mt-6 text-base leading-relaxed text-warm-grey">
             {description}
           </p>
         )}

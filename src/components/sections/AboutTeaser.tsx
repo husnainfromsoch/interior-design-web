@@ -1,30 +1,25 @@
-import Link from "next/link";
+import Placeholder from "@/components/ui/Placeholder";
+import Button from "@/components/ui/Button";
 
 export default function AboutTeaser() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
-      <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-        <div className="aspect-[4/3] w-full rounded-lg bg-beige-dark/60" />
-
+    <section className="bg-beige py-24">
+      <div className="reveal mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-14 px-6 lg:grid-cols-2 lg:px-8">
+        <Placeholder className="aspect-[16/11]" tag="Photography placeholder" variant={4} />
         <div>
-          <p className="text-sm tracking-[0.3em] text-gold uppercase">
-            About the Studio
+          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
+            About G.A.G
+          </span>
+          <h2 className="font-serif text-[26px] sm:text-[30px]">A coordinated team, not a contractor list.</h2>
+          <p className="mt-4 max-w-md text-[17px] text-warm-grey">
+            G.A.G Interiors brings design, approvals, execution and joinery under one roof &mdash; so nothing gets
+            lost between handoffs.
           </p>
-          <h2 className="mt-4 font-serif text-4xl text-charcoal">
-            A decade of designing for the UAE&apos;s finest spaces
-          </h2>
-          <p className="mt-6 text-base leading-relaxed text-muted">
-            Studio Interiors is a Dubai-based design practice creating
-            considered, luxurious spaces for clients across the Emirates.
-            From concept to final styling, we manage every detail so our
-            clients experience nothing but the finished result.
-          </p>
-          <Link
-            href="/about"
-            className="mt-8 inline-block text-sm tracking-wide text-charcoal underline underline-offset-4 hover:text-gold"
-          >
-            Learn more about us
-          </Link>
+          <div className="mt-6">
+            <Button href="/about" variant="outline">
+              About Us &rarr;
+            </Button>
+          </div>
         </div>
       </div>
     </section>
