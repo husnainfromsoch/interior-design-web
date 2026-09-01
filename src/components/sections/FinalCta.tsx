@@ -24,7 +24,10 @@ export default function FinalCta() {
           </Button>
         </div>
 
-        <div id="contact-form" className="mx-auto mt-16 max-w-2xl rounded bg-ivory p-8 text-charcoal sm:p-10">
+        <div
+          id="contact-form"
+          className="mx-auto mt-16 max-w-2xl rounded-2xl border border-ivory/10 bg-ivory p-8 text-charcoal shadow-[0_30px_60px_-24px_rgba(0,0,0,0.5)] sm:p-10"
+        >
           <ContactForm />
         </div>
       </div>
