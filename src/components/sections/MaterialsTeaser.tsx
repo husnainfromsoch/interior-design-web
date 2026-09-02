@@ -1,9 +1,11 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import Button from "@/components/ui/Button";
 
 const swatches = ["#C9C2B6", "#8B6F52", "#D9C7A6", "#2E2A25"];
 
-export default function MaterialsTeaser() {
+export default async function MaterialsTeaser() {
+  const t = await getTranslations("MaterialsTeaser");
   return (
     <section className="bg-beige py-24">
       <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-14 px-6 lg:grid-cols-2 lg:px-8">
@@ -18,11 +20,11 @@ export default function MaterialsTeaser() {
         </div>
         <div className="reveal-right">
           <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
-            Materials &amp; Finishes
+            {t("badge")}
           </span>
-          <h2 className="font-serif text-[26px] sm:text-[30px]">Stone, wood and finish, sourced with intent.</h2>
+          <h2 className="font-serif text-[26px] sm:text-[30px]">{t("title")}</h2>
           <p className="mt-4 max-w-md text-[17px] text-warm-grey">
-            Every material is selected and procured to match the design brief &mdash; not the nearest available option.
+            {t("body")}
           </p>
           <div className="my-6 flex gap-3">
             {swatches.map((color) => (
@@ -34,7 +36,7 @@ export default function MaterialsTeaser() {
             ))}
           </div>
           <Button href="/services/materials-finishes" variant="outline">
-            Explore Materials &rarr;
+            {t("cta")}
           </Button>
         </div>
       </div>

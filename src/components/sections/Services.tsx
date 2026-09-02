@@ -1,6 +1,7 @@
-import Link from "next/link";
 import Image from "next/image";
-import { services } from "@/data/services";
+import { getLocale, getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import { getServices } from "@/data/services";
 
 const icons = [
   // pencil / design
@@ -27,18 +28,21 @@ const cardImages = [
   "/projects/marina-penthouse-terrace.avif",
 ];
 
-export default function Services({ limit }: { limit?: number }) {
+export default async function Services({ limit }: { limit?: number }) {
+  const locale = await getLocale();
+  const t = await getTranslations("ServicesGrid");
+  const services = getServices(locale);
   const visibleServices = limit ? services.slice(0, limit) : services;
 
   return (
-    <section id="services" className="bg-beige py-24">
+    <section id="services-grid" className="scroll-mt-24 bg-beige py-24">
       <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
         <div className="reveal mb-16 text-center">
           <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
-            Our Services
+            {t("badge")}
           </span>
           <h2 className="font-serif text-[28px] sm:text-[34px]">
-            Transforming to reflect your unique <span className="italic text-wood">style</span>
+            {t("titlePlain")} <span className="italic text-wood">{t("titleItalic")}</span>
           </h2>
         </div>
 
@@ -46,9 +50,12 @@ export default function Services({ limit }: { limit?: number }) {
           {visibleServices.map((service, i) => (
             <div
               key={service.slug}
-              className="reveal-scale group flex flex-col rounded-2xl border border-stone/70 bg-ivory shadow-[0_2px_10px_-4px_rgba(46,42,37,0.08)] transition-all duration-200 hover:-translate-y-1 hover:border-wood/40 hover:shadow-[0_20px_40px_-18px_rgba(46,42,37,0.28)]"
+              className="reveal-scale group relative flex flex-col rounded-2xl border border-stone/70 bg-ivory shadow-[0_2px_10px_-4px_rgba(46,42,37,0.08)] transition-all duration-200 hover:-translate-y-1 hover:border-wood/40 hover:shadow-[0_20px_40px_-18px_rgba(46,42,37,0.28)]"
               style={{ "--reveal-delay": `${(i % 3) * 100}ms` } as React.CSSProperties}
             >
+              <span className="absolute right-5 top-5 z-10 font-serif text-3xl text-ivory/70 mix-blend-luminosity transition-colors duration-300 group-hover:text-champagne">
+                {String(i + 1).padStart(2, "0")}
+              </span>
               <div className="relative">
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-t-2xl">
                   <Image
@@ -59,7 +66,7 @@ export default function Services({ limit }: { limit?: number }) {
                     className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                   />
                 </div>
-                <div className="absolute -bottom-7 left-8 z-10 flex h-16 w-16 items-center justify-center rounded-xl bg-wood text-ivory shadow-[0_10px_24px_-8px_rgba(124,90,58,0.65)]">
+                <div className="absolute -bottom-7 left-8 z-10 flex h-16 w-16 items-center justify-center rounded-xl bg-wood text-ivory shadow-[0_10px_24px_-8px_rgba(124,90,58,0.65)] transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-6">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -83,9 +90,10 @@ export default function Services({ limit }: { limit?: number }) {
                 </p>
                 <Link
                   href={service.href}
-                  className="inline-flex w-fit items-center gap-1 text-[13px] font-semibold uppercase tracking-[0.06em] text-wood transition-colors hover:text-wood-dark"
+                  className="group/link inline-flex w-fit items-center gap-1.5 text-[13px] font-semibold uppercase tracking-[0.06em] text-wood transition-colors hover:text-wood-dark"
                 >
-                  Learn more &rarr;
+                  {t("learnMore")}
+                  <span className="transition-transform duration-200 group-hover/link:translate-x-1">&rarr;</span>
                 </Link>
               </div>
             </div>
@@ -98,7 +106,7 @@ export default function Services({ limit }: { limit?: number }) {
               href="/services"
               className="inline-flex items-center gap-2 rounded-full border border-wood/40 px-8 py-3 text-[13px] font-semibold uppercase tracking-[0.06em] text-wood transition-colors hover:border-wood hover:bg-wood hover:text-ivory"
             >
-              View all services &rarr;
+              {t("viewAll")}
             </Link>
           </div>
         )}

@@ -1,5 +1,11 @@
-import Link from "next/link";
-import { pricingPlans } from "@/data/pricing";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+
+const PLAN_IDS = [
+  { id: "basic", price: "AED 4,900", highlight: false },
+  { id: "standard", price: "AED 12,000", highlight: true },
+  { id: "premium", price: "AED 22,000", highlight: false },
+] as const;
 
 function CheckIcon() {
   return (
@@ -15,23 +21,30 @@ function CheckIcon() {
   );
 }
 
-export default function Pricing() {
+export default async function Pricing() {
+  const t = await getTranslations("Pricing");
+  const pricingPlans = PLAN_IDS.map((plan) => ({
+    ...plan,
+    name: t(`plans.${plan.id}.name`),
+    description: t(`plans.${plan.id}.description`),
+    features: t.raw(`plans.${plan.id}.features`) as string[],
+  }));
   return (
     <section className="py-24">
       <div className="mx-auto max-w-[1180px] px-6 lg:px-8">
         <div className="reveal mb-14 text-center">
           <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
-            Pricing
+            {t("badge")}
           </span>
           <h2 className="font-serif text-[28px] sm:text-[34px]">
-            Crafted packages for distinctive spaces.
+            {t("title")}
           </h2>
         </div>
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           {pricingPlans.map((plan, i) => (
             <div
-              key={plan.name}
+              key={plan.id}
               className={`reveal-scale relative flex flex-col rounded-2xl p-8 ${
                 plan.highlight
                   ? "bg-soft-black text-ivory shadow-[0_24px_48px_-20px_rgba(28,25,22,0.45)] lg:-translate-y-3"
@@ -41,7 +54,7 @@ export default function Pricing() {
             >
               {plan.highlight && (
                 <span className="absolute -top-3 right-8 rounded-full bg-wood px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-ivory">
-                  Popular
+                  {t("popular")}
                 </span>
               )}
 
@@ -61,7 +74,7 @@ export default function Pricing() {
                     plan.highlight ? "text-stone" : "text-warm-grey"
                   }`}
                 >
-                  /package
+                  {t("perPackage")}
                 </span>
               </p>
 
@@ -89,7 +102,7 @@ export default function Pricing() {
                     : "border border-charcoal/70 text-charcoal hover:border-charcoal hover:bg-charcoal hover:text-ivory"
                 }`}
               >
-                Select Plan
+                {t("selectPlan")}
               </Link>
             </div>
           ))}

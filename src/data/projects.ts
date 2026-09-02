@@ -1,25 +1,21 @@
 export const projects = [
   {
-    title: "Marina Penthouse Renovation",
-    category: "Full renovation & fit-out",
+    id: "marina",
     status: "completed" as const,
     image: "/projects/marina-penthouse-terrace.avif",
   },
   {
-    title: "Downtown Villa Fit-Out",
-    category: "Complete interior fit-out",
+    id: "downtown",
     status: "completed" as const,
     image: "/projects/downtown-villa-living.avif",
   },
   {
-    title: "Al Barari Kitchen & Joinery",
-    category: "Custom kitchen concept",
+    id: "albarari",
     status: "concept" as const,
     image: "/projects/al-barari-kitchen.avif",
   },
   {
-    title: "JBR Apartment Refresh",
-    category: "Renovation & joinery",
+    id: "jbr",
     status: "completed" as const,
     image: "/projects/jbr-apartment-bathroom.avif",
   },

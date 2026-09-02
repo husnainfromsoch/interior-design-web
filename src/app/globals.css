@@ -101,6 +101,9 @@ body {
 .kenburns {
   animation: kenburns 24s ease-in-out infinite alternate;
 }
+.kenburns-fast {
+  animation: kenburns 6s ease-in-out infinite alternate;
+}
 @keyframes kenburns {
   from {
     transform: scale(1);
@@ -114,6 +117,18 @@ body {
   animation: hero-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: 0.15s;
 }
+
+.marquee-track {
+  animation: marquee 22s linear infinite;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
 @keyframes hero-in {
   from {
     opacity: 0;
@@ -126,7 +141,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .kenburns {
+  .kenburns,
+  .kenburns-fast {
     animation: none;
   }
   .hero-in {
@@ -297,6 +313,34 @@ body {
     animation: none;
   }
   .process-center-fade {
+    animation: none;
+  }
+}
+
+.phline {
+  overflow: hidden;
+  display: block;
+}
+
+.scroll-cue span {
+  animation: scroll-cue-dot 1.8s ease-in-out infinite;
+}
+@keyframes scroll-cue-dot {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue span {
     animation: none;
   }
 }

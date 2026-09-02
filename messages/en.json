@@ -1,0 +1,356 @@
+{
+  "Nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "services": "Services",
+    "why": "Why G.A.G",
+    "about": "About",
+    "contact": "Contact",
+    "requestQuote": "Request a Quote"
+  },
+  "Footer": {
+    "ctaTag": "Let's build something beautiful",
+    "ctaHeading": "Ready to reimagine your space?",
+    "ctaButton": "Start Your Project",
+    "tagline": "We craft timeless interiors and architectural spaces defined by precision, sophistication, and enduring value.",
+    "quickLinks": "Quick Links",
+    "location": "Our Location",
+    "locationAddress": "Business Bay, Marasi Drive",
+    "locationCity": "Dubai, UAE",
+    "phoneLabel": "Phone Number",
+    "emailLabel": "Email",
+    "followUs": "Follow Us",
+    "followText": "Follow our latest projects and behind-the-scenes design stories.",
+    "copyright": "G.A.G Interiors By Gohr Al Gillani Technical Services. All Rights Reserved {year}.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Services"
+  },
+  "WhatsApp": {
+    "message": "Hello G.A.G Interiors, I'd like to request a quote.",
+    "ariaLabel": "Chat with G.A.G Interiors on WhatsApp"
+  },
+  "Common": {
+    "getQuote": "Get a Quote",
+    "requestQuote": "Request a Quote",
+    "whatsappUs": "WhatsApp Us",
+    "learnMore": "Learn More",
+    "viewAll": "View All Projects",
+    "statusCompleted": "Completed",
+    "statusConcept": "Design Concept",
+    "explore": "Explore More",
+    "otherServices": "Other services you may need."
+  },
+  "Hero": {
+    "badge": "G.A.G Interiors — Dubai, UAE",
+    "title": "Full-cycle interior renovation, fit-out & custom joinery.",
+    "subtitle": "One coordinated team — from design and approvals through to renovation, fit-out and handover. No juggling separate contractors.",
+    "stat1": "Projects Completed",
+    "stat2": "Client Satisfaction",
+    "stat3": "Years in the UAE"
+  },
+  "ServicesGrid": {
+    "badge": "Our Services",
+    "titlePlain": "Transforming to reflect your unique",
+    "titleItalic": "style",
+    "learnMore": "Learn more",
+    "viewAll": "View all services →"
+  },
+  "Projects": {
+    "marina": { "title": "Marina Penthouse Renovation", "category": "Full renovation & fit-out" },
+    "downtown": { "title": "Downtown Villa Fit-Out", "category": "Complete interior fit-out" },
+    "albarari": { "title": "Al Barari Kitchen & Joinery", "category": "Custom kitchen concept" },
+    "jbr": { "title": "JBR Apartment Refresh", "category": "Renovation & joinery" }
+  },
+  "AboutStats": {
+    "badge": "About G.A.G Interiors",
+    "titlePlain": "Redefining modern living through",
+    "titleItalic": "design",
+    "body": "G.A.G Interiors brings design, approvals, execution and joinery under one roof, delivering renovation and fit-out projects across Dubai and the UAE with a single point of accountability.",
+    "cta": "More About Us →",
+    "stat1": "Projects Completed",
+    "stat2": "Client Satisfaction"
+  },
+  "CapabilityStrip": {
+    "intro": "One coordinated team, start to handover",
+    "design": "Design",
+    "designSub": "Concept & drawings",
+    "approvals": "Approvals",
+    "approvalsSub": "NOCs & permits",
+    "renovation": "Renovation",
+    "renovationSub": "Site execution",
+    "fitOut": "Fit-Out",
+    "fitOutSub": "Kitchens & wardrobes",
+    "furniture": "Custom Furniture",
+    "furnitureSub": "In-house joinery"
+  },
+  "ProjectsPreview": {
+    "badge": "Selected Projects",
+    "title": "Proof, before the pitch.",
+    "subtitle": "A sample of completed work and design concepts across Dubai.",
+    "viewProject": "View Project →",
+    "disclaimer": "Images shown are for illustrative purposes and will be replaced with completed project photography.",
+    "viewAll": "View All Projects →"
+  },
+  "SignatureProjectShowcase": {
+    "projectTitle": "Palm Jumeirah Residence",
+    "projectDate": "Signature Project",
+    "scrollToExpand": "Scroll to Expand",
+    "badge": "Featured Transformation",
+    "title": "From bare shell to a home that feels finished before you've moved in.",
+    "body1": "A full villa fit-out on Palm Jumeirah — joinery, lighting, and finishes coordinated end to end so every room reads as one continuous design language, not a series of separate decisions.",
+    "body2": "Delivered in 14 weeks, with authority approvals, MEP coordination, and material sourcing all managed in-house."
+  },
+  "AnimatedGridGallery": {
+    "scrollToExplore": "Scroll to Explore"
+  },
+  "WhyUs": {
+    "badge": "Why Choose Us",
+    "titlePlain": "Our Commitment to Design",
+    "titleItalic": "Excellence",
+    "body": "We collaborate with trusted artisans and premium suppliers to ensure every structure and interior element reflects superior quality and enduring value.",
+    "point1Title": "Bespoke Design Approach",
+    "point1Body": "We create fully customized concepts tailored to your vision, lifestyle, and architectural aspirations.",
+    "point2Title": "Timeless Aesthetic Excellence",
+    "point2Body": "Our designs transcend trends, delivering refined elegance that remains relevant and sophisticated for years to come.",
+    "point3Title": "Precision in Every Detail",
+    "point3Body": "From spatial proportions to finishing touches, every element is meticulously crafted to achieve perfect harmony."
+  },
+  "Process": {
+    "badge": "Process",
+    "title": "One coordinated approach, start to handover.",
+    "body": "From the first conversation to the final walkthrough, one team carries your project through design, approvals, execution and furniture — no handoffs, no guesswork.",
+    "listen": "Listen & Collaborate",
+    "listenBody": "We build the brief around your vision, with your input welcomed at every stage.",
+    "budget": "Budget & Planning",
+    "budgetBody": "Every schedule, order and delivery is tracked so nothing stalls on site.",
+    "design": "Design & Installation",
+    "designBody": "Balanced, functional interiors delivered and supported beyond handover.",
+    "steps": {
+      "consultation": { "label": "Consultation", "desc": "We meet, listen to your brief and walk the space to understand scope, budget and timeline." },
+      "siteVisit": { "label": "Site Visit", "desc": "Measurements, condition survey and photo documentation of the existing site." },
+      "design": { "label": "Design", "desc": "Concept, mood boards, material palette and 3D visuals built around your brief." },
+      "approvals": { "label": "Approvals", "desc": "Drawings packaged and submitted for the required authority NOCs and permits." },
+      "quotation": { "label": "Quotation", "desc": "Transparent, itemised pricing across design, execution, fit-out and furniture." },
+      "execution": { "label": "Execution", "desc": "Renovation and site works begin, managed daily by our project team." },
+      "production": { "label": "Production", "desc": "Custom joinery, kitchens and furniture manufactured in our own workshop." },
+      "installation": { "label": "Installation", "desc": "Fit-out, furniture placement and styling completed on site." },
+      "handover": { "label": "Handover", "desc": "Final walkthrough, snag list closed, and the space handed over ready to live in." }
+    }
+  },
+  "Testimonials": {
+    "tagLabel": "Client Voices",
+    "title": "What our clients experience with us.",
+    "description": "Trusted by 120+ homeowners and businesses across the UAE to deliver interiors that feel personal, precise, and elevated.",
+    "stat1Label": "Projects delivered",
+    "stat2Label": "Value built",
+    "stat3Label": "Average rating",
+    "primaryAction": "Request a Quote",
+    "secondaryAction": "See Our Projects",
+    "t1Name": "A. Al Mansoori",
+    "t1Title": "Villa Owner, Dubai",
+    "t1Quote": "The team transformed our villa into something beyond what we imagined. Every detail was considered.",
+    "t2Name": "S. Khan",
+    "t2Title": "Operations Director, Abu Dhabi",
+    "t2Quote": "Professional, precise, and genuinely creative. Our office fit-out was delivered on time and on budget.",
+    "t3Name": "R. Haddad",
+    "t3Title": "Homeowner, Dubai",
+    "t3Quote": "A design partner who truly listens. Our new home feels like us, only elevated."
+  },
+  "Risks": {
+    "badge": "What We Help You Avoid",
+    "title": "Renovation projects go wrong in predictable ways.",
+    "subtitle": "Here's what we watch for on every project, before it becomes a problem — and exactly how we prevent it.",
+    "riskLabel": "Risk",
+    "solvedLabel": "Solved",
+    "preventLabel": "How we prevent it",
+    "items": {
+      "scope": { "title": "Unclear project scope", "prevention": "A signed scope document before any contract is issued." },
+      "measurements": { "title": "Wrong site measurements", "prevention": "Laser-verified site survey ahead of every design drawing." },
+      "mep": { "title": "MEP conflicts mid-execution", "prevention": "MEP drawings cross-checked with design before work starts." },
+      "approvals": { "title": "Approval delays", "prevention": "Authority submissions handled in-house, tracked end to end." },
+      "materials": { "title": "Poor material selection", "prevention": "Samples approved on-site before any order is placed." },
+      "supervision": { "title": "Weak site supervision", "prevention": "A dedicated supervisor on-site through every phase." }
+    }
+  },
+  "MaterialsTeaser": {
+    "badge": "Materials & Finishes",
+    "title": "Stone, wood and finish, sourced with intent.",
+    "body": "Every material is selected and procured to match the design brief — not the nearest available option.",
+    "cta": "Explore Materials →"
+  },
+  "ApprovalsTeaser": {
+    "badge": "Approvals, NOCs & Permits",
+    "title": "The paperwork, handled.",
+    "body": "NOCs, minor works, major modification coordination and documentation — managed on your behalf, so approvals never hold up your project.",
+    "cta": "Learn More →"
+  },
+  "AboutTeaser": {
+    "date": "About G.A.G",
+    "title": "A Coordinated Team",
+    "scrollToExpand": "Scroll to Expand",
+    "badge": "About G.A.G",
+    "heading": "A coordinated team, not a contractor list.",
+    "body": "G.A.G Interiors brings design, approvals, execution and joinery under one roof — so nothing gets lost between handoffs.",
+    "cta": "About Us →"
+  },
+  "FinalCta": {
+    "title": "Tell us about your project.",
+    "body": "WhatsApp us, request a quote, or book a site visit — whichever is easiest for you.",
+    "whatsapp": "WhatsApp Us",
+    "requestQuote": "Request a Quote",
+    "bookVisit": "Book a Site Visit",
+    "callUs": "Call Us"
+  },
+  "Pricing": {
+    "badge": "Pricing",
+    "title": "Crafted packages for distinctive spaces.",
+    "popular": "Popular",
+    "perPackage": "/package",
+    "selectPlan": "Select Plan",
+    "plans": {
+      "basic": {
+        "name": "Basic Package",
+        "description": "Perfect for clients who need clear design direction and professional guidance.",
+        "features": ["Initial consultation", "Concept & mood board", "Space planning layout", "Material & finish suggestions", "Basic 2D drawings"]
+      },
+      "standard": {
+        "name": "Standard Package",
+        "description": "A complete design development package with visual presentation and technical detailing.",
+        "features": ["Detailed consultation", "3D visualization", "Technical drawings", "Custom furniture design", "Material coordination", "Limited site visits"]
+      },
+      "premium": {
+        "name": "Premium Package",
+        "description": "An end-to-end solution with meticulous planning, coordination & execution support.",
+        "features": ["Full design concept & development", "Advanced 3D renderings", "Complete technical documentation", "Project management support", "Contractor coordination", "Custom built-in & joinery design", "Final styling & handover"]
+      }
+    }
+  },
+  "ServicesHero": {
+    "titlePlain": "Every stage of your interior,",
+    "titleItalic": "under one roof."
+  },
+  "AboutStory": {
+    "badge": "Our Story",
+    "titlePlain1": "Built to close the gap between",
+    "titleItalic1": "design",
+    "titleAnd": "and",
+    "titleItalic2": "delivery",
+    "body1": "G.A.G Interiors started from a simple frustration shared by homeowners across the UAE: design studios draw beautiful renders, contractors execute someone else's drawings, and nobody owns the outcome when things fall between the cracks.",
+    "body2": "We built a single studio that carries a project from first concept sketch through authority approvals, on-site renovation and custom joinery, to final handover — with one team accountable at every stage.",
+    "body3": "Today that means over 150 homes and commercial spaces across Dubai, Abu Dhabi and the Northern Emirates, each delivered by the same coordinated process.",
+    "values": {
+      "design": { "label": "Design", "detail": "Concept, space planning and material direction" },
+      "approvals": { "label": "Approvals", "detail": "Authority submissions and compliance handled in-house" },
+      "execution": { "label": "Execution", "detail": "Renovation, fit-out and MEP under one schedule" },
+      "joinery": { "label": "Joinery", "detail": "Custom furniture made in our own workshop" }
+    },
+    "unmute": "Unmute video",
+    "mute": "Mute video",
+    "previous": "Previous",
+    "next": "Next",
+    "show": "Show {label}"
+  },
+  "FounderSpotlight": {
+    "est": "Est. 2014",
+    "brandName": "G.A.G Interiors",
+    "role": "Founder & Principal Designer",
+    "badge": "Meet the Founder",
+    "title": "A studio led by one point of accountability.",
+    "body1": "G.A.G Interiors was founded on the belief that great interiors come from continuity — the same eye that sketches the first concept should be the one signing off on the last detail of installation. Our founder leads every project personally through design, approvals and execution, working alongside a small team of architects, engineers and craftsmen who share that same standard.",
+    "body2": "With over a decade shaping residential and commercial interiors across the UAE, the focus has always stayed the same: fewer handoffs, clearer communication, and spaces that feel resolved — not just decorated.",
+    "stat1Label": "Years in the UAE",
+    "stat2Label": "Projects Led"
+  },
+  "PortfolioPreview": {
+    "badge": "Selected Work",
+    "title": "Recent projects across the UAE",
+    "viewFull": "View full portfolio"
+  },
+  "AboutGallery": {
+    "badge": "Selected Work",
+    "title": "A closer look at spaces we've shaped."
+  },
+  "MidCta": {
+    "badge": "Let's Work Together",
+    "titlePlain": "Let's create something",
+    "titleItalic": "timeless",
+    "titleEnd": ", together.",
+    "cta": "Get Started"
+  },
+  "ContactForm": {
+    "fullName": "Full Name",
+    "namePlaceholder": "Your name",
+    "phone": "Phone / WhatsApp",
+    "phonePlaceholder": "+971 5X XXX XXXX",
+    "service": "Service Required",
+    "selectService": "Select a service",
+    "location": "Project Location",
+    "locationPlaceholder": "Dubai, UAE",
+    "email": "Email",
+    "optional": "(optional)",
+    "emailPlaceholder": "info@example.com",
+    "timeline": "Preferred Timeline",
+    "timelinePlaceholder": "e.g. 3 months",
+    "message": "Message / Notes",
+    "messagePlaceholder": "Write your text...",
+    "submit": "Get a Quote",
+    "thankYou": "Thank you — your enquiry has been received. Our team will be in touch shortly."
+  },
+  "ContactFormPanel": {
+    "eyebrow": "Get In Touch",
+    "heading": "Let's Discuss Your Next Project"
+  },
+  "HomePage": {
+    "metaTitle": "G.A.G Interiors | Interior Renovation & Fit-Out in Dubai, UAE",
+    "metaDescription": "G.A.G Interiors is a full-cycle interior renovation, fit-out and custom joinery company in Dubai. Design, approvals, custom kitchens, wardrobes in Dubai and villa renovation and fit-out in Dubai — one coordinated team."
+  },
+  "AboutPage": {
+    "metaTitle": "About G.A.G Interiors | Interior Renovation & Fit-Out Dubai",
+    "metaDescription": "G.A.G Interiors is a full-cycle interior renovation, fit-out and custom joinery company in the UAE, coordinating design, approvals, execution and custom furniture under one team.",
+    "eyebrow": "About G.A.G Interiors",
+    "title": "A coordinated team, not a contractor list",
+    "description": "G.A.G Interiors is a full-cycle interior renovation, fit-out and custom joinery company in the UAE, providing coordinated support from design, technical drawings and approvals to renovation, finishing materials, custom furniture, installation and handover."
+  },
+  "ContactPage": {
+    "metaTitle": "Contact G.A.G Interiors | Request a Quote in Dubai",
+    "metaDescription": "Request a quote or book a site visit with G.A.G Interiors, serving Dubai and the UAE.",
+    "eyebrow": "Get in Touch",
+    "title": "Request a quote or book a site visit",
+    "description": "Tell us about your project and our team will be in touch within one business day."
+  },
+  "PortfolioPage": {
+    "metaTitle": "Projects | G.A.G Interiors Dubai",
+    "metaDescription": "Completed renovation, fit-out and joinery projects and design concepts across Dubai and the UAE.",
+    "eyebrow": "Our Projects",
+    "title": "Completed works and design concepts"
+  },
+  "ServicesPage": {
+    "metaTitle": "Services | G.A.G Interiors Dubai",
+    "metaDescription": "Interior design, approvals, renovation, fit-out, custom kitchens, wardrobes and joinery services across the UAE."
+  },
+  "ServiceDetail": {
+    "ourServices": "Our Services",
+    "whatsIncluded": "What's Included",
+    "overviewHeading": "Everything covered, from first conversation to handover.",
+    "getQuote": "Get a Quote",
+    "howItWorks": "How It Works",
+    "processHeading": "Our process for this service.",
+    "designGallery": "Design Gallery",
+    "galleryHeadingSuffix": "— completed work and design concepts.",
+    "galleryDisclaimer": "Visuals shown are design concepts and reference imagery for illustrative purposes, not completed G.A.G Interiors projects unless stated otherwise.",
+    "readyToStart": "Ready to start?",
+    "requestQuote": "Request a Quote",
+    "onSite": "On Site",
+    "videoHeading": "See the process come together.",
+    "spotlightEyebrow": "A Closer Look",
+    "spotlightHeading": "Crafted with the same care, every {title} project.",
+    "spotlightCaption": "A glimpse of the finish quality and attention to detail carried through every stage of the project.",
+    "focusHeading": "A closer look at {title}.",
+    "defaultVideoCaption": "On-site renovation and fit-out works from a recent G.A.G Interiors project.",
+    "frequentlyAsked": "Frequently Asked",
+    "faqHeading": "Questions about this service.",
+    "explore": "Explore More",
+    "otherServices": "Other services you may need.",
+    "commonProblems": "Common problems we help avoid"
+  }
+}

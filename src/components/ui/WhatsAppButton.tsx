@@ -1,17 +1,17 @@
-const WHATSAPP_NUMBER = "971588099223";
-const WHATSAPP_MESSAGE = "Hello G.A.G Interiors, I'd like to request a quote.";
+import { getTranslations } from "next-intl/server";
 
-export default function WhatsAppButton() {
-  const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    WHATSAPP_MESSAGE
-  )}`;
+const WHATSAPP_NUMBER = "971588099223";
+
+export default async function WhatsAppButton() {
+  const t = await getTranslations("WhatsApp");
+  const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t("message"))}`;
 
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat with G.A.G Interiors on WhatsApp"
+      aria-label={t("ariaLabel")}
       className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105"
     >
       <svg viewBox="0 0 32 32" className="h-7 w-7" fill="currentColor" aria-hidden="true">

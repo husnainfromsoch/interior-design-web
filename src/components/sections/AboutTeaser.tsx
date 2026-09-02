@@ -1,35 +1,34 @@
-import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import Button from "@/components/ui/Button";
+import ScrollExpandMedia from "@/components/ui/scroll-expansion-hero";
 
-export default function AboutTeaser() {
+export default async function AboutTeaser() {
+  const t = await getTranslations("AboutTeaser");
   return (
-    <section className="bg-beige py-24">
-      <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-14 px-6 lg:grid-cols-2 lg:px-8">
-        <div className="reveal-left group relative aspect-[16/11] overflow-hidden rounded-2xl border border-stone/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)]">
-          <Image
-            src="/projects/marina-penthouse-terrace.avif"
-            alt="Marina penthouse terrace renovation"
-            fill
-            sizes="(min-width: 1024px) 45vw, 100vw"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-          />
-        </div>
-        <div className="reveal-right">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
-            About G.A.G
-          </span>
-          <h2 className="font-serif text-[26px] sm:text-[30px]">A coordinated team, not a contractor list.</h2>
-          <p className="mt-4 max-w-md text-[17px] text-warm-grey">
-            G.A.G Interiors brings design, approvals, execution and joinery under one roof &mdash; so nothing gets
-            lost between handoffs.
-          </p>
-          <div className="mt-6">
-            <Button href="/about" variant="outline">
-              About Us &rarr;
-            </Button>
-          </div>
+    <ScrollExpandMedia
+      mediaType="image"
+      mediaSrc="/projects/marina-penthouse-terrace.avif"
+      bgImageSrc="/projects/marina-penthouse-terrace.avif"
+      title={t("title")}
+      date={t("date")}
+      scrollToExpand={t("scrollToExpand")}
+    >
+      <div className="mx-auto max-w-3xl text-center">
+        <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
+          {t("badge")}
+        </span>
+        <h2 className="font-serif text-[26px] sm:text-[30px] text-charcoal">
+          {t("heading")}
+        </h2>
+        <p className="mt-4 mx-auto max-w-md text-[17px] leading-relaxed text-warm-grey">
+          {t("body")}
+        </p>
+        <div className="mt-6 flex justify-center">
+          <Button href="/about" variant="outline">
+            {t("cta")}
+          </Button>
         </div>
       </div>
-    </section>
+    </ScrollExpandMedia>
   );
 }

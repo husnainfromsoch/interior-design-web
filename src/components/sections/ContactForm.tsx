@@ -1,9 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { services } from "@/data/services";
+import { useLocale, useTranslations } from "next-intl";
+import { getServices } from "@/data/services";
 
 export default function ContactForm() {
+  const locale = useLocale();
+  const t = useTranslations("ContactForm");
+  const services = getServices(locale);
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -12,13 +16,13 @@ export default function ContactForm() {
   }
 
   const inputClass =
-    "mt-2 w-full rounded border border-stone bg-ivory px-4 py-3 text-sm text-charcoal outline-none focus:border-wood";
-  const labelClass = "text-sm text-warm-grey";
+    "mt-2 w-full rounded-lg border border-stone/70 bg-white px-4 py-3 text-sm text-charcoal outline-none transition-colors focus:border-wood";
+  const labelClass = "text-xs font-semibold uppercase tracking-wide text-charcoal";
 
   if (submitted) {
     return (
-      <p className="rounded border border-stone bg-ivory p-8 text-center text-warm-grey">
-        Thank you &mdash; your enquiry has been received. Our team will be in touch shortly.
+      <p className="rounded-lg border border-stone/70 bg-white p-8 text-center text-warm-grey">
+        {t("thankYou")}
       </p>
     );
   }
@@ -28,26 +32,33 @@ export default function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label className={labelClass} htmlFor="name">
-            Full Name
+            {t("fullName")} <span className="text-wood">*</span>
           </label>
-          <input id="name" name="name" required className={inputClass} />
+          <input id="name" name="name" required placeholder={t("namePlaceholder")} className={inputClass} />
         </div>
         <div>
           <label className={labelClass} htmlFor="phone">
-            Phone / WhatsApp
+            {t("phone")} <span className="text-wood">*</span>
           </label>
-          <input id="phone" name="phone" type="tel" required className={inputClass} />
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            required
+            placeholder={t("phonePlaceholder")}
+            className={inputClass}
+          />
         </div>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label className={labelClass} htmlFor="service">
-            Service Required
+            {t("service")} <span className="text-wood">*</span>
           </label>
           <select id="service" name="service" required defaultValue="" className={inputClass}>
             <option value="" disabled>
-              Select a service
+              {t("selectService")}
             </option>
             {services.map((s) => (
               <option key={s.title} value={s.title}>
@@ -58,39 +69,56 @@ export default function ContactForm() {
         </div>
         <div>
           <label className={labelClass} htmlFor="location">
-            Project Location
+            {t("location")} <span className="text-wood">*</span>
           </label>
-          <input id="location" name="location" required className={inputClass} />
+          <input id="location" name="location" required placeholder={t("locationPlaceholder")} className={inputClass} />
         </div>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label className={labelClass} htmlFor="email">
-            Email <span className="text-stone">(optional)</span>
+            {t("email")} <span className="normal-case text-warm-grey">{t("optional")}</span>
           </label>
-          <input id="email" name="email" type="email" className={inputClass} />
+          <input id="email" name="email" type="email" placeholder={t("emailPlaceholder")} className={inputClass} />
         </div>
         <div>
           <label className={labelClass} htmlFor="timeline">
-            Preferred Timeline <span className="text-stone">(optional)</span>
+            {t("timeline")} <span className="normal-case text-warm-grey">{t("optional")}</span>
           </label>
-          <input id="timeline" name="timeline" className={inputClass} />
+          <input id="timeline" name="timeline" placeholder={t("timelinePlaceholder")} className={inputClass} />
         </div>
       </div>
 
       <div>
         <label className={labelClass} htmlFor="message">
-          Message / Notes <span className="text-stone">(optional)</span>
+          {t("message")} <span className="normal-case text-warm-grey">{t("optional")}</span>
         </label>
-        <textarea id="message" name="message" rows={4} className={inputClass} />
+        <textarea
+          id="message"
+          name="message"
+          rows={4}
+          placeholder={t("messagePlaceholder")}
+          className={inputClass}
+        />
       </div>
 
       <button
         type="submit"
-        className="mt-2 justify-self-start rounded bg-wood px-[26px] py-[14px] text-sm font-semibold tracking-wide text-ivory transition-colors hover:bg-wood-dark"
+        className="mt-2 inline-flex h-[52px] items-center gap-3 justify-self-start rounded-lg bg-charcoal pl-1.5 pr-6 text-xs font-semibold uppercase tracking-[0.15em] text-ivory transition-colors hover:bg-wood"
       >
-        Send Enquiry
+        <span className="flex h-10 w-10 items-center justify-center rounded-md bg-ivory/10">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path
+              d="M3 13L13 3M13 3H5M13 3V11"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </span>
+        {t("submit")}
       </button>
     </form>
   );

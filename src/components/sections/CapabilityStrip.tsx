@@ -1,17 +1,19 @@
-const nodes = [
-  { label: "Design", sub: "Concept & drawings" },
-  { label: "Approvals", sub: "NOCs & permits" },
-  { label: "Renovation", sub: "Site execution" },
-  { label: "Fit-Out", sub: "Kitchens & wardrobes" },
-  { label: "Custom Furniture", sub: "In-house joinery" },
-];
+import { getTranslations } from "next-intl/server";
 
-export default function CapabilityStrip() {
+export default async function CapabilityStrip() {
+  const t = await getTranslations("CapabilityStrip");
+  const nodes = [
+    { label: t("design"), sub: t("designSub") },
+    { label: t("approvals"), sub: t("approvalsSub") },
+    { label: t("renovation"), sub: t("renovationSub") },
+    { label: t("fitOut"), sub: t("fitOutSub") },
+    { label: t("furniture"), sub: t("furnitureSub") },
+  ];
   return (
     <section className="bg-charcoal py-14 text-ivory">
       <div className="mx-auto max-w-[1180px] px-6 lg:px-8">
         <p className="mb-10 text-center text-xs uppercase tracking-[0.14em] text-champagne">
-          One coordinated team, start to handover
+          {t("intro")}
         </p>
         <div className="reveal relative">
           <svg

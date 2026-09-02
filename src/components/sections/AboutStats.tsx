@@ -1,30 +1,30 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import Button from "@/components/ui/Button";
 import CountUp from "@/components/ui/CountUp";
 
-const stats = [
-  { value: 150, suffix: "+", label: "Projects Completed" },
-  { value: 98, suffix: "%", label: "Client Satisfaction" },
-];
-
-export default function AboutStats() {
+export default async function AboutStats() {
+  const t = await getTranslations("AboutStats");
+  const stats = [
+    { value: 150, suffix: "+", label: t("stat1") },
+    { value: 98, suffix: "%", label: t("stat2") },
+  ];
   return (
     <section className="py-20">
       <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-14 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
         <div className="reveal-left">
           <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
-            About G.A.G Interiors
+            {t("badge")}
           </span>
           <h2 className="font-serif text-[26px] leading-snug sm:text-[32px]">
-            Redefining modern living through <span className="italic text-wood">design</span>.
+            {t("titlePlain")} <span className="italic text-wood">{t("titleItalic")}</span>.
           </h2>
           <p className="mt-4 max-w-md text-[17px] text-warm-grey">
-            G.A.G Interiors brings design, approvals, execution and joinery under one roof, delivering
-            renovation and fit-out projects across Dubai and the UAE with a single point of accountability.
+            {t("body")}
           </p>
           <div className="mt-8">
             <Button href="/about" variant="outline">
-              More About Us &rarr;
+              {t("cta")}
             </Button>
           </div>
           <div className="mt-10 flex gap-10 border-t border-stone pt-6">

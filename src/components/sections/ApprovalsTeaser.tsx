@@ -1,22 +1,23 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import Button from "@/components/ui/Button";
 
-export default function ApprovalsTeaser() {
+export default async function ApprovalsTeaser() {
+  const t = await getTranslations("ApprovalsTeaser");
   return (
     <section className="py-24">
       <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-14 px-6 lg:grid-cols-2 lg:px-8">
         <div className="reveal-left order-2 lg:order-1">
           <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
-            Approvals, NOCs &amp; Permits
+            {t("badge")}
           </span>
-          <h2 className="font-serif text-[26px] sm:text-[30px]">The paperwork, handled.</h2>
+          <h2 className="font-serif text-[26px] sm:text-[30px]">{t("title")}</h2>
           <p className="mt-4 max-w-md text-[17px] text-warm-grey">
-            NOCs, minor works, major modification coordination and documentation &mdash; managed on your behalf, so
-            approvals never hold up your project.
+            {t("body")}
           </p>
           <div className="mt-6">
             <Button href="/services/approvals-noc-permits" variant="outline">
-              Learn More &rarr;
+              {t("cta")}
             </Button>
           </div>
         </div>
