@@ -6,13 +6,13 @@ export type ServiceStat = { value: number; suffix?: string; label: string };
 const servicesEn = [
   {
     slug: "interior-design",
-    title: "Interior Design & Technical Drawings",
-    description: "Concept to construction-ready drawings.",
+    title: "Interior Design & Technical Drawings in Dubai",
+    description: "From first concept to construction-ready drawings — interior design that gets built exactly as envisioned.",
     href: "/services/interior-design",
     image: "/images/imgi_3_5ec2bdbdede983e2b0bff75f_UWS_001.jpg",
     heroImage: "/images/imgi_2_68e41dd59c224531bbd8cb78_1_Peniston_Dining-Room_001.jpg",
     intro:
-      "We take your space from a first conversation to fully detailed, construction-ready drawings — covering layout, materials, lighting and joinery, so nothing is left for site teams to guess at.",
+      "We take your space from a first conversation to fully detailed, construction-ready drawings — covering layout, materials, lighting and joinery — so nothing is left for site teams to guess at and nothing gets lost in translation between designer and builder.",
     highlights: [
       { title: "Concept & mood boards", body: "A clear design direction, agreed before any drawing starts." },
       { title: "Space planning", body: "Layouts tested for flow, function and daily use." },
@@ -61,13 +61,13 @@ const servicesEn = [
   },
   {
     slug: "approvals-noc-permits",
-    title: "Approvals, NOCs & Permits",
-    description: "Building management approvals, handled for you.",
+    title: "NOC & Renovation Approvals in Dubai",
+    description: "Building management, developer and municipal approvals — handled from start to finish, so your project never stalls on paperwork.",
     href: "/services/approvals-noc-permits",
     image: "/images/imgi_24_61f3245393d53d502b2dec6b_Hranowsky_Whitworth-620.jpg",
     heroImage: "/images/imgi_37_61f32558a43b271e68603346_Hranowsky_Whitworth-197.jpg",
     intro:
-      "Building management, developer and municipal approvals can stall a project for weeks. We manage the submissions, NOCs and permit process on your behalf, so work starts on schedule.",
+      "Building management, developer and municipal approvals can stall a project for weeks — sometimes months. We manage the submissions, NOCs and permit process on your behalf, so work starts on schedule and stays there.",
     highlights: [
       { title: "Developer & building NOCs", body: "Submissions prepared and tracked to approval." },
       { title: "Municipal permits", body: "Documentation aligned with local renovation and fit-out codes." },
@@ -116,13 +116,13 @@ const servicesEn = [
   },
   {
     slug: "renovation-fit-out-dubai",
-    title: "Renovation & Fit-Out",
-    description: "Full execution, start to finish.",
+    title: "Villa & Apartment Renovation and Fit-Out in Dubai",
+    description: "Full-scope renovation and fit-out execution, start to finish — one accountable team on site until handover.",
     href: "/services/renovation-fit-out-dubai",
     image: "/projects/downtown-villa-living.avif",
     heroImage: "/projects/downtown-villa-living.avif",
     intro:
-      "From full villa renovations to apartment fit-outs, our site team executes the approved design end to end — coordinating trades, materials and quality control until handover.",
+      "From full villa renovations to apartment fit-outs, our site team executes the approved design end to end — coordinating trades, materials and quality control every step of the way until handover.",
     highlights: [
       { title: "Full-scope execution", body: "Civil, MEP, finishes and joinery under one team." },
       { title: "Quality control", body: "Regular site inspections against the approved drawings." },
@@ -173,13 +173,13 @@ const servicesEn = [
   },
   {
     slug: "hvac-ventilation-dubai",
-    title: "HVAC, Ventilation & MEP",
-    description: "Integrated air-conditioning, ventilation and MEP coordination.",
+    title: "HVAC, Ventilation & MEP Coordination in Dubai",
+    description: "Air-conditioning, ventilation and MEP engineered alongside your design — not bolted on as an afterthought.",
     href: "/services/hvac-ventilation-dubai",
     image: "/images/imgi_24_61f3245393d53d502b2dec6b_Hranowsky_Whitworth-620.jpg",
     heroImage: "/images/imgi_50_merz_compressed_1-1.jpg",
     intro:
-      "Integrated air-conditioning, ventilation and MEP coordination for apartment, villa and commercial interior projects in Dubai and across the UAE — engineered alongside the design, not bolted on after.",
+      "Integrated air-conditioning, ventilation and MEP coordination for apartment, villa and commercial interior projects in Dubai and across the UAE — planned into the design from day one, so ceilings stay clean and airflow stays right.",
     highlights: [
       { title: "HVAC & air conditioning", body: "FCU coordination, AC modifications, relocation of supply/return air points, duct routes and access panels." },
       { title: "Ventilation systems", body: "Fresh-air requirements, exhaust and bathroom/kitchen ventilation coordination." },
@@ -241,13 +241,13 @@ const servicesEn = [
   },
   {
     slug: "custom-kitchens-dubai",
-    title: "Custom Kitchens",
-    description: "Designed, built and installed to fit your space.",
+    title: "Custom Kitchen Design & Installation in Dubai",
+    description: "Bespoke kitchens designed around how you cook and entertain — built in-house, fitted to millimetre-accurate measurements.",
     href: "/services/custom-kitchens-dubai",
     image: "/projects/al-barari-kitchen.avif",
     heroImage: "/projects/al-barari-kitchen.avif",
     intro:
-      "Kitchens designed around how you actually cook and entertain, built in-house and installed to millimetre-accurate site measurements.",
+      "Kitchens designed around how you actually cook and entertain — not a showroom template — built in-house and installed to millimetre-accurate site measurements for a flawless fit.",
     highlights: [
       { title: "Bespoke layouts", body: "Designed to your kitchen's exact footprint." },
       { title: "In-house manufacturing", body: "Cabinetry built and finished under one roof." },
@@ -296,13 +296,13 @@ const servicesEn = [
   },
   {
     slug: "custom-wardrobes-dubai",
-    title: "Wardrobes & Storage",
-    description: "Wardrobes, storage, vanities and wall panels.",
+    title: "Custom Wardrobes & Storage Solutions in Dubai",
+    description: "Built-in wardrobes, vanities and storage designed to use every inch of a room — finished to match the rest of your interior.",
     href: "/services/custom-wardrobes-dubai",
     image: "/projects/jbr-apartment-bathroom.avif",
     heroImage: "/projects/jbr-apartment-bathroom.avif",
     intro:
-      "Built-in wardrobes, vanities and storage designed to use every inch of a room, finished to match the rest of the interior.",
+      "Built-in wardrobes, vanities and storage designed to use every inch of a room — including the awkward ones — finished to match the rest of the interior seamlessly.",
     highlights: [
       { title: "Built-in wardrobes", body: "Walk-ins and reach-ins designed to fit awkward spaces." },
       { title: "Vanities & storage", body: "Bathroom and utility storage built to match finishes." },
@@ -351,13 +351,13 @@ const servicesEn = [
   },
   {
     slug: "custom-joinery-furniture",
-    title: "Custom Joinery & Furniture",
-    description: "Bespoke furniture, made in-house.",
+    title: "Custom Joinery & Bespoke Furniture in Dubai",
+    description: "Bespoke furniture and joinery, made in-house and matched exactly to your interior — one team from design to install.",
     href: "/services/custom-joinery-furniture",
     image: "/projects/marina-penthouse-terrace.avif",
     heroImage: "/projects/marina-penthouse-terrace.avif",
     intro:
-      "Bespoke furniture and joinery designed to match your interior exactly, manufactured in-house and installed by our own team.",
+      "Bespoke furniture and joinery designed to match your interior exactly — manufactured in-house to fabrication-ready precision and installed by our own team.",
     highlights: [
       { title: "Bespoke furniture", body: "Pieces designed specifically for the space they'll sit in." },
       { title: "In-house joinery", body: "Manufactured under the same roof as our design team." },
@@ -406,13 +406,13 @@ const servicesEn = [
   },
   {
     slug: "materials-finishes",
-    title: "Materials & Finishes",
-    description: "Stone, wood and finish sourcing, done right.",
+    title: "Materials & Finishes Sourcing in Dubai",
+    description: "Stone, wood, tile and finish sourcing done right — curated to your design intent, quality-checked from sample to installation.",
     href: "/services/materials-finishes",
     image: "/projects/villa-exterior.avif",
     heroImage: "/projects/villa-exterior.avif",
     intro:
-      "The right materials make or break an interior. We source stone, wood, tile and finishes from trusted suppliers and manage quality from sample to installation.",
+      "The right materials make or break an interior. We source stone, wood, tile and finishes from trusted suppliers and manage quality at every step, from first sample to final installation.",
     highlights: [
       { title: "Sourcing & sampling", body: "Options curated to match the design intent and budget." },
       { title: "Stone & tile", body: "Natural and engineered surfaces for floors, walls and worktops." },

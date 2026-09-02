@@ -27,9 +27,9 @@ export function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  title: "G.A.G Interiors | Interior Renovation & Fit-Out in Dubai, UAE",
+  title: "Interior Renovation & Fit-Out Company in Dubai | G.A.G Interiors",
   description:
-    "G.A.G Interiors is a full-cycle interior renovation, fit-out and custom joinery company in Dubai. Design, approvals, custom kitchens, wardrobes in Dubai and villa renovation and fit-out in Dubai — one coordinated team.",
+    "G.A.G Interiors is Dubai's full-cycle interior renovation, fit-out and custom joinery company. Design, authority approvals, custom kitchens, wardrobes and villa renovation across the UAE — one coordinated team, one point of accountability. Get a free quote today.",
 };
 
 export default async function LocaleLayout({
