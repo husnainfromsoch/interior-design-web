@@ -345,6 +345,36 @@ body {
   }
 }
 
+.cta-pulse::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(120deg, var(--wood), var(--champagne), var(--wood));
+  background-size: 200% 200%;
+  opacity: 0.4;
+  filter: blur(12px);
+  animation: cta-pulse-glow 3.2s ease-in-out infinite;
+}
+@keyframes cta-pulse-glow {
+  0%,
+  100% {
+    opacity: 0.3;
+    background-position: 0% 50%;
+  }
+  50% {
+    opacity: 0.75;
+    background-position: 100% 50%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-pulse::after {
+    animation: none;
+    opacity: 0.35;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .capability-line line {
     stroke-dashoffset: 0;

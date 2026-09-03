@@ -13,7 +13,7 @@ export function getNavLinks(
 ) {
   return [
     { label: t.home, href: "/" },
-    { label: t.projects, href: "/#projects" },
+    { label: t.projects, href: "/portfolio" },
     {
       label: t.services,
       href: "/services",

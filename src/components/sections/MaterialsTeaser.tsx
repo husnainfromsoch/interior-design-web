@@ -1,21 +1,30 @@
-import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import Button from "@/components/ui/Button";
+import { BadgeCheck, ShieldCheck, Truck } from "lucide-react";
 
 const swatches = ["#C9C2B6", "#8B6F52", "#D9C7A6", "#2E2A25"];
+
+const trustPillars = [
+  { key: "sourced", Icon: ShieldCheck },
+  { key: "quality", Icon: BadgeCheck },
+  { key: "delivery", Icon: Truck },
+] as const;
 
 export default async function MaterialsTeaser() {
   const t = await getTranslations("MaterialsTeaser");
   return (
     <section className="bg-beige py-24">
-      <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-14 px-6 lg:grid-cols-2 lg:px-8">
-        <div className="reveal-left group relative aspect-[16/11] overflow-hidden rounded-2xl border border-stone/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)]">
-          <Image
-            src="/images/imgi_24_61f3245393d53d502b2dec6b_Hranowsky_Whitworth-620.jpg"
-            alt="Materials and finishes in a living space"
-            fill
-            sizes="(min-width: 1024px) 45vw, 100vw"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+      <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-stretch gap-14 px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8">
+        <div className="reveal-left group relative min-h-[420px] overflow-hidden rounded-2xl border border-stone/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)] lg:min-h-0">
+          <video
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            src="/videos/Materials.mp4"
+            poster="/images/imgi_24_61f3245393d53d502b2dec6b_Hranowsky_Whitworth-620.jpg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label="Stone, wood and finish samples being selected"
           />
         </div>
         <div className="reveal-right">
@@ -35,9 +44,19 @@ export default async function MaterialsTeaser() {
               />
             ))}
           </div>
-          <Button href="/services/materials-finishes" variant="outline">
-            {t("cta")}
-          </Button>
+          <ul className="mt-8 grid max-w-md grid-cols-1 gap-6 border-t border-stone/60 pt-7 sm:grid-cols-3">
+            {trustPillars.map(({ key, Icon }) => (
+              <li key={key} className="flex flex-col items-start gap-2">
+                <Icon className="h-6 w-6 text-wood" strokeWidth={1.5} aria-hidden />
+                <span className="text-[14px] font-semibold leading-tight">
+                  {t(`trust.${key}.title`)}
+                </span>
+                <span className="text-[13px] leading-snug text-warm-grey">
+                  {t(`trust.${key}.body`)}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

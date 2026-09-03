@@ -4,7 +4,6 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import ServiceHero from "@/components/sections/ServiceHero";
-import PageHeader from "@/components/ui/PageHeader";
 import ServiceOverview from "@/components/sections/ServiceOverview";
 import ServiceSpotlight from "@/components/sections/ServiceSpotlight";
 import ServiceProcessTimeline from "@/components/sections/ServiceProcessTimeline";
@@ -64,8 +63,6 @@ export default async function ServiceDetailPage({
     <>
       <ServiceHero title={service.title} images={heroSlides} />
 
-      <PageHeader eyebrow={t("ourServices")} title={service.title} description={service.intro} />
-
       <ServiceOverview
         image={service.image}
         secondaryImage={secondaryImage}
@@ -104,6 +101,8 @@ export default async function ServiceDetailPage({
           heading={t("focusHeading", { title: service.title.toLowerCase() })}
           areas={service.focusAreas}
           problems={service.problems}
+          mediaVideo={service.video ?? DEFAULT_VIDEO}
+          mediaCaption={service.videoCaption ?? t("defaultVideoCaption")}
         />
       )}
 

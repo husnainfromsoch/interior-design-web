@@ -53,7 +53,7 @@
     "titlePlain": "Every service your interior needs, shaped around your",
     "titleItalic": "style",
     "learnMore": "Learn more",
-    "viewAll": "View all services →"
+    "viewAll": "View all services"
   },
   "Projects": {
     "marina": { "title": "Marina Penthouse Renovation", "category": "Full renovation & fit-out" },
@@ -66,7 +66,7 @@
     "titlePlain": "Redefining modern living through thoughtful",
     "titleItalic": "design",
     "body": "G.A.G Interiors brings design, approvals, execution and custom joinery under one roof — delivering renovation and fit-out projects across Dubai and the UAE with a single team accountable from concept to keys.",
-    "cta": "More About Us →",
+    "cta": "More About Us",
     "stat1": "Projects Delivered",
     "stat2": "Client Satisfaction"
   },
@@ -87,9 +87,9 @@
     "badge": "Selected Projects",
     "title": "Real results, not just renders.",
     "subtitle": "A look at completed renovations and design concepts delivered across Dubai's most sought-after addresses.",
-    "viewProject": "View Project →",
+    "viewProject": "View Project",
     "disclaimer": "Images shown are for illustrative purposes and will be replaced with completed project photography.",
-    "viewAll": "View All Projects →"
+    "viewAll": "View All Projects"
   },
   "SignatureProjectShowcase": {
     "projectTitle": "Palm Jumeirah Residence",
@@ -98,7 +98,13 @@
     "badge": "Featured Transformation",
     "title": "From bare shell to a home that feels finished before you've even moved in.",
     "body1": "A full villa fit-out on Palm Jumeirah — joinery, lighting and finishes coordinated end to end so every room reads as one continuous design story, not a series of disconnected decisions.",
-    "body2": "Delivered in 14 weeks, with authority approvals, MEP coordination and material sourcing all managed in-house, start to finish."
+    "body2": "Delivered in 14 weeks, with authority approvals, MEP coordination and material sourcing all managed in-house, start to finish.",
+    "stat1Label": "Timeline",
+    "stat1Value": "14 Weeks",
+    "stat2Label": "Scope",
+    "stat2Value": "Full Villa",
+    "stat3Label": "Location",
+    "stat3Value": "Palm Jumeirah"
   },
   "AnimatedGridGallery": {
     "scrollToExplore": "Scroll to Explore"
@@ -176,13 +182,30 @@
     "badge": "Materials & Finishes",
     "title": "Stone, wood and finish — sourced with intent, not convenience.",
     "body": "Every material is selected and procured to match your design brief, not the nearest available option on the shelf.",
-    "cta": "Explore Materials →"
+    "trust": {
+      "sourced": {
+        "title": "Verified sourcing",
+        "body": "Vetted mills and quarries only"
+      },
+      "quality": {
+        "title": "Sample-approved",
+        "body": "Signed off before procurement"
+      },
+      "delivery": {
+        "title": "Guaranteed supply",
+        "body": "Tracked to site, on schedule"
+      }
+    }
   },
   "ApprovalsTeaser": {
     "badge": "Approvals, NOCs & Permits",
     "title": "The paperwork, completely handled.",
     "body": "NOCs, minor works, major modification coordination and documentation — managed on your behalf, so approvals never hold your project hostage.",
-    "cta": "Learn More →"
+    "points": {
+      "nocs": { "title": "NOC Submissions", "body": "Prepared and lodged with every relevant authority." },
+      "compliance": { "title": "Full Compliance", "body": "Documentation aligned with local regulations." },
+      "tracking": { "title": "Active Tracking", "body": "Followed up so approvals never stall your project." }
+    }
   },
   "AboutTeaser": {
     "date": "About G.A.G",
@@ -191,7 +214,11 @@
     "badge": "About G.A.G",
     "heading": "A coordinated team — not a list of contractors to chase.",
     "body": "G.A.G Interiors brings design, approvals, execution and joinery under one roof, so nothing gets lost between handoffs and nobody points fingers when something needs fixing.",
-    "cta": "About Us →"
+    "cta": "About Us",
+    "pillar1": "Design",
+    "pillar2": "Approvals",
+    "pillar3": "Execution",
+    "pillar4": "Joinery"
   },
   "FinalCta": {
     "title": "Let's talk about your project.",
@@ -264,7 +291,9 @@
   "PortfolioPreview": {
     "badge": "Selected Work",
     "title": "Recent projects across the UAE",
-    "viewFull": "View full portfolio"
+    "subtitle": "Every project below was designed, approved and delivered by one accountable team — from first sketch to final handover.",
+    "completedHeading": "Completed Projects",
+    "conceptHeading": "Design Concepts"
   },
   "AboutGallery": {
     "badge": "Selected Work",

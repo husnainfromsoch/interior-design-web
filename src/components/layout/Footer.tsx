@@ -54,12 +54,9 @@ export default async function Footer() {
 
   return (
     <footer className="relative overflow-hidden border-t border-wood/30 bg-soft-black text-stone">
-      <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-wood/20 blur-[110px]" />
-      <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-wood/10 blur-[130px]" />
-
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-10 right-6 hidden select-none font-serif text-[9rem] font-medium leading-none tracking-tight text-ivory/[0.03] lg:block xl:text-[11rem]"
+        className="pointer-events-none absolute -bottom-10 right-6 hidden select-none font-serif text-[9rem] font-medium leading-none tracking-tight text-ivory/[0.025] lg:block xl:text-[11rem]"
       >
         G.A.G
       </div>
@@ -72,10 +69,9 @@ export default async function Footer() {
           </div>
           <Link
             href="/contact"
-            className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-wood px-7 py-3.5 text-sm font-semibold text-ivory transition-all hover:bg-wood-dark hover:gap-3"
+            className="cta-pulse relative isolate inline-flex shrink-0 items-center gap-2 rounded-full border border-wood bg-wood px-7 py-3.5 text-sm font-semibold text-ivory transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-wood-dark hover:bg-wood-dark active:translate-y-0"
           >
             {t("ctaButton")}
-            <span aria-hidden className="transition-transform group-hover:translate-x-0.5">&rarr;</span>
           </Link>
         </div>
       </div>

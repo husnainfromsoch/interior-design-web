@@ -1,4 +1,10 @@
-export const projects = [
+export type Project = {
+  id: string;
+  status: "completed" | "concept";
+  image: string;
+};
+
+export const projects: Project[] = [
   {
     id: "marina",
     status: "completed" as const,

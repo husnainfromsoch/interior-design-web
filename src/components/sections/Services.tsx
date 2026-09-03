@@ -90,10 +90,9 @@ export default async function Services({ limit }: { limit?: number }) {
                 </p>
                 <Link
                   href={service.href}
-                  className="group/link inline-flex w-fit items-center gap-1.5 text-[13px] font-semibold uppercase tracking-[0.06em] text-wood transition-colors hover:text-wood-dark"
+                  className="inline-flex w-fit items-center rounded-full border border-wood/40 px-5 py-2 text-[13px] font-semibold uppercase tracking-[0.06em] text-wood transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-wood hover:bg-wood hover:text-ivory active:translate-y-0"
                 >
                   {t("learnMore")}
-                  <span className="transition-transform duration-200 group-hover/link:translate-x-1">&rarr;</span>
                 </Link>
               </div>
             </div>
@@ -104,7 +103,7 @@ export default async function Services({ limit }: { limit?: number }) {
           <div className="reveal mt-14 flex justify-center">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 rounded-full border border-wood/40 px-8 py-3 text-[13px] font-semibold uppercase tracking-[0.06em] text-wood transition-colors hover:border-wood hover:bg-wood hover:text-ivory"
+              className="inline-flex items-center gap-2 rounded-full border border-wood/40 px-8 py-3 text-[13px] font-semibold uppercase tracking-[0.06em] text-wood transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-wood hover:bg-wood hover:text-ivory active:translate-y-0"
             >
               {t("viewAll")}
             </Link>

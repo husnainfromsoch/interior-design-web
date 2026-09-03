@@ -103,10 +103,9 @@ export default function ServiceAccordionGallery({
                     </p>
                     <Link
                       href="/contact"
-                      className="mt-4 inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.08em] text-champagne transition-colors hover:text-ivory"
+                      className="mt-4 inline-flex items-center rounded-full border border-champagne/50 px-5 py-2 text-[12px] font-semibold uppercase tracking-[0.08em] text-champagne transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-champagne hover:bg-champagne hover:text-soft-black active:translate-y-0"
                     >
                       {t("requestQuote")}
-                      <span>&rarr;</span>
                     </Link>
                   </div>
                 )}

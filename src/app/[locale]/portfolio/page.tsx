@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import PageHeader from "@/components/ui/PageHeader";
 import PortfolioPreview from "@/components/sections/PortfolioPreview";
+import { projects } from "@/data/projects";
 
 export async function generateMetadata({
   params,
@@ -27,7 +28,10 @@ export default async function PortfolioPage({
 
   return (
     <>
-      <PageHeader eyebrow={t("eyebrow")} title={t("title")} />
+      <PageHeader
+        title={t("title")}
+        images={projects.map((p) => p.image)}
+      />
       <PortfolioPreview />
     </>
   );
