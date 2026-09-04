@@ -37,9 +37,10 @@ export default function PageHeader({
     if (mq.matches) return;
 
     let ctx: gsap.Context | undefined;
+    let cancelled = false;
 
     document.fonts.ready.then(() => {
-      if (!sectionRef.current) return;
+      if (cancelled || !sectionRef.current) return;
 
       ctx = gsap.context(() => {
         const titleSplit = SplitText.create(titleRef.current, {
@@ -66,7 +67,10 @@ export default function PageHeader({
       }, sectionRef);
     });
 
-    return () => ctx?.revert();
+    return () => {
+      cancelled = true;
+      ctx?.revert();
+    };
   }, [title]);
 
   const hasImages = !!images && images.length > 0;
