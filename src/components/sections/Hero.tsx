@@ -16,7 +16,7 @@ export default async function Hero() {
       <video
         className="kenburns absolute inset-0 h-full w-full object-cover"
         src="/videos/hero.mp4"
-        poster="/visuals/PHOTO-2025-04-15-11-30-59(1).jpg"
+        poster="/projects/downtown-villa-living.avif"
         autoPlay
         muted
         loop
