@@ -1,11 +1,11 @@
 import Image from "next/image";
 
 const images = [
-  "/projects/marina-penthouse-terrace.avif",
-  "/projects/downtown-villa-living.avif",
-  "/projects/al-barari-kitchen.avif",
-  "/projects/jbr-apartment-bathroom.avif",
-  "/projects/villa-exterior.avif",
+  "/visuals/PHOTO-2025-04-15-12-21-21(1).jpg",
+  "/visuals/PHOTO-2025-04-15-12-21-24.jpg",
+  "/visuals/PHOTO-2025-04-15-12-21-29.jpg",
+  "/visuals/PHOTO-2025-04-15-13-08-20(1).jpg",
+  "/visuals/PHOTO-2025-04-15-12-33-54(9).jpg",
 ];
 
 export default function GalleryStrip() {

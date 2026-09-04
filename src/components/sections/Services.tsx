@@ -20,12 +20,13 @@ const icons = [
 
 const cardImages = [
   "/images/imgi_3_5ec2bdbdede983e2b0bff75f_UWS_001.jpg",
-  "/projects/villa-exterior.avif",
+  "/visuals/PHOTO-2025-04-15-12-10-15.jpg",
   "/projects/downtown-villa-living.avif",
+  "/visuals/PHOTO-2025-04-15-11-32-00.jpg",
   "/projects/al-barari-kitchen.avif",
-  "/images/imgi_24_61f3245393d53d502b2dec6b_Hranowsky_Whitworth-620.jpg",
   "/projects/jbr-apartment-bathroom.avif",
   "/projects/marina-penthouse-terrace.avif",
+  "/visuals/PHOTO-2025-04-15-12-29-20.jpg",
 ];
 
 export default async function Services({ limit }: { limit?: number }) {

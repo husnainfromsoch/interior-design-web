@@ -7,8 +7,8 @@ export default async function MidCta() {
   return (
     <section className="relative flex min-h-[420px] items-center overflow-hidden py-24 text-ivory">
       <Image
-        src="/projects/villa-exterior.avif"
-        alt="Completed villa exterior"
+        src="/visuals/PHOTO-2025-04-15-12-21-34.jpg"
+        alt="Completed villa exterior walkway"
         fill
         sizes="100vw"
         className="kenburns object-cover"

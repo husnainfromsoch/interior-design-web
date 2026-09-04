@@ -43,8 +43,8 @@ export default async function AboutStats() {
           <div className="flex flex-col gap-4">
             <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-stone/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)]">
               <Image
-                src="/projects/downtown-villa-living.avif"
-                alt="Living room interior fit-out"
+                src="/visuals/PHOTO-2025-04-15-12-21-20.jpg"
+                alt="Wood flooring with balcony view"
                 fill
                 sizes="(min-width: 1024px) 22vw, 45vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
@@ -52,8 +52,8 @@ export default async function AboutStats() {
             </div>
             <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-stone/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)]">
               <Image
-                src="/projects/jbr-apartment-bathroom.avif"
-                alt="Apartment bathroom renovation"
+                src="/visuals/PHOTO-2025-04-15-12-21-23.jpg"
+                alt="Entrance flooring detail"
                 fill
                 sizes="(min-width: 1024px) 22vw, 45vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
@@ -63,8 +63,8 @@ export default async function AboutStats() {
           <div className="flex flex-col gap-4 pt-10">
             <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-stone/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)]">
               <Image
-                src="/projects/al-barari-kitchen.avif"
-                alt="Custom kitchen and joinery"
+                src="/visuals/PHOTO-2025-04-15-12-21-47.jpg"
+                alt="Outdoor patio tiling with garden edge"
                 fill
                 sizes="(min-width: 1024px) 22vw, 45vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
@@ -72,8 +72,8 @@ export default async function AboutStats() {
             </div>
             <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-stone/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)]">
               <Image
-                src="/projects/villa-exterior.avif"
-                alt="Villa exterior renovation"
+                src="/visuals/PHOTO-2025-04-15-12-21-49.jpg"
+                alt="Pool patio walkway with paver detailing"
                 fill
                 sizes="(min-width: 1024px) 22vw, 45vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"

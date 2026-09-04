@@ -7,16 +7,16 @@ import { useTranslations } from "next-intl";
 
 const columns: { src: string; alt: string }[][] = [
   [
-    { src: "/projects/marina-penthouse-terrace.avif", alt: "Marina penthouse terrace" },
-    { src: "/projects/jbr-apartment-bathroom.avif", alt: "JBR apartment bathroom" },
+    { src: "/visuals/PHOTO-2025-04-15-12-21-17.jpg", alt: "Living room with marble feature wall" },
+    { src: "/visuals/PHOTO-2025-04-15-11-44-20(1).jpg", alt: "Living room with night balcony view" },
   ],
   [
-    { src: "/projects/downtown-villa-living.avif", alt: "Downtown villa living room" },
-    { src: "/projects/villa-exterior.avif", alt: "Villa exterior renovation" },
+    { src: "/visuals/PHOTO-2025-04-15-12-21-36.jpg", alt: "Outdoor patio tiling detail" },
+    { src: "/visuals/PHOTO-2025-04-15-12-33-54(3).jpg", alt: "Landscaped patio with planters" },
   ],
   [
-    { src: "/projects/al-barari-kitchen.avif", alt: "Al Barari custom kitchen" },
-    { src: "/projects/marina-penthouse-terrace.avif", alt: "Marina penthouse terrace detail" },
+    { src: "/visuals/PHOTO-2025-04-15-09-20-47(14).jpg", alt: "Bedroom with mirrored wardrobe" },
+    { src: "/visuals/PHOTO-2025-04-15-12-21-28.jpg", alt: "Villa garden pathway" },
   ],
 ];
 

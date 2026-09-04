@@ -61,21 +61,6 @@ export default async function Footer() {
         G.A.G
       </div>
 
-      <div className="relative border-b border-white/10">
-        <div className="mx-auto flex max-w-[1180px] flex-col items-start gap-6 px-6 py-10 sm:flex-row sm:items-center sm:justify-between lg:px-8">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-wood">{t("ctaTag")}</p>
-            <h3 className="mt-2 font-serif text-2xl text-ivory sm:text-3xl">{t("ctaHeading")}</h3>
-          </div>
-          <Link
-            href="/contact"
-            className="cta-pulse relative isolate inline-flex shrink-0 items-center gap-2 rounded-full border border-wood bg-wood px-7 py-3.5 text-sm font-semibold text-ivory transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-wood-dark hover:bg-wood-dark active:translate-y-0"
-          >
-            {t("ctaButton")}
-          </Link>
-        </div>
-      </div>
-
       <div className="relative mx-auto max-w-[1180px] px-6 py-16 lg:px-8">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
@@ -165,18 +150,6 @@ export default async function Footer() {
             <p className="mt-7 max-w-[220px] text-xs leading-relaxed text-stone/60">
               {t("followText")}
             </p>
-          </div>
-        </div>
-
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-stone/60 sm:flex-row sm:items-center sm:justify-between">
-          <div>{t("copyright", { year: new Date().getFullYear() })}</div>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="opacity-75 transition-opacity hover:text-wood hover:opacity-100">
-              {t("privacy")}
-            </Link>
-            <Link href="/terms" className="opacity-75 transition-opacity hover:text-wood hover:opacity-100">
-              {t("terms")}
-            </Link>
           </div>
         </div>
       </div>

@@ -16,12 +16,12 @@ export default function ContactForm() {
   }
 
   const inputClass =
-    "mt-2 w-full rounded-lg border border-stone/70 bg-white px-4 py-3 text-sm text-charcoal outline-none transition-colors focus:border-wood";
+    "mt-2 w-full rounded-lg border border-stone/70 bg-white px-4 py-3 text-sm text-charcoal outline-none transition-all duration-200 ease-out focus:-translate-y-0.5 focus:border-wood focus:shadow-[0_8px_20px_-12px_rgba(124,90,58,0.5)]";
   const labelClass = "text-xs font-semibold uppercase tracking-wide text-charcoal";
 
   if (submitted) {
     return (
-      <p className="rounded-lg border border-stone/70 bg-white p-8 text-center text-warm-grey">
+      <p className="hero-in rounded-lg border border-stone/70 bg-white p-8 text-center text-warm-grey">
         {t("thankYou")}
       </p>
     );
@@ -105,7 +105,7 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="mt-2 inline-flex h-[52px] items-center gap-3 justify-self-start rounded-lg bg-charcoal pl-1.5 pr-6 text-xs font-semibold uppercase tracking-[0.15em] text-ivory transition-colors hover:bg-wood"
+        className="mt-2 inline-flex h-[52px] items-center gap-3 justify-self-start rounded-lg bg-charcoal pl-1.5 pr-6 text-xs font-semibold uppercase tracking-[0.15em] text-ivory transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-wood hover:shadow-[0_10px_24px_-10px_rgba(124,90,58,0.6)] active:translate-y-0"
       >
         <span className="flex h-10 w-10 items-center justify-center rounded-md bg-ivory/10">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">

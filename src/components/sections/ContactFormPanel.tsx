@@ -8,7 +8,7 @@ import ContactForm from "@/components/sections/ContactForm";
 export default function ContactFormPanel({
   eyebrow,
   heading,
-  image = "/images/imgi_4_5ec2cad6308d2152492c7406_Hathaway_003.jpg",
+  image = "/visuals/PHOTO-2025-04-15-12-21-30.jpg",
   className = "",
 }: {
   eyebrow?: string;

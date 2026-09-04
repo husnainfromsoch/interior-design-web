@@ -6,15 +6,15 @@ import { useTranslations } from "next-intl";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 
 const GRID_IMAGES = [
-  "/images/imgi_6_6286442fe5576a329c6a2f55_05_LANDING PAGE.jpg",
-  "/images/imgi_3_628644282ae3431022abbc74_01_LANDING PAGE.jpg",
-  "/projects/marina-penthouse-terrace.avif",
-  "/projects/al-barari-kitchen.avif",
-  "/images/imgi_4_5ec2cad6308d2152492c7406_Hathaway_003.jpg",
-  "/projects/jbr-apartment-bathroom.avif",
-  "/projects/villa-exterior.avif",
-  "/images/imgi_5_5ec2cc246e545fb9e2700871_NoHo Loft_006.jpg",
-  "/projects/downtown-villa-living.avif",
+  "/visuals/PHOTO-2025-04-15-09-20-47(19).jpg",
+  "/visuals/PHOTO-2025-04-15-09-20-47(3).jpg",
+  "/visuals/PHOTO-2025-04-15-12-21-19.jpg",
+  "/visuals/PHOTO-2025-04-15-12-21-45.jpg",
+  "/visuals/PHOTO-2025-04-15-12-52-59(1).jpg",
+  "/visuals/PHOTO-2025-04-15-12-21-36.jpg",
+  "/visuals/PHOTO-2025-04-15-09-20-47(14).jpg",
+  "/visuals/PHOTO-2025-04-15-12-21-28.jpg",
+  "/visuals/PHOTO-2025-04-15-11-44-20(1).jpg",
 ];
 
 const FEATURED_INDEX = 4;

@@ -6,8 +6,8 @@ export default async function ServicesHero() {
   return (
     <section className="relative flex min-h-[560px] items-center overflow-hidden bg-soft-black text-ivory sm:min-h-[640px]">
       <Image
-        src="/images/imgi_17_68e41dd59c224531bbd8cb78_1_Peniston_Dining-Room_001-p-3200.jpg"
-        alt="A completed interior by G.A.G Interiors"
+        src="/visuals/PHOTO-2025-04-15-12-52-59(1).jpg"
+        alt="An elegant panelled lounge with marble staircase by G.A.G Interiors"
         fill
         priority
         sizes="100vw"
