@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { CheckCircle2, Sparkles, ArrowUpRight } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import { projects, type Project } from "@/data/projects";
 import PortfolioParallax from "./PortfolioParallax";
 
@@ -25,8 +26,9 @@ function ProjectCard({
   const { icon: StatusIcon, className } = statusConfig[project.status];
 
   return (
-    <div
-      className="reveal-scale group relative overflow-hidden rounded-2xl border border-stone/70 bg-ivory shadow-[0_8px_24px_-14px_rgba(46,42,37,0.18)] transition-all duration-500 ease-out hover:-translate-y-2 hover:border-wood/40 hover:shadow-[0_32px_56px_-20px_rgba(46,42,37,0.32)]"
+    <Link
+      href={`/portfolio/${project.id}`}
+      className="reveal-scale group relative block overflow-hidden rounded-2xl border border-stone/70 bg-ivory shadow-[0_8px_24px_-14px_rgba(46,42,37,0.18)] transition-all duration-500 ease-out hover:-translate-y-2 hover:border-wood/40 hover:shadow-[0_32px_56px_-20px_rgba(46,42,37,0.32)]"
       style={{ "--reveal-delay": `${delay}ms` } as React.CSSProperties}
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden">
@@ -58,7 +60,7 @@ function ProjectCard({
           className="mb-1 shrink-0 -translate-x-1 translate-y-1 text-wood opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
         />
       </div>
-    </div>
+    </Link>
   );
 }
 

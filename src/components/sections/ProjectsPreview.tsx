@@ -58,7 +58,7 @@ export default async function ProjectsPreview() {
                   </p>
                 </div>
                 <Link
-                  href="/portfolio"
+                  href={`/portfolio/${project.id}`}
                   className="inline-flex shrink-0 items-center rounded-full border border-charcoal/25 px-5 py-2 text-[13px] font-semibold text-charcoal transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-wood hover:bg-wood hover:text-ivory active:translate-y-0"
                 >
                   {t("viewProject")}

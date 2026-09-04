@@ -56,10 +56,38 @@
     "viewAll": "View all services"
   },
   "Projects": {
-    "marina": { "title": "Marina Penthouse Renovation", "category": "Full renovation & fit-out" },
-    "downtown": { "title": "Downtown Villa Fit-Out", "category": "Complete interior fit-out" },
-    "albarari": { "title": "Al Barari Kitchen & Joinery", "category": "Custom kitchen concept" },
-    "jbr": { "title": "JBR Apartment Refresh", "category": "Renovation & joinery" }
+    "marina": {
+      "title": "Marina Penthouse Renovation",
+      "category": "Full renovation & fit-out",
+      "location": "Dubai Marina",
+      "scope": "Full renovation & fit-out",
+      "timeline": "10 weeks",
+      "description": "A full penthouse renovation on Dubai Marina, pairing custom joinery with a terrace fit-out designed for entertaining — coordinated from technical drawings through to final handover."
+    },
+    "downtown": {
+      "title": "Downtown Villa Fit-Out",
+      "category": "Complete interior fit-out",
+      "location": "Downtown Dubai",
+      "scope": "Complete interior fit-out",
+      "timeline": "12 weeks",
+      "description": "A complete villa fit-out in Downtown Dubai — civil, MEP, finishes and joinery coordinated under one team, from site mobilisation to snagging and handover."
+    },
+    "albarari": {
+      "title": "Al Barari Kitchen & Joinery",
+      "category": "Custom kitchen concept",
+      "location": "Al Barari",
+      "scope": "Custom kitchen concept",
+      "timeline": "6 weeks",
+      "description": "A bespoke kitchen concept for an Al Barari villa, designed around the client's cooking and entertaining habits and manufactured in-house to millimetre-accurate tolerances."
+    },
+    "jbr": {
+      "title": "JBR Apartment Refresh",
+      "category": "Renovation & joinery",
+      "location": "Jumeirah Beach Residence",
+      "scope": "Renovation & joinery",
+      "timeline": "8 weeks",
+      "description": "An apartment renovation in JBR combining bathroom and living space updates with custom joinery, fitted to match the building's approval requirements and the client's finish palette."
+    }
   },
   "AboutStats": {
     "badge": "About G.A.G Interiors",
@@ -381,5 +409,17 @@
     "explore": "Explore More",
     "otherServices": "Other services you may need.",
     "commonProblems": "Common problems we help you avoid"
+  },
+  "ProjectDetail": {
+    "location": "Location",
+    "scope": "Scope",
+    "timeline": "Timeline",
+    "status": "Status",
+    "gallery": "Project Gallery",
+    "galleryDisclaimer": "Visuals shown are design concepts and reference imagery for illustrative purposes, not completed G.A.G Interiors photography unless stated otherwise.",
+    "requestQuote": "Get a Free Quote",
+    "explore": "Explore More",
+    "otherProjects": "Other projects you may like",
+    "backToPortfolio": "Back to all projects"
   }
 }
