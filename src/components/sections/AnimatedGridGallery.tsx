@@ -6,15 +6,15 @@ import { useTranslations } from "next-intl";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 
 const GRID_IMAGES = [
-  "/visuals/PHOTO-2025-04-15-09-20-47(19).jpg",
-  "/visuals/PHOTO-2025-04-15-09-20-47(3).jpg",
-  "/visuals/PHOTO-2025-04-15-12-21-19.jpg",
-  "/visuals/PHOTO-2025-04-15-12-21-45.jpg",
-  "/visuals/PHOTO-2025-04-15-12-52-59(1).jpg",
-  "/visuals/PHOTO-2025-04-15-12-21-36.jpg",
-  "/visuals/PHOTO-2025-04-15-09-20-47(14).jpg",
-  "/visuals/PHOTO-2025-04-15-12-21-28.jpg",
-  "/visuals/PHOTO-2025-04-15-11-44-20(1).jpg",
+  "https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1593136596203-7212b076f4d2?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1704040686428-7534b262d0d8?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1631193645836-7c0a50257618?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1704040686370-52238a5dab05?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1597088136953-db42ae225804?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1721743162928-10502681850b?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1705862851897-fa60b41617c2?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=1200&auto=format&fit=crop",
 ];
 
 const FEATURED_INDEX = 4;

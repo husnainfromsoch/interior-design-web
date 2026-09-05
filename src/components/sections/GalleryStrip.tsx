@@ -1,11 +1,11 @@
 import Image from "next/image";
 
 const images = [
-  "/visuals/PHOTO-2025-04-15-12-21-21(1).jpg",
-  "/visuals/PHOTO-2025-04-15-12-21-24.jpg",
-  "/visuals/PHOTO-2025-04-15-12-21-29.jpg",
-  "/visuals/PHOTO-2025-04-15-13-08-20(1).jpg",
-  "/visuals/PHOTO-2025-04-15-12-33-54(9).jpg",
+  "https://images.unsplash.com/photo-1656403002413-2ac6137237d6?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1618221312573-404f9a52798d?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1722923400899-af08ffc715c6?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1706808849780-7a04fbac83ef?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1558346648-9757f2fa4474?q=80&w=1200&auto=format&fit=crop",
 ];
 
 export default function GalleryStrip() {

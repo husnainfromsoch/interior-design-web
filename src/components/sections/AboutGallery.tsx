@@ -7,16 +7,16 @@ import { useTranslations } from "next-intl";
 
 const columns: { src: string; alt: string }[][] = [
   [
-    { src: "/visuals/PHOTO-2025-04-15-12-21-17.jpg", alt: "Living room with marble feature wall" },
-    { src: "/visuals/PHOTO-2025-04-15-11-44-20(1).jpg", alt: "Living room with night balcony view" },
+    { src: "https://images.unsplash.com/photo-1564078516393-cf04bd966897?q=80&w=1200&auto=format&fit=crop", alt: "Living room with marble feature wall" },
+    { src: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=1200&auto=format&fit=crop", alt: "Living room with floor-to-ceiling windows" },
   ],
   [
-    { src: "/visuals/PHOTO-2025-04-15-12-21-36.jpg", alt: "Outdoor patio tiling detail" },
-    { src: "/visuals/PHOTO-2025-04-15-12-33-54(3).jpg", alt: "Landscaped patio with planters" },
+    { src: "https://images.unsplash.com/photo-1597088136953-db42ae225804?q=80&w=1200&auto=format&fit=crop", alt: "Outdoor patio tiling detail" },
+    { src: "https://images.unsplash.com/photo-1650338031185-1e97add7a389?q=80&w=1200&auto=format&fit=crop", alt: "Landscaped patio with planters" },
   ],
   [
-    { src: "/visuals/PHOTO-2025-04-15-09-20-47(14).jpg", alt: "Bedroom with mirrored wardrobe" },
-    { src: "/visuals/PHOTO-2025-04-15-12-21-28.jpg", alt: "Villa garden pathway" },
+    { src: "https://images.unsplash.com/photo-1721743162928-10502681850b?q=80&w=1200&auto=format&fit=crop", alt: "Bedroom with fitted wardrobe" },
+    { src: "https://images.unsplash.com/photo-1705862851897-fa60b41617c2?q=80&w=1200&auto=format&fit=crop", alt: "Villa garden pathway" },
   ],
 ];
 

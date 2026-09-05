@@ -16,8 +16,8 @@ export default async function AboutTeaser() {
   return (
     <ScrollExpandMedia
       mediaType="image"
-      mediaSrc="/visuals/PHOTO-2025-04-15-12-21-26.jpg"
-      bgImageSrc="/visuals/PHOTO-2025-04-15-12-21-26.jpg"
+      mediaSrc="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1920&auto=format&fit=crop"
+      bgImageSrc="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1920&auto=format&fit=crop"
       title={t("title")}
       date={t("date")}
       scrollToExpand={t("scrollToExpand")}

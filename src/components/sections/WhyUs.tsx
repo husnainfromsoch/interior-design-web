@@ -79,7 +79,7 @@ export default async function WhyUs() {
           <div className="reveal-right grid grid-cols-2 gap-4 sm:gap-5 lg:sticky lg:top-28">
             <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl shadow-[0_20px_45px_-20px_rgba(46,42,37,0.35)]">
               <Image
-                src="/images/imgi_3_5ec2bdbdede983e2b0bff75f_UWS_001.jpg"
+                src="https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=800&auto=format&fit=crop"
                 alt="Living room with sculptural wall accent"
                 fill
                 sizes="(min-width: 1024px) 20vw, 45vw"
@@ -88,8 +88,8 @@ export default async function WhyUs() {
             </div>
             <div className="group relative mt-8 aspect-[4/5] overflow-hidden rounded-2xl shadow-[0_20px_45px_-20px_rgba(46,42,37,0.35)]">
               <Image
-                src="/images/imgi_4_5ec2cad6308d2152492c7406_Hathaway_003.jpg"
-                alt="Layered textures and framed artwork"
+                src="https://images.unsplash.com/photo-1758448755856-01d3add0177b?q=80&w=800&auto=format&fit=crop"
+                alt="Modern lounge with layered textures and statement lighting"
                 fill
                 sizes="(min-width: 1024px) 20vw, 45vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
@@ -97,7 +97,7 @@ export default async function WhyUs() {
             </div>
             <div className="group relative aspect-square overflow-hidden rounded-2xl shadow-[0_20px_45px_-20px_rgba(46,42,37,0.35)]">
               <Image
-                src="/images/imgi_5_5ec2cc246e545fb9e2700871_NoHo Loft_006.jpg"
+                src="https://images.unsplash.com/photo-1611021061285-16c871740efa?q=80&w=800&auto=format&fit=crop"
                 alt="Custom joinery and material detailing"
                 fill
                 sizes="(min-width: 1024px) 20vw, 45vw"
@@ -106,7 +106,7 @@ export default async function WhyUs() {
             </div>
             <div className="group relative aspect-square overflow-hidden rounded-2xl shadow-[0_20px_45px_-20px_rgba(46,42,37,0.35)]">
               <Image
-                src="/images/imgi_17_68e41dd59c224531bbd8cb78_1_Peniston_Dining-Room_001-p-3200.jpg"
+                src="https://images.unsplash.com/photo-1751283226474-869937c075d6?q=80&w=800&auto=format&fit=crop"
                 alt="Dining room with refined finishes"
                 fill
                 sizes="(min-width: 1024px) 20vw, 45vw"

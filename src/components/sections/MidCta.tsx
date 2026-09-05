@@ -7,7 +7,7 @@ export default async function MidCta() {
   return (
     <section className="relative flex min-h-[420px] items-center overflow-hidden py-24 text-ivory">
       <Image
-        src="/visuals/PHOTO-2025-04-15-12-21-34.jpg"
+        src="https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?q=80&w=1920&auto=format&fit=crop"
         alt="Completed villa exterior walkway"
         fill
         sizes="100vw"

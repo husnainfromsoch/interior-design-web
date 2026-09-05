@@ -19,14 +19,14 @@ const icons = [
 ];
 
 const cardImages = [
-  "/images/imgi_3_5ec2bdbdede983e2b0bff75f_UWS_001.jpg",
-  "/visuals/PHOTO-2025-04-15-12-10-15.jpg",
-  "/projects/downtown-villa-living.avif",
-  "/visuals/PHOTO-2025-04-15-11-32-00.jpg",
-  "/projects/al-barari-kitchen.avif",
-  "/projects/jbr-apartment-bathroom.avif",
-  "/projects/marina-penthouse-terrace.avif",
-  "/visuals/PHOTO-2025-04-15-12-29-20.jpg",
+  "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1608303588026-884930af2559?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1574334292321-4844f63aefef?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1682888813913-e13f18692019?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1754788358645-d6e6cca12e25?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1783667818798-38903081f98f?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1551554781-c46200ea959d?q=80&w=1200&auto=format&fit=crop",
 ];
 
 export default async function Services({ limit }: { limit?: number }) {

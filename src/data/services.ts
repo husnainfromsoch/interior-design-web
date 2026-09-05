@@ -9,8 +9,8 @@ const servicesEn = [
     title: "Interior Design & Technical Drawings in Dubai",
     description: "From first concept to construction-ready drawings — interior design that gets built exactly as envisioned.",
     href: "/services/interior-design",
-    image: "/images/imgi_3_5ec2bdbdede983e2b0bff75f_UWS_001.jpg",
-    heroImage: "/images/imgi_2_68e41dd59c224531bbd8cb78_1_Peniston_Dining-Room_001.jpg",
+    image: "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=1200&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1751283226474-869937c075d6?q=80&w=1920&auto=format&fit=crop",
     intro:
       "We take your space from a first conversation to fully detailed, construction-ready drawings — covering layout, materials, lighting and joinery — so nothing is left for site teams to guess at and nothing gets lost in translation between designer and builder.",
     highlights: [
@@ -20,12 +20,12 @@ const servicesEn = [
       { title: "3D visualization", body: "See the finished space before a single wall is touched." },
     ],
     gallery: [
-      "/images/imgi_2_68e41dd59c224531bbd8cb78_1_Peniston_Dining-Room_001.jpg",
-      "/visuals/PHOTO-2025-04-15-12-06-40.jpg",
-      "/visuals/PHOTO-2025-04-15-11-47-05.jpg",
-      "/visuals/PHOTO-2025-04-15-09-20-47.jpg",
-      "/images/imgi_6_6286442fe5576a329c6a2f55_05_LANDING PAGE.jpg",
-      "/visuals/PHOTO-2025-04-15-11-30-59.jpg",
+      "https://images.unsplash.com/photo-1751283226474-869937c075d6?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1786654026766-8c6422fcbb84?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1719324923613-ff0884b031ed?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1704040686370-52238a5dab05?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1758448755856-01d3add0177b?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=1200&auto=format&fit=crop",
     ],
     galleryCaptions: [
       "Dining Room Concept",
@@ -64,8 +64,8 @@ const servicesEn = [
     title: "NOC & Renovation Approvals in Dubai",
     description: "Building management, developer and municipal approvals — handled from start to finish, so your project never stalls on paperwork.",
     href: "/services/approvals-noc-permits",
-    image: "/visuals/PHOTO-2025-04-15-12-10-15.jpg",
-    heroImage: "/images/imgi_37_61f32558a43b271e68603346_Hranowsky_Whitworth-197.jpg",
+    image: "https://images.unsplash.com/photo-1608303588026-884930af2559?q=80&w=1200&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1608303588026-884930af2559?q=80&w=1920&auto=format&fit=crop",
     intro:
       "Building management, developer and municipal approvals can stall a project for weeks — sometimes months. We manage the submissions, NOCs and permit process on your behalf, so work starts on schedule and stays there.",
     highlights: [
@@ -75,12 +75,12 @@ const servicesEn = [
       { title: "Timeline protection", body: "Approvals sequenced to avoid holding up site works." },
     ],
     gallery: [
-      "/images/imgi_37_61f32558a43b271e68603346_Hranowsky_Whitworth-197.jpg",
-      "/visuals/PHOTO-2025-04-15-12-10-15.jpg",
-      "/visuals/PHOTO-2025-04-15-12-52-59.jpg",
-      "/visuals/PHOTO-2025-04-15-12-50-04.jpg",
-      "/visuals/PHOTO-2025-04-15-11-42-25.jpg",
-      "/images/imgi_4_672a559cc3128f1a21dacc5b_06.jpg",
+      "https://images.unsplash.com/photo-1608303588026-884930af2559?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1608303588026-884930af2559?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1503387837-b154d5074bd2?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1765850262030-1ae93e474473?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1615309662243-70f6df917b59?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1753893558281-9acda0662bbd?q=80&w=1200&auto=format&fit=crop",
     ],
     galleryCaptions: [
       "Building Coordination Concept",
@@ -119,8 +119,8 @@ const servicesEn = [
     title: "Villa & Apartment Renovation and Fit-Out in Dubai",
     description: "Full-scope renovation and fit-out execution, start to finish — one accountable team on site until handover.",
     href: "/services/renovation-fit-out-dubai",
-    image: "/projects/downtown-villa-living.avif",
-    heroImage: "/projects/downtown-villa-living.avif",
+    image: "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=1200&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=1920&auto=format&fit=crop",
     intro:
       "From full villa renovations to apartment fit-outs, our site team executes the approved design end to end — coordinating trades, materials and quality control every step of the way until handover.",
     highlights: [
@@ -130,12 +130,12 @@ const servicesEn = [
       { title: "Clean handover", body: "Snagging closed out before keys are handed back." },
     ],
     gallery: [
-      "/projects/downtown-villa-living.avif",
-      "/visuals/PHOTO-2025-04-15-12-47-21.jpg",
-      "/visuals/PHOTO-2025-04-15-11-41-36.jpg",
-      "/projects/jbr-apartment-bathroom.avif",
-      "/project/imgi_4_68cc43098d11d3195b15f68e_CSD III 2025 Amy Trowman 273 Bayview 137016.avif",
-      "/project/imgi_6_68cc431a3bccb8150af1b71f_CSD III 2025 Amy Trowman 273 Bayview 137070.avif",
+      "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1753893558281-9acda0662bbd?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1754788358645-d6e6cca12e25?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1758448755856-01d3add0177b?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1659930087003-2d64e33181f7?q=80&w=1200&auto=format&fit=crop",
     ],
     galleryCaptions: [
       "Villa Living Room Concept",
@@ -176,8 +176,8 @@ const servicesEn = [
     title: "HVAC, Ventilation & MEP Coordination in Dubai",
     description: "Air-conditioning, ventilation and MEP engineered alongside your design — not bolted on as an afterthought.",
     href: "/services/hvac-ventilation-dubai",
-    image: "/visuals/PHOTO-2025-04-15-11-32-00.jpg",
-    heroImage: "/images/imgi_50_merz_compressed_1-1.jpg",
+    image: "https://images.unsplash.com/photo-1574334292321-4844f63aefef?q=80&w=1200&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1574334292321-4844f63aefef?q=80&w=1920&auto=format&fit=crop",
     intro:
       "Integrated air-conditioning, ventilation and MEP coordination for apartment, villa and commercial interior projects in Dubai and across the UAE — planned into the design from day one, so ceilings stay clean and airflow stays right.",
     highlights: [
@@ -189,12 +189,12 @@ const servicesEn = [
       { title: "Testing & handover", body: "Testing, balancing and commissioning coordination, followed by handover documentation." },
     ],
     gallery: [
-      "/images/imgi_50_merz_compressed_1-1.jpg",
-      "/images/imgi_61_epiceum_compressed_3-1.jpg",
-      "/visuals/PHOTO-2025-04-15-11-32-00.jpg",
-      "/visuals/PHOTO-2025-04-15-11-31-58.jpg",
-      "/visuals/PHOTO-2025-04-15-11-44-20.jpg",
-      "/projects/al-barari-kitchen.avif",
+      "https://images.unsplash.com/photo-1574334292321-4844f63aefef?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1533390178274-fe0b47d5e557?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574334292321-4844f63aefef?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1533390178274-fe0b47d5e557?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1652463370143-62773eb2e054?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1682888813913-e13f18692019?q=80&w=1200&auto=format&fit=crop",
     ],
     galleryCaptions: [
       "HVAC Ceiling Coordination Concept",
@@ -244,8 +244,8 @@ const servicesEn = [
     title: "Custom Kitchen Design & Installation in Dubai",
     description: "Bespoke kitchens designed around how you cook and entertain — built in-house, fitted to millimetre-accurate measurements.",
     href: "/services/custom-kitchens-dubai",
-    image: "/projects/al-barari-kitchen.avif",
-    heroImage: "/projects/al-barari-kitchen.avif",
+    image: "https://images.unsplash.com/photo-1682888813913-e13f18692019?q=80&w=1200&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1682888813913-e13f18692019?q=80&w=1920&auto=format&fit=crop",
     intro:
       "Kitchens designed around how you actually cook and entertain — not a showroom template — built in-house and installed to millimetre-accurate site measurements for a flawless fit.",
     highlights: [
@@ -255,12 +255,12 @@ const servicesEn = [
       { title: "Precise installation", body: "Fitted by the same team that built it." },
     ],
     gallery: [
-      "/projects/al-barari-kitchen.avif",
-      "/images/imgi_5_5ec2cc246e545fb9e2700871_NoHo Loft_006.jpg",
-      "/images/imgi_4_5ec2cad6308d2152492c7406_Hathaway_003.jpg",
-      "/images/imgi_3_628644282ae3431022abbc74_01_LANDING PAGE.jpg",
-      "/visuals/PHOTO-2025-04-15-13-00-28.jpg",
-      "/visuals/PHOTO-2025-04-15-13-03-30.jpg",
+      "https://images.unsplash.com/photo-1682888813913-e13f18692019?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1764526624453-db32c24eca55?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1751283226474-869937c075d6?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1758448755856-01d3add0177b?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1755816764831-2803235f0099?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1764526624453-db32c24eca55?q=80&w=1200&auto=format&fit=crop",
     ],
     galleryCaptions: [
       "Custom Kitchen Concept",
@@ -299,8 +299,8 @@ const servicesEn = [
     title: "Custom Wardrobes & Storage Solutions in Dubai",
     description: "Built-in wardrobes, vanities and storage designed to use every inch of a room — finished to match the rest of your interior.",
     href: "/services/custom-wardrobes-dubai",
-    image: "/projects/jbr-apartment-bathroom.avif",
-    heroImage: "/projects/jbr-apartment-bathroom.avif",
+    image: "https://images.unsplash.com/photo-1754788358645-d6e6cca12e25?q=80&w=1200&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1754788358645-d6e6cca12e25?q=80&w=1920&auto=format&fit=crop",
     intro:
       "Built-in wardrobes, vanities and storage designed to use every inch of a room — including the awkward ones — finished to match the rest of the interior seamlessly.",
     highlights: [
@@ -310,12 +310,12 @@ const servicesEn = [
       { title: "Custom hardware", body: "Fittings and finishes selected to match the design." },
     ],
     gallery: [
-      "/projects/jbr-apartment-bathroom.avif",
-      "/visuals/PHOTO-2025-04-15-11-42-51.jpg",
-      "/visuals/PHOTO-2025-04-15-12-08-10.jpg",
-      "/images/imgi_7_68f6a6535c743ff5afaf014a_14.jpg",
-      "/images/imgi_44_68f6a6535c743ff5afaf014a_14-p-3200.jpg",
-      "/images/imgi_11_68f6a6535c743ff5afaf014a_14-p-2600.jpg",
+      "https://images.unsplash.com/photo-1754788358645-d6e6cca12e25?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1754788358645-d6e6cca12e25?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1663811397133-2d1f5addd9d5?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1663811397133-2d1f5addd9d5?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1754788358645-d6e6cca12e25?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1758448755856-01d3add0177b?q=80&w=1200&auto=format&fit=crop",
     ],
     galleryCaptions: [
       "Bathroom Storage Concept",
@@ -354,8 +354,8 @@ const servicesEn = [
     title: "Custom Joinery & Bespoke Furniture in Dubai",
     description: "Bespoke furniture and joinery, made in-house and matched exactly to your interior — one team from design to install.",
     href: "/services/custom-joinery-furniture",
-    image: "/projects/marina-penthouse-terrace.avif",
-    heroImage: "/projects/marina-penthouse-terrace.avif",
+    image: "https://images.unsplash.com/photo-1783667818798-38903081f98f?q=80&w=1200&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1783667818798-38903081f98f?q=80&w=1920&auto=format&fit=crop",
     intro:
       "Bespoke furniture and joinery designed to match your interior exactly — manufactured in-house to fabrication-ready precision and installed by our own team.",
     highlights: [
@@ -365,12 +365,12 @@ const servicesEn = [
       { title: "Site-fit installation", body: "Delivered and installed with precision." },
     ],
     gallery: [
-      "/projects/marina-penthouse-terrace.avif",
-      "/visuals/PHOTO-2025-04-15-11-44-20.jpg",
-      "/visuals/PHOTO-2025-04-15-12-21-16.jpg",
-      "/visuals/PHOTO-2025-04-15-12-53-57.jpg",
-      "/visuals/PHOTO-2025-04-15-12-21-25.jpg",
-      "/project/imgi_4_68cc43098d11d3195b15f68e_CSD III 2025 Amy Trowman 273 Bayview 137016.avif",
+      "https://images.unsplash.com/photo-1783667818798-38903081f98f?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1611021061285-16c871740efa?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1659930087003-2d64e33181f7?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1693892985308-44965a6060d1?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1711098256574-7b497260cdc9?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1758448755856-01d3add0177b?q=80&w=1200&auto=format&fit=crop",
     ],
     galleryCaptions: [
       "Bespoke Furniture Concept",
@@ -409,8 +409,8 @@ const servicesEn = [
     title: "Materials & Finishes Sourcing in Dubai",
     description: "Stone, wood, tile and finish sourcing done right — curated to your design intent, quality-checked from sample to installation.",
     href: "/services/materials-finishes",
-    image: "/visuals/PHOTO-2025-04-15-12-29-20.jpg",
-    heroImage: "/visuals/PHOTO-2025-04-15-12-29-20.jpg",
+    image: "https://images.unsplash.com/photo-1551554781-c46200ea959d?q=80&w=1600&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1551554781-c46200ea959d?q=80&w=1920&auto=format&fit=crop",
     intro:
       "The right materials make or break an interior. We source stone, wood, tile and finishes from trusted suppliers and manage quality at every step, from first sample to final installation.",
     highlights: [
@@ -420,12 +420,12 @@ const servicesEn = [
       { title: "Quality control", body: "Materials checked on delivery and before installation." },
     ],
     gallery: [
-      "/visuals/PHOTO-2025-04-15-12-29-20.jpg",
-      "/projects/villa-exterior.avif",
-      "/visuals/PHOTO-2025-04-15-12-33-54.jpg",
-      "/images/imgi_17_68e41dd59c224531bbd8cb78_1_Peniston_Dining-Room_001-p-3200.jpg",
-      "/images/imgi_33_68f6a7435c743ff5afafaea3_1-p-3200.jpg",
-      "/visuals/PHOTO-2025-04-15-13-08-20.jpg",
+      "https://images.unsplash.com/photo-1551554781-c46200ea959d?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1566305977571-5666677c6e98?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1751283226474-869937c075d6?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1566305977571-5666677c6e98?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1200&auto=format&fit=crop",
     ],
     galleryCaptions: [
       "Material Palette Concept",
@@ -467,8 +467,8 @@ const servicesRu: typeof servicesEn = [
     title: "Дизайн интерьера и технические чертежи",
     description: "От концепции до чертежей, готовых к строительству.",
     href: "/services/interior-design",
-    image: "/images/imgi_3_5ec2bdbdede983e2b0bff75f_UWS_001.jpg",
-    heroImage: "/images/imgi_2_68e41dd59c224531bbd8cb78_1_Peniston_Dining-Room_001.jpg",
+    image: "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=1200&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1751283226474-869937c075d6?q=80&w=1920&auto=format&fit=crop",
     intro:
       "Мы ведём ваше пространство от первого разговора до полностью детализированных чертежей, готовых к строительству — планировка, материалы, освещение и столярные изделия, — чтобы бригаде на объекте не пришлось ничего додумывать.",
     highlights: [
@@ -478,12 +478,12 @@ const servicesRu: typeof servicesEn = [
       { title: "3D-визуализация", body: "Увидьте готовое пространство ещё до того, как будет тронута хоть одна стена." },
     ],
     gallery: [
-      "/images/imgi_2_68e41dd59c224531bbd8cb78_1_Peniston_Dining-Room_001.jpg",
-      "/visuals/PHOTO-2025-04-15-12-06-40.jpg",
-      "/visuals/PHOTO-2025-04-15-11-47-05.jpg",
-      "/visuals/PHOTO-2025-04-15-09-20-47.jpg",
-      "/images/imgi_6_6286442fe5576a329c6a2f55_05_LANDING PAGE.jpg",
-      "/visuals/PHOTO-2025-04-15-11-30-59.jpg",
+      "https://images.unsplash.com/photo-1751283226474-869937c075d6?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1786654026766-8c6422fcbb84?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1719324923613-ff0884b031ed?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1704040686370-52238a5dab05?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1758448755856-01d3add0177b?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=1200&auto=format&fit=crop",
     ],
     galleryCaptions: [
       "Концепция столовой",
@@ -522,8 +522,8 @@ const servicesRu: typeof servicesEn = [
     title: "Согласования, NOC и разрешения",
     description: "Согласования с управляющей компанией — на нас.",
     href: "/services/approvals-noc-permits",
-    image: "/visuals/PHOTO-2025-04-15-12-10-15.jpg",
-    heroImage: "/images/imgi_37_61f32558a43b271e68603346_Hranowsky_Whitworth-197.jpg",
+    image: "https://images.unsplash.com/photo-1608303588026-884930af2559?q=80&w=1200&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1608303588026-884930af2559?q=80&w=1920&auto=format&fit=crop",
     intro:
       "Согласования с управляющей компанией, застройщиком и муниципалитетом могут затянуть проект на недели. Мы ведём подачу документов, NOC и процесс получения разрешений от вашего имени, чтобы работы начались вовремя.",
     highlights: [
@@ -533,12 +533,12 @@ const servicesRu: typeof servicesEn = [
       { title: "Защита сроков", body: "Согласования выстраиваются так, чтобы не задерживать работы на объекте." },
     ],
     gallery: [
-      "/images/imgi_37_61f32558a43b271e68603346_Hranowsky_Whitworth-197.jpg",
-      "/visuals/PHOTO-2025-04-15-12-10-15.jpg",
-      "/visuals/PHOTO-2025-04-15-12-52-59.jpg",
-      "/visuals/PHOTO-2025-04-15-12-50-04.jpg",
-      "/visuals/PHOTO-2025-04-15-11-42-25.jpg",
-      "/images/imgi_4_672a559cc3128f1a21dacc5b_06.jpg",
+      "https://images.unsplash.com/photo-1608303588026-884930af2559?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1608303588026-884930af2559?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1503387837-b154d5074bd2?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1765850262030-1ae93e474473?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1615309662243-70f6df917b59?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1753893558281-9acda0662bbd?q=80&w=1200&auto=format&fit=crop",
     ],
     galleryCaptions: [
       "Концепция координации со зданием",
@@ -577,8 +577,8 @@ const servicesRu: typeof servicesEn = [
     title: "Ремонт и отделка",
     description: "Полная реализация, от начала до конца.",
     href: "/services/renovation-fit-out-dubai",
-    image: "/projects/downtown-villa-living.avif",
-    heroImage: "/projects/downtown-villa-living.avif",
+    image: "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=1200&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=1920&auto=format&fit=crop",
     intro:
       "От полного ремонта виллы до отделки квартиры — наша команда на объекте реализует утверждённый дизайн от начала до конца, координируя бригады, материалы и контроль качества вплоть до сдачи объекта.",
     highlights: [
@@ -588,12 +588,12 @@ const servicesRu: typeof servicesEn = [
       { title: "Чистая сдача объекта", body: "Все замечания устранены до передачи ключей." },
     ],
     gallery: [
-      "/projects/downtown-villa-living.avif",
-      "/visuals/PHOTO-2025-04-15-12-47-21.jpg",
-      "/visuals/PHOTO-2025-04-15-11-41-36.jpg",
-      "/projects/jbr-apartment-bathroom.avif",
-      "/project/imgi_4_68cc43098d11d3195b15f68e_CSD III 2025 Amy Trowman 273 Bayview 137016.avif",
-      "/project/imgi_6_68cc431a3bccb8150af1b71f_CSD III 2025 Amy Trowman 273 Bayview 137070.avif",
+      "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1753893558281-9acda0662bbd?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1754788358645-d6e6cca12e25?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1758448755856-01d3add0177b?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1659930087003-2d64e33181f7?q=80&w=1200&auto=format&fit=crop",
     ],
     galleryCaptions: [
       "Концепция гостиной виллы",
@@ -634,8 +634,8 @@ const servicesRu: typeof servicesEn = [
     title: "Кондиционирование, вентиляция и инженерные системы",
     description: "Комплексная координация кондиционирования, вентиляции и инженерных систем.",
     href: "/services/hvac-ventilation-dubai",
-    image: "/visuals/PHOTO-2025-04-15-11-32-00.jpg",
-    heroImage: "/images/imgi_50_merz_compressed_1-1.jpg",
+    image: "https://images.unsplash.com/photo-1574334292321-4844f63aefef?q=80&w=1200&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1574334292321-4844f63aefef?q=80&w=1920&auto=format&fit=crop",
     intro:
       "Комплексная координация кондиционирования, вентиляции и инженерных систем для квартир, вилл и коммерческих интерьеров в Дубае и по всему ОАЭ — спроектировано вместе с дизайном, а не добавлено впоследствии.",
     highlights: [
@@ -647,12 +647,12 @@ const servicesRu: typeof servicesEn = [
       { title: "Испытания и сдача", body: "Координация испытаний, балансировки и пусконаладки с последующей передачей документации." },
     ],
     gallery: [
-      "/images/imgi_50_merz_compressed_1-1.jpg",
-      "/images/imgi_61_epiceum_compressed_3-1.jpg",
-      "/visuals/PHOTO-2025-04-15-11-32-00.jpg",
-      "/visuals/PHOTO-2025-04-15-11-31-58.jpg",
-      "/visuals/PHOTO-2025-04-15-11-44-20.jpg",
-      "/projects/al-barari-kitchen.avif",
+      "https://images.unsplash.com/photo-1574334292321-4844f63aefef?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1533390178274-fe0b47d5e557?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574334292321-4844f63aefef?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1533390178274-fe0b47d5e557?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1652463370143-62773eb2e054?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1682888813913-e13f18692019?q=80&w=1200&auto=format&fit=crop",
     ],
     galleryCaptions: [
       "Концепция координации потолка и климата",
@@ -702,8 +702,8 @@ const servicesRu: typeof servicesEn = [
     title: "Кухни на заказ",
     description: "Спроектированы, изготовлены и установлены под ваше пространство.",
     href: "/services/custom-kitchens-dubai",
-    image: "/projects/al-barari-kitchen.avif",
-    heroImage: "/projects/al-barari-kitchen.avif",
+    image: "https://images.unsplash.com/photo-1682888813913-e13f18692019?q=80&w=1200&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1682888813913-e13f18692019?q=80&w=1920&auto=format&fit=crop",
     intro:
       "Кухни, спроектированные под то, как вы действительно готовите и принимаете гостей, изготовленные на собственном производстве и установленные с точностью до миллиметра по замерам объекта.",
     highlights: [
@@ -713,12 +713,12 @@ const servicesRu: typeof servicesEn = [
       { title: "Точный монтаж", body: "Устанавливает та же команда, что и изготовила." },
     ],
     gallery: [
-      "/projects/al-barari-kitchen.avif",
-      "/images/imgi_5_5ec2cc246e545fb9e2700871_NoHo Loft_006.jpg",
-      "/images/imgi_4_5ec2cad6308d2152492c7406_Hathaway_003.jpg",
-      "/images/imgi_3_628644282ae3431022abbc74_01_LANDING PAGE.jpg",
-      "/visuals/PHOTO-2025-04-15-13-00-28.jpg",
-      "/visuals/PHOTO-2025-04-15-13-03-30.jpg",
+      "https://images.unsplash.com/photo-1682888813913-e13f18692019?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1764526624453-db32c24eca55?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1751283226474-869937c075d6?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1758448755856-01d3add0177b?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1755816764831-2803235f0099?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1764526624453-db32c24eca55?q=80&w=1200&auto=format&fit=crop",
     ],
     galleryCaptions: [
       "Концепция кухни на заказ",
@@ -757,8 +757,8 @@ const servicesRu: typeof servicesEn = [
     title: "Гардеробные и системы хранения",
     description: "Гардеробные, системы хранения, тумбы и стеновые панели.",
     href: "/services/custom-wardrobes-dubai",
-    image: "/projects/jbr-apartment-bathroom.avif",
-    heroImage: "/projects/jbr-apartment-bathroom.avif",
+    image: "https://images.unsplash.com/photo-1754788358645-d6e6cca12e25?q=80&w=1200&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1754788358645-d6e6cca12e25?q=80&w=1920&auto=format&fit=crop",
     intro:
       "Встроенные гардеробные, тумбы и системы хранения, спроектированные так, чтобы использовать каждый сантиметр помещения, отделанные в соответствии с остальным интерьером.",
     highlights: [
@@ -768,12 +768,12 @@ const servicesRu: typeof servicesEn = [
       { title: "Фурнитура на заказ", body: "Фурнитура и отделка подбираются в соответствии с дизайном." },
     ],
     gallery: [
-      "/projects/jbr-apartment-bathroom.avif",
-      "/visuals/PHOTO-2025-04-15-11-42-51.jpg",
-      "/visuals/PHOTO-2025-04-15-12-08-10.jpg",
-      "/images/imgi_7_68f6a6535c743ff5afaf014a_14.jpg",
-      "/images/imgi_44_68f6a6535c743ff5afaf014a_14-p-3200.jpg",
-      "/images/imgi_11_68f6a6535c743ff5afaf014a_14-p-2600.jpg",
+      "https://images.unsplash.com/photo-1754788358645-d6e6cca12e25?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1754788358645-d6e6cca12e25?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1663811397133-2d1f5addd9d5?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1663811397133-2d1f5addd9d5?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1754788358645-d6e6cca12e25?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1758448755856-01d3add0177b?q=80&w=1200&auto=format&fit=crop",
     ],
     galleryCaptions: [
       "Концепция хранения в ванной",
@@ -812,8 +812,8 @@ const servicesRu: typeof servicesEn = [
     title: "Столярные изделия и мебель на заказ",
     description: "Индивидуальная мебель, изготовленная на собственном производстве.",
     href: "/services/custom-joinery-furniture",
-    image: "/projects/marina-penthouse-terrace.avif",
-    heroImage: "/projects/marina-penthouse-terrace.avif",
+    image: "https://images.unsplash.com/photo-1783667818798-38903081f98f?q=80&w=1200&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1783667818798-38903081f98f?q=80&w=1920&auto=format&fit=crop",
     intro:
       "Индивидуальная мебель и столярные изделия, точно подобранные под ваш интерьер, изготовленные на собственном производстве и установленные нашей командой.",
     highlights: [
@@ -823,12 +823,12 @@ const servicesRu: typeof servicesEn = [
       { title: "Точный монтаж на объекте", body: "Доставка и установка с высокой точностью." },
     ],
     gallery: [
-      "/projects/marina-penthouse-terrace.avif",
-      "/visuals/PHOTO-2025-04-15-11-44-20.jpg",
-      "/visuals/PHOTO-2025-04-15-12-21-16.jpg",
-      "/visuals/PHOTO-2025-04-15-12-53-57.jpg",
-      "/visuals/PHOTO-2025-04-15-12-21-25.jpg",
-      "/project/imgi_4_68cc43098d11d3195b15f68e_CSD III 2025 Amy Trowman 273 Bayview 137016.avif",
+      "https://images.unsplash.com/photo-1783667818798-38903081f98f?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1611021061285-16c871740efa?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1659930087003-2d64e33181f7?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1693892985308-44965a6060d1?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1711098256574-7b497260cdc9?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1758448755856-01d3add0177b?q=80&w=1200&auto=format&fit=crop",
     ],
     galleryCaptions: [
       "Концепция мебели на заказ",
@@ -867,8 +867,8 @@ const servicesRu: typeof servicesEn = [
     title: "Материалы и отделка",
     description: "Подбор камня, дерева и отделочных материалов — как должно быть.",
     href: "/services/materials-finishes",
-    image: "/visuals/PHOTO-2025-04-15-12-29-20.jpg",
-    heroImage: "/visuals/PHOTO-2025-04-15-12-29-20.jpg",
+    image: "https://images.unsplash.com/photo-1551554781-c46200ea959d?q=80&w=1600&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1551554781-c46200ea959d?q=80&w=1920&auto=format&fit=crop",
     intro:
       "Правильные материалы определяют успех интерьера. Мы закупаем камень, дерево, плитку и отделочные материалы у проверенных поставщиков и контролируем качество от образца до монтажа.",
     highlights: [
@@ -878,12 +878,12 @@ const servicesRu: typeof servicesEn = [
       { title: "Контроль качества", body: "Материалы проверяются при доставке и перед монтажом." },
     ],
     gallery: [
-      "/visuals/PHOTO-2025-04-15-12-29-20.jpg",
-      "/projects/villa-exterior.avif",
-      "/visuals/PHOTO-2025-04-15-12-33-54.jpg",
-      "/images/imgi_17_68e41dd59c224531bbd8cb78_1_Peniston_Dining-Room_001-p-3200.jpg",
-      "/images/imgi_33_68f6a7435c743ff5afafaea3_1-p-3200.jpg",
-      "/visuals/PHOTO-2025-04-15-13-08-20.jpg",
+      "https://images.unsplash.com/photo-1551554781-c46200ea959d?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1566305977571-5666677c6e98?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1751283226474-869937c075d6?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1566305977571-5666677c6e98?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1200&auto=format&fit=crop",
     ],
     galleryCaptions: [
       "Концепция палитры материалов",

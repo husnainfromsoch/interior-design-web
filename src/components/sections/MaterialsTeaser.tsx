@@ -18,7 +18,7 @@ export default async function MaterialsTeaser() {
           <video
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             src="/videos/Materials.mp4"
-            poster="/images/imgi_24_61f3245393d53d502b2dec6b_Hranowsky_Whitworth-620.jpg"
+            poster="https://images.unsplash.com/photo-1566305977571-5666677c6e98?q=80&w=1600&auto=format&fit=crop"
             autoPlay
             muted
             loop
