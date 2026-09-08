@@ -32,7 +32,7 @@ export default function GlobalError({
       >
         <h1 style={{ fontSize: "1.75rem", margin: 0 }}>Something went wrong</h1>
         <p style={{ maxWidth: 420, color: "#8B857A" }}>
-          Please try again — your connection and place in the site are unaffected.
+          Please try again, your connection and place in the site are unaffected.
         </p>
         <button
           type="button"

@@ -70,13 +70,11 @@ export default async function Footer() {
             <p className="mt-5 max-w-[280px] text-sm leading-relaxed text-stone/80">
               {t("tagline")}
             </p>
-            <div className="mt-6 h-px w-12 bg-wood" />
           </div>
 
           <div>
             <h3 className="text-xs font-semibold tracking-[0.2em] text-ivory">
               {t("quickLinks").toUpperCase()}
-              <span className="mt-3 block h-px w-6 bg-wood" />
             </h3>
             <ul className="mt-5 space-y-3 text-sm">
               {navLinks.map((link) => (
@@ -98,7 +96,6 @@ export default async function Footer() {
           <div>
             <h3 className="text-xs font-semibold tracking-[0.2em] text-ivory">
               {t("location").toUpperCase()}
-              <span className="mt-3 block h-px w-6 bg-wood" />
             </h3>
             <p className="mt-5 text-sm leading-relaxed text-stone/80">
               {t("locationAddress")}
@@ -126,7 +123,6 @@ export default async function Footer() {
           <div>
             <h3 className="text-xs font-semibold tracking-[0.2em] text-ivory">
               {t("followUs").toUpperCase()}
-              <span className="mt-3 block h-px w-6 bg-wood" />
             </h3>
             <div className="mt-5 flex flex-wrap gap-3">
               {socialLinks.map(({ icon: Icon, href, label, accent }) => (

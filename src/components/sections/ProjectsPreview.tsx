@@ -22,7 +22,12 @@ export default async function ProjectsPreview() {
             <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
               {t("badge")}
             </span>
-            <h2 className="font-serif text-[28px] sm:text-[34px]">{t("title")}</h2>
+            <h2
+              className="font-serif text-[28px] sm:text-[34px]"
+              style={{ fontVariationSettings: '"WONK" 0' }}
+            >
+              {t("title")}
+            </h2>
           </div>
           <p className="max-w-sm text-[17px] text-warm-grey">{t("subtitle")}</p>
         </div>

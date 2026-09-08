@@ -122,11 +122,9 @@ export default function PageHeader({
         {eyebrow && (
           <p
             ref={eyebrowRef}
-            className={`flex items-center justify-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] ${hasImages ? "text-ivory/80" : "text-wood"}`}
+            className={`text-xs font-semibold uppercase tracking-[0.28em] ${hasImages ? "text-ivory/80" : "text-wood"}`}
           >
-            <span className={`h-px w-8 ${hasImages ? "bg-ivory/50" : "bg-wood/50"}`} />
             {eyebrow}
-            <span className={`h-px w-8 ${hasImages ? "bg-ivory/50" : "bg-wood/50"}`} />
           </p>
         )}
         <h1

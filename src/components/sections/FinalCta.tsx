@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import Button from "@/components/ui/Button";
 import ContactFormPanel from "@/components/sections/ContactFormPanel";
@@ -5,8 +6,17 @@ import ContactFormPanel from "@/components/sections/ContactFormPanel";
 export default async function FinalCta() {
   const t = await getTranslations("FinalCta");
   return (
-    <section id="contact" className="bg-soft-black py-24 text-ivory">
-      <div className="reveal mx-auto max-w-[1180px] px-6 text-center lg:px-8">
+    <section id="contact" className="relative overflow-hidden py-24 text-ivory">
+      <Image
+        src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?q=80&w=1600&auto=format&fit=crop"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover"
+        priority={false}
+      />
+      <div className="absolute inset-0 bg-soft-black/70" />
+      <div className="reveal relative mx-auto max-w-[1180px] px-6 text-center lg:px-8">
         <h2 className="font-serif text-[32px] sm:text-[38px]">{t("title")}</h2>
         <p className="mx-auto mt-4 max-w-md text-[17px] text-stone">
           {t("body")}

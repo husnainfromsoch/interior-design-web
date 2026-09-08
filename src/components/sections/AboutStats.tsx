@@ -6,7 +6,7 @@ import CountUp from "@/components/ui/CountUp";
 export default async function AboutStats() {
   const t = await getTranslations("AboutStats");
   const stats = [
-    { value: 150, suffix: "+", label: t("stat1") },
+    { value: 47, suffix: "+", label: t("stat1") },
     { value: 98, suffix: "%", label: t("stat2") },
   ];
   return (

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { getNavLinks } from "@/data/nav";
@@ -12,6 +13,18 @@ export default function Header() {
   const router = useRouter();
   const t = useTranslations("Nav");
   const tCommon = useTranslations("Common");
+
+  const [scrolled, setScrolled] = useState(false);
+  const isHome = pathname === "/";
+  const transparent = isHome && !scrolled;
+
+  useEffect(() => {
+    if (!isHome) return;
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isHome]);
 
   const navLinks = getNavLinks(locale, {
     home: t("home"),
@@ -27,10 +40,21 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-stone/60 bg-ivory/90 backdrop-blur">
+    <header
+      className={`fixed inset-x-0 top-0 z-40 transition-colors duration-300 ${
+        transparent
+          ? "border-b border-transparent bg-transparent"
+          : "border-b border-stone/60 bg-ivory/90 backdrop-blur"
+      }`}
+    >
       <nav className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4 lg:px-10 lg:py-5">
-        <Link href="/" className="font-serif text-2xl tracking-wide text-charcoal lg:text-3xl">
-          G.A.G <span className="text-wood">Interiors</span>
+        <Link
+          href="/"
+          className={`font-serif text-2xl tracking-wide transition-colors lg:text-3xl ${
+            transparent ? "text-ivory" : "text-charcoal"
+          }`}
+        >
+          G.A.G <span className={transparent ? "text-champagne" : "text-wood"}>Interiors</span>
         </Link>
 
         <div className="hidden md:block">
@@ -38,11 +62,19 @@ export default function Header() {
         </div>
 
         <div className="hidden items-center gap-6 md:flex">
-          <span className="flex gap-1.5 text-sm tracking-wider text-warm-grey">
+          <span
+            className={`flex gap-1.5 text-sm tracking-wider transition-colors ${
+              transparent ? "text-ivory/70" : "text-warm-grey"
+            }`}
+          >
             <button
               type="button"
               onClick={() => switchLocale("en")}
-              className={locale === "en" ? "font-semibold text-charcoal" : "transition-colors hover:text-charcoal"}
+              className={
+                locale === "en"
+                  ? `font-semibold ${transparent ? "text-ivory" : "text-charcoal"}`
+                  : `transition-colors ${transparent ? "hover:text-ivory" : "hover:text-charcoal"}`
+              }
             >
               EN
             </button>
@@ -50,7 +82,11 @@ export default function Header() {
             <button
               type="button"
               onClick={() => switchLocale("ru")}
-              className={locale === "ru" ? "font-semibold text-charcoal" : "transition-colors hover:text-charcoal"}
+              className={
+                locale === "ru"
+                  ? `font-semibold ${transparent ? "text-ivory" : "text-charcoal"}`
+                  : `transition-colors ${transparent ? "hover:text-ivory" : "hover:text-charcoal"}`
+              }
             >
               RU
             </button>

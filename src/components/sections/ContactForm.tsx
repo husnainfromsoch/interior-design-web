@@ -54,9 +54,9 @@ export default function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label className={labelClass} htmlFor="service">
-            {t("service")} <span className="text-wood">*</span>
+            {t("service")} <span className="normal-case text-warm-grey">{t("optional")}</span>
           </label>
-          <select id="service" name="service" required defaultValue="" className={inputClass}>
+          <select id="service" name="service" defaultValue="" className={inputClass}>
             <option value="" disabled>
               {t("selectService")}
             </option>
@@ -69,9 +69,9 @@ export default function ContactForm() {
         </div>
         <div>
           <label className={labelClass} htmlFor="location">
-            {t("location")} <span className="text-wood">*</span>
+            {t("location")} <span className="normal-case text-warm-grey">{t("optional")}</span>
           </label>
-          <input id="location" name="location" required placeholder={t("locationPlaceholder")} className={inputClass} />
+          <input id="location" name="location" placeholder={t("locationPlaceholder")} className={inputClass} />
         </div>
       </div>
 

@@ -7,7 +7,6 @@ import Services from "@/components/sections/Services";
 import ProjectsPreview from "@/components/sections/ProjectsPreview";
 import SignatureProjectShowcase from "@/components/sections/SignatureProjectShowcase";
 import AnimatedGridGallery from "@/components/sections/AnimatedGridGallery";
-import MidCta from "@/components/sections/MidCta";
 import WhyUs from "@/components/sections/WhyUs";
 import Process from "@/components/sections/Process";
 import GalleryStrip from "@/components/sections/GalleryStrip";
@@ -48,7 +47,6 @@ export default async function Home({
       <ProjectsPreview />
       <SignatureProjectShowcase />
       <AnimatedGridGallery />
-      <MidCta />
       <WhyUs />
       <Process />
       <GalleryStrip />

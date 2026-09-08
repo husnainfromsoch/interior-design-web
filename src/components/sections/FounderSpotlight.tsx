@@ -65,11 +65,11 @@ export default function FounderSpotlight() {
             </p>
             <div className="mt-8 flex gap-10 border-t border-stone pt-6">
               <div>
-                <p className="font-serif text-[28px] text-wood">10+</p>
+                <p className="font-serif text-[28px] text-wood">6+</p>
                 <p className="mt-1 text-[13px] uppercase tracking-[0.06em] text-warm-grey">{t("stat1Label")}</p>
               </div>
               <div>
-                <p className="font-serif text-[28px] text-wood">150+</p>
+                <p className="font-serif text-[28px] text-wood">47+</p>
                 <p className="mt-1 text-[13px] uppercase tracking-[0.06em] text-warm-grey">{t("stat2Label")}</p>
               </div>
             </div>

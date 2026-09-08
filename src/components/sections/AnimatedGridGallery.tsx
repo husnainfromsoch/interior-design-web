@@ -18,7 +18,8 @@ const GRID_IMAGES = [
 ];
 
 const FEATURED_INDEX = 4;
-const VIDEO_SRC = "/videos/hero.mp4";
+const FEATURED_IMAGE_SRC =
+  "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1920&auto=format&fit=crop";
 
 export default function AnimatedGridGallery() {
   const t = useTranslations("AnimatedGridGallery");
@@ -96,14 +97,12 @@ export default function AnimatedGridGallery() {
       className="relative h-screen w-full overflow-hidden bg-charcoal"
     >
       <div ref={videoWrapRef} className="absolute inset-0 z-0 opacity-0">
-        <video
-          src={VIDEO_SRC}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className="h-full w-full object-cover"
+        <Image
+          src={FEATURED_IMAGE_SRC}
+          alt="Interior design showcase"
+          fill
+          className="object-cover"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-charcoal/30" />
       </div>

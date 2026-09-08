@@ -22,7 +22,7 @@ export default function LocaleError({
         This page hit a snag while loading.
       </h1>
       <p className="max-w-md text-warm-grey">
-        Please try again — your connection and place in the site are unaffected.
+        Please try again, your connection and place in the site are unaffected.
       </p>
       <button
         type="button"

@@ -23,13 +23,9 @@ export default async function AboutTeaser() {
       scrollToExpand={t("scrollToExpand")}
     >
       <div className="mx-auto max-w-3xl text-center">
-        <div className="flex items-center justify-center gap-4">
-          <span className="h-px w-10 bg-wood/40" />
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.22em] text-wood">
-            {t("badge")}
-          </span>
-          <span className="h-px w-10 bg-wood/40" />
-        </div>
+        <span className="inline-block text-xs font-semibold uppercase tracking-[0.22em] text-wood">
+          {t("badge")}
+        </span>
 
         <h2 className="mt-5 font-serif text-[30px] leading-[1.2] text-charcoal sm:text-[38px] lg:text-[44px]">
           {t("heading")}

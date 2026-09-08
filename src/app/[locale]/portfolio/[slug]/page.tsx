@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { CheckCircle2, MapPin, Sparkles } from "lucide-react";
+import { CheckCircle2, Clock, Layers, MapPin, Sparkles } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import Button from "@/components/ui/Button";
 import PageHeader from "@/components/ui/PageHeader";
-import MidCta from "@/components/sections/MidCta";
+import ProjectHighlights from "@/components/sections/ProjectHighlights";
 import { projects } from "@/data/projects";
 
 export function generateStaticParams() {
@@ -44,6 +44,10 @@ export default async function ProjectDetailPage({
   const t = await getTranslations("ProjectDetail");
   const tProjects = await getTranslations("Projects");
   const tCommon = await getTranslations("Common");
+  const tWhatsapp = await getTranslations("WhatsApp");
+
+  const WHATSAPP_NUMBER = "971588099223";
+  const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(tWhatsapp("message"))}`;
 
   const title = tProjects(`${slug}.title`);
   const category = tProjects(`${slug}.category`);
@@ -52,6 +56,10 @@ export default async function ProjectDetailPage({
   const statusLabel = isCompleted ? tCommon("statusCompleted") : tCommon("statusConcept");
 
   const otherProjects = projects.filter((p) => p.id !== slug).slice(0, 3);
+  const highlights = tProjects.raw(`${slug}.highlights`) as { title: string; body: string }[];
+  const mainImage = project.gallery[0] ?? project.image;
+  const secondaryImage = project.gallery[1] ?? project.image;
+  const highlightsImage = project.gallery[2] ?? project.gallery[0] ?? project.image;
 
   return (
     <>
@@ -59,45 +67,136 @@ export default async function ProjectDetailPage({
 
       <section className="py-24">
         <div className="mx-auto max-w-[1180px] px-6 lg:px-8">
-          <div className="reveal flex flex-wrap items-center gap-3">
-            <span
-              className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider ${
-                isCompleted ? "bg-charcoal text-ivory" : "bg-ivory text-wood-dark border border-wood-dark"
-              }`}
-            >
-              <StatusIcon size={12} strokeWidth={2} />
-              {statusLabel}
-            </span>
-            <span className="inline-flex items-center gap-1.5 text-sm text-warm-grey">
-              <MapPin size={14} className="text-wood" aria-hidden />
-              {tProjects(`${slug}.location`)}
-            </span>
-          </div>
-
-          <p className="reveal mt-6 max-w-2xl text-[16px] leading-relaxed text-warm-grey">
-            {tProjects(`${slug}.description`)}
-          </p>
-
-          <div className="reveal mt-10 grid grid-cols-2 gap-6 border-t border-stone pt-8 sm:grid-cols-3 sm:max-w-lg">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
             <div>
-              <p className="text-xs uppercase tracking-widest text-wood">{t("scope")}</p>
-              <p className="mt-1.5 text-sm text-charcoal">{tProjects(`${slug}.scope`)}</p>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-widest text-wood">{t("timeline")}</p>
-              <p className="mt-1.5 text-sm text-charcoal">{tProjects(`${slug}.timeline`)}</p>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-widest text-wood">{t("location")}</p>
-              <p className="mt-1.5 text-sm text-charcoal">{tProjects(`${slug}.location`)}</p>
-            </div>
-          </div>
+              <div className="reveal flex flex-wrap items-center gap-3">
+                <span
+                  className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider ${
+                    isCompleted ? "bg-charcoal text-ivory" : "bg-ivory text-wood-dark border border-wood-dark"
+                  }`}
+                >
+                  <StatusIcon size={12} strokeWidth={2} />
+                  {statusLabel}
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-sm text-warm-grey">
+                  <MapPin size={14} className="text-wood" aria-hidden />
+                  {tProjects(`${slug}.location`)}
+                </span>
+              </div>
 
-          <div className="reveal mt-10">
-            <Button href="/contact">{t("requestQuote")}</Button>
+              <p className="reveal mt-6 max-w-xl text-[17px] leading-relaxed text-warm-grey">
+                {tProjects(`${slug}.description`)}
+              </p>
+
+              <div className="reveal mt-10 flex flex-wrap items-center gap-4">
+                <Button href="/contact">{t("requestQuote")}</Button>
+                <Button href={whatsappHref} variant="outline" external>
+                  {tCommon("whatsappUs")}
+                </Button>
+              </div>
+
+              <p className="reveal mt-6 text-sm text-warm-grey/80">{t("consultNote")}</p>
+            </div>
+
+            <div className="reveal-scale rounded-2xl border border-stone/70 bg-beige p-8 shadow-[0_8px_24px_-14px_rgba(46,42,37,0.18)]">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-wood">{t("atAGlance")}</p>
+              <dl className="mt-6 flex flex-col gap-6">
+                <div className="flex items-start gap-3.5 border-t border-stone/70 pt-5 first:border-t-0 first:pt-0">
+                  <StatusIcon size={18} className="mt-0.5 shrink-0 text-wood" aria-hidden />
+                  <div>
+                    <dt className="text-xs uppercase tracking-widest text-wood">{t("status")}</dt>
+                    <dd className="mt-1 text-sm text-charcoal">{statusLabel}</dd>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3.5 border-t border-stone/70 pt-5">
+                  <Layers size={18} className="mt-0.5 shrink-0 text-wood" aria-hidden />
+                  <div>
+                    <dt className="text-xs uppercase tracking-widest text-wood">{t("scope")}</dt>
+                    <dd className="mt-1 text-sm text-charcoal">{tProjects(`${slug}.scope`)}</dd>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3.5 border-t border-stone/70 pt-5">
+                  <Clock size={18} className="mt-0.5 shrink-0 text-wood" aria-hidden />
+                  <div>
+                    <dt className="text-xs uppercase tracking-widest text-wood">{t("timeline")}</dt>
+                    <dd className="mt-1 text-sm text-charcoal">{tProjects(`${slug}.timeline`)}</dd>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3.5 border-t border-stone/70 pt-5">
+                  <MapPin size={18} className="mt-0.5 shrink-0 text-wood" aria-hidden />
+                  <div>
+                    <dt className="text-xs uppercase tracking-widest text-wood">{t("location")}</dt>
+                    <dd className="mt-1 text-sm text-charcoal">{tProjects(`${slug}.location`)}</dd>
+                  </div>
+                </div>
+              </dl>
+            </div>
           </div>
         </div>
       </section>
+
+      <section className="bg-beige py-24">
+        <div className="mx-auto max-w-[1180px] px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:items-center">
+            <div className="reveal">
+              <span className="block font-serif text-6xl leading-none text-wood/20 sm:text-7xl">01</span>
+              <span className="mt-6 mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
+                {t("briefEyebrow")}
+              </span>
+              <h2 className="font-serif text-[26px] leading-snug sm:text-[30px]">{t("briefHeading")}</h2>
+              <div className="mt-6 border-l-2 border-wood/30 pl-6">
+                <p className="max-w-xl text-[16px] leading-relaxed text-warm-grey">
+                  {tProjects(`${slug}.brief`)}
+                </p>
+              </div>
+            </div>
+            <div className="reveal-scale relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-stone/70 shadow-[0_24px_48px_-24px_rgba(46,42,37,0.3)]">
+              <Image
+                src={mainImage}
+                alt={`${title} overview`}
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24">
+        <div className="mx-auto max-w-[1180px] px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:items-center">
+            <div className="reveal-scale relative order-2 aspect-[4/3] w-full overflow-hidden rounded-2xl border border-stone/70 shadow-[0_24px_48px_-24px_rgba(46,42,37,0.3)] lg:order-1">
+              <Image
+                src={secondaryImage}
+                alt={`${title} detail`}
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="reveal order-1 lg:order-2">
+              <span className="block font-serif text-6xl leading-none text-wood/20 sm:text-7xl">02</span>
+              <span className="mt-6 mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
+                {t("approachEyebrow")}
+              </span>
+              <h2 className="font-serif text-[26px] leading-snug sm:text-[30px]">{t("approachHeading")}</h2>
+              <div className="mt-6 border-l-2 border-wood/30 pl-6">
+                <p className="max-w-xl text-[16px] leading-relaxed text-warm-grey">
+                  {tProjects(`${slug}.approach`)}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <ProjectHighlights
+        eyebrow={t("highlightsEyebrow")}
+        heading={t("highlightsHeading")}
+        highlights={highlights}
+        backgroundImage={highlightsImage}
+      />
 
       {project.gallery.length > 1 && (
         <section className="bg-beige py-24">
@@ -169,8 +268,6 @@ export default async function ProjectDetailPage({
           </div>
         </section>
       )}
-
-      <MidCta />
     </>
   );
 }

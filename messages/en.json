@@ -12,7 +12,7 @@
     "ctaTag": "Your dream space starts here",
     "ctaHeading": "Ready to transform your space into something extraordinary?",
     "ctaButton": "Start Your Project Today",
-    "tagline": "Dubai's trusted interior renovation & fit-out studio — turning bare shells and tired spaces into homes and workplaces people love, on time and on budget.",
+    "tagline": "Dubai's trusted interior renovation & fit-out studio, turning bare shells and tired spaces into homes and workplaces people love, on time and on budget.",
     "quickLinks": "Quick Links",
     "location": "Visit Us",
     "locationAddress": "Business Bay, Marasi Drive",
@@ -42,8 +42,8 @@
   },
   "Hero": {
     "badge": "Dubai's Full-Service Interior Renovation Studio",
-    "title": "Interior renovation, fit-out & custom joinery — designed, approved and built by one team.",
-    "subtitle": "From first sketch to final handover, G.A.G Interiors manages design, authority approvals, on-site renovation and bespoke furniture under a single roof — so your project moves faster, with zero finger-pointing between contractors.",
+    "title": "Interior renovation, fit-out & custom joinery, designed, approved and built by one team.",
+    "subtitle": "From first sketch to final handover, G.A.G Interiors manages design, authority approvals, on-site renovation and bespoke furniture under a single roof, so your project moves faster, with zero finger-pointing between contractors.",
     "stat1": "Projects Delivered",
     "stat2": "Client Satisfaction",
     "stat3": "Years Renovating the UAE"
@@ -62,7 +62,15 @@
       "location": "Dubai Marina",
       "scope": "Full renovation & fit-out",
       "timeline": "10 weeks",
-      "description": "A full penthouse renovation on Dubai Marina, pairing custom joinery with a terrace fit-out designed for entertaining — coordinated from technical drawings through to final handover."
+      "description": "A full penthouse renovation on Dubai Marina, pairing custom joinery with a terrace fit-out designed for entertaining, coordinated from technical drawings through to final handover.",
+      "brief": "The client, a longtime Dubai Marina resident upgrading to a marina-view penthouse, wanted the raw shell turned into a home built for both daily living and hosting, without waiting through a slow, multi-contractor process.",
+      "approach": "We began with a full technical survey and a joinery-led design language that carried through every room, from the entry console to the primary suite's wardrobe wall. Custom furniture and cabinetry were manufactured in our own workshop while the site team executed civil, MEP and finishing works in parallel, keeping the ten-week timeline intact. The terrace was treated as a fully specified room in its own right: weatherproof joinery, outdoor lighting and a built-in servery designed around how the client entertains.",
+      "highlights": [
+        { "title": "Custom joinery throughout", "body": "Every cabinet, console and wardrobe wall built in-house and fitted to the millimetre." },
+        { "title": "Terrace built for entertaining", "body": "Weatherproof joinery, lighting and a servery designed around how the client hosts." },
+        { "title": "One team, one schedule", "body": "Design, approvals and site execution run by the same accountable team throughout." },
+        { "title": "Handover in 10 weeks", "body": "From technical drawings to final snagging, on the timeline agreed at kickoff." }
+      ]
     },
     "downtown": {
       "title": "Downtown Villa Fit-Out",
@@ -70,7 +78,15 @@
       "location": "Downtown Dubai",
       "scope": "Complete interior fit-out",
       "timeline": "12 weeks",
-      "description": "A complete villa fit-out in Downtown Dubai — civil, MEP, finishes and joinery coordinated under one team, from site mobilisation to snagging and handover."
+      "description": "A complete villa fit-out in Downtown Dubai, civil, MEP, finishes and joinery coordinated under one team, from site mobilisation to snagging and handover.",
+      "brief": "A family relocating to Downtown Dubai needed a full villa fit-out completed before the lease on their temporary residence expired, leaving no room for delays between design, approvals and execution.",
+      "approach": "Civil, MEP and finishing works were sequenced against building management's approval timeline from day one, so the schedule never stalled waiting on paperwork. Our own site team ran the project from demolition through to snagging, with weekly progress walkthroughs and quality checks logged against the approved drawings, so nothing was left to interpretation between design and delivery.",
+      "highlights": [
+        { "title": "Approvals ran in parallel", "body": "NOC and permit submissions sequenced alongside design so site works started on schedule." },
+        { "title": "Full civil & MEP scope", "body": "Structural, plumbing, electrical and HVAC works executed to the approved drawings." },
+        { "title": "Weekly quality walkthroughs", "body": "Site inspections logged against the drawings at every stage, not just at handover." },
+        { "title": "Clean handover in 12 weeks", "body": "Snagging closed out before keys were handed back to the family." }
+      ]
     },
     "albarari": {
       "title": "Al Barari Kitchen & Joinery",
@@ -78,7 +94,15 @@
       "location": "Al Barari",
       "scope": "Custom kitchen concept",
       "timeline": "6 weeks",
-      "description": "A bespoke kitchen concept for an Al Barari villa, designed around the client's cooking and entertaining habits and manufactured in-house to millimetre-accurate tolerances."
+      "description": "A bespoke kitchen concept for an Al Barari villa, designed around the client's cooking and entertaining habits and manufactured in-house to millimetre-accurate tolerances.",
+      "brief": "For an Al Barari villa owner who cooks and entertains often, a showroom-template kitchen wasn't going to work. The brief called for a layout and storage plan built around how the household actually uses the space.",
+      "approach": "We spent time understanding cooking habits, appliance preferences and entertaining patterns before a single cabinet was drawn. The resulting concept pairs an island built for prep and casual dining with a fully concealed scullery kitchen for the messier side of cooking, all manufactured in-house to millimetre-accurate tolerances so the fit against the villa's existing structure is exact.",
+      "highlights": [
+        { "title": "Built around real habits", "body": "Layout shaped by how the client cooks and entertains, not a showroom template." },
+        { "title": "Concealed scullery kitchen", "body": "A second working kitchen keeps the show kitchen guest-ready at all times." },
+        { "title": "In-house manufacturing", "body": "Cabinetry built and finished under one roof for consistent quality." },
+        { "title": "Millimetre-accurate fit", "body": "Site-measured and fabricated to match the villa's existing structure exactly." }
+      ]
     },
     "jbr": {
       "title": "JBR Apartment Refresh",
@@ -86,14 +110,22 @@
       "location": "Jumeirah Beach Residence",
       "scope": "Renovation & joinery",
       "timeline": "8 weeks",
-      "description": "An apartment renovation in JBR combining bathroom and living space updates with custom joinery, fitted to match the building's approval requirements and the client's finish palette."
+      "description": "An apartment renovation in JBR combining bathroom and living space updates with custom joinery, fitted to match the building's approval requirements and the client's finish palette.",
+      "brief": "An owner-occupied JBR apartment needed a bathroom and living space refresh that met the building's strict approval requirements, without the resident having to vacate for the full renovation period.",
+      "approach": "We prepared and submitted the required building documentation before any site works began, then phased the renovation so key living areas stayed usable for as long as possible. Custom joinery was fabricated off-site and installed in short, scheduled windows to minimise disruption, with finishes matched to the client's palette across both the bathroom and living space.",
+      "highlights": [
+        { "title": "Building approvals secured first", "body": "Documentation submitted and cleared before any site works began." },
+        { "title": "Phased around daily life", "body": "Renovation sequenced so the apartment stayed liveable for as long as possible." },
+        { "title": "Off-site joinery fabrication", "body": "Cabinetry built in our workshop, installed in short, scheduled site windows." },
+        { "title": "Matched finish palette", "body": "Bathroom and living space finishes coordinated to one consistent material story." }
+      ]
     }
   },
   "AboutStats": {
     "badge": "About G.A.G Interiors",
     "titlePlain": "Redefining modern living through thoughtful",
     "titleItalic": "design",
-    "body": "G.A.G Interiors brings design, approvals, execution and custom joinery under one roof — delivering renovation and fit-out projects across Dubai and the UAE with a single team accountable from concept to keys.",
+    "body": "G.A.G Interiors brings design, approvals, execution and custom joinery under one roof, delivering renovation and fit-out projects across Dubai and the UAE with a single team accountable from concept to keys.",
     "cta": "More About Us",
     "stat1": "Projects Delivered",
     "stat2": "Client Satisfaction"
@@ -125,7 +157,7 @@
     "scrollToExpand": "Scroll to Expand",
     "badge": "Featured Transformation",
     "title": "From bare shell to a home that feels finished before you've even moved in.",
-    "body1": "A full villa fit-out on Palm Jumeirah — joinery, lighting and finishes coordinated end to end so every room reads as one continuous design story, not a series of disconnected decisions.",
+    "body1": "A full villa fit-out on Palm Jumeirah, joinery, lighting and finishes coordinated end to end so every room reads as one continuous design story, not a series of disconnected decisions.",
     "body2": "Delivered in 14 weeks, with authority approvals, MEP coordination and material sourcing all managed in-house, start to finish.",
     "stat1Label": "Timeline",
     "stat1Value": "14 Weeks",
@@ -141,30 +173,30 @@
     "badge": "Why Homeowners Choose Us",
     "titlePlain": "Our Commitment to Design",
     "titleItalic": "Excellence",
-    "body": "We partner with trusted artisans and premium suppliers so every wall, surface and detail reflects lasting quality — not just an opening-day finish.",
+    "body": "We partner with trusted artisans and premium suppliers so every wall, surface and detail reflects lasting quality, not just an opening-day finish.",
     "point1Title": "Bespoke Design, Built Around You",
-    "point1Body": "No templates, no cookie-cutter layouts — every concept is shaped around your lifestyle, taste and how you actually live in the space.",
+    "point1Body": "No templates, no cookie-cutter layouts, every concept is shaped around your lifestyle, taste and how you actually live in the space.",
     "point2Title": "Timeless, Not Trendy",
-    "point2Body": "We design interiors that age gracefully — refined, elegant spaces that still feel right five and ten years from now.",
+    "point2Body": "We design interiors that age gracefully, refined, elegant spaces that still feel right five and ten years from now.",
     "point3Title": "Obsessive Attention to Detail",
     "point3Body": "From spatial proportions to the final touch of hardware, every element is crafted with precision so the whole space feels effortless."
   },
   "Process": {
     "badge": "Our Process",
     "title": "One coordinated journey, from first call to final walkthrough.",
-    "body": "No juggling separate contractors, no gaps between design and delivery. One team carries your project through design, approvals, execution and furniture — start to finish, with full accountability at every step.",
+    "body": "No juggling separate contractors, no gaps between design and delivery. One team carries your project through design, approvals, execution and furniture, start to finish, with full accountability at every step.",
     "listen": "Listen & Collaborate",
     "listenBody": "We shape the brief around your vision, with your input welcomed at every stage.",
     "budget": "Budget & Planning",
     "budgetBody": "Every schedule, order and delivery is tracked so nothing stalls on site.",
     "design": "Design & Installation",
-    "designBody": "Balanced, functional interiors delivered — and supported long after handover.",
+    "designBody": "Balanced, functional interiors delivered, and supported long after handover.",
     "steps": {
       "consultation": { "label": "Consultation", "desc": "We meet, listen to your brief, and walk the space to understand scope, budget and timeline." },
       "siteVisit": { "label": "Site Visit", "desc": "Precise measurements, a condition survey and full photo documentation of the existing site." },
       "design": { "label": "Design", "desc": "Concept, mood boards, material palette and 3D visuals built around your brief." },
       "approvals": { "label": "Approvals", "desc": "Drawings packaged and submitted for every required authority NOC and permit." },
-      "quotation": { "label": "Quotation", "desc": "Transparent, itemised pricing across design, execution, fit-out and furniture — no surprises later." },
+      "quotation": { "label": "Quotation", "desc": "Transparent, itemised pricing across design, execution, fit-out and furniture, no surprises later." },
       "execution": { "label": "Execution", "desc": "Renovation and site works begin, managed daily by our own project team." },
       "production": { "label": "Production", "desc": "Custom joinery, kitchens and furniture manufactured in our own workshop." },
       "installation": { "label": "Installation", "desc": "Fit-out, furniture placement and final styling completed on site." },
@@ -182,23 +214,23 @@
     "secondaryAction": "See Our Projects",
     "t1Name": "A. Al Mansoori",
     "t1Title": "Villa Owner, Dubai",
-    "t1Quote": "The team transformed our villa into something beyond what we imagined. Every single detail was considered — nothing felt like an afterthought.",
+    "t1Quote": "The team transformed our villa into something beyond what we imagined. Every single detail was considered, nothing felt like an afterthought.",
     "t2Name": "S. Khan",
     "t2Title": "Operations Director, Abu Dhabi",
     "t2Quote": "Professional, precise and genuinely creative. Our office fit-out was delivered on time, on budget, with zero drama.",
     "t3Name": "R. Haddad",
     "t3Title": "Homeowner, Dubai",
-    "t3Quote": "A design partner who truly listens. Our new home feels unmistakably like us — only elevated."
+    "t3Quote": "A design partner who truly listens. Our new home feels unmistakably like us, only elevated."
   },
   "Risks": {
     "badge": "What We Help You Avoid",
     "title": "Most renovations go wrong in the same predictable ways. Yours won't.",
-    "subtitle": "Here's what we watch for on every project — before it ever becomes a problem — and exactly how we prevent it.",
+    "subtitle": "Here's what we watch for on every project, before it ever becomes a problem, and exactly how we prevent it.",
     "riskLabel": "Risk",
     "solvedLabel": "Solved",
     "preventLabel": "How we prevent it",
     "items": {
-      "scope": { "title": "Unclear project scope", "prevention": "A signed scope document before any contract is issued — no ambiguity, no scope creep." },
+      "scope": { "title": "Unclear project scope", "prevention": "A signed scope document before any contract is issued, no ambiguity, no scope creep." },
       "measurements": { "title": "Wrong site measurements", "prevention": "A laser-verified site survey ahead of every single design drawing." },
       "mep": { "title": "MEP conflicts mid-execution", "prevention": "MEP drawings cross-checked with design before a single wall is touched." },
       "approvals": { "title": "Approval delays that stall your project", "prevention": "Authority submissions handled in-house and tracked end to end." },
@@ -208,7 +240,7 @@
   },
   "MaterialsTeaser": {
     "badge": "Materials & Finishes",
-    "title": "Stone, wood and finish — sourced with intent, not convenience.",
+    "title": "Stone, wood and finish, sourced with intent, not convenience.",
     "body": "Every material is selected and procured to match your design brief, not the nearest available option on the shelf.",
     "trust": {
       "sourced": {
@@ -228,7 +260,7 @@
   "ApprovalsTeaser": {
     "badge": "Approvals, NOCs & Permits",
     "title": "The paperwork, completely handled.",
-    "body": "NOCs, minor works, major modification coordination and documentation — managed on your behalf, so approvals never hold your project hostage.",
+    "body": "NOCs, minor works, major modification coordination and documentation, managed on your behalf, so approvals never hold your project hostage.",
     "points": {
       "nocs": { "title": "NOC Submissions", "body": "Prepared and lodged with every relevant authority." },
       "compliance": { "title": "Full Compliance", "body": "Documentation aligned with local regulations." },
@@ -240,7 +272,7 @@
     "title": "A Coordinated Team",
     "scrollToExpand": "Scroll to Expand",
     "badge": "About G.A.G",
-    "heading": "A coordinated team — not a list of contractors to chase.",
+    "heading": "A coordinated team, not a list of contractors to chase.",
     "body": "G.A.G Interiors brings design, approvals, execution and joinery under one roof, so nothing gets lost between handoffs and nobody points fingers when something needs fixing.",
     "cta": "About Us",
     "pillar1": "Design",
@@ -250,7 +282,7 @@
   },
   "FinalCta": {
     "title": "Let's talk about your project.",
-    "body": "WhatsApp us, request a free quote, or book a site visit — whichever works best for you. We reply fast.",
+    "body": "WhatsApp us, request a free quote, or book a site visit, whichever works best for you. We reply fast.",
     "whatsapp": "WhatsApp Us",
     "requestQuote": "Get a Free Quote",
     "bookVisit": "Book a Site Visit",
@@ -275,7 +307,7 @@
       },
       "premium": {
         "name": "Premium Package",
-        "description": "Our most comprehensive solution — meticulous planning, coordination and execution support, start to finish.",
+        "description": "Our most comprehensive solution, meticulous planning, coordination and execution support, start to finish.",
         "features": ["Full design concept & development", "Advanced 3D renderings", "Complete technical documentation", "Project management support", "Contractor coordination", "Custom built-in & joinery design", "Final styling & handover"]
       }
     }
@@ -291,7 +323,7 @@
     "titleAnd": "and",
     "titleItalic2": "delivery",
     "body1": "G.A.G Interiors started from a frustration shared by homeowners across the UAE: design studios draw beautiful renders, contractors execute someone else's drawings, and nobody owns the outcome when things fall through the cracks.",
-    "body2": "So we built one studio that carries a project from the first concept sketch, through authority approvals and on-site renovation, to custom joinery and final handover — with one team accountable at every single stage.",
+    "body2": "So we built one studio that carries a project from the first concept sketch, through authority approvals and on-site renovation, to custom joinery and final handover, with one team accountable at every single stage.",
     "body3": "Today that means over 150 homes and commercial spaces across Dubai, Abu Dhabi and the Northern Emirates, each delivered through the same coordinated, no-surprises process.",
     "values": {
       "design": { "label": "Design", "detail": "Concept, space planning and material direction" },
@@ -312,14 +344,14 @@
     "badge": "Meet the Founder",
     "title": "A studio led by one point of accountability, not a committee.",
     "body1": "G.A.G Interiors was founded on a simple belief: great interiors come from continuity. The same eye that sketches the first concept should be the one signing off on the final detail of installation. Our founder leads every project personally through design, approvals and execution, working alongside a tight team of architects, engineers and craftsmen who hold that same standard.",
-    "body2": "With over a decade shaping residential and commercial interiors across the UAE, the focus has never wavered: fewer handoffs, clearer communication, and spaces that feel truly resolved — not just decorated.",
+    "body2": "With over a decade shaping residential and commercial interiors across the UAE, the focus has never wavered: fewer handoffs, clearer communication, and spaces that feel truly resolved, not just decorated.",
     "stat1Label": "Years in the UAE",
     "stat2Label": "Projects Led"
   },
   "PortfolioPreview": {
     "badge": "Selected Work",
     "title": "Recent projects across the UAE",
-    "subtitle": "Every project below was designed, approved and delivered by one accountable team — from first sketch to final handover.",
+    "subtitle": "Every project below was designed, approved and delivered by one accountable team, from first sketch to final handover.",
     "completedHeading": "Completed Projects",
     "conceptHeading": "Design Concepts"
   },
@@ -351,7 +383,7 @@
     "message": "Message / Notes",
     "messagePlaceholder": "Tell us about your project...",
     "submit": "Get My Free Quote",
-    "thankYou": "Thank you — your enquiry has been received. Our team will be in touch shortly."
+    "thankYou": "Thank you, your enquiry has been received. Our team will be in touch shortly."
   },
   "ContactFormPanel": {
     "eyebrow": "Get In Touch",
@@ -359,11 +391,11 @@
   },
   "HomePage": {
     "metaTitle": "Interior Renovation & Fit-Out Company in Dubai | G.A.G Interiors",
-    "metaDescription": "G.A.G Interiors is Dubai's full-cycle interior renovation, fit-out and custom joinery company. Design, authority approvals, custom kitchens, wardrobes and villa renovation across the UAE — one coordinated team, one point of accountability. Get a free quote today."
+    "metaDescription": "G.A.G Interiors is Dubai's full-cycle interior renovation, fit-out and custom joinery company. Design, authority approvals, custom kitchens, wardrobes and villa renovation across the UAE, one coordinated team, one point of accountability. Get a free quote today."
   },
   "AboutPage": {
     "metaTitle": "About G.A.G Interiors | Trusted Renovation & Fit-Out Specialists in Dubai",
-    "metaDescription": "Meet the team behind G.A.G Interiors — a full-cycle interior renovation, fit-out and custom joinery company serving Dubai, Abu Dhabi and the UAE, coordinating design, approvals, execution and custom furniture under one roof since 2014.",
+    "metaDescription": "Meet the team behind G.A.G Interiors, a full-cycle interior renovation, fit-out and custom joinery company serving Dubai, Abu Dhabi and the UAE, coordinating design, approvals, execution and custom furniture under one roof since 2014.",
     "eyebrow": "About G.A.G Interiors",
     "title": "A coordinated team, not a contractor list",
     "description": "G.A.G Interiors is a full-cycle interior renovation, fit-out and custom joinery company in the UAE, delivering coordinated support from design, technical drawings and approvals through to renovation, finishing materials, custom furniture, installation and handover."
@@ -373,17 +405,17 @@
     "metaDescription": "Get a free quote or book a site visit with G.A.G Interiors, Dubai's trusted interior renovation and fit-out specialists. We reply within one business day.",
     "eyebrow": "Get in Touch",
     "title": "Get a free quote or book a site visit",
-    "description": "Tell us about your project and our team will be in touch within one business day — no obligation, no pressure."
+    "description": "Tell us about your project and our team will be in touch within one business day, no obligation, no pressure."
   },
   "PortfolioPage": {
     "metaTitle": "Our Projects | Interior Renovation & Fit-Out Portfolio Dubai | G.A.G Interiors",
-    "metaDescription": "Browse completed renovation, fit-out and custom joinery projects across Dubai and the UAE — real transformations from villas, apartments and commercial spaces.",
+    "metaDescription": "Browse completed renovation, fit-out and custom joinery projects across Dubai and the UAE, real transformations from villas, apartments and commercial spaces.",
     "eyebrow": "Our Projects",
     "title": "Completed works and design concepts"
   },
   "ServicesPage": {
     "metaTitle": "Interior Design & Renovation Services in Dubai | G.A.G Interiors",
-    "metaDescription": "Explore our full range of interior services in Dubai: design & technical drawings, NOC approvals, renovation & fit-out, HVAC coordination, custom kitchens, wardrobes and bespoke joinery — all under one team."
+    "metaDescription": "Explore our full range of interior services in Dubai: design & technical drawings, NOC approvals, renovation & fit-out, HVAC coordination, custom kitchens, wardrobes and bespoke joinery, all under one team."
   },
   "ServiceDetail": {
     "ourServices": "Our Services",
@@ -393,7 +425,7 @@
     "howItWorks": "How It Works",
     "processHeading": "Our process for this service.",
     "designGallery": "Design Gallery",
-    "galleryHeadingSuffix": "— completed work and design concepts.",
+    "galleryHeadingSuffix": "completed work and design concepts.",
     "galleryDisclaimer": "Visuals shown are design concepts and reference imagery for illustrative purposes, not completed G.A.G Interiors projects unless stated otherwise.",
     "readyToStart": "Ready to start?",
     "requestQuote": "Get a Free Quote",
@@ -411,6 +443,7 @@
     "commonProblems": "Common problems we help you avoid"
   },
   "ProjectDetail": {
+    "atAGlance": "Project at a Glance",
     "location": "Location",
     "scope": "Scope",
     "timeline": "Timeline",
@@ -420,6 +453,13 @@
     "requestQuote": "Get a Free Quote",
     "explore": "Explore More",
     "otherProjects": "Other projects you may like",
-    "backToPortfolio": "Back to all projects"
+    "backToPortfolio": "Back to all projects",
+    "consultNote": "Free consultation, no obligation — we typically reply within a few hours.",
+    "briefEyebrow": "The Brief",
+    "briefHeading": "Where the project started",
+    "approachEyebrow": "Our Approach",
+    "approachHeading": "How we delivered it",
+    "highlightsEyebrow": "What We Delivered",
+    "highlightsHeading": "Highlights from this project"
   }
 }

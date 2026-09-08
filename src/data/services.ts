@@ -7,12 +7,12 @@ const servicesEn = [
   {
     slug: "interior-design",
     title: "Interior Design & Technical Drawings in Dubai",
-    description: "From first concept to construction-ready drawings — interior design that gets built exactly as envisioned.",
+    description: "From first concept to construction-ready drawings, interior design that gets built exactly as envisioned.",
     href: "/services/interior-design",
     image: "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=1200&auto=format&fit=crop",
     heroImage: "https://images.unsplash.com/photo-1751283226474-869937c075d6?q=80&w=1920&auto=format&fit=crop",
     intro:
-      "We take your space from a first conversation to fully detailed, construction-ready drawings — covering layout, materials, lighting and joinery — so nothing is left for site teams to guess at and nothing gets lost in translation between designer and builder.",
+      "We take your space from a first conversation to fully detailed, construction-ready drawings, covering layout, materials, lighting and joinery, so nothing is left for site teams to guess at and nothing gets lost in translation between designer and builder.",
     highlights: [
       { title: "Concept & mood boards", body: "A clear design direction, agreed before any drawing starts." },
       { title: "Space planning", body: "Layouts tested for flow, function and daily use." },
@@ -40,6 +40,8 @@ const servicesEn = [
       { value: 6, suffix: " wks", label: "Avg. concept-to-drawings" },
       { value: 100, suffix: "%", label: "Construction-ready packs" },
     ] as ServiceStat[],
+    video: "https://videos.pexels.com/video-files/9618378/9618378-uhd_1440_2732_25fps.mp4",
+    videoCaption: "Concept, drawings and detailing coming together at the design table.",
     process: [
       { title: "Brief & Site Walk", desc: "We listen to your brief and survey the existing space in detail." },
       { title: "Concept & Mood Board", desc: "A clear design direction agreed with you before any drawing starts." },
@@ -54,7 +56,7 @@ const servicesEn = [
       { title: "Material specification", body: "Every finish, fixture and fitting specified before quotation, not during it." },
     ] as ServiceFocusArea[],
     faqs: [
-      { q: "Do I need approved drawings before renovation can start?", a: "Yes — most buildings in Dubai require approved technical drawings before management or municipal sign-off. We prepare drawings to the standard required for submission." },
+      { q: "Do I need approved drawings before renovation can start?", a: "Yes, most buildings in Dubai require approved technical drawings before management or municipal sign-off. We prepare drawings to the standard required for submission." },
       { q: "How long does the design phase take?", a: "A typical apartment concept-to-drawings package takes around four to six weeks, depending on scope and revisions." },
       { q: "Can you work from an existing architect's plan?", a: "Yes, we can develop technical and joinery drawings from an existing base plan, or start from scratch with a full space-planning exercise." },
     ] as ServiceFAQ[],
@@ -62,12 +64,12 @@ const servicesEn = [
   {
     slug: "approvals-noc-permits",
     title: "NOC & Renovation Approvals in Dubai",
-    description: "Building management, developer and municipal approvals — handled from start to finish, so your project never stalls on paperwork.",
+    description: "Building management, developer and municipal approvals, handled from start to finish, so your project never stalls on paperwork.",
     href: "/services/approvals-noc-permits",
     image: "https://images.unsplash.com/photo-1608303588026-884930af2559?q=80&w=1200&auto=format&fit=crop",
     heroImage: "https://images.unsplash.com/photo-1608303588026-884930af2559?q=80&w=1920&auto=format&fit=crop",
     intro:
-      "Building management, developer and municipal approvals can stall a project for weeks — sometimes months. We manage the submissions, NOCs and permit process on your behalf, so work starts on schedule and stays there.",
+      "Building management, developer and municipal approvals can stall a project for weeks, sometimes months. We manage the submissions, NOCs and permit process on your behalf, so work starts on schedule and stays there.",
     highlights: [
       { title: "Developer & building NOCs", body: "Submissions prepared and tracked to approval." },
       { title: "Municipal permits", body: "Documentation aligned with local renovation and fit-out codes." },
@@ -95,6 +97,8 @@ const servicesEn = [
       { value: 1, label: "Point of contact, start to finish" },
       { value: 90, suffix: "%", label: "Submissions cleared first pass" },
     ] as ServiceStat[],
+    video: "https://videos.pexels.com/video-files/8440326/8440326-uhd_2560_1440_25fps.mp4",
+    videoCaption: "Documentation and approvals being finalised ahead of site works.",
     process: [
       { title: "Document Review", desc: "We assess what your building or authority will require before submission." },
       { title: "Drawing Preparation", desc: "Technical drawings and method statements prepared to the required format." },
@@ -110,19 +114,19 @@ const servicesEn = [
     ] as ServiceFocusArea[],
     faqs: [
       { q: "Do you guarantee approval?", a: "No approval process can be guaranteed by any party, as final decisions rest with building management or the relevant authority. We prepare and submit documentation to the standard most likely to be accepted, and manage follow-up on your behalf." },
-      { q: "How long do approvals typically take?", a: "Timelines vary by building and scope — minor works are often quicker than major modifications. We sequence submissions early so approvals don't hold up your renovation schedule." },
+      { q: "How long do approvals typically take?", a: "Timelines vary by building and scope, minor works are often quicker than major modifications. We sequence submissions early so approvals don't hold up your renovation schedule." },
       { q: "Can you handle approvals for a project you are not executing?", a: "In most cases we manage approvals as part of a full design-and-build engagement, so documentation, drawings and site works stay coordinated." },
     ] as ServiceFAQ[],
   },
   {
     slug: "renovation-fit-out-dubai",
     title: "Villa & Apartment Renovation and Fit-Out in Dubai",
-    description: "Full-scope renovation and fit-out execution, start to finish — one accountable team on site until handover.",
+    description: "Full-scope renovation and fit-out execution, start to finish, one accountable team on site until handover.",
     href: "/services/renovation-fit-out-dubai",
     image: "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=1200&auto=format&fit=crop",
     heroImage: "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=1920&auto=format&fit=crop",
     intro:
-      "From full villa renovations to apartment fit-outs, our site team executes the approved design end to end — coordinating trades, materials and quality control every step of the way until handover.",
+      "From full villa renovations to apartment fit-outs, our site team executes the approved design end to end, coordinating trades, materials and quality control every step of the way until handover.",
     highlights: [
       { title: "Full-scope execution", body: "Civil, MEP, finishes and joinery under one team." },
       { title: "Quality control", body: "Regular site inspections against the approved drawings." },
@@ -150,7 +154,7 @@ const servicesEn = [
       { value: 12, suffix: " wks", label: "Avg. villa turnaround" },
       { value: 1, label: "Team, from demolition to handover" },
     ] as ServiceStat[],
-    video: "/videos/hero.mp4",
+    video: "https://videos.pexels.com/video-files/34918464/14791453_1440_2560_30fps.mp4",
     videoCaption: "Renovation and fit-out works in progress on a recent Dubai villa project.",
     process: [
       { title: "Site Setup", desc: "Protection, demolition coordination and site mobilisation." },
@@ -166,20 +170,20 @@ const servicesEn = [
       { title: "Quality supervision", body: "Site inspections logged against the approved drawings at every stage." },
     ] as ServiceFocusArea[],
     faqs: [
-      { q: "Do you handle both design and execution?", a: "Yes — most of our renovation projects run through one coordinated team, from technical drawings and approvals through to execution and handover." },
+      { q: "Do you handle both design and execution?", a: "Yes, most of our renovation projects run through one coordinated team, from technical drawings and approvals through to execution and handover." },
       { q: "How long does a typical renovation take?", a: "An apartment renovation typically runs six to ten weeks; villa renovations vary more widely depending on scope, usually ten to twenty weeks." },
-      { q: "Can you work around an occupied property?", a: "Yes, phased renovation is possible for many projects — we discuss sequencing with you at the site-visit stage." },
+      { q: "Can you work around an occupied property?", a: "Yes, phased renovation is possible for many projects, we discuss sequencing with you at the site-visit stage." },
     ] as ServiceFAQ[],
   },
   {
     slug: "hvac-ventilation-dubai",
     title: "HVAC, Ventilation & MEP Coordination in Dubai",
-    description: "Air-conditioning, ventilation and MEP engineered alongside your design — not bolted on as an afterthought.",
+    description: "Air-conditioning, ventilation and MEP engineered alongside your design, not bolted on as an afterthought.",
     href: "/services/hvac-ventilation-dubai",
     image: "https://images.unsplash.com/photo-1574334292321-4844f63aefef?q=80&w=1200&auto=format&fit=crop",
     heroImage: "https://images.unsplash.com/photo-1574334292321-4844f63aefef?q=80&w=1920&auto=format&fit=crop",
     intro:
-      "Integrated air-conditioning, ventilation and MEP coordination for apartment, villa and commercial interior projects in Dubai and across the UAE — planned into the design from day one, so ceilings stay clean and airflow stays right.",
+      "Integrated air-conditioning, ventilation and MEP coordination for apartment, villa and commercial interior projects in Dubai and across the UAE, planned into the design from day one, so ceilings stay clean and airflow stays right.",
     highlights: [
       { title: "HVAC & air conditioning", body: "FCU coordination, AC modifications, relocation of supply/return air points, duct routes and access panels." },
       { title: "Ventilation systems", body: "Fresh-air requirements, exhaust and bathroom/kitchen ventilation coordination." },
@@ -209,8 +213,8 @@ const servicesEn = [
       { value: 3, label: "System types: AC, ventilation, ductwork" },
       { value: 100, suffix: "%", label: "Coordinated with design & MEP" },
     ] as ServiceStat[],
-    video: "/videos/hero.mp4",
-    videoCaption: "Ceiling and MEP coordination during an ongoing fit-out — ductwork, diffusers and lighting brought together on site.",
+    video: "https://videos.pexels.com/video-files/3010813/3010813-hd_1920_1080_24fps.mp4",
+    videoCaption: "Ceiling and MEP coordination during an ongoing fit-out, ductwork, diffusers and lighting brought together on site.",
     process: [
       { title: "Site Assessment", desc: "Existing system review and condition survey of AC, ducting and ventilation." },
       { title: "Interior / Ceiling Coordination", desc: "HVAC routes aligned with ceiling design, lighting and joinery early." },
@@ -234,7 +238,7 @@ const servicesEn = [
       "Loss of ceiling height from late-stage coordination",
     ],
     faqs: [
-      { q: "Do you handle AC repairs and maintenance?", a: "Our focus is project-based HVAC coordination as part of renovation and fit-out — assessing, modifying and integrating systems within a design, not standalone repair or maintenance callouts." },
+      { q: "Do you handle AC repairs and maintenance?", a: "Our focus is project-based HVAC coordination as part of renovation and fit-out, assessing, modifying and integrating systems within a design, not standalone repair or maintenance callouts." },
       { q: "Can you relocate existing AC points?", a: "Yes, relocation of supply and return air points, FCUs and ductwork is planned as part of the interior and ceiling coordination during design." },
       { q: "Is testing and commissioning included?", a: "Where included in the project scope, we coordinate testing, balancing and commissioning ahead of handover documentation." },
     ] as ServiceFAQ[],
@@ -242,12 +246,12 @@ const servicesEn = [
   {
     slug: "custom-kitchens-dubai",
     title: "Custom Kitchen Design & Installation in Dubai",
-    description: "Bespoke kitchens designed around how you cook and entertain — built in-house, fitted to millimetre-accurate measurements.",
+    description: "Bespoke kitchens designed around how you cook and entertain, built in-house, fitted to millimetre-accurate measurements.",
     href: "/services/custom-kitchens-dubai",
     image: "https://images.unsplash.com/photo-1682888813913-e13f18692019?q=80&w=1200&auto=format&fit=crop",
     heroImage: "https://images.unsplash.com/photo-1682888813913-e13f18692019?q=80&w=1920&auto=format&fit=crop",
     intro:
-      "Kitchens designed around how you actually cook and entertain — not a showroom template — built in-house and installed to millimetre-accurate site measurements for a flawless fit.",
+      "Kitchens designed around how you actually cook and entertain, not a showroom template, built in-house and installed to millimetre-accurate site measurements for a flawless fit.",
     highlights: [
       { title: "Bespoke layouts", body: "Designed to your kitchen's exact footprint." },
       { title: "In-house manufacturing", body: "Cabinetry built and finished under one roof." },
@@ -275,6 +279,8 @@ const servicesEn = [
       { value: 100, suffix: "%", label: "Built in-house" },
       { value: 8, suffix: " wks", label: "Avg. design-to-install" },
     ] as ServiceStat[],
+    video: "https://videos.pexels.com/video-files/3773488/3773488-hd_1920_1080_30fps.mp4",
+    videoCaption: "Custom cabinetry and worktops coming together in a recent kitchen fit-out.",
     process: [
       { title: "Measure & Brief", desc: "Precise site measurement and a conversation about how you cook and entertain." },
       { title: "Layout & Design", desc: "Cabinetry, worktop and appliance layout planned around your footprint." },
@@ -297,12 +303,12 @@ const servicesEn = [
   {
     slug: "custom-wardrobes-dubai",
     title: "Custom Wardrobes & Storage Solutions in Dubai",
-    description: "Built-in wardrobes, vanities and storage designed to use every inch of a room — finished to match the rest of your interior.",
+    description: "Built-in wardrobes, vanities and storage designed to use every inch of a room, finished to match the rest of your interior.",
     href: "/services/custom-wardrobes-dubai",
     image: "https://images.unsplash.com/photo-1754788358645-d6e6cca12e25?q=80&w=1200&auto=format&fit=crop",
     heroImage: "https://images.unsplash.com/photo-1754788358645-d6e6cca12e25?q=80&w=1920&auto=format&fit=crop",
     intro:
-      "Built-in wardrobes, vanities and storage designed to use every inch of a room — including the awkward ones — finished to match the rest of the interior seamlessly.",
+      "Built-in wardrobes, vanities and storage designed to use every inch of a room, including the awkward ones, finished to match the rest of the interior seamlessly.",
     highlights: [
       { title: "Built-in wardrobes", body: "Walk-ins and reach-ins designed to fit awkward spaces." },
       { title: "Vanities & storage", body: "Bathroom and utility storage built to match finishes." },
@@ -330,6 +336,8 @@ const servicesEn = [
       { value: 100, suffix: "%", label: "Custom-fit, not modular" },
       { value: 5, suffix: " wks", label: "Avg. design-to-install" },
     ] as ServiceStat[],
+    video: "https://videos.pexels.com/video-files/35165791/14896267_2560_1440_30fps.mp4",
+    videoCaption: "A finished built-in wardrobe, fitted and styled to the room.",
     process: [
       { title: "Measure & Assess", desc: "Room dimensions, wall lines and awkward corners surveyed on site." },
       { title: "Layout Design", desc: "Internal storage layout planned around what you actually need to store." },
@@ -344,20 +352,20 @@ const servicesEn = [
       { title: "Wall panelling", body: "Feature walls and cladding manufactured and installed in-house." },
     ] as ServiceFocusArea[],
     faqs: [
-      { q: "Can you design around an awkward room shape?", a: "Yes — most of our wardrobe and storage work is built around sloped ceilings, alcoves and non-standard wall lines rather than off-the-shelf modules." },
+      { q: "Can you design around an awkward room shape?", a: "Yes, most of our wardrobe and storage work is built around sloped ceilings, alcoves and non-standard wall lines rather than off-the-shelf modules." },
       { q: "Do you match existing finishes elsewhere in the home?", a: "Yes, we can match or complement existing joinery, flooring and hardware finishes as part of the design." },
-      { q: "Is internal organisation customisable?", a: "Yes — hanging, shelving, drawers and accessory storage are planned around what you actually need to store." },
+      { q: "Is internal organisation customisable?", a: "Yes, hanging, shelving, drawers and accessory storage are planned around what you actually need to store." },
     ] as ServiceFAQ[],
   },
   {
     slug: "custom-joinery-furniture",
     title: "Custom Joinery & Bespoke Furniture in Dubai",
-    description: "Bespoke furniture and joinery, made in-house and matched exactly to your interior — one team from design to install.",
+    description: "Bespoke furniture and joinery, made in-house and matched exactly to your interior, one team from design to install.",
     href: "/services/custom-joinery-furniture",
     image: "https://images.unsplash.com/photo-1783667818798-38903081f98f?q=80&w=1200&auto=format&fit=crop",
     heroImage: "https://images.unsplash.com/photo-1783667818798-38903081f98f?q=80&w=1920&auto=format&fit=crop",
     intro:
-      "Bespoke furniture and joinery designed to match your interior exactly — manufactured in-house to fabrication-ready precision and installed by our own team.",
+      "Bespoke furniture and joinery designed to match your interior exactly, manufactured in-house to fabrication-ready precision and installed by our own team.",
     highlights: [
       { title: "Bespoke furniture", body: "Pieces designed specifically for the space they'll sit in." },
       { title: "In-house joinery", body: "Manufactured under the same roof as our design team." },
@@ -385,6 +393,8 @@ const servicesEn = [
       { value: 100, suffix: "%", label: "Manufactured in-house" },
       { value: 1, label: "Team, design through install" },
     ] as ServiceStat[],
+    video: "https://videos.pexels.com/video-files/6789911/6789911-uhd_2560_1440_25fps.mp4",
+    videoCaption: "A piece of bespoke furniture being shaped in our workshop.",
     process: [
       { title: "Design Brief", desc: "Piece requirements, dimensions and finish direction agreed with you." },
       { title: "Technical Drawing", desc: "Fabrication-ready drawings prepared for every piece." },
@@ -400,14 +410,14 @@ const servicesEn = [
     ] as ServiceFocusArea[],
     faqs: [
       { q: "Can you match an existing finish in my home?", a: "Yes, we sample and match timber, veneer and lacquer finishes to existing joinery or a new design direction." },
-      { q: "Do you design one-off pieces or full furniture packages?", a: "Both — from a single reception counter to a full furniture package across a villa or apartment." },
+      { q: "Do you design one-off pieces or full furniture packages?", a: "Both, from a single reception counter to a full furniture package across a villa or apartment." },
       { q: "How is furniture delivered and installed?", a: "Pieces are manufactured in our workshop, then delivered and installed on site by the same team." },
     ] as ServiceFAQ[],
   },
   {
     slug: "materials-finishes",
     title: "Materials & Finishes Sourcing in Dubai",
-    description: "Stone, wood, tile and finish sourcing done right — curated to your design intent, quality-checked from sample to installation.",
+    description: "Stone, wood, tile and finish sourcing done right, curated to your design intent, quality-checked from sample to installation.",
     href: "/services/materials-finishes",
     image: "https://images.unsplash.com/photo-1551554781-c46200ea959d?q=80&w=1600&auto=format&fit=crop",
     heroImage: "https://images.unsplash.com/photo-1551554781-c46200ea959d?q=80&w=1920&auto=format&fit=crop",
@@ -440,6 +450,8 @@ const servicesEn = [
       { value: 30, suffix: "+", label: "Trusted suppliers" },
       { value: 100, suffix: "%", label: "Checked before installation" },
     ] as ServiceStat[],
+    video: "https://videos.pexels.com/video-files/7830742/7830742-uhd_2560_1440_30fps.mp4",
+    videoCaption: "A closer look at natural stone, one of the material selections we source and quality-check.",
     process: [
       { title: "Design Intent", desc: "Materials shortlisted against the agreed design direction and budget." },
       { title: "Sourcing & Sampling", desc: "Stone, tile, wood and hardware samples pulled from trusted suppliers." },
@@ -470,7 +482,7 @@ const servicesRu: typeof servicesEn = [
     image: "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=1200&auto=format&fit=crop",
     heroImage: "https://images.unsplash.com/photo-1751283226474-869937c075d6?q=80&w=1920&auto=format&fit=crop",
     intro:
-      "Мы ведём ваше пространство от первого разговора до полностью детализированных чертежей, готовых к строительству — планировка, материалы, освещение и столярные изделия, — чтобы бригаде на объекте не пришлось ничего додумывать.",
+      "Мы ведём ваше пространство от первого разговора до полностью детализированных чертежей, готовых к строительству, планировка, материалы, освещение и столярные изделия,, чтобы бригаде на объекте не пришлось ничего додумывать.",
     highlights: [
       { title: "Концепция и мудборды", body: "Чёткое дизайн-направление, согласованное до начала черчения." },
       { title: "Планировка пространства", body: "Планировки, проверенные на удобство, функциональность и повседневное использование." },
@@ -498,6 +510,8 @@ const servicesRu: typeof servicesEn = [
       { value: 6, suffix: " нед.", label: "Сред. срок концепция → чертежи" },
       { value: 100, suffix: "%", label: "Пакетов, готовых к строительству" },
     ] as ServiceStat[],
+    video: "https://videos.pexels.com/video-files/9618378/9618378-uhd_1440_2732_25fps.mp4",
+    videoCaption: "Концепция, чертежи и деталировка рождаются за столом дизайнера.",
     process: [
       { title: "Бриф и осмотр объекта", desc: "Мы выслушиваем ваш бриф и подробно осматриваем существующее пространство." },
       { title: "Концепция и мудборд", desc: "Чёткое дизайн-направление, согласованное с вами до начала черчения." },
@@ -512,7 +526,7 @@ const servicesRu: typeof servicesEn = [
       { title: "Спецификация материалов", body: "Каждая отделка, фурнитура и элемент указываются до сметы, а не во время неё." },
     ] as ServiceFocusArea[],
     faqs: [
-      { q: "Нужны ли утверждённые чертежи перед началом ремонта?", a: "Да — большинству зданий в Дубае требуются утверждённые технические чертежи перед согласованием управляющей компанией или муниципалитетом. Мы готовим чертежи по стандарту, необходимому для подачи." },
+      { q: "Нужны ли утверждённые чертежи перед началом ремонта?", a: "Да, большинству зданий в Дубае требуются утверждённые технические чертежи перед согласованием управляющей компанией или муниципалитетом. Мы готовим чертежи по стандарту, необходимому для подачи." },
       { q: "Сколько длится этап дизайна?", a: "Стандартный пакет «концепция → чертежи» для квартиры занимает около четырёх–шести недель, в зависимости от объёма и правок." },
       { q: "Можете ли вы работать по готовому плану архитектора?", a: "Да, мы можем разработать технические и столярные чертежи на основе существующего базового плана или начать с нуля с полной планировки пространства." },
     ] as ServiceFAQ[],
@@ -520,7 +534,7 @@ const servicesRu: typeof servicesEn = [
   {
     slug: "approvals-noc-permits",
     title: "Согласования, NOC и разрешения",
-    description: "Согласования с управляющей компанией — на нас.",
+    description: "Согласования с управляющей компанией, на нас.",
     href: "/services/approvals-noc-permits",
     image: "https://images.unsplash.com/photo-1608303588026-884930af2559?q=80&w=1200&auto=format&fit=crop",
     heroImage: "https://images.unsplash.com/photo-1608303588026-884930af2559?q=80&w=1920&auto=format&fit=crop",
@@ -553,6 +567,8 @@ const servicesRu: typeof servicesEn = [
       { value: 1, label: "Точка контакта от начала до конца" },
       { value: 90, suffix: "%", label: "Заявок, одобренных с первого раза" },
     ] as ServiceStat[],
+    video: "https://videos.pexels.com/video-files/8440326/8440326-uhd_2560_1440_25fps.mp4",
+    videoCaption: "Оформление документации и согласований перед началом работ на объекте.",
     process: [
       { title: "Анализ требований", desc: "Мы оцениваем, что потребует ваше здание или инстанция перед подачей." },
       { title: "Подготовка чертежей", desc: "Технические чертежи и регламенты работ готовятся в требуемом формате." },
@@ -562,13 +578,13 @@ const servicesRu: typeof servicesEn = [
     ] as ServiceProcessStep[],
     focusAreas: [
       { title: "NOC от застройщика", body: "Согласование напрямую с управляющей компанией здания или сообщества перед началом работ." },
-      { title: "Разрешения на мелкие работы", body: "Документация для изменений небольшого объёма — ремонта и отделки." },
-      { title: "Согласование крупных изменений", body: "Более масштабные конструктивные, инженерные или планировочные изменения — с полным техническим обоснованием." },
+      { title: "Разрешения на мелкие работы", body: "Документация для изменений небольшого объёма, ремонта и отделки." },
+      { title: "Согласование крупных изменений", body: "Более масштабные конструктивные, инженерные или планировочные изменения, с полным техническим обоснованием." },
       { title: "Регламенты работ и оценка рисков", body: "Объектная документация, подготовленная по стандарту, которого здания ожидают от подрядчиков." },
     ] as ServiceFocusArea[],
     faqs: [
       { q: "Гарантируете ли вы получение одобрения?", a: "Ни одна из сторон не может гарантировать процесс согласования, так как окончательное решение остаётся за управляющей компанией или соответствующей инстанцией. Мы готовим и подаём документацию по стандарту, наиболее вероятному для одобрения, и ведём сопровождение от вашего имени." },
-      { q: "Сколько обычно занимают согласования?", a: "Сроки зависят от здания и объёма работ — мелкие работы обычно согласуются быстрее крупных изменений. Мы подаём документы заранее, чтобы согласования не задерживали график ремонта." },
+      { q: "Сколько обычно занимают согласования?", a: "Сроки зависят от здания и объёма работ, мелкие работы обычно согласуются быстрее крупных изменений. Мы подаём документы заранее, чтобы согласования не задерживали график ремонта." },
       { q: "Занимаетесь ли вы согласованиями для проекта, который реализуете не вы?", a: "В большинстве случаев мы ведём согласования в рамках полного проекта «дизайн и строительство», чтобы документация, чертежи и работы на объекте оставались согласованными." },
     ] as ServiceFAQ[],
   },
@@ -580,9 +596,9 @@ const servicesRu: typeof servicesEn = [
     image: "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=1200&auto=format&fit=crop",
     heroImage: "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=1920&auto=format&fit=crop",
     intro:
-      "От полного ремонта виллы до отделки квартиры — наша команда на объекте реализует утверждённый дизайн от начала до конца, координируя бригады, материалы и контроль качества вплоть до сдачи объекта.",
+      "От полного ремонта виллы до отделки квартиры, наша команда на объекте реализует утверждённый дизайн от начала до конца, координируя бригады, материалы и контроль качества вплоть до сдачи объекта.",
     highlights: [
-      { title: "Реализация полного объёма", body: "Строительные, инженерные, отделочные и столярные работы — одна команда." },
+      { title: "Реализация полного объёма", body: "Строительные, инженерные, отделочные и столярные работы, одна команда." },
       { title: "Контроль качества", body: "Регулярные проверки на объекте на соответствие утверждённым чертежам." },
       { title: "Координация бригад", body: "Единый график, единая зона ответственности." },
       { title: "Чистая сдача объекта", body: "Все замечания устранены до передачи ключей." },
@@ -608,7 +624,7 @@ const servicesRu: typeof servicesEn = [
       { value: 12, suffix: " нед.", label: "Сред. срок ремонта виллы" },
       { value: 1, label: "Команда, от демонтажа до сдачи" },
     ] as ServiceStat[],
-    video: "/videos/hero.mp4",
+    video: "https://videos.pexels.com/video-files/34918464/14791453_1440_2560_30fps.mp4",
     videoCaption: "Ремонтные и отделочные работы в процессе на недавнем проекте виллы в Дубае.",
     process: [
       { title: "Подготовка объекта", desc: "Защита поверхностей, координация демонтажа и мобилизация на объекте." },
@@ -618,15 +634,15 @@ const servicesRu: typeof servicesEn = [
       { title: "Устранение замечаний и сдача", desc: "Полная проверка, устранение всех замечаний и передача пространства вам." },
     ] as ServiceProcessStep[],
     focusAreas: [
-      { title: "Ремонт квартиры", body: "Кухни, ванные, полы и изменения планировки — в рамках правил здания." },
+      { title: "Ремонт квартиры", body: "Кухни, ванные, полы и изменения планировки, в рамках правил здания." },
       { title: "Ремонт виллы", body: "Более масштабные строительные, инженерные и отделочные работы по всему объекту." },
       { title: "Коммерческая отделка", body: "Планировка пространства и реализация для офисов, шоурумов и гостиничных интерьеров." },
       { title: "Контроль качества", body: "Проверки на объекте фиксируются на соответствие утверждённым чертежам на каждом этапе." },
     ] as ServiceFocusArea[],
     faqs: [
-      { q: "Занимаетесь ли вы и дизайном, и реализацией?", a: "Да — большинство наших проектов ремонта ведёт одна команда: от технических чертежей и согласований до реализации и сдачи объекта." },
+      { q: "Занимаетесь ли вы и дизайном, и реализацией?", a: "Да, большинство наших проектов ремонта ведёт одна команда: от технических чертежей и согласований до реализации и сдачи объекта." },
       { q: "Сколько занимает типичный ремонт?", a: "Ремонт квартиры обычно занимает шесть–десять недель; ремонт виллы сильно варьируется в зависимости от объёма, как правило десять–двадцать недель." },
-      { q: "Можете ли вы работать в заселённой квартире?", a: "Да, поэтапный ремонт возможен для многих проектов — мы обсуждаем последовательность работ на этапе выезда на объект." },
+      { q: "Можете ли вы работать в заселённой квартире?", a: "Да, поэтапный ремонт возможен для многих проектов, мы обсуждаем последовательность работ на этапе выезда на объект." },
     ] as ServiceFAQ[],
   },
   {
@@ -637,7 +653,7 @@ const servicesRu: typeof servicesEn = [
     image: "https://images.unsplash.com/photo-1574334292321-4844f63aefef?q=80&w=1200&auto=format&fit=crop",
     heroImage: "https://images.unsplash.com/photo-1574334292321-4844f63aefef?q=80&w=1920&auto=format&fit=crop",
     intro:
-      "Комплексная координация кондиционирования, вентиляции и инженерных систем для квартир, вилл и коммерческих интерьеров в Дубае и по всему ОАЭ — спроектировано вместе с дизайном, а не добавлено впоследствии.",
+      "Комплексная координация кондиционирования, вентиляции и инженерных систем для квартир, вилл и коммерческих интерьеров в Дубае и по всему ОАЭ, спроектировано вместе с дизайном, а не добавлено впоследствии.",
     highlights: [
       { title: "Кондиционирование", body: "Координация фанкойлов, модификация кондиционеров, перенос точек подачи/забора воздуха, трассы воздуховодов и лючки доступа." },
       { title: "Системы вентиляции", body: "Требования к притоку свежего воздуха, вытяжка, координация вентиляции ванных и кухонь." },
@@ -667,8 +683,8 @@ const servicesRu: typeof servicesEn = [
       { value: 3, label: "Типа систем: кондиц., вентиляция, воздуховоды" },
       { value: 100, suffix: "%", label: "Согласовано с дизайном и инженерией" },
     ] as ServiceStat[],
-    video: "/videos/hero.mp4",
-    videoCaption: "Координация потолков и инженерных систем на текущем проекте отделки — воздуховоды, диффузоры и освещение сведены воедино на объекте.",
+    video: "https://videos.pexels.com/video-files/3010813/3010813-hd_1920_1080_24fps.mp4",
+    videoCaption: "Координация потолков и инженерных систем на текущем проекте отделки, воздуховоды, диффузоры и освещение сведены воедино на объекте.",
     process: [
       { title: "Оценка объекта", desc: "Анализ существующих систем и обследование состояния кондиционирования, воздуховодов и вентиляции." },
       { title: "Координация с интерьером и потолками", desc: "Трассы климатических систем согласуются с дизайном потолков, освещением и столярными изделиями на раннем этапе." },
@@ -692,7 +708,7 @@ const servicesRu: typeof servicesEn = [
       "Потеря высоты потолка из-за поздней координации инженерии",
     ],
     faqs: [
-      { q: "Занимаетесь ли вы ремонтом и обслуживанием кондиционеров?", a: "Наш фокус — проектная координация климатических систем в рамках ремонта и отделки: оценка, модификация и интеграция систем в дизайн, а не отдельные вызовы на ремонт или обслуживание." },
+      { q: "Занимаетесь ли вы ремонтом и обслуживанием кондиционеров?", a: "Наш фокус, проектная координация климатических систем в рамках ремонта и отделки: оценка, модификация и интеграция систем в дизайн, а не отдельные вызовы на ремонт или обслуживание." },
       { q: "Можете ли вы перенести существующие точки кондиционирования?", a: "Да, перенос точек подачи и забора воздуха, фанкойлов и воздуховодов планируется в рамках координации интерьера и потолков на этапе дизайна." },
       { q: "Включены ли испытания и пусконаладка?", a: "Если это входит в объём проекта, мы координируем испытания, балансировку и пусконаладку перед передачей документации." },
     ] as ServiceFAQ[],
@@ -733,6 +749,8 @@ const servicesRu: typeof servicesEn = [
       { value: 100, suffix: "%", label: "Изготовлено на собственном производстве" },
       { value: 8, suffix: " нед.", label: "Сред. срок дизайн → монтаж" },
     ] as ServiceStat[],
+    video: "https://videos.pexels.com/video-files/3773488/3773488-hd_1920_1080_30fps.mp4",
+    videoCaption: "Изготовление и сборка мебели на недавнем проекте кухни.",
     process: [
       { title: "Замер и бриф", desc: "Точный замер объекта и разговор о том, как вы готовите и принимаете гостей." },
       { title: "Планировка и дизайн", desc: "Расстановка мебели, столешниц и техники продумывается под ваши размеры." },
@@ -788,6 +806,8 @@ const servicesRu: typeof servicesEn = [
       { value: 100, suffix: "%", label: "Изготовлено на заказ, не модульное" },
       { value: 5, suffix: " нед.", label: "Сред. срок дизайн → монтаж" },
     ] as ServiceStat[],
+    video: "https://videos.pexels.com/video-files/35165791/14896267_2560_1440_30fps.mp4",
+    videoCaption: "Готовая встроенная гардеробная, установленная под стиль помещения.",
     process: [
       { title: "Замер и оценка", desc: "Обмер помещения, линий стен и нестандартных углов на объекте." },
       { title: "Дизайн планировки", desc: "Внутренняя планировка хранения продумывается под то, что вам действительно нужно хранить." },
@@ -802,9 +822,9 @@ const servicesRu: typeof servicesEn = [
       { title: "Стеновые панели", body: "Акцентные стены и облицовка, изготовленные и установленные на собственном производстве." },
     ] as ServiceFocusArea[],
     faqs: [
-      { q: "Можете ли вы спроектировать под нестандартную форму комнаты?", a: "Да — большая часть наших гардеробных и систем хранения создаётся под скошенные потолки, ниши и нестандартные линии стен, а не по готовым модулям." },
+      { q: "Можете ли вы спроектировать под нестандартную форму комнаты?", a: "Да, большая часть наших гардеробных и систем хранения создаётся под скошенные потолки, ниши и нестандартные линии стен, а не по готовым модулям." },
       { q: "Подбираете ли вы отделку под существующую в доме?", a: "Да, мы можем подобрать или дополнить существующие столярные изделия, полы и фурнитуру в рамках дизайна." },
-      { q: "Можно ли настроить внутреннее наполнение?", a: "Да — вешалки, полки, ящики и аксессуары для хранения продумываются под то, что вам действительно нужно хранить." },
+      { q: "Можно ли настроить внутреннее наполнение?", a: "Да, вешалки, полки, ящики и аксессуары для хранения продумываются под то, что вам действительно нужно хранить." },
     ] as ServiceFAQ[],
   },
   {
@@ -843,6 +863,8 @@ const servicesRu: typeof servicesEn = [
       { value: 100, suffix: "%", label: "Изготовлено на собственном производстве" },
       { value: 1, label: "Команда, от дизайна до монтажа" },
     ] as ServiceStat[],
+    video: "https://videos.pexels.com/video-files/6789911/6789911-uhd_2560_1440_25fps.mp4",
+    videoCaption: "Изготовление изделия на заказ в нашей мастерской.",
     process: [
       { title: "Дизайн-бриф", desc: "Требования к изделию, размеры и направление отделки согласуются с вами." },
       { title: "Технический чертёж", desc: "Чертежи, готовые к производству, подготавливаются для каждого изделия." },
@@ -858,14 +880,14 @@ const servicesRu: typeof servicesEn = [
     ] as ServiceFocusArea[],
     faqs: [
       { q: "Можете ли вы подобрать существующую отделку в моём доме?", a: "Да, мы подбираем и образцируем отделку деревом, шпоном и лаком под существующие столярные изделия или новое дизайн-направление." },
-      { q: "Проектируете ли вы отдельные изделия или полные комплекты мебели?", a: "И то, и другое — от одной стойки ресепшн до полного комплекта мебели для виллы или квартиры." },
+      { q: "Проектируете ли вы отдельные изделия или полные комплекты мебели?", a: "И то, и другое, от одной стойки ресепшн до полного комплекта мебели для виллы или квартиры." },
       { q: "Как доставляется и устанавливается мебель?", a: "Изделия изготавливаются на нашем производстве, затем доставляются и устанавливаются на объекте той же командой." },
     ] as ServiceFAQ[],
   },
   {
     slug: "materials-finishes",
     title: "Материалы и отделка",
-    description: "Подбор камня, дерева и отделочных материалов — как должно быть.",
+    description: "Подбор камня, дерева и отделочных материалов, как должно быть.",
     href: "/services/materials-finishes",
     image: "https://images.unsplash.com/photo-1551554781-c46200ea959d?q=80&w=1600&auto=format&fit=crop",
     heroImage: "https://images.unsplash.com/photo-1551554781-c46200ea959d?q=80&w=1920&auto=format&fit=crop",
@@ -898,6 +920,8 @@ const servicesRu: typeof servicesEn = [
       { value: 30, suffix: "+", label: "Проверенных поставщиков" },
       { value: 100, suffix: "%", label: "Проверено перед монтажом" },
     ] as ServiceStat[],
+    video: "https://videos.pexels.com/video-files/7830742/7830742-uhd_2560_1440_30fps.mp4",
+    videoCaption: "Крупный план натурального камня, одного из материалов, которые мы подбираем и проверяем.",
     process: [
       { title: "Дизайн-концепция", desc: "Материалы отбираются в соответствии с согласованным дизайн-направлением и бюджетом." },
       { title: "Подбор и образцы", desc: "Образцы камня, плитки, дерева и фурнитуры собираются у проверенных поставщиков." },

@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 interface ScrollExpandMediaProps {
   mediaType?: 'video' | 'image';
-  mediaSrc: string;
+  mediaSrc?: string;
   posterSrc?: string;
   bgImageSrc: string;
   title?: string;
@@ -127,7 +127,7 @@ const ScrollExpandMedia = ({
                   transition={{ duration: 0.2 }}
                 />
               </div>
-            ) : (
+            ) : mediaSrc ? (
               <div className="relative h-full w-full">
                 <Image
                   src={mediaSrc}
@@ -141,7 +141,7 @@ const ScrollExpandMedia = ({
                   transition={{ duration: 0.2 }}
                 />
               </div>
-            )}
+            ) : null}
 
             <div className="relative z-10 mt-4 flex flex-col items-center text-center">
               {date && (

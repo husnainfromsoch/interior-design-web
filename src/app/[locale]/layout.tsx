@@ -29,7 +29,7 @@ export function generateStaticParams() {
 export const metadata: Metadata = {
   title: "Interior Renovation & Fit-Out Company in Dubai | G.A.G Interiors",
   description:
-    "G.A.G Interiors is Dubai's full-cycle interior renovation, fit-out and custom joinery company. Design, authority approvals, custom kitchens, wardrobes and villa renovation across the UAE — one coordinated team, one point of accountability. Get a free quote today.",
+    "G.A.G Interiors is Dubai's full-cycle interior renovation, fit-out and custom joinery company. Design, authority approvals, custom kitchens, wardrobes and villa renovation across the UAE, one coordinated team, one point of accountability. Get a free quote today.",
 };
 
 export default async function LocaleLayout({
@@ -52,7 +52,7 @@ export default async function LocaleLayout({
       <body className="min-h-full flex flex-col bg-ivory text-charcoal font-sans">
         <NextIntlClientProvider>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 [&:has(>_[data-hero])]:pt-0 pt-[76px] lg:pt-[92px]">{children}</main>
           <Footer />
           <WhatsAppButton />
           <ScrollReveal />
