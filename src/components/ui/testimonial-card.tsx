@@ -52,8 +52,7 @@ const StickyTestimonialCard = ({
 }) => {
   return (
     <motion.div
-      className="sticky w-full"
-      style={{ top: `${20 + index * 24}px` }}
+      className="w-full"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
@@ -109,8 +108,6 @@ export const ClientsSection = ({
   secondaryActionHref,
   className,
 }: ClientsSectionProps) => {
-  const scrollContainerHeight = `calc(100vh + ${testimonials.length * 100}px)`;
-
   return (
     <section className={cn("w-full bg-soft-black py-20 text-ivory md:py-28", className)}>
       <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-start gap-12 px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
@@ -141,10 +138,7 @@ export const ClientsSection = ({
           </div>
         </div>
 
-        <div
-          className="relative flex flex-col gap-4"
-          style={{ height: scrollContainerHeight }}
-        >
+        <div className="relative flex flex-col gap-4">
           {testimonials.map((testimonial, index) => (
             <StickyTestimonialCard key={testimonial.name} index={index} testimonial={testimonial} />
           ))}

@@ -15,7 +15,7 @@ export default async function FinalCta() {
         className="object-cover"
         priority={false}
       />
-      <div className="absolute inset-0 bg-soft-black/70" />
+      <div className="absolute inset-0 bg-soft-black/55" />
       <div className="reveal relative mx-auto max-w-[1180px] px-6 text-center lg:px-8">
         <h2 className="font-serif text-[32px] sm:text-[38px]">{t("title")}</h2>
         <p className="mx-auto mt-4 max-w-md text-[17px] text-stone">

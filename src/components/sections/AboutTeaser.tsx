@@ -1,7 +1,9 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { PenTool, ShieldCheck, HardHat, Hammer } from "lucide-react";
 import Button from "@/components/ui/Button";
-import ScrollExpandMedia from "@/components/ui/scroll-expansion-hero";
+
+const MEDIA_SRC = "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1920&auto=format&fit=crop";
 
 export default async function AboutTeaser() {
   const t = await getTranslations("AboutTeaser");
@@ -14,14 +16,25 @@ export default async function AboutTeaser() {
   ];
 
   return (
-    <ScrollExpandMedia
-      mediaType="image"
-      mediaSrc="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1920&auto=format&fit=crop"
-      bgImageSrc="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1920&auto=format&fit=crop"
-      title={t("title")}
-      date={t("date")}
-      scrollToExpand={t("scrollToExpand")}
-    >
+    <div>
+      <div className="relative h-[90vh] min-h-[560px] w-full overflow-hidden">
+        <Image
+          src={MEDIA_SRC}
+          alt={t("title")}
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/25" />
+        <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-4 text-center">
+          <p className="text-2xl text-ivory">{t("date")}</p>
+          <h2 className="font-serif text-4xl font-bold text-ivory md:text-5xl lg:text-6xl">
+            {t("title")}
+          </h2>
+        </div>
+      </div>
+
+      <div className="flex w-full flex-col px-8 py-10 md:px-16 lg:py-20">
       <div className="mx-auto max-w-3xl text-center">
         <span className="inline-block text-xs font-semibold uppercase tracking-[0.22em] text-wood">
           {t("badge")}
@@ -57,6 +70,7 @@ export default async function AboutTeaser() {
           </Button>
         </div>
       </div>
-    </ScrollExpandMedia>
+      </div>
+    </div>
   );
 }

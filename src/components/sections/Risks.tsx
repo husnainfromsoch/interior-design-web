@@ -23,7 +23,7 @@ function FlowArrow() {
       aria-hidden
       viewBox="0 0 100 24"
       preserveAspectRatio="none"
-      className="h-6 w-full shrink-0 text-stone group-hover:text-wood/40"
+      className="h-6 min-w-0 flex-1 text-stone group-hover:text-wood/40"
     >
       <line
         x1="0"
@@ -85,7 +85,7 @@ export default async function Risks() {
 
               {/* Before → After visualization */}
               <div className="mb-5 flex items-center gap-1.5">
-                <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center gap-1 rounded-xl border border-dashed border-red-900/25 bg-red-900/[0.05] text-red-900/70">
+                <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center gap-1 rounded-xl border border-dashed border-charcoal/25 bg-charcoal/[0.05] text-charcoal/70">
                   <span className="flex h-6 w-6 items-center justify-center">
                     <RiskIcon id={risk.id} />
                   </span>

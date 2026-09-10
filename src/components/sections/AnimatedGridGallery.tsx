@@ -10,7 +10,7 @@ const GRID_IMAGES = [
   "https://images.unsplash.com/photo-1593136596203-7212b076f4d2?q=80&w=1200&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1704040686428-7534b262d0d8?q=80&w=1200&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1631193645836-7c0a50257618?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1704040686370-52238a5dab05?q=80&w=1200&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=1200&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1597088136953-db42ae225804?q=80&w=1200&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1721743162928-10502681850b?q=80&w=1200&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1705862851897-fa60b41617c2?q=80&w=1200&auto=format&fit=crop",
@@ -19,7 +19,7 @@ const GRID_IMAGES = [
 
 const FEATURED_INDEX = 4;
 const FEATURED_IMAGE_SRC =
-  "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1920&auto=format&fit=crop";
+  "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1920&auto=format&fit=crop";
 
 export default function AnimatedGridGallery() {
   const t = useTranslations("AnimatedGridGallery");

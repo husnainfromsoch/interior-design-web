@@ -64,11 +64,7 @@ export default async function WhyUs() {
                       {point.body}
                     </p>
                   </div>
-                  <div
-                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-sm ${
-                      i === 0 ? "bg-charcoal text-white" : "bg-wood text-white"
-                    }`}
-                  >
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm bg-wood text-white">
                     {point.icon}
                   </div>
                 </div>
@@ -86,7 +82,7 @@ export default async function WhyUs() {
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
             </div>
-            <div className="group relative mt-8 aspect-[4/5] overflow-hidden rounded-2xl shadow-[0_20px_45px_-20px_rgba(46,42,37,0.35)]">
+            <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl shadow-[0_20px_45px_-20px_rgba(46,42,37,0.35)]">
               <Image
                 src="https://images.unsplash.com/photo-1758448755856-01d3add0177b?q=80&w=800&auto=format&fit=crop"
                 alt="Modern lounge with layered textures and statement lighting"

@@ -27,9 +27,9 @@ export default async function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-soft-black/50 via-soft-black/10 to-transparent" />
 
       <div className="relative flex w-full flex-col">
-        <div className="mx-auto w-full max-w-[1180px] px-6 pb-16 pt-28 sm:pb-20 sm:pt-32 lg:px-8">
+        <div className="mx-auto w-full max-w-[1180px] px-6 pb-16 pt-40 sm:pb-20 sm:pt-48 lg:px-8">
           <div className="hero-in max-w-2xl">
-            <h1 className="font-serif text-[38px] leading-[1.1] tracking-tight sm:text-[58px] lg:text-[64px]">
+            <h1 className="font-serif text-[32px] leading-[1.15] tracking-tight sm:text-[46px] lg:text-[52px]">
               {t("title")}
             </h1>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-stone">
@@ -49,7 +49,7 @@ export default async function Hero() {
           </div>
         </div>
 
-        <div className="overflow-hidden border-t border-ivory/15 bg-soft-black/40 backdrop-blur-md">
+        <div className="overflow-hidden border-t border-ivory/15 bg-charcoal">
           <div className="marquee-track flex w-max items-center">
             {[...stats, ...stats].map((stat, i) => (
               <div key={`${stat.label}-${i}`} className="flex items-center gap-3 whitespace-nowrap px-8 py-6 sm:py-7">
