@@ -9,7 +9,6 @@ import SignatureProjectShowcase from "@/components/sections/SignatureProjectShow
 import AnimatedGridGallery from "@/components/sections/AnimatedGridGallery";
 import WhyUs from "@/components/sections/WhyUs";
 import Process from "@/components/sections/Process";
-import GalleryStrip from "@/components/sections/GalleryStrip";
 import Testimonials from "@/components/sections/Testimonials";
 import Risks from "@/components/sections/Risks";
 import MaterialsTeaser from "@/components/sections/MaterialsTeaser";
@@ -49,7 +48,6 @@ export default async function Home({
       <AnimatedGridGallery />
       <WhyUs />
       <Process />
-      <GalleryStrip />
       <Testimonials />
       <Risks />
       <MaterialsTeaser />

@@ -109,7 +109,7 @@ export const ClientsSection = ({
   className,
 }: ClientsSectionProps) => {
   return (
-    <section className={cn("w-full bg-soft-black py-20 text-ivory md:py-28", className)}>
+    <section className={cn("w-full bg-charcoal py-20 text-ivory md:py-28", className)}>
       <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-start gap-12 px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
         <div className="flex flex-col gap-6 lg:sticky lg:top-20">
           <div className="reveal inline-flex items-center gap-2 self-start rounded-full border border-ivory/10 bg-ivory/[0.04] px-3 py-1 text-sm">

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
-import { Fraunces, Instrument_Sans } from "next/font/google";
+import { Bodoni_Moda, Instrument_Sans } from "next/font/google";
 import "../globals.css";
 import { routing } from "@/i18n/routing";
 import Header from "@/components/layout/Header";
@@ -10,10 +10,10 @@ import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
-const heading = Fraunces({
+const heading = Bodoni_Moda({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500", "600"],
 });
 
 const body = Instrument_Sans({
