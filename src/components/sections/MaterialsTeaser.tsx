@@ -13,7 +13,7 @@ export default async function MaterialsTeaser() {
   const t = await getTranslations("MaterialsTeaser");
   return (
     <section className="bg-beige py-24">
-      <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-stretch gap-14 px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8">
+      <div className="mx-auto grid max-w-[1320px] grid-cols-1 items-stretch gap-14 px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8">
         <div className="reveal-left group relative min-h-[420px] overflow-hidden rounded-2xl border border-stone/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)] lg:min-h-0">
           <video
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"

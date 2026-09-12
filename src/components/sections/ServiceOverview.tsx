@@ -20,7 +20,7 @@ export default async function ServiceOverview({
   const t = await getTranslations("ServiceDetail");
   return (
     <section className="py-24">
-      <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-16 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12 lg:px-8">
+      <div className="mx-auto grid max-w-[1320px] grid-cols-1 gap-16 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12 lg:px-8">
         <div className="reveal-left lg:sticky lg:top-28 lg:self-start">
           <div className="relative">
             <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-stone/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)]">

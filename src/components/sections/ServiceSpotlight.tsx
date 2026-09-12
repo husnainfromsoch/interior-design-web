@@ -16,7 +16,7 @@ export default function ServiceSpotlight({
       <Image src={image} alt={heading} fill sizes="100vw" className="kenburns object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-soft-black/80 via-soft-black/25 to-transparent" />
 
-      <div className="reveal-scale relative mx-auto w-full max-w-[1180px] px-6 pb-16 lg:px-8">
+      <div className="reveal-scale relative mx-auto w-full max-w-[1320px] px-6 pb-16 lg:px-8">
         <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-champagne">
           {eyebrow}
         </span>

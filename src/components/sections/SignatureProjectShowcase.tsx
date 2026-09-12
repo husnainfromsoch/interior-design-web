@@ -31,7 +31,7 @@ export default async function SignatureProjectShowcase() {
       </div>
 
       <section className="bg-ivory py-24">
-        <div className="mx-auto max-w-5xl px-6 lg:px-8">
+        <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
           <div className="reveal grid grid-cols-1 gap-10 text-left lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
             <div>
               <span className="mb-4 block text-xs font-semibold uppercase tracking-[0.16em] text-wood">

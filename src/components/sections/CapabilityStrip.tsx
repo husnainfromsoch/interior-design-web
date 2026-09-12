@@ -11,7 +11,7 @@ export default async function CapabilityStrip() {
   ];
   return (
     <section className="bg-charcoal py-14 text-ivory">
-      <div className="mx-auto max-w-[1180px] px-6 lg:px-8">
+      <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
         <p className="mb-10 text-center text-xs uppercase tracking-[0.14em] text-champagne">
           {t("intro")}
         </p>

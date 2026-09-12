@@ -94,7 +94,7 @@ export default function ProjectHighlights({
         aria-hidden
       />
 
-      <div className="mx-auto max-w-[1180px] px-6 lg:px-8">
+      <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
         <div className="mb-16 max-w-xl">
           <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-champagne">
             {eyebrow}

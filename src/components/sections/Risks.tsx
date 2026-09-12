@@ -17,37 +17,6 @@ function RiskIcon({ id }: { id: (typeof RISK_IDS)[number] }) {
   return <Icon width={22} height={22} strokeWidth={1.6} aria-hidden />;
 }
 
-function FlowArrow() {
-  return (
-    <svg
-      aria-hidden
-      viewBox="0 0 100 24"
-      preserveAspectRatio="none"
-      className="h-6 min-w-0 flex-1 text-stone group-hover:text-wood/40"
-    >
-      <line
-        x1="0"
-        y1="12"
-        x2="88"
-        y2="12"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeDasharray="4 4"
-        className="transition-colors duration-500"
-      />
-      <path
-        d="M84 6.5 92 12 84 17.5"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="transition-colors duration-500"
-      />
-    </svg>
-  );
-}
-
 export default async function Risks() {
   const t = await getTranslations("Risks");
   const risks = RISK_IDS.map((id) => ({
@@ -57,7 +26,7 @@ export default async function Risks() {
   }));
   return (
     <section className="py-24">
-      <div className="mx-auto max-w-[1180px] px-6 lg:px-8">
+      <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
         <div className="reveal mb-16 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
@@ -76,51 +45,47 @@ export default async function Risks() {
           {risks.map((risk, i) => (
             <div
               key={risk.id}
-              className="reveal group relative flex flex-col overflow-hidden rounded-2xl border border-stone/60 bg-ivory p-6 transition-all duration-300 hover:-translate-y-1 hover:border-wood/40 hover:shadow-[0_24px_44px_-24px_rgba(46,42,37,0.3)]"
+              className="reveal group relative flex flex-col overflow-hidden rounded-[22px] border border-stone/50 bg-gradient-to-b from-white to-ivory p-7 shadow-[0_1px_0_0_rgba(255,255,255,0.6)_inset] transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-transparent hover:shadow-[0_32px_60px_-28px_rgba(46,42,37,0.35)]"
               style={{ "--reveal-delay": `${(i % 3) * 90}ms` } as React.CSSProperties}
             >
-              <span className="mb-4 block font-serif text-[13px] text-warm-grey/45">
-                {String(i + 1).padStart(2, "0")}
-              </span>
+              {/* Ambient hover glow */}
+              <div className="pointer-events-none absolute -inset-px rounded-[22px] bg-gradient-to-br from-wood/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-              {/* Before → After visualization */}
-              <div className="mb-5 flex items-center gap-1.5">
-                <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center gap-1 rounded-xl border border-dashed border-charcoal/25 bg-charcoal/[0.05] text-charcoal/70">
-                  <span className="flex h-6 w-6 items-center justify-center">
-                    <RiskIcon id={risk.id} />
-                  </span>
-                  <span className="text-[8px] font-semibold uppercase tracking-[0.1em]">
-                    {t("riskLabel")}
-                  </span>
+              <div className="relative mb-6 flex items-start justify-between">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-charcoal/20 bg-charcoal/[0.08] text-charcoal transition-all duration-500 group-hover:border-charcoal/40 group-hover:bg-charcoal group-hover:text-ivory">
+                  <RiskIcon id={risk.id} />
                 </div>
 
-                <FlowArrow />
-
-                <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center gap-1 rounded-xl bg-wood text-ivory shadow-[0_10px_20px_-10px_rgba(122,92,58,0.65)] transition-transform duration-300 group-hover:scale-[1.04]">
+                <div className="flex items-center gap-1.5 rounded-full bg-charcoal/5 py-1.5 pl-2.5 pr-3 transition-colors duration-500 group-hover:bg-wood/10">
                   <svg
-                    width="20"
-                    height="20"
+                    width="12"
+                    height="12"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="1.8"
+                    strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    className="text-wood"
                   >
                     <path d="M4.5 12.5 9.5 17.5 19.5 6.5" />
                   </svg>
-                  <span className="text-[8px] font-semibold uppercase tracking-[0.1em]">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-charcoal/70">
                     {t("solvedLabel")}
                   </span>
                 </div>
               </div>
 
-              <h3 className="text-[17px] font-semibold leading-snug text-charcoal">
+              <span className="relative mb-2 block font-serif text-[13px] text-warm-grey/40">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              <h3 className="relative text-[18px] font-semibold leading-snug text-charcoal transition-colors duration-500 group-hover:text-wood">
                 {risk.title}
               </h3>
 
-              <div className="mt-3 flex-1 border-t border-stone/50 pt-3">
-                <span className="text-[10.5px] font-semibold uppercase tracking-[0.1em] text-wood">
+              <div className="relative mt-4 flex-1 border-t border-stone/50 pt-4">
+                <span className="text-[10.5px] font-semibold uppercase tracking-[0.12em] text-wood">
                   {t("preventLabel")}
                 </span>
                 <p className="mt-1.5 text-[14px] leading-relaxed text-warm-grey">

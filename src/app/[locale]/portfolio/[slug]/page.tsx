@@ -66,7 +66,7 @@ export default async function ProjectDetailPage({
       <PageHeader eyebrow={category} title={title} images={project.gallery} />
 
       <section className="py-24">
-        <div className="mx-auto max-w-[1180px] px-6 lg:px-8">
+        <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
             <div>
               <div className="reveal flex flex-wrap items-center gap-3">
@@ -136,7 +136,7 @@ export default async function ProjectDetailPage({
       </section>
 
       <section className="bg-beige py-24">
-        <div className="mx-auto max-w-[1180px] px-6 lg:px-8">
+        <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:items-center">
             <div className="reveal">
               <span className="block font-serif text-6xl leading-none text-wood/20 sm:text-7xl">01</span>
@@ -164,7 +164,7 @@ export default async function ProjectDetailPage({
       </section>
 
       <section className="py-24">
-        <div className="mx-auto max-w-[1180px] px-6 lg:px-8">
+        <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:items-center">
             <div className="reveal-scale relative order-2 aspect-[4/3] w-full overflow-hidden rounded-2xl border border-stone/70 shadow-[0_24px_48px_-24px_rgba(46,42,37,0.3)] lg:order-1">
               <Image
@@ -200,7 +200,7 @@ export default async function ProjectDetailPage({
 
       {project.gallery.length > 1 && (
         <section className="bg-beige py-24">
-          <div className="mx-auto max-w-[1180px] px-6 lg:px-8">
+          <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
             <div className="reveal max-w-xl">
               <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
                 {t("gallery")}
@@ -233,7 +233,7 @@ export default async function ProjectDetailPage({
 
       {otherProjects.length > 0 && (
         <section className="py-24">
-          <div className="mx-auto max-w-[1180px] px-6 lg:px-8">
+          <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
             <div className="reveal mb-12">
               <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
                 {t("explore")}

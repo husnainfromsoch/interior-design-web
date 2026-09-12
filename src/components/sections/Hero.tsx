@@ -27,7 +27,7 @@ export default async function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-soft-black/50 via-soft-black/10 to-transparent" />
 
       <div className="relative flex w-full flex-col">
-        <div className="mx-auto w-full max-w-[1180px] px-6 pb-16 pt-40 sm:pb-20 sm:pt-48 lg:px-8">
+        <div className="mx-auto w-full max-w-[1320px] px-6 pb-16 pt-40 sm:pb-20 sm:pt-48 lg:px-8">
           <div className="hero-in max-w-2xl">
             <h1 className="font-serif text-[32px] leading-[1.15] tracking-tight sm:text-[46px] lg:text-[52px]">
               {t("title")}

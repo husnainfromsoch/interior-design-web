@@ -24,7 +24,7 @@ export default function AboutStory() {
 
   return (
     <section className="bg-ivory py-24">
-      <div className="mx-auto max-w-[1180px] px-6 lg:px-8">
+      <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div className="reveal-left">
             <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">

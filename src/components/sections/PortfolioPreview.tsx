@@ -76,7 +76,7 @@ export default async function PortfolioPreview() {
     <section className="relative overflow-hidden bg-beige py-24">
       <PortfolioParallax />
 
-      <div className="relative mx-auto max-w-[1180px] px-6 lg:px-8">
+      <div className="relative mx-auto max-w-[1320px] px-6 lg:px-8">
         <div className="reveal max-w-xl">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-wood">{t("badge")}</p>
           <h2 className="mt-4 font-serif text-[34px] text-charcoal">{t("title")}</h2>

@@ -12,7 +12,7 @@ export default async function ApprovalsTeaser() {
   const t = await getTranslations("ApprovalsTeaser");
   return (
     <section className="py-24">
-      <div className="mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-14 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+      <div className="mx-auto grid max-w-[1320px] grid-cols-1 items-center gap-14 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
         <div className="reveal-left order-2 lg:order-1">
           <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
             {t("badge")}

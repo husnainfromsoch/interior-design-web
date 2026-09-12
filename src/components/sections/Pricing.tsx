@@ -31,7 +31,7 @@ export default async function Pricing() {
   }));
   return (
     <section className="py-24">
-      <div className="mx-auto max-w-[1180px] px-6 lg:px-8">
+      <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
         <div className="reveal mb-14 text-center">
           <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
             {t("badge")}

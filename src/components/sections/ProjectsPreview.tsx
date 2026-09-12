@@ -16,7 +16,7 @@ export default async function ProjectsPreview() {
 
   return (
     <section id="projects" className="section py-24">
-      <div className="mx-auto max-w-[1180px] px-6 lg:px-8">
+      <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
         <div className="reveal mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">

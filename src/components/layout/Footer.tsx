@@ -61,7 +61,7 @@ export default async function Footer() {
         G.A.G
       </div>
 
-      <div className="relative mx-auto max-w-[1180px] px-6 py-16 lg:px-8">
+      <div className="relative mx-auto max-w-[1320px] px-6 py-16 lg:px-8">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
             <Link href="/" className="font-serif text-2xl tracking-wide text-ivory">

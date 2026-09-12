@@ -27,7 +27,7 @@ export default async function ServiceFocusAreas({
         className="pointer-events-none absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-wood/10 blur-[110px]"
       />
 
-      <div className="relative mx-auto max-w-[1180px] px-6 lg:px-8">
+      <div className="relative mx-auto max-w-[1320px] px-6 lg:px-8">
         <div className="reveal mx-auto mb-14 max-w-xl text-center">
           <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
             {eyebrow}

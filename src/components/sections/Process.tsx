@@ -58,7 +58,7 @@ export default function Process() {
 
   return (
     <section className="bg-charcoal py-24 text-ivory">
-      <div className="mx-auto max-w-[1180px] px-6 lg:px-8">
+      <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-[0.85fr_1.15fr] lg:gap-10">
           <div className="reveal-left">
             <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-champagne">

@@ -47,7 +47,7 @@ export default function Header() {
           : "border-b border-stone/60 bg-ivory/90 backdrop-blur"
       }`}
     >
-      <nav className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4 lg:px-10 lg:py-5">
+      <nav className="mx-auto flex max-w-[1320px] items-center justify-between px-6 py-4 lg:px-10 lg:py-5">
         <Link
           href="/"
           className={`font-serif text-2xl tracking-wide transition-colors lg:text-3xl ${

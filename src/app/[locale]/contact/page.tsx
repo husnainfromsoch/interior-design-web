@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import PageHeader from "@/components/ui/PageHeader";
 import ContactFormPanel from "@/components/sections/ContactFormPanel";
@@ -28,8 +29,18 @@ export default async function ContactPage({
   return (
     <>
       <PageHeader eyebrow={t("eyebrow")} title={t("title")} description={t("description")} />
-      <section className="mx-auto max-w-5xl px-6 py-24 lg:px-8">
-        <ContactFormPanel />
+      <section className="relative overflow-hidden py-24">
+        <Image
+          src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?q=80&w=1600&auto=format&fit=crop"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-soft-black/55" />
+        <div className="relative mx-auto max-w-[1320px] px-6 lg:px-8">
+          <ContactFormPanel />
+        </div>
       </section>
     </>
   );

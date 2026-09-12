@@ -11,7 +11,7 @@ export default async function AboutStats() {
   ];
   return (
     <section className="py-20">
-      <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-14 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
+      <div className="mx-auto grid max-w-[1320px] grid-cols-1 items-center gap-14 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
         <div className="reveal-left">
           <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
             {t("badge")}

@@ -6,7 +6,7 @@ import CapabilityStrip from "@/components/sections/CapabilityStrip";
 import Services from "@/components/sections/Services";
 import ProjectsPreview from "@/components/sections/ProjectsPreview";
 import SignatureProjectShowcase from "@/components/sections/SignatureProjectShowcase";
-import AnimatedGridGallery from "@/components/sections/AnimatedGridGallery";
+import AboutGallery from "@/components/sections/AboutGallery";
 import WhyUs from "@/components/sections/WhyUs";
 import Process from "@/components/sections/Process";
 import Testimonials from "@/components/sections/Testimonials";
@@ -45,7 +45,7 @@ export default async function Home({
       <Services limit={3} />
       <ProjectsPreview />
       <SignatureProjectShowcase />
-      <AnimatedGridGallery />
+      <AboutGallery />
       <WhyUs />
       <Process />
       <Testimonials />

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function CtaBanner() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+    <section className="mx-auto max-w-[1320px] px-6 py-24 lg:px-8">
       <div className="flex flex-col items-center gap-6 rounded-2xl bg-beige px-8 py-16 text-center">
         <h2 className="max-w-xl font-serif text-4xl text-charcoal">
           Ready to reimagine your space?

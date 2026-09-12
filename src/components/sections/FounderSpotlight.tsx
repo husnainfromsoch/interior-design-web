@@ -16,7 +16,7 @@ export default function FounderSpotlight() {
 
   return (
     <section className="bg-beige py-24">
-      <div className="mx-auto max-w-[1180px] px-6 lg:px-8">
+      <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
         <div className="grid grid-cols-1 items-stretch gap-14 lg:grid-cols-[0.95fr_1.05fr]">
           <div
             ref={ref}
