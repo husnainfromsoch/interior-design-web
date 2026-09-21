@@ -13,6 +13,19 @@
   --stone: #C7BFAF;
   --wood: #7C5A3A;
   --wood-dark: #5F4429;
+
+  /* Bellvero v2 design tokens ("Golden Breath") — scoped to redesigned sections only */
+  --bv-background: #F7F4EE;
+  --bv-surface: #EBE4D9;
+  --bv-ink: #332E2B;
+  --bv-muted: #685F57;
+  --bv-accent: #98583F;
+  --bv-accent-hover: #804733;
+  --bv-line: #D8CEC1;
+  --bv-field-border: #81766A;
+  --bv-white: #FFFFFF;
+  --bv-error: #A32626;
+  --bv-success: #315C48;
 }
 
 @theme inline {
@@ -30,6 +43,20 @@
   --color-wood-dark: var(--wood-dark);
   --font-sans: var(--font-body);
   --font-serif: var(--font-heading);
+
+  --color-bv-background: var(--bv-background);
+  --color-bv-surface: var(--bv-surface);
+  --color-bv-ink: var(--bv-ink);
+  --color-bv-muted: var(--bv-muted);
+  --color-bv-accent: var(--bv-accent);
+  --color-bv-accent-hover: var(--bv-accent-hover);
+  --color-bv-line: var(--bv-line);
+  --color-bv-field-border: var(--bv-field-border);
+  --color-bv-white: var(--bv-white);
+  --color-bv-error: var(--bv-error);
+  --color-bv-success: var(--bv-success);
+  --font-bv-heading: var(--font-bv-heading);
+  --font-bv-body: var(--font-bv-body);
 }
 
 html {
@@ -50,12 +77,15 @@ body {
 .reveal {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  filter: blur(6px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--reveal-delay, 0ms);
 }
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+  filter: blur(0);
 }
 .reveal-left {
   opacity: 0;
@@ -77,6 +107,22 @@ body {
   opacity: 1;
   transform: none;
 }
+.reveal-line {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal-line.is-visible {
+  transform: scaleX(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-line {
+    transform: none;
+    transition: none;
+  }
+}
+
 .reveal-scale {
   opacity: 0;
   transform: scale(0.94);
@@ -317,6 +363,10 @@ body {
   }
 }
 
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 .phline {
   overflow: hidden;
   display: block;
@@ -391,5 +441,96 @@ body {
   .capability-runner {
     animation: none;
     opacity: 0;
+  }
+}
+
+/* ---------- Homepage motion layer ---------- */
+
+/* Image reveal: a soft clip-path unmask instead of a plain fade */
+.reveal-clip {
+  clip-path: inset(7% 5% 7% 5% round 28px);
+  opacity: 0;
+  transition: clip-path 1.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease-out;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal-clip.is-visible {
+  clip-path: inset(0 0 0 0 round 24px);
+  opacity: 1;
+}
+
+/* Pill buttons: a light sweep on hover */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.28) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-shine:hover::after {
+  transform: translateX(120%);
+}
+
+/* List rows: content eases right, an accent rule grows underneath */
+.row-hover {
+  position: relative;
+  transition: padding-left 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.row-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 1px;
+  width: 100%;
+  background: var(--bv-accent, #98583f);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.row-hover:hover {
+  padding-left: 12px;
+}
+.row-hover:hover::after {
+  transform: scaleX(1);
+}
+
+/* FAQ: smooth open/close for <details> */
+details::details-content {
+  block-size: 0;
+  opacity: 0;
+  overflow: clip;
+  transition: block-size 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease-out, content-visibility 0.45s allow-discrete;
+}
+details[open]::details-content {
+  block-size: auto;
+  opacity: 1;
+}
+:root {
+  interpolate-size: allow-keywords;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-clip {
+    clip-path: none;
+    opacity: 1;
+    transition: none;
+  }
+  .btn-shine::after {
+    display: none;
+  }
+  .row-hover,
+  .row-hover::after,
+  details::details-content {
+    transition: none;
+  }
+  .row-hover:hover {
+    padding-left: 0;
   }
 }

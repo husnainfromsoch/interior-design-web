@@ -26,7 +26,7 @@ export async function generateMetadata({
   if (!project) return {};
   const t = await getTranslations({ locale, namespace: "Projects" });
   return {
-    title: `${t(`${slug}.title`)} | G.A.G Interiors Dubai`,
+    title: `${t(`${slug}.title`)} | Bellvero Group Dubai`,
     description: t(`${slug}.description`),
   };
 }

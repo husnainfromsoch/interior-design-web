@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const REVEAL_SELECTOR = ".reveal, .reveal-left, .reveal-right, .reveal-scale";
+const REVEAL_SELECTOR = ".reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-line, .reveal-clip";
 
 export default function ScrollReveal() {
   const pathname = usePathname();
@@ -18,7 +18,7 @@ export default function ScrollReveal() {
           }
         });
       },
-      { threshold: 0.12 }
+      { threshold: 0, rootMargin: "0px 0px 120px 0px" }
     );
 
     const observe = () => {

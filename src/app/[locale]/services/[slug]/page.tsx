@@ -32,7 +32,7 @@ export async function generateMetadata({
   const service = getServices(locale).find((s) => s.slug === slug);
   if (!service) return {};
   return {
-    title: `${service.title} | G.A.G Interiors Dubai`,
+    title: `${service.title} | Bellvero Group Dubai`,
     description: service.description,
   };
 }

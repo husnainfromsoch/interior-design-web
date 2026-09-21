@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { getNavLinks } from "@/data/nav";
@@ -27,10 +28,9 @@ export default function Header() {
   }, [isHome]);
 
   const navLinks = getNavLinks(locale, {
-    home: t("home"),
     projects: t("projects"),
     services: t("services"),
-    why: t("why"),
+    process: t("process"),
     about: t("about"),
     contact: t("contact"),
   });
@@ -50,11 +50,22 @@ export default function Header() {
       <nav className="mx-auto flex max-w-[1320px] items-center justify-between px-6 py-4 lg:px-10 lg:py-5">
         <Link
           href="/"
-          className={`font-serif text-2xl tracking-wide transition-colors lg:text-3xl ${
+          aria-label="Bellvero Group"
+          className={`flex items-center gap-3 font-serif text-xl tracking-[0.14em] transition-colors lg:text-2xl ${
             transparent ? "text-ivory" : "text-charcoal"
           }`}
         >
-          G.A.G <span className={transparent ? "text-champagne" : "text-wood"}>Interiors</span>
+          <Image
+            src={transparent ? "/logos/mark-gold.png" : "/logos/mark-dark.png"}
+            alt=""
+            width={205}
+            height={205}
+            priority
+            className="h-10 w-10 lg:h-12 lg:w-12"
+          />
+          <span>
+            BELLVERO <span className={transparent ? "text-champagne" : "text-wood"}>GROUP</span>
+          </span>
         </Link>
 
         <div className="hidden md:block">

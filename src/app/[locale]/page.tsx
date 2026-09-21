@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Hero from "@/components/sections/Hero";
-import AboutStats from "@/components/sections/AboutStats";
-import CapabilityStrip from "@/components/sections/CapabilityStrip";
-import Services from "@/components/sections/Services";
-import ProjectsPreview from "@/components/sections/ProjectsPreview";
-import SignatureProjectShowcase from "@/components/sections/SignatureProjectShowcase";
-import AboutGallery from "@/components/sections/AboutGallery";
-import WhyUs from "@/components/sections/WhyUs";
-import Process from "@/components/sections/Process";
-import Testimonials from "@/components/sections/Testimonials";
-import Risks from "@/components/sections/Risks";
-import MaterialsTeaser from "@/components/sections/MaterialsTeaser";
-import ApprovalsTeaser from "@/components/sections/ApprovalsTeaser";
-import AboutTeaser from "@/components/sections/AboutTeaser";
-import FinalCta from "@/components/sections/FinalCta";
+import HomeDirections from "@/components/sections/HomeDirections";
+import HomeCaseStudies from "@/components/sections/HomeCaseStudies";
+import HomeResponsibility from "@/components/sections/HomeResponsibility";
+import HomeStages from "@/components/sections/HomeStages";
+import HomeFamily from "@/components/sections/HomeFamily";
+import HomeFaq from "@/components/sections/HomeFaq";
+import EnquiryForm from "@/components/ui/EnquiryForm";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 
 export async function generateMetadata({
   params,
@@ -39,21 +33,23 @@ export default async function Home({
 
   return (
     <>
+      <ScrollProgress />
+      {/* H01 */}
       <Hero />
-      <AboutStats />
-      <CapabilityStrip />
-      <Services limit={3} />
-      <ProjectsPreview />
-      <SignatureProjectShowcase />
-      <AboutGallery />
-      <WhyUs />
-      <Process />
-      <Testimonials />
-      <Risks />
-      <MaterialsTeaser />
-      <ApprovalsTeaser />
-      <AboutTeaser />
-      <FinalCta />
+      {/* H02 */}
+      <HomeDirections />
+      {/* H03 */}
+      <HomeCaseStudies />
+      {/* H04 */}
+      <HomeResponsibility />
+      {/* H05 */}
+      <HomeStages />
+      {/* H06 */}
+      <HomeFamily />
+      {/* H07 */}
+      <HomeFaq />
+      {/* H08 — footer itself is rendered globally by the locale layout */}
+      <EnquiryForm />
     </>
   );
 }

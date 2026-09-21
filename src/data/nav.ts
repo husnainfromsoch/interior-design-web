@@ -3,17 +3,14 @@ import { getServices } from "@/data/services";
 export function getNavLinks(
   locale: string,
   t: {
-    home: string;
-    projects: string;
     services: string;
-    why: string;
+    projects: string;
+    process: string;
     about: string;
     contact: string;
   }
 ) {
   return [
-    { label: t.home, href: "/" },
-    { label: t.projects, href: "/portfolio" },
     {
       label: t.services,
       href: "/services",
@@ -22,7 +19,8 @@ export function getNavLinks(
         href: service.href,
       })),
     },
-    { label: t.why, href: "/#why" },
+    { label: t.projects, href: "/portfolio" },
+    { label: t.process, href: "/process" },
     { label: t.about, href: "/about" },
     { label: t.contact, href: "/contact" },
   ];

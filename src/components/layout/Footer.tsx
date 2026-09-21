@@ -1,42 +1,12 @@
+import Image from "next/image";
 import { getTranslations, getLocale } from "next-intl/server";
+import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { getNavLinks } from "@/data/nav";
+import BackToTop from "@/components/ui/BackToTop";
 
-type IconProps = { size?: number; strokeWidth?: number };
-
-const Facebook = ({ size = 16, strokeWidth = 1.75 }: IconProps) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-  </svg>
-);
-
-const Twitter = ({ size = 16, strokeWidth = 1.75 }: IconProps) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
-    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C4 16 2.7 12.9 3 9.8 4.6 11.4 7 12 9 12 6.8 9.8 6.3 6.7 8 4c2.4 2.8 5.8 4.5 9.4 4.7-.7-3 3-5.7 5.6-3.3 1.1 0 2-.7 2-.7-.2 1.1-.9 2-1.8 2.6.9-.1 1.7-.3 2.4-.7-.5.9-1.2 1.6-2.2 2.4z" />
-  </svg>
-);
-
-const Youtube = ({ size = 16, strokeWidth = 1.75 }: IconProps) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
-    <path d="M2 8a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z" />
-    <path d="M10 9l5 3-5 3z" />
-  </svg>
-);
-
-const Instagram = ({ size = 16, strokeWidth = 1.75 }: IconProps) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="2" width="20" height="20" rx="5" />
-    <circle cx="12" cy="12" r="4" />
-    <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" stroke="none" />
-  </svg>
-);
-
-const socialLinks = [
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook", accent: true },
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-  { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-];
+const contactPill =
+  "btn-shine group inline-flex h-11 items-center gap-2.5 rounded-full border border-bv-white/15 px-4 text-[13px] font-medium text-bv-white/80 transition-[background-color,border-color,color,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-bv-accent hover:bg-bv-accent hover:text-bv-white motion-reduce:transition-none motion-reduce:hover:translate-y-0";
 
 export default async function Footer() {
   const locale = await getLocale();
@@ -44,48 +14,62 @@ export default async function Footer() {
   const tNav = await getTranslations("Nav");
 
   const navLinks = getNavLinks(locale, {
-    home: tNav("home"),
     projects: tNav("projects"),
     services: tNav("services"),
-    why: tNav("why"),
+    process: tNav("process"),
     about: tNav("about"),
     contact: tNav("contact"),
   });
 
   return (
-    <footer className="relative overflow-hidden border-t border-wood/30 bg-soft-black text-stone">
+    <footer className="relative overflow-hidden bg-bv-ink text-bv-white/70">
       <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-10 right-6 hidden select-none font-serif text-[9rem] font-medium leading-none tracking-tight text-ivory/[0.025] lg:block xl:text-[11rem]"
-      >
-        G.A.G
-      </div>
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-40 left-1/2 h-[360px] w-[640px] -translate-x-1/2 rounded-full bg-bv-accent/10 blur-[120px]"
+      />
 
-      <div className="relative mx-auto max-w-[1320px] px-6 py-16 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
-          <div>
-            <Link href="/" className="font-serif text-2xl tracking-wide text-ivory">
-              G.A.G <span className="text-wood">Interiors</span>
+      <div className="relative mx-auto max-w-[1320px] px-4 pt-12 sm:px-6 lg:px-8 lg:pt-14">
+        {/* CTA banner */}
+        <div className="reveal group/cta relative flex flex-col items-start gap-6 overflow-hidden rounded-[24px] border border-bv-white/10 bg-bv-white/[0.04] px-7 py-8 transition-colors duration-500 hover:border-bv-accent/40 sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:py-9">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-bv-accent/15 blur-[80px] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cta:scale-125 motion-reduce:transition-none"
+          />
+          <div className="relative">
+            <span className="font-[var(--font-bv-body)] text-[12px] font-semibold uppercase tracking-[0.16em] text-bv-accent">
+              {t("ctaTag")}
+            </span>
+            <h2 className="mt-2 max-w-xl font-[var(--font-bv-heading)] text-[24px] font-medium leading-[1.2] text-bv-white sm:text-[30px]">
+              {t("ctaHeading")}
+            </h2>
+          </div>
+          <Link
+            href="/contact"
+            className="btn-shine relative inline-flex h-[50px] flex-none items-center gap-2 rounded-full bg-bv-accent px-7 text-sm font-semibold tracking-[0.02em] text-bv-white transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:bg-bv-accent-hover active:translate-y-0 active:duration-100 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+          >
+            {t("ctaButton")}
+            <span aria-hidden="true" className="transition-transform duration-200 group-hover/cta:translate-x-0.5">→</span>
+          </Link>
+        </div>
+
+        {/* Columns */}
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 py-10 lg:grid-cols-[1.3fr_0.8fr_1.6fr] lg:gap-x-14 lg:py-12">
+          <div className="reveal col-span-2 lg:col-span-1">
+            <Link href="/" aria-label="Bellvero Group" className="inline-block transition-opacity duration-200 hover:opacity-80">
+              <Image src="/logos/logo-gold.png" alt="Bellvero Group" width={315} height={319} className="h-[84px] w-auto" />
             </Link>
-            <p className="mt-5 max-w-[280px] text-sm leading-relaxed text-stone/80">
-              {t("tagline")}
-            </p>
+            <p className="mt-4 max-w-[320px] text-sm leading-relaxed text-bv-white/50">{t("tagline")}</p>
           </div>
 
-          <div>
-            <h3 className="text-xs font-semibold tracking-[0.2em] text-ivory">
-              {t("quickLinks").toUpperCase()}
-            </h3>
-            <ul className="mt-5 space-y-3 text-sm">
+          <div className="reveal" style={{ ["--reveal-delay" as string]: "80ms" }}>
+            <h3 className="text-xs font-semibold tracking-[0.2em] text-bv-white/90">{t("explore").toUpperCase()}</h3>
+            <ul className="mt-5 space-y-2.5 text-sm">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="inline-flex items-center gap-0 opacity-75 transition-all hover:gap-2 hover:text-wood hover:opacity-100"
+                    className="group inline-flex items-center gap-0 text-bv-white/60 transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:gap-2 hover:text-bv-accent"
                   >
-                    <span aria-hidden className="w-0 overflow-hidden text-wood transition-all duration-200 group-hover:w-3">
-                      &rarr;
-                    </span>
                     {link.label}
                   </Link>
                 </li>
@@ -93,59 +77,49 @@ export default async function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-xs font-semibold tracking-[0.2em] text-ivory">
-              {t("location").toUpperCase()}
-            </h3>
-            <p className="mt-5 text-sm leading-relaxed text-stone/80">
-              {t("locationAddress")}
-              <br />
-              {t("locationCity")}
-            </p>
-
-            <h3 className="mt-7 text-xs font-semibold tracking-[0.2em] text-ivory">{t("phoneLabel").toUpperCase()}</h3>
-            <a
-              href="tel:+971588099223"
-              className="mt-3 block text-sm opacity-75 transition-opacity hover:text-wood hover:opacity-100"
-            >
-              +971 58 809 9223
-            </a>
-
-            <h3 className="mt-7 text-xs font-semibold tracking-[0.2em] text-ivory">{t("emailLabel").toUpperCase()}</h3>
-            <a
-              href="mailto:info@gaginteriors.com"
-              className="mt-3 block text-sm opacity-75 transition-opacity hover:text-wood hover:opacity-100"
-            >
-              info@gaginteriors.com
-            </a>
-          </div>
-
-          <div>
-            <h3 className="text-xs font-semibold tracking-[0.2em] text-ivory">
-              {t("followUs").toUpperCase()}
-            </h3>
-            <div className="mt-5 flex flex-wrap gap-3">
-              {socialLinks.map(({ icon: Icon, href, label, accent }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className={`flex h-10 w-10 items-center justify-center rounded-full border transition-all hover:-translate-y-1 hover:border-wood hover:bg-wood hover:text-ivory ${
-                    accent
-                      ? "border-wood bg-wood text-ivory"
-                      : "border-white/15 bg-transparent text-stone"
-                  }`}
-                >
-                  <Icon size={16} strokeWidth={1.75} />
-                </a>
-              ))}
+          <div className="reveal" style={{ ["--reveal-delay" as string]: "160ms" }}>
+            <h3 className="text-xs font-semibold tracking-[0.2em] text-bv-white/90">{t("contactHeading").toUpperCase()}</h3>
+            <div className="mt-5 flex flex-wrap gap-2.5">
+              <a href="tel:+971588099223" className={contactPill}>
+                <Phone className="h-4 w-4" strokeWidth={1.7} />
+                +971 58 809 9223
+              </a>
+              <a href="https://wa.me/971588099223" target="_blank" rel="noopener noreferrer" className={contactPill}>
+                <MessageCircle className="h-4 w-4" strokeWidth={1.7} />
+                {t("whatsappLabel")}
+              </a>
+              <a href="mailto:info@bellverogroup.com" className={contactPill}>
+                <Mail className="h-4 w-4" strokeWidth={1.7} />
+                info@bellverogroup.com
+              </a>
             </div>
+            <ul className="mt-5 space-y-2.5 text-sm text-bv-white/50">
+              <li className="flex items-start gap-2.5">
+                <Clock className="mt-0.5 h-4 w-4 flex-none text-bv-accent" strokeWidth={1.7} />
+                {t("hours")}
+              </li>
+              <li className="flex items-start gap-2.5">
+                <MapPin className="mt-0.5 h-4 w-4 flex-none text-bv-accent" strokeWidth={1.7} />
+                <span className="max-w-[360px] leading-relaxed">{t("visitsText")}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-            <p className="mt-7 max-w-[220px] text-xs leading-relaxed text-stone/60">
-              {t("followText")}
-            </p>
+        {/* Legal bar */}
+        <div className="flex flex-col items-center gap-3 border-t border-bv-white/10 pb-24 pt-5 text-center min-[1100px]:pb-5 sm:flex-row sm:justify-between sm:text-left">
+          <p className="text-xs text-bv-white/40">{t("copyright", { year: new Date().getFullYear() })}</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-bv-white/40">
+            <Link href="/warranty" className="underline decoration-transparent underline-offset-4 transition-colors duration-200 hover:text-bv-accent hover:decoration-bv-accent">
+              {t("warranty")}
+            </Link>
+            <Link href="/privacy" className="underline decoration-transparent underline-offset-4 transition-colors duration-200 hover:text-bv-accent hover:decoration-bv-accent">
+              {t("privacy")}
+            </Link>
+            <Link href="/cookies" className="underline decoration-transparent underline-offset-4 transition-colors duration-200 hover:text-bv-accent hover:decoration-bv-accent">
+              {t("cookies")}
+            </Link>
+            <BackToTop label="Back to top" />
           </div>
         </div>
       </div>
