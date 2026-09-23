@@ -3,24 +3,27 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import type { ServiceFAQ as FAQItem } from "@/data/services";
+import TextBlockAnimation from "@/components/ui/TextBlockAnimation";
 
 export default function ServiceFAQ({ faqs }: { faqs: FAQItem[] }) {
   const [open, setOpen] = useState(0);
   const t = useTranslations("ServiceDetail");
 
   return (
-    <section className="bg-ivory py-24">
+    <section className="bg-bv-background py-24">
       <div className="mx-auto max-w-[820px] px-6 lg:px-8">
         <div className="reveal mb-12 text-center">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
+          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-bv-accent">
             {t("frequentlyAsked")}
           </span>
-          <h2 className="font-serif text-[28px] leading-snug sm:text-[34px]">
-            {t("faqHeading")}
-          </h2>
+          <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
+            <h2 className="font-bv-heading text-[28px] leading-snug sm:text-[34px]">
+              {t("faqHeading")}
+            </h2>
+          </TextBlockAnimation>
         </div>
 
-        <div className="reveal divide-y divide-stone/70 border-y border-stone/70">
+        <div className="reveal divide-y divide-bv-line/70 border-y border-bv-line/70">
           {faqs.map((faq, i) => {
             const isOpen = open === i;
             return (
@@ -33,7 +36,7 @@ export default function ServiceFAQ({ faqs }: { faqs: FAQItem[] }) {
                 >
                   <span className="text-[15px] font-medium sm:text-base">{faq.q}</span>
                   <span
-                    className={`flex h-7 w-7 flex-none items-center justify-center rounded-full border border-wood/40 text-wood transition-transform duration-300 ${
+                    className={`flex h-7 w-7 flex-none items-center justify-center rounded-full border border-bv-accent/40 text-bv-accent transition-transform duration-300 ${
                       isOpen ? "rotate-45" : ""
                     }`}
                   >
@@ -47,7 +50,7 @@ export default function ServiceFAQ({ faqs }: { faqs: FAQItem[] }) {
                   style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
                 >
                   <div className="overflow-hidden">
-                    <p className="pb-6 pr-12 text-sm leading-relaxed text-warm-grey">{faq.a}</p>
+                    <p className="pb-6 pr-12 text-sm leading-relaxed text-bv-muted">{faq.a}</p>
                   </div>
                 </div>
               </div>

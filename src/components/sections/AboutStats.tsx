@@ -1,25 +1,23 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import Button from "@/components/ui/Button";
-import CountUp from "@/components/ui/CountUp";
+import TextBlockAnimation from "@/components/ui/TextBlockAnimation";
 
 export default async function AboutStats() {
   const t = await getTranslations("AboutStats");
-  const stats = [
-    { value: 47, suffix: "+", label: t("stat1") },
-    { value: 98, suffix: "%", label: t("stat2") },
-  ];
   return (
     <section className="py-20">
       <div className="mx-auto grid max-w-[1320px] grid-cols-1 items-center gap-14 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
         <div className="reveal-left">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
+          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-bv-accent">
             {t("badge")}
           </span>
-          <h2 className="font-serif text-[26px] leading-snug sm:text-[32px]">
-            {t("titlePlain")} <span className="italic text-wood">{t("titleItalic")}</span>.
-          </h2>
-          <p className="mt-4 max-w-md text-[17px] text-warm-grey">
+          <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
+            <h2 className="font-bv-heading text-[26px] leading-snug sm:text-[32px]">
+              {t("titlePlain")} <span className="italic text-bv-accent">{t("titleItalic")}</span>.
+            </h2>
+          </TextBlockAnimation>
+          <p className="mt-4 max-w-md text-[17px] text-bv-muted">
             {t("body")}
           </p>
           <div className="mt-8">
@@ -27,20 +25,10 @@ export default async function AboutStats() {
               {t("cta")}
             </Button>
           </div>
-          <div className="mt-10 flex gap-10 border-t border-stone pt-6">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <p className="font-serif text-[32px] text-wood">
-                  <CountUp value={stat.value} suffix={stat.suffix} />
-                </p>
-                <p className="mt-1 text-[13px] uppercase tracking-[0.06em] text-warm-grey">{stat.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className="reveal-right grid grid-cols-2 grid-rows-2 gap-4">
-          <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-stone/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)]">
+          <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-bv-line/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)]">
             <Image
               src="https://images.unsplash.com/photo-1681516771357-25b8d2901efd?q=80&w=1200&auto=format&fit=crop"
               alt="Wood flooring with balcony view"
@@ -49,7 +37,7 @@ export default async function AboutStats() {
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
             />
           </div>
-          <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-stone/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)]">
+          <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-bv-line/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)]">
             <Image
               src="https://images.unsplash.com/photo-1661351224676-f1b437f6a9c2?q=80&w=1200&auto=format&fit=crop"
               alt="Outdoor patio tiling with garden edge"
@@ -58,7 +46,7 @@ export default async function AboutStats() {
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
             />
           </div>
-          <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-stone/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)]">
+          <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-bv-line/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)]">
             <Image
               src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200&auto=format&fit=crop"
               alt="Entrance flooring detail"
@@ -67,7 +55,7 @@ export default async function AboutStats() {
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
             />
           </div>
-          <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-stone/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)]">
+          <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-bv-line/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)]">
             <Image
               src="https://images.unsplash.com/photo-1621535884102-d13e00c76283?q=80&w=1200&auto=format&fit=crop"
               alt="Patio walkway with paver detailing"

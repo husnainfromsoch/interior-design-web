@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import TextBlockAnimation from "@/components/ui/TextBlockAnimation";
 
 const columns: { src: string; alt: string }[][] = [
   [
@@ -40,7 +41,7 @@ function ParallaxColumn({
         {images.map((img) => (
           <div
             key={img.src + img.alt}
-            className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-stone/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)]"
+            className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-bv-line/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)]"
           >
             <Image
               src={img.src}
@@ -59,15 +60,17 @@ function ParallaxColumn({
 export default function AboutGallery() {
   const t = useTranslations("AboutGallery");
   return (
-    <section className="bg-ivory py-24">
+    <section className="bg-bv-background py-24">
       <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
         <div className="reveal mx-auto max-w-2xl text-center">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
+          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-bv-accent">
             {t("badge")}
           </span>
-          <h2 className="font-serif text-[28px] leading-snug sm:text-[34px]">
-            {t("title")}
-          </h2>
+          <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
+            <h2 className="font-bv-heading text-[28px] leading-snug sm:text-[34px]">
+              {t("title")}
+            </h2>
+          </TextBlockAnimation>
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6">

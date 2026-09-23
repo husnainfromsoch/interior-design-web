@@ -2,29 +2,17 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
-import { Bodoni_Moda, Instrument_Sans, Cormorant_Garamond, Manrope } from "next/font/google";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "../globals.css";
 import { routing } from "@/i18n/routing";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileBottomBar from "@/components/ui/MobileBottomBar";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-
-const heading = Bodoni_Moda({
-  variable: "--font-heading",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
-
-const body = Instrument_Sans({
-  variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
+import SmoothScroll from "@/components/ui/SmoothScroll";
 
 // Bellvero v2 design-system typefaces (client spec §2.2). Latin + Cyrillic so RU
-// copy never falls back to a system font. Loaded here (Next requires font loaders
-// at module scope) but only applied within redesigned v2 sections via --font-bv-*.
+// copy never falls back to a system font.
 const bvHeading = Cormorant_Garamond({
   variable: "--font-bv-heading",
   subsets: ["latin", "cyrillic"],
@@ -44,7 +32,7 @@ export function generateStaticParams() {
 export const metadata: Metadata = {
   title: "Interior Renovation & Fit-Out Company in Dubai | Bellvero Group",
   description:
-    "Bellvero Group is Dubai's full-cycle interior renovation, fit-out and custom joinery company. Design, authority approvals, custom kitchens, wardrobes and villa renovation across the UAE, one coordinated team, one point of accountability. Get a free quote today.",
+    "Bellvero Group is Dubai's full-cycle interior renovation, fit-out and custom joinery company. Design, authority approvals, custom kitchens, wardrobes and villa renovation across the UAE, one coordinated team, one point of accountability. Discuss your project today.",
 };
 
 export default async function LocaleLayout({
@@ -62,15 +50,16 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${heading.variable} ${body.variable} ${bvHeading.variable} ${bvBody.variable} h-full antialiased`}
+      className={`${bvHeading.variable} ${bvBody.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-ivory text-charcoal font-sans">
+      <body className="min-h-full flex flex-col bg-bv-background text-bv-ink font-bv-body">
         <NextIntlClientProvider>
           <Header />
           <main className="flex-1 [&:has(>_[data-hero])]:pt-0 pt-[76px] lg:pt-[92px]">{children}</main>
           <Footer />
           <MobileBottomBar />
           <ScrollReveal />
+          <SmoothScroll />
         </NextIntlClientProvider>
       </body>
     </html>

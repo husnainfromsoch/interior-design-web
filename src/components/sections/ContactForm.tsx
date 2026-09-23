@@ -16,12 +16,12 @@ export default function ContactForm() {
   }
 
   const inputClass =
-    "mt-2 w-full rounded-lg border border-stone/70 bg-white px-4 py-3 text-sm text-charcoal outline-none transition-all duration-200 ease-out focus:-translate-y-0.5 focus:border-wood focus:shadow-[0_8px_20px_-12px_rgba(124,90,58,0.5)]";
-  const labelClass = "text-xs font-semibold uppercase tracking-wide text-charcoal";
+    "mt-2 w-full rounded-lg border border-bv-line/70 bg-white px-4 py-3 text-sm text-bv-ink outline-none transition-all duration-200 ease-out focus:-translate-y-0.5 focus:border-bv-accent focus:shadow-[0_8px_20px_-12px_rgba(124,90,58,0.5)]";
+  const labelClass = "text-xs font-semibold uppercase tracking-wide text-bv-ink";
 
   if (submitted) {
     return (
-      <p className="hero-in rounded-lg border border-stone/70 bg-white p-8 text-center text-warm-grey">
+      <p className="hero-in rounded-lg border border-bv-line/70 bg-white p-8 text-center text-bv-muted">
         {t("thankYou")}
       </p>
     );
@@ -32,13 +32,13 @@ export default function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label className={labelClass} htmlFor="name">
-            {t("fullName")} <span className="text-wood">*</span>
+            {t("fullName")} <span className="text-bv-accent">*</span>
           </label>
           <input id="name" name="name" required placeholder={t("namePlaceholder")} className={inputClass} />
         </div>
         <div>
           <label className={labelClass} htmlFor="phone">
-            {t("phone")} <span className="text-wood">*</span>
+            {t("phone")} <span className="text-bv-accent">*</span>
           </label>
           <input
             id="phone"
@@ -54,7 +54,7 @@ export default function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label className={labelClass} htmlFor="service">
-            {t("service")} <span className="normal-case text-warm-grey">{t("optional")}</span>
+            {t("service")} <span className="normal-case text-bv-muted">{t("optional")}</span>
           </label>
           <select id="service" name="service" defaultValue="" className={inputClass}>
             <option value="" disabled>
@@ -69,7 +69,7 @@ export default function ContactForm() {
         </div>
         <div>
           <label className={labelClass} htmlFor="location">
-            {t("location")} <span className="normal-case text-warm-grey">{t("optional")}</span>
+            {t("location")} <span className="normal-case text-bv-muted">{t("optional")}</span>
           </label>
           <input id="location" name="location" placeholder={t("locationPlaceholder")} className={inputClass} />
         </div>
@@ -78,13 +78,13 @@ export default function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label className={labelClass} htmlFor="email">
-            {t("email")} <span className="normal-case text-warm-grey">{t("optional")}</span>
+            {t("email")} <span className="normal-case text-bv-muted">{t("optional")}</span>
           </label>
           <input id="email" name="email" type="email" placeholder={t("emailPlaceholder")} className={inputClass} />
         </div>
         <div>
           <label className={labelClass} htmlFor="timeline">
-            {t("timeline")} <span className="normal-case text-warm-grey">{t("optional")}</span>
+            {t("timeline")} <span className="normal-case text-bv-muted">{t("optional")}</span>
           </label>
           <input id="timeline" name="timeline" placeholder={t("timelinePlaceholder")} className={inputClass} />
         </div>
@@ -92,7 +92,7 @@ export default function ContactForm() {
 
       <div>
         <label className={labelClass} htmlFor="message">
-          {t("message")} <span className="normal-case text-warm-grey">{t("optional")}</span>
+          {t("message")} <span className="normal-case text-bv-muted">{t("optional")}</span>
         </label>
         <textarea
           id="message"
@@ -105,9 +105,9 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="mt-2 inline-flex h-[52px] items-center gap-3 justify-self-start rounded-lg bg-charcoal pl-1.5 pr-6 text-xs font-semibold uppercase tracking-[0.15em] text-ivory transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-wood hover:shadow-[0_10px_24px_-10px_rgba(124,90,58,0.6)] active:translate-y-0"
+        className="mt-2 inline-flex h-[52px] items-center gap-3 justify-self-start rounded-lg bg-bv-ink pl-1.5 pr-6 text-xs font-semibold uppercase tracking-[0.15em] text-bv-background transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-bv-accent hover:shadow-[0_10px_24px_-10px_rgba(124,90,58,0.6)] active:translate-y-0"
       >
-        <span className="flex h-10 w-10 items-center justify-center rounded-md bg-ivory/10">
+        <span className="flex h-10 w-10 items-center justify-center rounded-md bg-bv-background/10">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path
               d="M3 13L13 3M13 3H5M13 3V11"

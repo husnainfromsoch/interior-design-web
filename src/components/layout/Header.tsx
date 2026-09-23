@@ -44,15 +44,15 @@ export default function Header() {
       className={`fixed inset-x-0 top-0 z-40 transition-colors duration-300 ${
         transparent
           ? "border-b border-transparent bg-transparent"
-          : "border-b border-stone/60 bg-ivory/90 backdrop-blur"
+          : "border-b border-bv-line/60 bg-bv-background/90 backdrop-blur"
       }`}
     >
       <nav className="mx-auto flex max-w-[1320px] items-center justify-between px-6 py-4 lg:px-10 lg:py-5">
         <Link
           href="/"
           aria-label="Bellvero Group"
-          className={`flex items-center gap-3 font-serif text-xl tracking-[0.14em] transition-colors lg:text-2xl ${
-            transparent ? "text-ivory" : "text-charcoal"
+          className={`flex items-center gap-3 font-bv-heading text-xl tracking-[0.14em] transition-colors lg:text-2xl ${
+            transparent ? "text-bv-background" : "text-bv-ink"
           }`}
         >
           <Image
@@ -64,7 +64,7 @@ export default function Header() {
             className="h-10 w-10 lg:h-12 lg:w-12"
           />
           <span>
-            BELLVERO <span className={transparent ? "text-champagne" : "text-wood"}>GROUP</span>
+            BELLVERO <span className={transparent ? "text-bv-accent" : "text-bv-accent"}>GROUP</span>
           </span>
         </Link>
 
@@ -75,7 +75,7 @@ export default function Header() {
         <div className="hidden items-center gap-6 md:flex">
           <span
             className={`flex gap-1.5 text-sm tracking-wider transition-colors ${
-              transparent ? "text-ivory/70" : "text-warm-grey"
+              transparent ? "text-bv-background/70" : "text-bv-muted"
             }`}
           >
             <button
@@ -83,8 +83,8 @@ export default function Header() {
               onClick={() => switchLocale("en")}
               className={
                 locale === "en"
-                  ? `font-semibold ${transparent ? "text-ivory" : "text-charcoal"}`
-                  : `transition-colors ${transparent ? "hover:text-ivory" : "hover:text-charcoal"}`
+                  ? `font-semibold ${transparent ? "text-bv-background" : "text-bv-ink"}`
+                  : `transition-colors ${transparent ? "hover:text-bv-background" : "hover:text-bv-ink"}`
               }
             >
               EN
@@ -95,8 +95,8 @@ export default function Header() {
               onClick={() => switchLocale("ru")}
               className={
                 locale === "ru"
-                  ? `font-semibold ${transparent ? "text-ivory" : "text-charcoal"}`
-                  : `transition-colors ${transparent ? "hover:text-ivory" : "hover:text-charcoal"}`
+                  ? `font-semibold ${transparent ? "text-bv-background" : "text-bv-ink"}`
+                  : `transition-colors ${transparent ? "hover:text-bv-background" : "hover:text-bv-ink"}`
               }
             >
               RU
@@ -104,7 +104,7 @@ export default function Header() {
           </span>
           <Link
             href="/contact"
-            className="rounded-full bg-wood px-7 py-3.5 text-sm font-semibold text-ivory transition-colors hover:bg-wood-dark"
+            className="rounded-full bg-bv-accent px-7 py-3.5 text-sm font-semibold text-bv-background transition-colors hover:bg-bv-accent-hover"
           >
             {t("requestQuote")}
           </Link>
@@ -113,7 +113,7 @@ export default function Header() {
         <div className="flex items-center gap-3 md:hidden">
           <Link
             href="/contact"
-            className="rounded-full bg-wood px-5 py-2.5 text-sm font-semibold text-ivory"
+            className="rounded-full bg-bv-accent px-5 py-2.5 text-sm font-semibold text-bv-background"
           >
             {tCommon("getQuote")}
           </Link>

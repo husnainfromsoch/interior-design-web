@@ -48,3 +48,21 @@ Built with CSS keyframes/transitions (see `globals.css`) plus GSAP (`src/lib/gsa
 - Compose Tailwind classes with `clsx` + `tailwind-merge` (`cn`-style helper) rather than string concatenation
 - New animated elements should respect `prefers-reduced-motion` the same way existing `.reveal*`/`.kenburns`/`.process-*` classes do
 - The site is mid-migration to `next-intl` locale-scoped routing (`src/app/[locale]/`) — legacy and locale-scoped versions of layout/pages currently coexist; keep design tokens/fonts in sync between both `globals.css`/`layout.tsx` copies until the migration finishes (see [CLAUDE.md](CLAUDE.md))
+
+## Reference: full site spec's target design tokens (not yet adopted)
+
+The Bellvero Group technical specification pasted into chat on 2026-09-23 defines a *different* design system than the one above. It is documented here for comparison only — **do not apply it** until the user explicitly confirms a rebrand of the visual language.
+
+| Token | Hex | Use |
+|---|---|---|
+| `--bg` | `#F7F4EE` | Page background |
+| `--surface` | `#EBE4D9` | Forms, quiet blocks |
+| `--ink` | `#332E2B` | Headings/body |
+| `--muted` | `#685F57` | Captions, AI disclosure labels |
+| `--accent` | `#98583F` | Primary buttons, role titles |
+| `--accent-hover` | `#804733` | Hover state |
+| `--line` | `#D8CEC1` | Dividers |
+
+Typography: Cormorant Garamond Medium (headings), Manrope (body/labels/buttons) — vs. this repo's Fraunces/Instrument Sans.
+
+Grid: 1320px max content width, 12/8/4 column responsive grid, 104/72/56px section rhythm. The spec also defines a 100-image + 3-video AI media production library (Section 18–19), full EN/RU copy per page (Section 17), and a CMS content model (Section 22) — none of which is reflected in this repo's current components.

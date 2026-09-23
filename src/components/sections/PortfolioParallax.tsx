@@ -36,12 +36,12 @@ export default function PortfolioParallax() {
       <div
         ref={slowRef}
         aria-hidden
-        className="pointer-events-none absolute -left-32 top-0 h-80 w-80 rounded-full bg-wood/10 blur-[110px] will-change-transform"
+        className="pointer-events-none absolute -left-32 top-0 h-80 w-80 rounded-full bg-bv-accent/10 blur-[110px] will-change-transform"
       />
       <div
         ref={fastRef}
         aria-hidden
-        className="pointer-events-none absolute -right-24 bottom-0 h-96 w-96 rounded-full bg-champagne/30 blur-[130px] will-change-transform"
+        className="pointer-events-none absolute -right-24 bottom-0 h-96 w-96 rounded-full bg-bv-accent/30 blur-[130px] will-change-transform"
       />
     </>
   );

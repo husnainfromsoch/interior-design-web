@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soch — SEO Keyword Submission</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f5f4f0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 520px;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  .logo {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #888780;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .header h1 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #2c2c2a;
+    line-height: 1.3;
+    margin-bottom: 0.4rem;
+  }
+
+  .header p {
+    font-size: 14px;
+    color: #888780;
+    line-height: 1.6;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 0.5px solid #d3d1c7;
+    padding: 2rem;
+  }
+
+  .field {
+    margin-bottom: 1.25rem;
+  }
+
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: #5f5e5a;
+    margin-bottom: 6px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #2c2c2a;
+    background: #fafaf8;
+    border: 0.5px solid #d3d1c7;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.15s;
+    appearance: none;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #7f77dd;
+    background: #fff;
+    box-shadow: 0 0 0 3px #eeedfe;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+    line-height: 1.5;
+  }
+
+  .select-wrap {
+    position: relative;
+  }
+
+  .select-wrap::after {
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid #888780;
+    pointer-events: none;
+  }
+
+  .priority-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .priority-option {
+    position: relative;
+  }
+
+  .priority-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .priority-option label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 8px;
+    background: #fafaf8;
+    border: 0.5px solid #d3d1c7;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+    margin: 0;
+    gap: 4px;
+  }
+
+  .priority-option label:hover {
+    border-color: #7f77dd;
+    background: #f9f9ff;
+  }
+
+  .priority-option input:checked + label {
+    border-color: #7f77dd;
+    background: #eeedfe;
+  }
+
+  .priority-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .dot-high { background: #e24b4a; }
+  .dot-medium { background: #ef9f27; }
+  .dot-low { background: #639922; }
+
+  .priority-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #5f5e5a;
+  }
+
+  .divider {
+    border: none;
+    border-top: 0.5px solid #e8e6e0;
+    margin: 1.5rem 0;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 13px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: inherit;
+    color: #fff;
+    background: #534ab7;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    letter-spacing: 0.01em;
+  }
+
+  .submit-btn:hover { background: #3c3489; }
+  .submit-btn:active { transform: scale(0.99); background: #26215c; }
+  .submit-btn:disabled { background: #afa9ec; cursor: not-allowed; transform: none; }
+
+  .hint {
+    font-size: 12px;
+    color: #b4b2a9;
+    margin-top: 5px;
+  }
+
+  .status {
+    display: none;
+    margin-top: 1.25rem;
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .status.success {
+    display: block;
+    background: #eaf3de;
+    border: 0.5px solid #97c459;
+    color: #3b6d11;
+  }
+
+  .status.error {
+    display: block;
+    background: #fcebeb;
+    border: 0.5px solid #f09595;
+    color: #791f1f;
+  }
+
+  .status-title {
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+
+  .steps-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid #e8e6e0;
+  }
+
+  .step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+  .step-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #eeedfe;
+    border: 0.5px solid #afa9ec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 500;
+    color: #534ab7;
+    margin-bottom: 5px;
+    flex-shrink: 0;
+  }
+
+  .step-text {
+    font-size: 10px;
+    color: #b4b2a9;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  .step-connector {
+    flex: 1;
+    height: 0.5px;
+    background: #d3d1c7;
+    margin-bottom: 18px;
+    max-width: 20px;
+  }
+
+  /* Email field with saved emails */
+  .email-field-wrap {
+    position: relative;
+  }
+
+  .saved-emails {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .saved-email-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px 4px 10px;
+    background: #f0effa;
+    border: 0.5px solid #afa9ec;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #534ab7;
+    cursor: pointer;
+    transition: background 0.12s;
+  }
+
+  .saved-email-chip:hover {
+    background: #e3e1f7;
+  }
+
+  .saved-email-chip .chip-delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #c5c0f0;
+    color: #534ab7;
+    font-size: 9px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.12s;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .saved-email-chip .chip-delete:hover {
+    background: #e74c3c;
+    color: #fff;
+  }
+
+  .email-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+  }
+
+  .save-email-btn {
+    background: none;
+    border: none;
+    font-size: 12px;
+    color: #7f77dd;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .save-email-btn:hover { color: #534ab7; }
+
+  .saved-label {
+    font-size: 12px;
+    color: #b4b2a9;
+  }
+
+  .no-saved {
+    font-size: 12px;
+    color: #c5c3bb;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div class="logo">Soch</div>
+    <h1>SEO Keyword Submission</h1>
+    <p>Submit a keyword to start the automated content pipeline.</p>
+  </div>
+
+  <div class="card">
+    <div class="field">
+      <label for="keyword">Target keyword</label>
+      <input type="text" id="keyword" placeholder="e.g. operations as a service for startups" autocomplete="off" />
+      <div class="hint">Be specific — long-tail keywords perform better</div>
+    </div>
+
+    <div class="field">
+      <label for="submitted_by">Your name</label>
+      <input type="text" id="submitted_by" placeholder="e.g. Sara" />
+    </div>
+
+    <div class="field">
+      <label for="email">Approval email</label>
+      <div class="email-field-wrap">
+        <input type="email" id="email" placeholder="e.g. ahmad@withsoch.com" autocomplete="off" />
+        <div class="email-actions">
+          <button type="button" class="save-email-btn" onclick="saveCurrentEmail()">Save this email</button>
+        </div>
+        <div id="savedEmailsSection">
+          <div class="saved-emails" id="savedEmailsList"></div>
+        </div>
+      </div>
+      <div class="hint">Brief, ideas, and article approvals will be sent here</div>
+    </div>
+
+    <div class="field">
+      <label>Priority</label>
+      <div class="priority-grid">
+        <div class="priority-option">
+          <input type="radio" name="priority" id="p-high" value="high">
+          <label for="p-high">
+            <span class="priority-dot dot-high"></span>
+            <span class="priority-label">High</span>
+          </label>
+        </div>
+        <div class="priority-option">
+          <input type="radio" name="priority" id="p-medium" value="medium" checked>
+          <label for="p-medium">
+            <span class="priority-dot dot-medium"></span>
+            <span class="priority-label">Medium</span>
+          </label>
+        </div>
+        <div class="priority-option">
+          <input type="radio" name="priority" id="p-low" value="low">
+          <label for="p-low">
+            <span class="priority-dot dot-low"></span>
+            <span class="priority-label">Low</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="notes">Additional notes <span style="color:#b4b2a9;font-weight:400">(optional)</span></label>
+      <textarea id="notes" placeholder="Any specific angle, audience, or competitor to focus on..."></textarea>
+    </div>
+
+    <hr class="divider">
+
+    <button class="submit-btn" id="submitBtn" onclick="submitKeyword()">Submit keyword →</button>
+
+    <div class="status" id="statusBox">
+      <div class="status-title" id="statusTitle"></div>
+      <div id="statusMsg"></div>
+    </div>
+
+    <div class="steps-row">
+      <div class="step-item">
+        <div class="step-circle">1</div>
+        <div class="step-text">Research &amp; brief</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item">
+        <div class="step-circle">2</div>
+        <div class="step-text">Article written</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item">
+        <div class="step-circle">3</div>
+        <div class="step-text">Images generated</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item">
+        <div class="step-circle">4</div>
+        <div class="step-text">Webflow draft</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const STORAGE_KEY = 'soch_saved_emails';
+
+function getSavedEmails() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { return []; }
+}
+
+function saveSavedEmails(list) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+}
+
+function renderSavedEmails() {
+  const list = getSavedEmails();
+  const container = document.getElementById('savedEmailsList');
+  container.innerHTML = '';
+  if (list.length === 0) {
+    container.innerHTML = '<span class="no-saved">No saved emails yet</span>';
+    return;
+  }
+  list.forEach((email, i) => {
+    const chip = document.createElement('span');
+    chip.className = 'saved-email-chip';
+    chip.title = 'Click to use';
+    chip.innerHTML =
+      '<span class="chip-label">' + escapeHtml(email) + '</span>' +
+      '<span class="chip-delete" title="Delete" onclick="deleteEmail(event,' + i + ')">✕</span>';
+    chip.addEventListener('click', function(e) {
+      if (e.target.classList.contains('chip-delete')) return;
+      document.getElementById('email').value = email;
+    });
+    container.appendChild(chip);
+  });
+}
+
+function escapeHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function saveCurrentEmail() {
+  const email = document.getElementById('email').value.trim().toLowerCase();
+  if (!email || !email.includes('@')) {
+    document.getElementById('email').focus();
+    return;
+  }
+  const list = getSavedEmails();
+  if (!list.includes(email)) {
+    list.push(email);
+    saveSavedEmails(list);
+  }
+  renderSavedEmails();
+}
+
+function deleteEmail(e, index) {
+  e.stopPropagation();
+  const list = getSavedEmails();
+  list.splice(index, 1);
+  saveSavedEmails(list);
+  renderSavedEmails();
+}
+
+async function submitKeyword() {
+  const keyword = document.getElementById('keyword').value.trim();
+  const submittedBy = document.getElementById('submitted_by').value.trim();
+  const email = document.getElementById('email').value.trim().toLowerCase();
+  const priority = document.querySelector('input[name="priority"]:checked')?.value || 'medium';
+  const notes = document.getElementById('notes').value.trim();
+  const btn = document.getElementById('submitBtn');
+  const statusBox = document.getElementById('statusBox');
+  const statusTitle = document.getElementById('statusTitle');
+  const statusMsg = document.getElementById('statusMsg');
+
+  if (!keyword) {
+    statusBox.className = 'status error';
+    statusTitle.textContent = 'Keyword required';
+    statusMsg.textContent = 'Please enter a target keyword before submitting.';
+    return;
+  }
+
+  if (!email || !email.includes('@')) {
+    statusBox.className = 'status error';
+    statusTitle.textContent = 'Email required';
+    statusMsg.textContent = 'Please enter an approval email address.';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+  statusBox.className = 'status';
+
+  try {
+    const response = await fetch('https://sochconsulting.app.n8n.cloud/webhook/seo-keyword-submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ keyword, submitted_by: submittedBy || 'Team', email, priority, notes })
+    });
+
+    if (response.ok) {
+      statusBox.className = 'status success';
+      statusTitle.textContent = 'Keyword submitted';
+      statusMsg.textContent = '"' + keyword + '" is now in the pipeline. Approvals will be sent to ' + email + '.';
+      document.getElementById('keyword').value = '';
+      document.getElementById('submitted_by').value = '';
+      document.getElementById('notes').value = '';
+      document.getElementById('p-medium').checked = true;
+      btn.textContent = 'Submit another →';
+      btn.disabled = false;
+    } else {
+      throw new Error('Server returned ' + response.status);
+    }
+  } catch (err) {
+    statusBox.className = 'status error';
+    statusTitle.textContent = 'Submission failed';
+    statusMsg.textContent = 'Could not reach the pipeline. Check your internet connection or contact Ahmad.';
+    btn.textContent = 'Submit keyword →';
+    btn.disabled = false;
+  }
+}
+
+document.getElementById('keyword').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') submitKeyword();
+});
+
+// Init
+renderSavedEmails();
+</script>
+
+</body>
+</html>

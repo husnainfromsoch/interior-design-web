@@ -8,11 +8,11 @@ const base =
 
 const variants: Record<Variant, string> = {
   primary:
-    "border border-wood bg-wood text-ivory shadow-[0_8px_20px_-8px_rgba(124,90,58,0.65)] hover:border-wood-dark hover:bg-wood-dark hover:shadow-[0_10px_24px_-8px_rgba(95,68,41,0.7)]",
+    "border border-bv-accent bg-bv-accent text-bv-background shadow-[0_8px_20px_-8px_rgba(124,90,58,0.65)] hover:border-bv-accent-hover hover:bg-bv-accent-hover hover:shadow-[0_10px_24px_-8px_rgba(95,68,41,0.7)]",
   outline:
-    "border border-charcoal/70 text-charcoal hover:border-charcoal hover:bg-charcoal hover:text-ivory hover:shadow-[0_10px_24px_-10px_rgba(46,42,37,0.5)]",
+    "border border-bv-ink/70 text-bv-ink hover:border-bv-ink hover:bg-bv-ink hover:text-bv-background hover:shadow-[0_10px_24px_-10px_rgba(46,42,37,0.5)]",
   "outline-light":
-    "border border-ivory/70 text-ivory hover:border-ivory hover:bg-ivory hover:text-soft-black hover:shadow-[0_10px_24px_-10px_rgba(247,243,236,0.35)]",
+    "border border-bv-background/70 text-bv-background hover:border-bv-background hover:bg-bv-background hover:text-bv-ink hover:shadow-[0_10px_24px_-10px_rgba(247,243,236,0.35)]",
 };
 
 export default function Button({

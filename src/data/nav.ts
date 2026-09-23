@@ -8,9 +8,11 @@ export function getNavLinks(
     process: string;
     about: string;
     contact: string;
-  }
+    insights?: string;
+  },
+  options?: { includeInsights?: boolean }
 ) {
-  return [
+  const links = [
     {
       label: t.services,
       href: "/services",
@@ -24,4 +26,11 @@ export function getNavLinks(
     { label: t.about, href: "/about" },
     { label: t.contact, href: "/contact" },
   ];
+
+  // Insights moves into the main header nav once 10+ articles are published (spec A1).
+  if (options?.includeInsights && t.insights) {
+    links.push({ label: t.insights, href: "/insights" });
+  }
+
+  return links;
 }

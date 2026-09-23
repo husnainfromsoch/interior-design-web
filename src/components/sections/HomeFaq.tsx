@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { ArrowUpRight, MessageCircle } from "lucide-react";
+import TextBlockAnimation from "@/components/ui/TextBlockAnimation";
 
 const questions = ["existingDesign", "individualWork", "location", "budget", "remote", "afterEnquiry", "payment"] as const;
 
@@ -16,9 +17,11 @@ export default async function HomeFaq() {
               <span className="block font-[var(--font-bv-body)] text-[12px] font-semibold uppercase tracking-[0.16em] text-bv-accent">
                 {t("eyebrow")}
               </span>
-              <h2 className="mt-3 font-[var(--font-bv-heading)] text-[34px] font-medium leading-[1.1] text-bv-ink sm:text-[42px] lg:text-[52px]">
-                {t("heading")}
-              </h2>
+              <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
+                <h2 className="mt-3 font-[var(--font-bv-heading)] text-[34px] font-medium leading-[1.1] text-bv-ink sm:text-[42px] lg:text-[52px]">
+                  {t("heading")}
+                </h2>
+              </TextBlockAnimation>
 
               <div className="mt-10 overflow-hidden rounded-[24px] bg-bv-ink p-7 text-bv-white sm:p-8">
                 <span className="flex h-12 w-12 items-center justify-center rounded-full bg-bv-white/10 text-bv-white">

@@ -69,6 +69,7 @@ export default async function ServiceDetailPage({
         title={service.title}
         highlights={service.highlights}
         stats={service.stats}
+        ctaLabel={service.cta}
       />
 
       {service.process && <ServiceProcessTimeline steps={service.process} />}
@@ -86,13 +87,13 @@ export default async function ServiceDetailPage({
           captions={service.galleryCaptions}
           title={service.title}
           featureCaption={service.intro}
+          ctaLabel={service.cta}
         />
       )}
 
       <ServiceVideoShowcase
         video={service.video ?? DEFAULT_VIDEO}
         caption={service.videoCaption ?? t("defaultVideoCaption")}
-        stats={service.stats ?? []}
       />
 
       {service.focusAreas && (
@@ -109,13 +110,13 @@ export default async function ServiceDetailPage({
       {service.faqs && <ServiceFAQ faqs={service.faqs} />}
 
       {otherServices.length > 0 && (
-        <section className="bg-beige py-24">
+        <section className="bg-bv-surface py-24">
           <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
             <div className="reveal mb-12">
-              <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
+              <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-bv-accent">
                 {t("explore")}
               </span>
-              <h2 className="font-serif text-[28px] sm:text-[34px]">{t("otherServices")}</h2>
+              <h2 className="font-bv-heading text-[28px] sm:text-[34px]">{t("otherServices")}</h2>
             </div>
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -123,7 +124,7 @@ export default async function ServiceDetailPage({
                 <Link
                   key={s.slug}
                   href={s.href}
-                  className="reveal-scale group flex flex-col overflow-hidden rounded-xl border border-stone/70 bg-ivory shadow-[0_2px_10px_-4px_rgba(46,42,37,0.08)] transition-all duration-200 hover:-translate-y-1 hover:border-wood/40 hover:shadow-[0_16px_32px_-16px_rgba(46,42,37,0.25)]"
+                  className="reveal-scale group flex flex-col overflow-hidden rounded-xl border border-bv-line/70 bg-bv-background shadow-[0_2px_10px_-4px_rgba(46,42,37,0.08)] transition-all duration-200 hover:-translate-y-1 hover:border-bv-accent/40 hover:shadow-[0_16px_32px_-16px_rgba(46,42,37,0.25)]"
                   style={{ "--reveal-delay": `${i * 100}ms` } as React.CSSProperties}
                 >
                   <div className="relative aspect-[16/10] w-full overflow-hidden">
@@ -137,7 +138,7 @@ export default async function ServiceDetailPage({
                   </div>
                   <div className="p-7">
                     <h3 className="mb-2.5 text-[19px] font-medium">{s.title}</h3>
-                    <p className="text-sm text-warm-grey">{s.description}</p>
+                    <p className="text-sm text-bv-muted">{s.description}</p>
                   </div>
                 </Link>
               ))}

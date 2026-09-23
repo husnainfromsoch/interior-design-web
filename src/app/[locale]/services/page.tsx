@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import ServicesHero from "@/components/sections/ServicesHero";
 import Services from "@/components/sections/Services";
-import Process from "@/components/sections/Process";
-import Testimonials from "@/components/sections/Testimonials";
-import Pricing from "@/components/sections/Pricing";
 import MidCta from "@/components/sections/MidCta";
 
 export async function generateMetadata({
@@ -32,9 +29,6 @@ export default async function ServicesPage({
     <>
       <ServicesHero />
       <Services />
-      <Process />
-      <Testimonials />
-      <Pricing />
       <MidCta />
     </>
   );

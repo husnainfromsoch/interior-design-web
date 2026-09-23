@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import TextBlockAnimation from "@/components/ui/TextBlockAnimation";
 
 const VALUE_IDS = ["design", "approvals", "execution", "joinery"] as const;
 const VALUE_VIDEO = "/videos/hero.mp4";
@@ -23,18 +24,20 @@ export default function AboutStory() {
   };
 
   return (
-    <section className="bg-ivory py-24">
+    <section className="bg-bv-background py-24">
       <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div className="reveal-left">
-            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
+            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-bv-accent">
               {t("badge")}
             </span>
-            <h2 className="font-serif text-[28px] leading-snug sm:text-[34px]">
-              {t("titlePlain1")} <span className="italic text-wood">{t("titleItalic1")}</span> {t("titleAnd")}{" "}
-              <span className="italic text-wood">{t("titleItalic2")}</span>.
-            </h2>
-            <div className="mt-6 max-w-xl space-y-4 text-[17px] leading-relaxed text-warm-grey">
+            <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
+              <h2 className="font-bv-heading text-[28px] leading-snug sm:text-[34px]">
+                {t("titlePlain1")} <span className="italic text-bv-accent">{t("titleItalic1")}</span> {t("titleAnd")}{" "}
+                <span className="italic text-bv-accent">{t("titleItalic2")}</span>.
+              </h2>
+            </TextBlockAnimation>
+            <div className="mt-6 max-w-xl space-y-4 text-[17px] leading-relaxed text-bv-muted">
               <p>{t("body1")}</p>
               <p>{t("body2")}</p>
               <p>{t("body3")}</p>
@@ -77,8 +80,8 @@ export default function AboutStory() {
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
                     <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <p className="font-serif text-[19px] text-ivory">{v.label}</p>
-                      <p className="mt-1 text-[12px] leading-snug text-ivory/80">{v.detail}</p>
+                      <p className="font-bv-heading text-[19px] text-bv-background">{v.label}</p>
+                      <p className="mt-1 text-[12px] leading-snug text-bv-background/80">{v.detail}</p>
                     </div>
 
                     {isActive && (
@@ -88,7 +91,7 @@ export default function AboutStory() {
                           e.stopPropagation();
                           setMuted((m) => !m);
                         }}
-                        className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-ivory/90 text-wood shadow-md transition hover:bg-ivory"
+                        className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-bv-background/90 text-bv-accent shadow-md transition hover:bg-bv-background"
                         aria-label={muted ? t("unmute") : t("mute")}
                       >
                         {muted ? (
@@ -115,7 +118,7 @@ export default function AboutStory() {
               type="button"
               onClick={() => go(-1)}
               aria-label={t("previous")}
-              className="absolute left-0 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-stone/70 bg-ivory text-wood shadow-md transition hover:bg-beige"
+              className="absolute left-0 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-bv-line/70 bg-bv-background text-bv-accent shadow-md transition hover:bg-bv-surface"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M15 18 9 12l6-6" />
@@ -125,7 +128,7 @@ export default function AboutStory() {
               type="button"
               onClick={() => go(1)}
               aria-label={t("next")}
-              className="absolute right-0 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-stone/70 bg-ivory text-wood shadow-md transition hover:bg-beige"
+              className="absolute right-0 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-bv-line/70 bg-bv-background text-bv-accent shadow-md transition hover:bg-bv-surface"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="m9 18 6-6-6-6" />
@@ -140,7 +143,7 @@ export default function AboutStory() {
                   onClick={() => setActive(i)}
                   aria-label={t("show", { label: v.label })}
                   className={`h-2 rounded-full transition-all ${
-                    i === active ? "w-6 bg-wood" : "w-2 bg-stone/70"
+                    i === active ? "w-6 bg-bv-accent" : "w-2 bg-bv-line/70"
                   }`}
                 />
               ))}

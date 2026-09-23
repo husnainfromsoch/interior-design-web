@@ -72,19 +72,19 @@ export default async function ProjectDetailPage({
               <div className="reveal flex flex-wrap items-center gap-3">
                 <span
                   className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider ${
-                    isCompleted ? "bg-charcoal text-ivory" : "bg-ivory text-wood-dark border border-wood-dark"
+                    isCompleted ? "bg-bv-ink text-bv-background" : "bg-bv-background text-bv-accent-hover border border-bv-accent-hover"
                   }`}
                 >
                   <StatusIcon size={12} strokeWidth={2} />
                   {statusLabel}
                 </span>
-                <span className="inline-flex items-center gap-1.5 text-sm text-warm-grey">
-                  <MapPin size={14} className="text-wood" aria-hidden />
+                <span className="inline-flex items-center gap-1.5 text-sm text-bv-muted">
+                  <MapPin size={14} className="text-bv-accent" aria-hidden />
                   {tProjects(`${slug}.location`)}
                 </span>
               </div>
 
-              <p className="reveal mt-6 max-w-xl text-[17px] leading-relaxed text-warm-grey">
+              <p className="reveal mt-6 max-w-xl text-[17px] leading-relaxed text-bv-muted">
                 {tProjects(`${slug}.description`)}
               </p>
 
@@ -95,38 +95,38 @@ export default async function ProjectDetailPage({
                 </Button>
               </div>
 
-              <p className="reveal mt-6 text-sm text-warm-grey/80">{t("consultNote")}</p>
+              <p className="reveal mt-6 text-sm text-bv-muted/80">{t("consultNote")}</p>
             </div>
 
-            <div className="reveal-scale rounded-2xl border border-stone/70 bg-beige p-8 shadow-[0_8px_24px_-14px_rgba(46,42,37,0.18)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-wood">{t("atAGlance")}</p>
+            <div className="reveal-scale rounded-2xl border border-bv-line/70 bg-bv-surface p-8 shadow-[0_8px_24px_-14px_rgba(46,42,37,0.18)]">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-bv-accent">{t("atAGlance")}</p>
               <dl className="mt-6 flex flex-col gap-6">
-                <div className="flex items-start gap-3.5 border-t border-stone/70 pt-5 first:border-t-0 first:pt-0">
-                  <StatusIcon size={18} className="mt-0.5 shrink-0 text-wood" aria-hidden />
+                <div className="flex items-start gap-3.5 border-t border-bv-line/70 pt-5 first:border-t-0 first:pt-0">
+                  <StatusIcon size={18} className="mt-0.5 shrink-0 text-bv-accent" aria-hidden />
                   <div>
-                    <dt className="text-xs uppercase tracking-widest text-wood">{t("status")}</dt>
-                    <dd className="mt-1 text-sm text-charcoal">{statusLabel}</dd>
+                    <dt className="text-xs uppercase tracking-widest text-bv-accent">{t("status")}</dt>
+                    <dd className="mt-1 text-sm text-bv-ink">{statusLabel}</dd>
                   </div>
                 </div>
-                <div className="flex items-start gap-3.5 border-t border-stone/70 pt-5">
-                  <Layers size={18} className="mt-0.5 shrink-0 text-wood" aria-hidden />
+                <div className="flex items-start gap-3.5 border-t border-bv-line/70 pt-5">
+                  <Layers size={18} className="mt-0.5 shrink-0 text-bv-accent" aria-hidden />
                   <div>
-                    <dt className="text-xs uppercase tracking-widest text-wood">{t("scope")}</dt>
-                    <dd className="mt-1 text-sm text-charcoal">{tProjects(`${slug}.scope`)}</dd>
+                    <dt className="text-xs uppercase tracking-widest text-bv-accent">{t("scope")}</dt>
+                    <dd className="mt-1 text-sm text-bv-ink">{tProjects(`${slug}.scope`)}</dd>
                   </div>
                 </div>
-                <div className="flex items-start gap-3.5 border-t border-stone/70 pt-5">
-                  <Clock size={18} className="mt-0.5 shrink-0 text-wood" aria-hidden />
+                <div className="flex items-start gap-3.5 border-t border-bv-line/70 pt-5">
+                  <Clock size={18} className="mt-0.5 shrink-0 text-bv-accent" aria-hidden />
                   <div>
-                    <dt className="text-xs uppercase tracking-widest text-wood">{t("timeline")}</dt>
-                    <dd className="mt-1 text-sm text-charcoal">{tProjects(`${slug}.timeline`)}</dd>
+                    <dt className="text-xs uppercase tracking-widest text-bv-accent">{t("timeline")}</dt>
+                    <dd className="mt-1 text-sm text-bv-ink">{tProjects(`${slug}.timeline`)}</dd>
                   </div>
                 </div>
-                <div className="flex items-start gap-3.5 border-t border-stone/70 pt-5">
-                  <MapPin size={18} className="mt-0.5 shrink-0 text-wood" aria-hidden />
+                <div className="flex items-start gap-3.5 border-t border-bv-line/70 pt-5">
+                  <MapPin size={18} className="mt-0.5 shrink-0 text-bv-accent" aria-hidden />
                   <div>
-                    <dt className="text-xs uppercase tracking-widest text-wood">{t("location")}</dt>
-                    <dd className="mt-1 text-sm text-charcoal">{tProjects(`${slug}.location`)}</dd>
+                    <dt className="text-xs uppercase tracking-widest text-bv-accent">{t("location")}</dt>
+                    <dd className="mt-1 text-sm text-bv-ink">{tProjects(`${slug}.location`)}</dd>
                   </div>
                 </div>
               </dl>
@@ -135,22 +135,22 @@ export default async function ProjectDetailPage({
         </div>
       </section>
 
-      <section className="bg-beige py-24">
+      <section className="bg-bv-surface py-24">
         <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:items-center">
             <div className="reveal">
-              <span className="block font-serif text-6xl leading-none text-wood/20 sm:text-7xl">01</span>
-              <span className="mt-6 mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
+              <span className="block font-bv-heading text-6xl leading-none text-bv-accent/20 sm:text-7xl">01</span>
+              <span className="mt-6 mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-bv-accent">
                 {t("briefEyebrow")}
               </span>
-              <h2 className="font-serif text-[26px] leading-snug sm:text-[30px]">{t("briefHeading")}</h2>
-              <div className="mt-6 border-l-2 border-wood/30 pl-6">
-                <p className="max-w-xl text-[16px] leading-relaxed text-warm-grey">
+              <h2 className="font-bv-heading text-[26px] leading-snug sm:text-[30px]">{t("briefHeading")}</h2>
+              <div className="mt-6 border-l-2 border-bv-accent/30 pl-6">
+                <p className="max-w-xl text-[16px] leading-relaxed text-bv-muted">
                   {tProjects(`${slug}.brief`)}
                 </p>
               </div>
             </div>
-            <div className="reveal-scale relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-stone/70 shadow-[0_24px_48px_-24px_rgba(46,42,37,0.3)]">
+            <div className="reveal-scale relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-bv-line/70 shadow-[0_24px_48px_-24px_rgba(46,42,37,0.3)]">
               <Image
                 src={mainImage}
                 alt={`${title} overview`}
@@ -166,7 +166,7 @@ export default async function ProjectDetailPage({
       <section className="py-24">
         <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:items-center">
-            <div className="reveal-scale relative order-2 aspect-[4/3] w-full overflow-hidden rounded-2xl border border-stone/70 shadow-[0_24px_48px_-24px_rgba(46,42,37,0.3)] lg:order-1">
+            <div className="reveal-scale relative order-2 aspect-[4/3] w-full overflow-hidden rounded-2xl border border-bv-line/70 shadow-[0_24px_48px_-24px_rgba(46,42,37,0.3)] lg:order-1">
               <Image
                 src={secondaryImage}
                 alt={`${title} detail`}
@@ -176,13 +176,13 @@ export default async function ProjectDetailPage({
               />
             </div>
             <div className="reveal order-1 lg:order-2">
-              <span className="block font-serif text-6xl leading-none text-wood/20 sm:text-7xl">02</span>
-              <span className="mt-6 mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
+              <span className="block font-bv-heading text-6xl leading-none text-bv-accent/20 sm:text-7xl">02</span>
+              <span className="mt-6 mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-bv-accent">
                 {t("approachEyebrow")}
               </span>
-              <h2 className="font-serif text-[26px] leading-snug sm:text-[30px]">{t("approachHeading")}</h2>
-              <div className="mt-6 border-l-2 border-wood/30 pl-6">
-                <p className="max-w-xl text-[16px] leading-relaxed text-warm-grey">
+              <h2 className="font-bv-heading text-[26px] leading-snug sm:text-[30px]">{t("approachHeading")}</h2>
+              <div className="mt-6 border-l-2 border-bv-accent/30 pl-6">
+                <p className="max-w-xl text-[16px] leading-relaxed text-bv-muted">
                   {tProjects(`${slug}.approach`)}
                 </p>
               </div>
@@ -199,20 +199,20 @@ export default async function ProjectDetailPage({
       />
 
       {project.gallery.length > 1 && (
-        <section className="bg-beige py-24">
+        <section className="bg-bv-surface py-24">
           <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
             <div className="reveal max-w-xl">
-              <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
+              <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-bv-accent">
                 {t("gallery")}
               </span>
-              <h2 className="font-serif text-[28px] sm:text-[34px]">{title}</h2>
+              <h2 className="font-bv-heading text-[28px] sm:text-[34px]">{title}</h2>
             </div>
 
             <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {project.gallery.map((src, i) => (
                 <div
                   key={src}
-                  className="reveal-scale group relative aspect-[4/3] overflow-hidden rounded-2xl border border-stone/70 bg-ivory shadow-[0_8px_24px_-14px_rgba(46,42,37,0.18)] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-wood/40 hover:shadow-[0_24px_48px_-20px_rgba(46,42,37,0.3)]"
+                  className="reveal-scale group relative aspect-[4/3] overflow-hidden rounded-2xl border border-bv-line/70 bg-bv-background shadow-[0_8px_24px_-14px_rgba(46,42,37,0.18)] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-bv-accent/40 hover:shadow-[0_24px_48px_-20px_rgba(46,42,37,0.3)]"
                   style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
                 >
                   <Image
@@ -226,7 +226,7 @@ export default async function ProjectDetailPage({
               ))}
             </div>
 
-            <p className="reveal mt-8 text-xs text-warm-grey/80">{t("galleryDisclaimer")}</p>
+            <p className="reveal mt-8 text-xs text-bv-muted/80">{t("galleryDisclaimer")}</p>
           </div>
         </section>
       )}
@@ -235,10 +235,10 @@ export default async function ProjectDetailPage({
         <section className="py-24">
           <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
             <div className="reveal mb-12">
-              <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
+              <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-bv-accent">
                 {t("explore")}
               </span>
-              <h2 className="font-serif text-[28px] sm:text-[34px]">{t("otherProjects")}</h2>
+              <h2 className="font-bv-heading text-[28px] sm:text-[34px]">{t("otherProjects")}</h2>
             </div>
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -246,7 +246,7 @@ export default async function ProjectDetailPage({
                 <Link
                   key={p.id}
                   href={`/portfolio/${p.id}`}
-                  className="reveal-scale group flex flex-col overflow-hidden rounded-xl border border-stone/70 bg-ivory shadow-[0_2px_10px_-4px_rgba(46,42,37,0.08)] transition-all duration-200 hover:-translate-y-1 hover:border-wood/40 hover:shadow-[0_16px_32px_-16px_rgba(46,42,37,0.25)]"
+                  className="reveal-scale group flex flex-col overflow-hidden rounded-xl border border-bv-line/70 bg-bv-background shadow-[0_2px_10px_-4px_rgba(46,42,37,0.08)] transition-all duration-200 hover:-translate-y-1 hover:border-bv-accent/40 hover:shadow-[0_16px_32px_-16px_rgba(46,42,37,0.25)]"
                   style={{ "--reveal-delay": `${i * 100}ms` } as React.CSSProperties}
                 >
                   <div className="relative aspect-[16/10] w-full overflow-hidden">
@@ -260,7 +260,7 @@ export default async function ProjectDetailPage({
                   </div>
                   <div className="p-7">
                     <h3 className="mb-2.5 text-[19px] font-medium">{tProjects(`${p.id}.title`)}</h3>
-                    <p className="text-sm text-warm-grey">{tProjects(`${p.id}.category`)}</p>
+                    <p className="text-sm text-bv-muted">{tProjects(`${p.id}.category`)}</p>
                   </div>
                 </Link>
               ))}

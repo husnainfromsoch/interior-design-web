@@ -1,22 +1,15 @@
-import fs from "node:fs";
-import path from "node:path";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import Parallax from "@/components/ui/Parallax";
+import TextBlockAnimation from "@/components/ui/TextBlockAnimation";
 import { HardHat, ClipboardList, Handshake } from "lucide-react";
 
-const founders = [
-  { id: "osaf", Icon: HardHat },
-  { id: "ali", Icon: ClipboardList },
-  { id: "abbas", Icon: Handshake },
+const roles = [
+  { id: "chiefEngineer", Icon: HardHat },
+  { id: "projectManagement", Icon: ClipboardList },
+  { id: "clientRelations", Icon: Handshake },
 ] as const;
-
-// Drop portraits into public/founders/ as osaf.jpg, ali.jpg and abbas.jpg; until then a role icon is shown.
-function portraitFor(id: string) {
-  const file = path.join(process.cwd(), "public", "founders", `${id}.jpg`);
-  return fs.existsSync(file) ? `/founders/${id}.jpg` : null;
-}
 
 export default async function HomeFamily() {
   const t = await getTranslations("HomeFamily");
@@ -28,38 +21,30 @@ export default async function HomeFamily() {
           <span className="block font-[var(--font-bv-body)] text-[12px] font-semibold uppercase tracking-[0.16em] text-bv-accent">
             {t("eyebrow")}
           </span>
-          <h2 className="mt-2.5 font-[var(--font-bv-heading)] text-[30px] font-medium leading-[1.15] text-bv-ink sm:text-[34px] lg:text-[40px]">
-            {t("heading")}
-          </h2>
+          <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
+            <h2 className="mt-2.5 font-[var(--font-bv-heading)] text-[30px] font-medium leading-[1.15] text-bv-ink sm:text-[34px] lg:text-[40px]">
+              {t("heading")}
+            </h2>
+          </TextBlockAnimation>
           <p className="mt-4 max-w-xl text-[16px] leading-[1.65] text-bv-muted">{t("body")}</p>
 
           <ul className="mt-8 divide-y divide-bv-line border-y border-bv-line">
-            {founders.map(({ id, Icon }, i) => {
-              const portrait = portraitFor(id);
-              return (
-                <li
-                  key={id}
-                  className="reveal row-hover group flex items-center gap-4 py-4 sm:gap-5"
-                  style={{ ["--reveal-delay" as string]: `${150 + i * 110}ms` }}
-                >
-                  {portrait ? (
-                    <span className="relative h-16 w-16 flex-none overflow-hidden rounded-full bg-bv-surface sm:h-[72px] sm:w-[72px]">
-                      <Image src={portrait} alt={t(`${id}Title`)} fill sizes="72px" className="object-cover" />
-                    </span>
-                  ) : (
-                    <span className="flex h-16 w-16 flex-none items-center justify-center rounded-full border border-bv-field-border/60 bg-bv-surface text-bv-ink transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:border-bv-accent group-hover:bg-bv-accent group-hover:text-bv-white motion-reduce:transition-none sm:h-[72px] sm:w-[72px]">
-                      <Icon className="h-6 w-6" strokeWidth={1.5} />
-                    </span>
-                  )}
-                  <div className="min-w-0">
-                    <h3 className="font-[var(--font-bv-heading)] text-[20px] font-medium leading-[1.2] text-bv-ink sm:text-[22px]">
-                      {t(`${id}Title`)}
-                    </h3>
-                    <p className="mt-1 max-w-md text-[14.5px] leading-[1.5] text-bv-muted">{t(`${id}Bio`)}</p>
-                  </div>
-                </li>
-              );
-            })}
+            {roles.map(({ id, Icon }, i) => (
+              <li
+                key={id}
+                className="reveal row-hover group flex items-center gap-4 py-4 sm:gap-5"
+                style={{ ["--reveal-delay" as string]: `${150 + i * 110}ms` }}
+              >
+                <span className="flex h-16 w-16 flex-none items-center justify-center rounded-full border border-bv-field-border/60 bg-bv-surface text-bv-ink transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:border-bv-accent group-hover:bg-bv-accent group-hover:text-bv-white motion-reduce:transition-none sm:h-[72px] sm:w-[72px]">
+                  <Icon className="h-6 w-6" strokeWidth={1.5} />
+                </span>
+                <div className="min-w-0">
+                  <h3 className="font-[var(--font-bv-heading)] text-[20px] font-medium leading-[1.2] text-bv-ink sm:text-[22px]">
+                    {t(`${id}Title`)}
+                  </h3>
+                </div>
+              </li>
+            ))}
           </ul>
 
           <div className="mt-8">

@@ -3,10 +3,11 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import Button from "@/components/ui/Button";
 import { projects } from "@/data/projects";
+import TextBlockAnimation from "@/components/ui/TextBlockAnimation";
 
 const statusStyles = {
-  completed: "bg-charcoal text-ivory",
-  concept: "bg-ivory text-wood-dark border border-wood-dark",
+  completed: "bg-bv-ink text-bv-background",
+  concept: "bg-bv-background text-bv-accent-hover border border-bv-accent-hover",
 };
 
 export default async function ProjectsPreview() {
@@ -19,24 +20,26 @@ export default async function ProjectsPreview() {
       <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
         <div className="reveal mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
+            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-bv-accent">
               {t("badge")}
             </span>
-            <h2
-              className="font-serif text-[28px] sm:text-[34px]"
-              style={{ fontVariationSettings: '"WONK" 0' }}
-            >
-              {t("title")}
-            </h2>
+            <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
+              <h2
+                className="font-bv-heading text-[28px] sm:text-[34px]"
+                style={{ fontVariationSettings: '"WONK" 0' }}
+              >
+                {t("title")}
+              </h2>
+            </TextBlockAnimation>
           </div>
-          <p className="max-w-sm text-[17px] text-warm-grey">{t("subtitle")}</p>
+          <p className="max-w-sm text-[17px] text-bv-muted">{t("subtitle")}</p>
         </div>
 
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
           {projects.map((project, i) => (
             <div
               key={project.id}
-              className="reveal-scale group overflow-hidden rounded-2xl border border-stone/70 bg-ivory shadow-[0_8px_24px_-12px_rgba(46,42,37,0.15)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_48px_-20px_rgba(46,42,37,0.3)]"
+              className="reveal-scale group overflow-hidden rounded-2xl border border-bv-line/70 bg-bv-background shadow-[0_8px_24px_-12px_rgba(46,42,37,0.15)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_48px_-20px_rgba(46,42,37,0.3)]"
               style={{ "--reveal-delay": `${(i % 2) * 120}ms` } as React.CSSProperties}
             >
               <div className="relative aspect-[5/4] w-full overflow-hidden">
@@ -48,7 +51,7 @@ export default async function ProjectsPreview() {
                   className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                   priority={i === 0}
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-soft-black/70 via-soft-black/0 to-transparent" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bv-ink/70 via-bv-ink/0 to-transparent" />
                 <span
                   className={`absolute left-4 top-4 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-wider shadow-sm ${statusStyles[project.status]}`}
                 >
@@ -57,14 +60,14 @@ export default async function ProjectsPreview() {
               </div>
               <div className="flex flex-col gap-3 p-7 sm:flex-row sm:items-end sm:justify-between">
                 <div>
-                  <h3 className="font-serif text-xl leading-snug sm:text-[22px]">{tProjects(`${project.id}.title`)}</h3>
-                  <p className="mt-1.5 text-[13px] uppercase tracking-[0.08em] text-wood">
+                  <h3 className="font-bv-heading text-xl leading-snug sm:text-[22px]">{tProjects(`${project.id}.title`)}</h3>
+                  <p className="mt-1.5 text-[13px] uppercase tracking-[0.08em] text-bv-accent">
                     {tProjects(`${project.id}.category`)}
                   </p>
                 </div>
                 <Link
                   href={`/portfolio/${project.id}`}
-                  className="inline-flex shrink-0 items-center rounded-full border border-charcoal/25 px-5 py-2 text-[13px] font-semibold text-charcoal transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-wood hover:bg-wood hover:text-ivory active:translate-y-0"
+                  className="inline-flex shrink-0 items-center rounded-full border border-bv-ink/25 px-5 py-2 text-[13px] font-semibold text-bv-ink transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-bv-accent hover:bg-bv-accent hover:text-bv-background active:translate-y-0"
                 >
                   {t("viewProject")}
                 </Link>
@@ -73,7 +76,7 @@ export default async function ProjectsPreview() {
           ))}
         </div>
 
-        <p className="reveal mt-7 text-[12.5px] italic text-warm-grey">{t("disclaimer")}</p>
+        <p className="reveal mt-7 text-[12.5px] italic text-bv-muted">{t("disclaimer")}</p>
 
         <div className="reveal mt-9">
           <Button href="/portfolio" variant="outline">

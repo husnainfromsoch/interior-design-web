@@ -13,13 +13,18 @@ export default async function Footer() {
   const t = await getTranslations("Footer");
   const tNav = await getTranslations("Nav");
 
+  const tInsights = await getTranslations("Insights");
+
   const navLinks = getNavLinks(locale, {
     projects: tNav("projects"),
     services: tNav("services"),
     process: tNav("process"),
     about: tNav("about"),
     contact: tNav("contact"),
+    insights: tInsights("navLabel"),
   });
+
+  const footerLinks = [...navLinks, { label: tInsights("navLabel"), href: "/insights" }];
 
   return (
     <footer className="relative overflow-hidden bg-bv-ink text-bv-white/70">
@@ -64,7 +69,7 @@ export default async function Footer() {
           <div className="reveal" style={{ ["--reveal-delay" as string]: "80ms" }}>
             <h3 className="text-xs font-semibold tracking-[0.2em] text-bv-white/90">{t("explore").toUpperCase()}</h3>
             <ul className="mt-5 space-y-2.5 text-sm">
-              {navLinks.map((link) => (
+              {footerLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

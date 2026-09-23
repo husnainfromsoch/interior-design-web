@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { CheckCircle2 } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 
 const WHATSAPP_NUMBER = "971588099223";
 
@@ -134,15 +135,6 @@ export default function EnquiryForm({ id = "project-enquiry" }: { id?: string })
                 {t("heading")}
               </h2>
               <p className="mt-5 max-w-md text-[17px] leading-[1.65] text-bv-white/70">{t("body")}</p>
-
-              <div className="mt-10 flex items-center gap-4 border-t border-bv-white/15 pt-8">
-                <span className="relative flex h-11 w-11 flex-none items-center justify-center rounded-full bg-bv-white/10">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-5 w-5">
-                    <path d="M12 8v4l3 3M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-                <span className="text-[15px] font-medium">{t("responseNote")}</span>
-              </div>
 
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
@@ -293,7 +285,12 @@ export default function EnquiryForm({ id = "project-enquiry" }: { id?: string })
               </button>
             </div>
 
-            <p className="text-[13px] leading-[1.6] text-bv-muted">{t("privacyNote")}</p>
+            <p className="text-[13px] leading-[1.6] text-bv-muted">
+              {t("privacyNote")}{" "}
+              <Link href="/privacy" className="underline underline-offset-2 hover:text-bv-ink">
+                {t("privacyLink")}
+              </Link>
+            </p>
           </div>
         </form>
       </div>

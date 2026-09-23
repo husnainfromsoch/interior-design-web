@@ -1,4 +1,40 @@
 {
+  "Insights": {
+    "navLabel": "Insights",
+    "metaTitle": "Renovation & Design Insights | Bellvero Group",
+    "metaDescription": "Practical guides on villa renovation, approvals, interior design and bespoke joinery in Dubai and Abu Dhabi, from the Bellvero Group engineering team.",
+    "eyebrow": "Bellvero Group · Insights",
+    "h1": "Insights",
+    "intro": "Practical notes on design, approvals, renovation and joinery in Dubai and Abu Dhabi, written by our engineering team.",
+    "featuredSr": "Featured article",
+    "readArticle": "Read the article",
+    "topicsSr": "Topics",
+    "all": "All",
+    "minRead": "{n} min read",
+    "prev": "← Previous",
+    "next": "Next →",
+    "pageSr": "Page {n}",
+    "emptyState": "There are no articles in this topic yet.",
+    "viewAll": "View all articles",
+    "breadcrumbHome": "Home",
+    "published": "Published {date}",
+    "lastReviewed": "Last reviewed {date}",
+    "copyLink": "Copy link",
+    "linkCopied": "Link copied",
+    "inShort": "In short",
+    "contents": "Contents",
+    "important": "Important",
+    "reviewedBy": "Last reviewed by {author} on {date}.",
+    "regulatoryDisclaimer": "This article is a general guide, not a determination for your property. Requirements depend on the property, the responsible authorities and the actual scope of works, and they change over time. We confirm the applicable route for your specific property before any work is planned.",
+    "authorBoxLink": "How our team works on your project →",
+    "authorBoxSr": "About the author",
+    "relatedServices": "Related services",
+    "moreInsights": "More insights",
+    "formHeading": "Discuss Your Project",
+    "formIntro": "Have a question about your own property? Share a few details and our client relations manager will contact you.",
+    "aiDisclosure": "AI-generated image",
+    "faqHeading": "Frequently asked questions"
+  },
   "Nav": {
     "projects": "Projects",
     "services": "Services",
@@ -19,19 +55,19 @@
     "explore": "Explore",
     "contactHeading": "Contact",
     "whatsappLabel": "WhatsApp",
-    "hours": "Mon–Fri, 9:00–18:00 UAE",
+    "hours": "Monday–Friday, 9:00–18:00 (UAE time)",
     "visitsHeading": "Visits",
     "visitsText": "Meetings at your property or another agreed location. Production visits by appointment.",
     "warranty": "Warranty",
     "cookies": "Cookie Settings"
   },
   "WhatsApp": {
-    "message": "Hi Bellvero Group, I'd like a free quote for my project.",
+    "message": "Hello Bellvero Group, I would like to discuss [service/project].",
     "ariaLabel": "Chat with Bellvero Group on WhatsApp"
   },
   "Common": {
-    "getQuote": "Get a Free Quote",
-    "requestQuote": "Request a Free Quote",
+    "getQuote": "Discuss Your Project",
+    "requestQuote": "Discuss Your Project",
     "whatsappUs": "Chat on WhatsApp",
     "learnMore": "Learn More",
     "viewAll": "View All Projects",
@@ -276,25 +312,6 @@
       }
     }
   },
-  "Testimonials": {
-    "tagLabel": "Client Voices",
-    "title": "Hear it from the people who live in the spaces we've built.",
-    "description": "Trusted by 120+ homeowners and businesses across the UAE to deliver interiors that feel personal, precise, and genuinely elevated.",
-    "stat1Label": "Projects delivered",
-    "stat2Label": "Value built",
-    "stat3Label": "Average rating",
-    "primaryAction": "Get a Free Quote",
-    "secondaryAction": "See Our Projects",
-    "t1Name": "A. Al Mansoori",
-    "t1Title": "Villa Owner, Dubai",
-    "t1Quote": "The team transformed our villa into something beyond what we imagined. Every single detail was considered, nothing felt like an afterthought.",
-    "t2Name": "S. Khan",
-    "t2Title": "Operations Director, Abu Dhabi",
-    "t2Quote": "Professional, precise and genuinely creative. Our office fit-out was delivered on time, on budget, with zero drama.",
-    "t3Name": "R. Haddad",
-    "t3Title": "Homeowner, Dubai",
-    "t3Quote": "A design partner who truly listens. Our new home feels unmistakably like us, only elevated."
-  },
   "Risks": {
     "badge": "What We Help You Avoid",
     "title": "Most renovations go wrong in the same predictable ways. Yours won't.",
@@ -382,9 +399,9 @@
   },
   "FinalCta": {
     "title": "Let's talk about your project.",
-    "body": "WhatsApp us, request a free quote, or book a site visit, whichever works best for you. We reply fast.",
+    "body": "WhatsApp us, discuss your project, or book a site visit, whichever works best for you. We reply fast.",
     "whatsapp": "WhatsApp Us",
-    "requestQuote": "Get a Free Quote",
+    "requestQuote": "Discuss Your Project",
     "bookVisit": "Book a Site Visit",
     "callUs": "Call Us"
   },
@@ -434,8 +451,8 @@
     }
   },
   "ServicesHero": {
-    "titlePlain": "Every stage of your interior,",
-    "titleItalic": "under one roof."
+    "titlePlain": "Design, Renovation &",
+    "titleItalic": "Bespoke Joinery"
   },
   "AboutStory": {
     "badge": "Our Story",
@@ -471,15 +488,12 @@
     "show": "Show {label}"
   },
   "FounderSpotlight": {
-    "est": "Est. 2014",
     "brandName": "Bellvero Group",
     "role": "Founder & Principal Designer",
     "badge": "Meet the Founder",
     "title": "A studio led by one point of accountability, not a committee.",
     "body1": "Bellvero Group was founded on a simple belief: great interiors come from continuity. The same eye that sketches the first concept should be the one signing off on the final detail of installation. Our founder leads every project personally through design, approvals and execution, working alongside a tight team of architects, engineers and craftsmen who hold that same standard.",
-    "body2": "With over a decade shaping residential and commercial interiors across the UAE, the focus has never wavered: fewer handoffs, clearer communication, and spaces that feel truly resolved, not just decorated.",
-    "stat1Label": "Years in the UAE",
-    "stat2Label": "Projects Led"
+    "body2": "With over a decade shaping residential and commercial interiors across the UAE, the focus has never wavered: fewer handoffs, clearer communication, and spaces that feel truly resolved, not just decorated."
   },
   "PortfolioPreview": {
     "badge": "Selected Work",
@@ -515,7 +529,7 @@
     "timelinePlaceholder": "e.g. 3 months",
     "message": "Message / Notes",
     "messagePlaceholder": "Tell us about your project...",
-    "submit": "Get My Free Quote",
+    "submit": "Send Enquiry",
     "thankYou": "Thank you, your enquiry has been received. Our team will be in touch shortly."
   },
   "ContactFormPanel": {
@@ -524,27 +538,86 @@
   },
   "HomePage": {
     "metaTitle": "Interior Renovation & Fit-Out Company in Dubai | Bellvero Group",
-    "metaDescription": "Bellvero Group is Dubai's full-cycle interior renovation, fit-out and custom joinery company. Design, authority approvals, custom kitchens, wardrobes and villa renovation across the UAE, one coordinated team, one point of accountability. Get a free quote today."
+    "metaDescription": "Bellvero Group is Dubai's full-cycle interior renovation, fit-out and custom joinery company. Design, authority approvals, custom kitchens, wardrobes and villa renovation across the UAE, one coordinated team, one point of accountability. Discuss your project today."
   },
   "AboutPage": {
     "metaTitle": "About Bellvero Group | Trusted Renovation & Fit-Out Specialists in Dubai",
-    "metaDescription": "Meet the team behind Bellvero Group, a full-cycle interior renovation, fit-out and custom joinery company serving Dubai, Abu Dhabi and the UAE, coordinating design, approvals, execution and custom furniture under one roof since 2014.",
+    "metaDescription": "Meet the team behind Bellvero Group, a full-cycle interior renovation, fit-out and custom joinery company serving Dubai, Abu Dhabi and the UAE, coordinating design, approvals, execution and custom furniture under one roof.",
     "eyebrow": "About Bellvero Group",
-    "title": "A coordinated team, not a contractor list",
-    "description": "Bellvero Group is a full-cycle interior renovation, fit-out and custom joinery company in the UAE, delivering coordinated support from design, technical drawings and approvals through to renovation, finishing materials, custom furniture, installation and handover."
+    "title": "A Family Business. A Shared Standard.",
+    "description": "Bellvero Group brings design, engineering, project delivery and bespoke joinery together for homes and commercial spaces in Dubai and Abu Dhabi."
+  },
+  "AboutFounders": {
+    "heading": "Two Founders, One Standard of Work",
+    "body1": "In 2021 two brothers started their own renovation and construction business. Today that work continues as Bellvero Group.",
+    "body2": "Each of them brought an established career into it. One had spent his working life as an engineer on large construction sites in the UAE, holding chief engineer positions with contracting companies. The other had managed construction projects in several countries. A third partner is responsible for client relations.",
+    "body3": "That background shapes how we work. An interior is a connected project: the design has to be technically buildable, the works have to follow an agreed scope, and the furniture has to fit the space it was made for. Keeping those decisions connected is the reason the family stays directly involved rather than delegating the project and stepping away."
+  },
+  "AboutLeadership": {
+    "heading": "Leadership",
+    "profiles": {
+      "chiefEngineer": {
+        "role": "Co-Founder & Chief Engineer",
+        "bio": "Leads the technical direction of Bellvero Group. Before the family business, held chief engineer positions with UAE contracting companies on large residential, commercial and public buildings in Dubai and Abu Dhabi. On a private project that experience is applied where mistakes are expensive to correct: checking that the design can actually be built in your property, coordinating mechanical, electrical and plumbing works with the interior, and reviewing the technical decisions before works proceed."
+      },
+      "projectManagement": {
+        "role": "Co-Founder & Head of Project Management",
+        "bio": "Leads project management, with eighteen years of experience in construction, including work as a project manager on projects in several countries. At Bellvero Group leads the project managers: how the programme is planned, how site teams, production and suppliers are coordinated, and how issues raised on site are resolved and reported back to you."
+      },
+      "clientRelations": {
+        "role": "Partner & Head of Client Relations",
+        "bio": "Represents the owners in client relations. Takes the first conversation, establishes your priorities and the likely scope of work, and hands the brief to the designers, engineers and project managers. The role is to keep the communication between you and the team consistent: that what was discussed at the start is what appears in the proposal, and that you always know who is responsible for the next step."
+      }
+    }
+  },
+  "AboutExperience": {
+    "heading": "The Experience Behind Bellvero",
+    "intro": "The experience the founders bring to Bellvero. These projects were delivered by their previous employers.",
+    "body": "In practice this means the technical review of your design before works start, coordination between the interior and the engineering systems, and a defined set of stages that the founders check. Your day-to-day contact remains your project manager."
+  },
+  "AboutProduction": {
+    "heading": "Made for the Project",
+    "body": "Our own production makes bespoke cabinetry, with glass and stone work also carried out by our team. Upholstered furniture and other selected products are sourced to suit the agreed design. Production visits can be arranged by appointment."
+  },
+  "AboutLegalEntity": {
+    "heading": "Who You Are Contracting With",
+    "body": "Bellvero Group operates as [LEGAL ENTITY NAME], licence no. [LICENCE NUMBER], issued by [ISSUING AUTHORITY]. The licensed activities are [ACTIVITIES]. Contracts, invoices and warranty documents are issued in this name."
+  },
+  "AboutExpect": {
+    "heading": "What You Can Expect",
+    "body": "A defined scope. Decisions recorded before changes proceed. Coordinated design and execution. Progress updates and a clear route to handover."
   },
   "ContactPage": {
-    "metaTitle": "Contact Bellvero Group | Get a Free Renovation Quote in Dubai",
-    "metaDescription": "Get a free quote or book a site visit with Bellvero Group, Dubai's trusted interior renovation and fit-out specialists. We reply within one business day.",
+    "metaTitle": "Contact Bellvero Group | Discuss Your Project in Dubai",
+    "metaDescription": "Tell Bellvero Group about your project or book a site visit. We reply within one business day.",
     "eyebrow": "Get in Touch",
-    "title": "Get a free quote or book a site visit",
-    "description": "Tell us about your project and our team will be in touch within one business day, no obligation, no pressure."
+    "title": "Tell Us About Your Project",
+    "description": "A home, a workspace or a bespoke furniture commission — share what you are planning, and our client relations manager will help define the next step.",
+    "hoursLabel": "Working Hours",
+    "hoursValue": "Monday–Friday, 9:00–18:00, UAE time",
+    "locationsLabel": "Project Locations",
+    "locationsValue": "Dubai & Abu Dhabi. Other locations by arrangement.",
+    "meetingsLabel": "Meetings",
+    "meetingsValue": "At your property or another agreed location. Production visits by appointment.",
+    "nextHeading": "What Happens Next",
+    "nextStep1": "We review your enquiry and contact you during working hours.",
+    "nextStep2": "We discuss your priorities, design direction and the work you are considering.",
+    "nextStep3": "Where relevant, we arrange an initial site visit and outline the next steps.",
+    "nextNote": "The initial discussion and first renovation site visit in Dubai or Abu Dhabi are complimentary. Design work, technical surveys and other commissioned services are agreed separately.",
+    "faqHeading": "Frequently Asked",
+    "faq1Q": "Do I need drawings before contacting you?",
+    "faq1A": "No. Photos, a floor plan or a short description are useful if available, but you can start with a conversation.",
+    "faq2Q": "Can we meet online?",
+    "faq2A": "Yes. We can begin remotely and arrange a site meeting when needed.",
+    "faq3Q": "Can I visit the production?",
+    "faq3A": "Yes, by prior arrangement so the relevant team can meet you."
   },
   "PortfolioPage": {
-    "metaTitle": "Our Projects | Interior Renovation & Fit-Out Portfolio Dubai | Bellvero Group",
-    "metaDescription": "Browse completed renovation, fit-out and custom joinery projects across Dubai and the UAE, real transformations from villas, apartments and commercial spaces.",
+    "metaTitle": "Concept Projects | Interior Renovation & Fit-Out Portfolio Dubai | Bellvero Group",
+    "metaDescription": "Concept projects showing how Bellvero Group plans, coordinates and details interior renovation, fit-out and bespoke joinery work across Dubai and Abu Dhabi.",
     "eyebrow": "Our Projects",
-    "title": "Completed works and design concepts"
+    "title": "Concept Projects",
+    "intro": "These are concept projects, created to show how we plan a space, coordinate the technical side and detail the joinery. They are AI-generated visualisations of the scope our team covers, not photographs of delivered properties."
   },
   "ServicesPage": {
     "metaTitle": "Interior Design & Renovation Services in Dubai | Bellvero Group",
@@ -554,14 +627,14 @@
     "ourServices": "Our Services",
     "whatsIncluded": "What's Included",
     "overviewHeading": "Everything covered, from first conversation to final handover.",
-    "getQuote": "Get a Free Quote",
+    "getQuote": "Discuss Your Project",
     "howItWorks": "How It Works",
     "processHeading": "Our process for this service.",
     "designGallery": "Design Gallery",
     "galleryHeadingSuffix": "completed work and design concepts.",
     "galleryDisclaimer": "Visuals shown are design concepts and reference imagery for illustrative purposes, not completed Bellvero Group projects unless stated otherwise.",
     "readyToStart": "Ready to start?",
-    "requestQuote": "Get a Free Quote",
+    "requestQuote": "Discuss Your Project",
     "onSite": "On Site",
     "videoHeading": "See the process come together.",
     "spotlightEyebrow": "A Closer Look",
@@ -583,11 +656,11 @@
     "status": "Status",
     "gallery": "Project Gallery",
     "galleryDisclaimer": "Visuals shown are design concepts and reference imagery for illustrative purposes, not completed Bellvero Group photography unless stated otherwise.",
-    "requestQuote": "Get a Free Quote",
+    "requestQuote": "Discuss a Similar Project",
     "explore": "Explore More",
-    "otherProjects": "Other projects you may like",
+    "otherProjects": "Related Concepts",
     "backToPortfolio": "Back to all projects",
-    "consultNote": "Free consultation, no obligation — we typically reply within a few hours.",
+    "consultNote": "No obligation — we typically reply within a few hours.",
     "briefEyebrow": "The Brief",
     "briefHeading": "Where the project started",
     "approachEyebrow": "Our Approach",
@@ -617,14 +690,14 @@
   "HomeCaseStudies": {
     "heading": "Concept Projects",
     "allProjects": "All Projects",
-    "jumeirahIslands": "Coastal Villa Concept",
+    "jumeirahIslands": "Coastal Villa",
     "jumeirahIslandsRole": "Interior Design · Approvals · Complete Renovation · Bespoke Joinery",
-    "vistaTower": "Tower Residence Concept",
+    "vistaTower": "Tower Residence",
     "vistaTowerRole": "Interior Design · Approvals · Complete Renovation · Bespoke Joinery",
-    "arabianRanches": "Garden Villa Concept",
-    "arabianRanchesRole": "Renovation · Selected Bespoke Joinery",
-    "businessBay": "Business District Office Concept",
-    "businessBayRole": "Approvals · Office Renovation · Furniture Procurement",
+    "arabianRanches": "Garden Villa",
+    "arabianRanchesRole": "Renovation · Landscape · Selected Bespoke Joinery",
+    "businessBay": "Business District Office",
+    "businessBayRole": "Approvals · Office Fit-Out · Furniture Procurement",
     "statusConcept": "Concept project"
   },
   "HomeResponsibility": {
@@ -663,18 +736,12 @@
     "heading": "Family-Led. Personally Involved.",
     "badgeLabel": "Family business",
     "badgeValue": "Since 2021",
-    "body": "Our family business began in 2021, started by two brothers who came from large-scale construction. One has held chief engineer positions with UAE contracting companies on major residential, commercial and public buildings; the other has managed construction projects across several countries. Today they lead the engineering and project management of Bellvero Group, alongside a third partner responsible for client relations. Our production base in Umm Al Quwain makes bespoke cabinetry, glass and stone work.",
-    "osafName": "Sayyed Osaf",
-    "osafTitle": "Co-Founder & Chief Engineer",
-    "aliName": "Sayyed Ali",
-    "aliTitle": "Co-Founder & Head of Project Management",
-    "abbasName": "Sayyed Abbas",
-    "abbasTitle": "Partner & Head of Client Relations",
-    "cta": "Meet the Founders",
-    "imageAlt": "Detail from a Bellvero Group project",
-    "osafBio": "Has held chief engineer positions on major residential, commercial and public buildings in the UAE.",
-    "aliBio": "Has managed construction projects across several countries and leads project management.",
-    "abbasBio": "Your first point of contact, responsible for client relations."
+    "body": "Our family business began in 2021, started by two brothers who came from large-scale construction. One has held chief engineer positions with UAE contracting companies on major residential, commercial and public buildings; the other has managed construction projects across several countries. Today they lead the engineering and project management of Bellvero Group, alongside a third partner responsible for client relations. Our own production makes bespoke cabinetry, glass and stone work.",
+    "chiefEngineerTitle": "Co-Founder & Chief Engineer",
+    "projectManagementTitle": "Co-Founder & Head of Project Management",
+    "clientRelationsTitle": "Partner & Head of Client Relations",
+    "cta": "How our team works on your project",
+    "imageAlt": "Detail from a Bellvero Group project"
   },
   "HomeFaq": {
     "eyebrow": "FAQ",
@@ -693,15 +760,14 @@
     "remoteQ": "Can I follow the project remotely?",
     "remoteA": "Your project manager shares photos, videos and written updates in a dedicated project group. The communication arrangements are agreed at the start.",
     "afterEnquiryQ": "What happens after I enquire?",
-    "afterEnquiryA": "Our client relationship manager contacts you to discuss your plans. For renovation projects, we then arrange an initial site visit. The first discussion and initial renovation visit are complimentary.",
+    "afterEnquiryA": "Our client relations manager contacts you to discuss your plans. For renovation projects, we then arrange an initial site visit. The first discussion and initial renovation visit are complimentary.",
     "paymentQ": "How is payment arranged?",
     "paymentA": "The payment schedule is agreed before work begins and is recorded in the contract. It sets out the initial payment, the payments that follow and the conditions for each. Manufacturing and material purchases may be scheduled as separate payments."
   },
   "EnquiryForm": {
     "eyebrow": "Get In Touch",
     "heading": "Tell Us About Your Project",
-    "body": "Share your plans. Our client relationship manager will contact you to understand the brief and agree the next step.",
-    "responseNote": "We respond within one business day",
+    "body": "Share your plans. Our client relations manager will contact you to understand the brief and agree the next step.",
     "nameLabel": "Name",
     "phoneLabel": "Phone / WhatsApp",
     "emailLabel": "Email",
@@ -736,85 +802,97 @@
     "errorName": "Please enter your name.",
     "errorPhone": "Enter a valid phone number with country code.",
     "errorEmail": "Check your email address.",
-    "privacyNote": "We use these details to respond to your enquiry."
+    "privacyNote": "We use these details to respond to your enquiry.",
+    "privacyLink": "Read our Privacy Notice."
   },
   "ProcessPage": {
     "metaTitle": "Our Process | Bellvero Group",
     "metaDescription": "Ten clear stages from the first brief to inspection and handover, with a defined scope, approved changes and regular updates.",
     "eyebrow": "Our Process",
-    "title": "A Clear Path From Brief to Handover",
-    "intro": "Every project follows the same ten stages, so you always know what is being decided, who is responsible and what happens next.",
+    "title": "From the First Conversation to Handover",
+    "intro": "A clear sequence, a dedicated project manager and agreed decisions at each stage. The route is adapted to your property and the services you commission.",
+    "heroImageAlt": "Bellvero Group project under construction",
+    "heroStat1Value": "10",
+    "heroStat1Label": "Stages, brief to handover",
+    "heroStat2Value": "3",
+    "heroStat2Label": "Ways to work with us",
+    "heroStat3Value": "1",
+    "heroStat3Label": "Dedicated project manager",
     "stagesHeading": "Ten Stages",
     "stages": [
       {
         "title": "Brief & Initial Budget",
-        "body": "We discuss the property, your priorities and the intended budget, and agree how to move forward."
+        "body": "We discuss the property, your priorities, the intended scope and an initial budget direction."
       },
       {
         "title": "Site Review & Survey",
-        "body": "For renovation projects, we visit the property to review its condition and take the measurements the design depends on."
+        "body": "We review existing conditions and arrange the measurements required for the agreed stage."
       },
       {
         "title": "Concept & Layout",
-        "body": "We develop the layout and design direction, or review the existing design you bring to us."
+        "body": "We develop the agreed design direction, layouts and material palette, or review your existing design."
       },
       {
         "title": "Design & Technical Coordination",
-        "body": "The design is developed into technical drawings and coordinated with engineering, joinery and finishes."
+        "body": "We coordinate design drawings, services, specifications and the requirements of the next project stages."
       },
       {
         "title": "Scope, Quotation & Agreement",
-        "body": "Works, specifications and exclusions are defined and priced. The agreement records the scope and the payment schedule."
+        "body": "The scope, exclusions, responsibilities, programme and commercial terms are recorded before the relevant work begins."
       },
       {
         "title": "Approvals & Preparation",
-        "body": "We coordinate documentation and the approvals your property requires, and prepare materials and site logistics."
+        "body": "We prepare and coordinate the required submissions within the agreed scope and plan site access and mobilisation."
       },
       {
         "title": "Construction & Engineering",
-        "body": "Site works begin under day-to-day supervision, with progress shared through photos, videos and written updates."
+        "body": "Site works and engineering installations follow the agreed documentation, with site supervision and progress reporting."
       },
       {
         "title": "Production & Procurement",
-        "body": "Joinery, glass and stone work are produced and materials procured in step with the site programme."
+        "body": "Joinery is manufactured and agreed materials and products are procured in coordination with the site programme."
       },
       {
         "title": "Installation & Completion",
-        "body": "Finished elements are installed and the remaining works completed against the agreed scope."
+        "body": "We coordinate final installations, finishing details and the preparation of the property for inspection."
       },
       {
         "title": "Inspection & Handover",
-        "body": "We inspect the completed scope with you and confirm the handover and warranty details."
+        "body": "We inspect the agreed works, record outstanding items and arrange handover with the relevant project and warranty information."
       }
     ],
+    "overlapNote": "Some stages overlap. Production and procurement can run alongside site works, while quality checks continue throughout. Exact technical measurements for standalone joinery follow the agreement and precede production.",
     "routesHeading": "Three Ways to Work With Us",
     "designOnlyTitle": "Design Only",
-    "designOnlyBody": "A design project on its own, ready to take forward when you decide.",
+    "designOnlyBody": "Brief, agreed design stages, review rounds and delivery of the design package. Support after delivery is commissioned separately.",
     "buildTitle": "Build From Your Design",
-    "buildBody": "You already have a design. We review your drawings and specifications and deliver the renovation or joinery based on your designer's project.",
+    "buildBody": "We review your drawings and existing approvals, agree the implementation scope and coordinate the works.",
     "joineryTitle": "Bespoke Joinery",
-    "joineryBody": "A single kitchen or wardrobe, or the full set of joinery for a property, made at our own production base and installed on site.",
+    "joineryBody": "Brief and quotation, agreement, technical survey, drawings and samples, production and installation.",
     "decisionsHeading": "Decisions You Can Follow",
-    "decisionsBody": "Every stage has a defined scope and a clear next step. Changes are carried out only after you approve the revised scope and cost, and regular photo, video and written updates show how the work is progressing.",
+    "decisionsBody": "Your project manager coordinates communication. The site foreman oversees the works. Photos, videos and written updates are shared in the project group daily or every few days, according to the agreed reporting rhythm. Additional works begin only after approval of their scope and cost; any programme impact is discussed.",
+    "decisionsRoleHeading": "Your Points of Contact",
+    "decisionsRoleBody": "One project manager for communication and reporting, one site foreman overseeing day-to-day execution.",
     "paymentHeading": "How Payment Is Arranged",
-    "paymentBody": "The payment schedule is agreed before work begins and is recorded in the contract. It sets out the initial payment, the payments that follow and the conditions for each. Manufacturing and material purchases may be scheduled as separate payments."
+    "paymentBody": "The payment schedule is agreed before work begins and is recorded in the contract. It sets out the initial payment, the payments that follow and the conditions for each. Manufacturing and material purchases may be scheduled as separate payments. Additional works are quoted and approved before they start, and are invoiced according to the same agreement."
   },
   "WarrantyPage": {
     "metaTitle": "Warranty | Bellvero Group",
     "metaDescription": "A 36-month workmanship warranty on renovation and a 48-month warranty on our own bespoke joinery.",
     "eyebrow": "Warranty",
-    "title": "Warranty",
-    "intro": "Bellvero Group stands behind its work. This page explains what our warranties cover and how to reach us if something needs attention.",
-    "renovationTitle": "Renovation workmanship",
+    "title": "Warranty & Aftercare",
+    "intro": "Clear responsibility after handover. Your project documents identify the work covered, the warranty period and the relevant product warranties.",
+    "renovationTitle": "Renovation Workmanship",
     "renovationTerm": "36 months",
-    "renovationBody": "Renovation work carried out by Bellvero Group carries a 3-year workmanship warranty.",
-    "joineryTitle": "Bespoke joinery",
+    "renovationBody": "Covers defects attributable to our workmanship within the agreed renovation scope, from documented handover of the relevant works.",
+    "joineryTitle": "Our Bespoke Cabinetry",
     "joineryTerm": "48 months",
-    "joineryBody": "Joinery manufactured and installed by Bellvero Group carries a 4-year warranty on our own manufacture and installation.",
-    "productsHeading": "Products and use",
-    "productsBody": "Products and materials we source from other suppliers carry the manufacturer's or supplier's own warranty terms. Warranties apply to normal use and care of the finished work. Warranty details are confirmed at handover.",
-    "contactHeading": "How to contact us",
-    "contactBody": "If you notice an issue with completed work, contact us by phone, WhatsApp or email with your project details and, where possible, photos.",
+    "joineryBody": "Covers manufacturing and installation defects in cabinetry made and installed by Bellvero, from documented handover of the relevant items.",
+    "classificationNote": "Engineering systems, glass and stone are classified in the contract according to the actual works and items.",
+    "productsHeading": "Products and Use",
+    "productsBody": "Appliances, hardware, upholstered furniture and other sourced products carry the warranty terms stated for those products. Normal wear, maintenance needs and damage caused by misuse or third-party alterations are assessed separately. The cause of a reported defect is reviewed before a decision is made. These terms do not remove any mandatory customer rights.",
+    "contactHeading": "How to Contact Us",
+    "contactBody": "Contact Bellvero with your project reference, a description and photos or video where possible. We record the issue, review the available information and agree the appropriate inspection or next step. Please avoid altering the affected area before assessment unless urgent action is needed for safety or to prevent further damage.",
     "cta": "Contact Us"
   },
   "PrivacyPage": {
@@ -826,35 +904,35 @@
     "sections": [
       {
         "title": "Who we are",
-        "body": "Bellvero Group provides interior design, renovation and bespoke joinery services in Dubai and Abu Dhabi. You can reach us using the contact details in the footer of this website."
+        "body": "This website is operated by Bellvero Group. You can reach us using the contact details in the footer of this website."
       },
       {
         "title": "Information you provide",
-        "body": "When you send an enquiry we collect your name and phone or WhatsApp number and, if you choose to provide them, your email address, the service you are interested in, the property location and any project details you write. We also record the page and language you used to send the enquiry. To protect the form from misuse, your IP address is briefly used to limit repeated submissions."
+        "body": "When you enquire, we receive the information you submit, such as your name, phone number, optional email, project type, location and message. Information you send later through email or messaging may include project documents and images."
       },
       {
         "title": "How we use it",
-        "body": "We use these details only to respond to your enquiry and to discuss and arrange your project."
+        "body": "We use enquiry information to respond, discuss your project, prepare relevant proposals and manage the relationship. We also use necessary technical information to operate and secure the website. Optional analytics and advertising technologies operate according to your choices."
       },
       {
         "title": "Service providers",
-        "body": "We may use service providers to host this website and to store and deliver enquiries to our team. They may process your information only to provide those services."
+        "body": "Authorised hosting, communication and enquiry-management providers may process information for these purposes."
       },
       {
-        "title": "How long we keep it",
-        "body": "We keep enquiry details for as long as needed to handle your enquiry and any project that follows, and as required by law."
+        "title": "Retention",
+        "body": "We keep information for the period necessary for the stated purpose and applicable record-keeping requirements."
       },
       {
         "title": "Your choices",
-        "body": "You can ask us to access, correct or delete the personal information you have sent us. Providing your email address is optional."
+        "body": "You can change optional cookie choices through Cookie Settings. Contact us to ask about your information, request correction or deletion, or raise a privacy concern. We assess requests under the requirements that apply to your circumstances."
       },
       {
         "title": "External services",
-        "body": "If you contact us through WhatsApp, your message is handled by WhatsApp under its own terms and privacy policy. Links to other websites are governed by their own policies."
+        "body": "Following a WhatsApp, telephone, email or other external-service link may involve that service's own processing practices. Please review the relevant service's privacy information."
       },
       {
-        "title": "Changes to this policy",
-        "body": "We may update this policy from time to time. The current version is always published on this page."
+        "title": "Changes",
+        "body": "We update this notice when our website or processing arrangements change. The current revision date appears above."
       }
     ]
   },
@@ -863,7 +941,7 @@
     "metaDescription": "The tools this website uses and your privacy choices.",
     "eyebrow": "Legal",
     "title": "Cookie Settings",
-    "intro": "This page lists the tools installed on this website and lets you record your privacy choices.",
+    "intro": "We use necessary technologies to operate and protect this website. With your permission, we also use analytics to understand website use and marketing technologies to measure campaigns and support relevant advertising. You can accept, reject or change optional categories below.",
     "toolsHeading": "Tools installed",
     "necessaryTitle": "Necessary",
     "necessaryBody": "Language preference: remembers whether you use the English or the Russian version of the site. Always active.",
@@ -872,10 +950,10 @@
     "marketingTitle": "Marketing",
     "marketingBody": "No marketing tools are currently installed.",
     "choicesHeading": "Your Privacy Choices",
-    "choicesBody": "Your choices are stored in this browser only and will apply if optional tools are added in future.",
+    "choicesBody": "Allow optional analytics and advertising technologies? Necessary website functions remain available if you decline.",
     "acceptAll": "Accept All",
     "rejectOptional": "Reject Optional",
-    "saveSettings": "Save Settings",
+    "saveSettings": "Save Choices",
     "saved": "Your choices have been saved."
   },
   "NotFound": {

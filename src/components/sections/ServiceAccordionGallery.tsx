@@ -4,17 +4,20 @@ import { useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import TextBlockAnimation from "@/components/ui/TextBlockAnimation";
 
 export default function ServiceAccordionGallery({
   images,
   captions,
   title,
   featureCaption,
+  ctaLabel,
 }: {
   images: string[];
   captions?: string[];
   title: string;
   featureCaption: string;
+  ctaLabel?: string;
 }) {
   const t = useTranslations("ServiceDetail");
   const slides = images.slice(0, 5);
@@ -22,22 +25,24 @@ export default function ServiceAccordionGallery({
   const [active, setActive] = useState(featureIndex);
 
   return (
-    <section className="bg-charcoal py-24">
+    <section className="bg-bv-ink py-24">
       <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
         <div className="reveal mb-14 max-w-xl">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-champagne">
+          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-bv-accent">
             {t("designGallery")}
           </span>
-          <h2 className="font-serif text-[28px] leading-snug text-ivory sm:text-[34px]">
-            {title} {t("galleryHeadingSuffix")}
-          </h2>
-          <p className="mt-3 max-w-lg text-[13px] leading-relaxed text-ivory/50">
+          <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
+            <h2 className="font-bv-heading text-[28px] leading-snug text-bv-background sm:text-[34px]">
+              {title} {t("galleryHeadingSuffix")}
+            </h2>
+          </TextBlockAnimation>
+          <p className="mt-3 max-w-lg text-[13px] leading-relaxed text-bv-background/50">
             {t("galleryDisclaimer")}
           </p>
         </div>
 
         <div
-          className="reveal-scale flex h-[440px] w-full overflow-hidden rounded-2xl border border-ivory/10 sm:h-[520px]"
+          className="reveal-scale flex h-[440px] w-full overflow-hidden rounded-2xl border border-bv-background/10 sm:h-[520px]"
           onMouseLeave={() => setActive(featureIndex)}
         >
           {slides.map((src, i) => {
@@ -61,18 +66,18 @@ export default function ServiceAccordionGallery({
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div
-                  className="absolute inset-0 bg-soft-black transition-opacity duration-500"
+                  className="absolute inset-0 bg-bv-ink transition-opacity duration-500"
                   style={{ opacity: isActive ? 0.15 : 0.55 }}
                 />
 
-                <span className="absolute left-4 top-4 text-[11px] font-medium tracking-[0.08em] text-ivory/80">
+                <span className="absolute left-4 top-4 text-[11px] font-medium tracking-[0.08em] text-bv-background/80">
                   {String(i + 1).padStart(2, "0")}
                 </span>
 
                 {!isFeature && caption && (
                   <>
                     <span
-                      className="absolute bottom-5 left-5 whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.14em] text-ivory/85 transition-opacity duration-300"
+                      className="absolute bottom-5 left-5 whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.14em] text-bv-background/85 transition-opacity duration-300"
                       style={{
                         writingMode: "vertical-rl",
                         transform: "rotate(180deg)",
@@ -85,7 +90,7 @@ export default function ServiceAccordionGallery({
                       className="absolute inset-x-5 bottom-5 transition-opacity duration-300 sm:inset-x-7 sm:bottom-7"
                       style={{ opacity: isActive ? 1 : 0 }}
                     >
-                      <p className="max-w-xs text-[13px] font-medium text-ivory/90 sm:text-sm">{caption}</p>
+                      <p className="max-w-xs text-[13px] font-medium text-bv-background/90 sm:text-sm">{caption}</p>
                     </div>
                   </>
                 )}
@@ -95,17 +100,17 @@ export default function ServiceAccordionGallery({
                     className="absolute inset-x-5 bottom-5 transition-opacity duration-500 sm:inset-x-7 sm:bottom-7"
                     style={{ opacity: isActive ? 1 : 0 }}
                   >
-                    <h3 className="font-serif text-[22px] text-ivory sm:text-[28px]">
+                    <h3 className="font-bv-heading text-[22px] text-bv-background sm:text-[28px]">
                       {t("readyToStart")}
                     </h3>
-                    <p className="mt-2 max-w-sm text-[13px] leading-relaxed text-ivory/80 sm:text-sm">
+                    <p className="mt-2 max-w-sm text-[13px] leading-relaxed text-bv-background/80 sm:text-sm">
                       {featureCaption}
                     </p>
                     <Link
                       href="/contact"
-                      className="mt-4 inline-flex items-center rounded-full border border-champagne/50 px-5 py-2 text-[12px] font-semibold uppercase tracking-[0.08em] text-champagne transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-champagne hover:bg-champagne hover:text-soft-black active:translate-y-0"
+                      className="mt-4 inline-flex items-center rounded-full border border-bv-accent/50 px-5 py-2 text-[12px] font-semibold uppercase tracking-[0.08em] text-bv-accent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-bv-accent hover:bg-bv-accent hover:text-bv-ink active:translate-y-0"
                     >
-                      {t("requestQuote")}
+                      {ctaLabel ?? t("requestQuote")}
                     </Link>
                   </div>
                 )}

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getServices } from "@/data/services";
+import TextBlockAnimation from "@/components/ui/TextBlockAnimation";
 
 const icons = [
   // pencil / design
@@ -36,25 +37,27 @@ export default async function Services({ limit }: { limit?: number }) {
   const visibleServices = limit ? services.slice(0, limit) : services;
 
   return (
-    <section id="services-grid" className="scroll-mt-24 bg-beige py-24">
+    <section id="services-grid" className="scroll-mt-24 bg-bv-surface py-24">
       <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
         <div className="reveal mb-16 text-center">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
+          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-bv-accent">
             {t("badge")}
           </span>
-          <h2 className="font-serif text-[28px] sm:text-[34px]">
-            {t("titlePlain")} <span className="italic text-wood">{t("titleItalic")}</span>
-          </h2>
+          <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
+            <h2 className="font-bv-heading text-[28px] sm:text-[34px]">
+              {t("titlePlain")} <span className="italic text-bv-accent">{t("titleItalic")}</span>
+            </h2>
+          </TextBlockAnimation>
         </div>
 
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
           {visibleServices.map((service, i) => (
             <div
               key={service.slug}
-              className="reveal-scale group relative flex flex-col rounded-2xl border border-stone/70 bg-ivory shadow-[0_2px_10px_-4px_rgba(46,42,37,0.08)] transition-all duration-200 hover:-translate-y-1 hover:border-wood/40 hover:shadow-[0_20px_40px_-18px_rgba(46,42,37,0.28)]"
+              className="reveal-scale group relative flex flex-col rounded-2xl border border-bv-line/70 bg-bv-background shadow-[0_2px_10px_-4px_rgba(46,42,37,0.08)] transition-all duration-200 hover:-translate-y-1 hover:border-bv-accent/40 hover:shadow-[0_20px_40px_-18px_rgba(46,42,37,0.28)]"
               style={{ "--reveal-delay": `${(i % 3) * 100}ms` } as React.CSSProperties}
             >
-              <span className="absolute right-5 top-5 z-10 font-serif text-3xl text-ivory/70 mix-blend-luminosity transition-colors duration-300 group-hover:text-champagne">
+              <span className="absolute right-5 top-5 z-10 font-bv-heading text-3xl text-bv-background/70 mix-blend-luminosity transition-colors duration-300 group-hover:text-bv-accent">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div className="relative">
@@ -67,7 +70,7 @@ export default async function Services({ limit }: { limit?: number }) {
                     className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                   />
                 </div>
-                <div className="absolute -bottom-7 left-8 z-10 flex h-16 w-16 items-center justify-center rounded-xl bg-wood text-ivory shadow-[0_10px_24px_-8px_rgba(124,90,58,0.65)] transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-6">
+                <div className="absolute -bottom-7 left-8 z-10 flex h-16 w-16 items-center justify-center rounded-xl bg-bv-accent text-bv-background shadow-[0_10px_24px_-8px_rgba(124,90,58,0.65)] transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-6">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -86,12 +89,12 @@ export default async function Services({ limit }: { limit?: number }) {
                 <h3 className="mb-3 text-[19px] font-semibold uppercase tracking-[0.02em]">
                   {service.title}
                 </h3>
-                <p className="mb-6 text-[15px] leading-relaxed text-warm-grey">
+                <p className="mb-6 text-[15px] leading-relaxed text-bv-muted">
                   {service.description}
                 </p>
                 <Link
                   href={service.href}
-                  className="inline-flex w-fit items-center rounded-full border border-wood/40 px-5 py-2 text-[13px] font-semibold uppercase tracking-[0.06em] text-wood transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-wood hover:bg-wood hover:text-ivory active:translate-y-0"
+                  className="inline-flex w-fit items-center rounded-full border border-bv-accent/40 px-5 py-2 text-[13px] font-semibold uppercase tracking-[0.06em] text-bv-accent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-bv-accent hover:bg-bv-accent hover:text-bv-background active:translate-y-0"
                 >
                   {t("learnMore")}
                 </Link>
@@ -104,7 +107,7 @@ export default async function Services({ limit }: { limit?: number }) {
           <div className="reveal mt-14 flex justify-center">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 rounded-full border border-wood/40 px-8 py-3 text-[13px] font-semibold uppercase tracking-[0.06em] text-wood transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-wood hover:bg-wood hover:text-ivory active:translate-y-0"
+              className="inline-flex items-center gap-2 rounded-full border border-bv-accent/40 px-8 py-3 text-[13px] font-semibold uppercase tracking-[0.06em] text-bv-accent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-bv-accent hover:bg-bv-accent hover:text-bv-background active:translate-y-0"
             >
               {t("viewAll")}
             </Link>

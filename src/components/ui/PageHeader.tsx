@@ -78,7 +78,7 @@ export default function PageHeader({
   return (
     <section
       ref={sectionRef}
-      className={`relative flex overflow-hidden bg-beige px-6 lg:px-8 ${
+      className={`relative flex overflow-hidden bg-bv-surface px-6 lg:px-8 ${
         hasImages
           ? "min-h-[560px] items-center py-28 sm:min-h-[640px] lg:min-h-[760px] lg:py-36"
           : "items-center py-16 lg:py-20"
@@ -102,41 +102,41 @@ export default function PageHeader({
               />
             </div>
           ))}
-          <div className="absolute inset-0 bg-charcoal/35" />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/45 via-transparent to-charcoal/10" />
+          <div className="absolute inset-0 bg-bv-ink/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-bv-ink/45 via-transparent to-bv-ink/10" />
         </div>
       )}
 
       {!hasImages && (
         <div
           aria-hidden
-          className="pointer-events-none absolute left-1/2 top-0 h-[520px] w-[900px] -translate-x-1/2 -translate-y-1/3 rounded-full bg-wood/10 blur-3xl"
+          className="pointer-events-none absolute left-1/2 top-0 h-[520px] w-[900px] -translate-x-1/2 -translate-y-1/3 rounded-full bg-bv-accent/10 blur-3xl"
         />
       )}
       <div
         aria-hidden
-        className={`pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent ${hasImages ? "via-ivory/20" : "via-charcoal/10"} to-transparent`}
+        className={`pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent ${hasImages ? "via-bv-background/20" : "via-bv-ink/10"} to-transparent`}
       />
 
       <div className="relative mx-auto w-full max-w-3xl text-center">
         {eyebrow && (
           <p
             ref={eyebrowRef}
-            className={`text-xs font-semibold uppercase tracking-[0.28em] ${hasImages ? "text-ivory/80" : "text-wood"}`}
+            className={`text-xs font-semibold uppercase tracking-[0.28em] ${hasImages ? "text-bv-background/80" : "text-bv-accent"}`}
           >
             {eyebrow}
           </p>
         )}
         <h1
           ref={titleRef}
-          className={`mt-6 overflow-hidden font-serif text-[42px] leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl ${hasImages ? "text-ivory" : "text-charcoal"}`}
+          className={`mt-6 overflow-hidden font-bv-heading text-[42px] leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl ${hasImages ? "text-bv-background" : "text-bv-ink"}`}
         >
           {title}
         </h1>
         {description && (
           <p
             ref={descRef}
-            className={`mx-auto mt-7 max-w-xl text-base leading-relaxed sm:text-lg ${hasImages ? "text-ivory/80" : "text-warm-grey"}`}
+            className={`mx-auto mt-7 max-w-xl text-base leading-relaxed sm:text-lg ${hasImages ? "text-bv-background/80" : "text-bv-muted"}`}
           >
             {description}
           </p>
@@ -151,7 +151,7 @@ export default function PageHeader({
                 aria-label={`Show slide ${i + 1}`}
                 onClick={() => setActiveSlide(i)}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === activeSlide ? "w-6 bg-ivory" : "w-1.5 bg-ivory/40"
+                  i === activeSlide ? "w-6 bg-bv-background" : "w-1.5 bg-bv-background/40"
                 }`}
               />
             ))}

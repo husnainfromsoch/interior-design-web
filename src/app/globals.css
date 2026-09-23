@@ -1,20 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F7F3EC;
-  --foreground: #2E2A25;
-  --ivory: #F7F3EC;
-  --beige: #EDE3D3;
-  --taupe: #A6927B;
-  --champagne: #D9C7A6;
-  --warm-grey: #8B857A;
-  --charcoal: #2E2A25;
-  --soft-black: #1C1916;
-  --stone: #C7BFAF;
-  --wood: #7C5A3A;
-  --wood-dark: #5F4429;
+  --background: var(--bv-background);
+  --foreground: var(--bv-ink);
 
-  /* Bellvero v2 design tokens ("Golden Breath") — scoped to redesigned sections only */
+  /* Bellvero v2 design tokens ("Golden Breath") */
   --bv-background: #F7F4EE;
   --bv-surface: #EBE4D9;
   --bv-ink: #332E2B;
@@ -31,18 +21,6 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-ivory: var(--ivory);
-  --color-beige: var(--beige);
-  --color-taupe: var(--taupe);
-  --color-champagne: var(--champagne);
-  --color-warm-grey: var(--warm-grey);
-  --color-charcoal: var(--charcoal);
-  --color-soft-black: var(--soft-black);
-  --color-stone: var(--stone);
-  --color-wood: var(--wood);
-  --color-wood-dark: var(--wood-dark);
-  --font-sans: var(--font-body);
-  --font-serif: var(--font-heading);
 
   --color-bv-background: var(--bv-background);
   --color-bv-surface: var(--bv-surface);
@@ -186,6 +164,25 @@ body {
   }
 }
 
+.tagline-word {
+  display: inline-block;
+  opacity: 0;
+  animation: tagline-word-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes tagline-word-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5em) rotate(4deg);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .kenburns,
   .kenburns-fast {
@@ -193,6 +190,10 @@ body {
   }
   .hero-in {
     animation: none;
+  }
+  .tagline-word {
+    animation: none;
+    opacity: 1;
   }
 }
 
@@ -224,7 +225,7 @@ body {
 .capability-runner {
   left: 10%;
   opacity: 0;
-  box-shadow: 0 0 0 rgba(198, 168, 124, 0);
+  box-shadow: 0 0 0 rgba(152, 88, 63, 0);
 }
 .reveal.is-visible .capability-runner {
   animation: run-line 4.5s cubic-bezier(0.65, 0, 0.35, 1) 1.3s infinite;
@@ -262,7 +263,7 @@ body {
   }
   8% {
     transform: scale(1.7);
-    box-shadow: 0 0 10px 2px var(--champagne);
+    box-shadow: 0 0 10px 2px var(--bv-accent-hover);
   }
 }
 
@@ -270,12 +271,12 @@ body {
   0%,
   22%,
   100% {
-    border-color: color-mix(in srgb, var(--ivory) 10%, transparent);
-    background-color: color-mix(in srgb, var(--ivory) 4%, transparent);
+    border-color: color-mix(in srgb, var(--bv-background) 10%, transparent);
+    background-color: color-mix(in srgb, var(--bv-background) 4%, transparent);
   }
   8% {
-    border-color: color-mix(in srgb, var(--champagne) 60%, transparent);
-    background-color: color-mix(in srgb, var(--ivory) 8%, transparent);
+    border-color: color-mix(in srgb, var(--bv-accent-hover) 60%, transparent);
+    background-color: color-mix(in srgb, var(--bv-background) 8%, transparent);
   }
 }
 
@@ -295,7 +296,7 @@ body {
 }
 
 .process-node-glow {
-  background: radial-gradient(circle, rgba(217, 199, 166, 0.55) 0%, rgba(217, 199, 166, 0) 70%);
+  background: radial-gradient(circle, rgba(152, 88, 63, 0.55) 0%, rgba(152, 88, 63, 0) 70%);
   animation: process-glow-pulse 2.6s ease-in-out infinite;
 }
 @keyframes process-glow-pulse {
@@ -401,7 +402,7 @@ body {
   inset: -4px;
   z-index: -1;
   border-radius: inherit;
-  background: linear-gradient(120deg, var(--wood), var(--champagne), var(--wood));
+  background: linear-gradient(120deg, var(--bv-accent), var(--bv-accent-hover), var(--bv-accent));
   background-size: 200% 200%;
   opacity: 0.4;
   filter: blur(12px);
@@ -442,6 +443,13 @@ body {
     animation: none;
     opacity: 0;
   }
+}
+
+/* ---------- Insights motion layer ---------- */
+
+.hero-line-mask {
+  overflow: hidden;
+  display: block;
 }
 
 /* ---------- Homepage motion layer ---------- */

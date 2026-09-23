@@ -62,7 +62,7 @@ export const SlideTabs = ({ tabs = defaultTabs }: { tabs?: SlideTabItem[] }) => 
 
   return (
     <div className="relative" onMouseLeave={handleLeave}>
-      <ul className="relative mx-auto flex w-fit rounded-full border-2 border-charcoal bg-ivory p-1.5">
+      <ul className="relative mx-auto flex w-fit rounded-full border-2 border-bv-ink bg-bv-background p-1.5">
         {tabs.map((tab, i) => (
           <Tab
             key={tab.href}
@@ -89,14 +89,14 @@ export const SlideTabs = ({ tabs = defaultTabs }: { tabs?: SlideTabItem[] }) => 
             exit={{ opacity: 0, y: -8, scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 32 }}
             onMouseEnter={() => handleEnter(hovered)}
-            className="absolute left-1/2 top-full z-50 mt-3 w-72 -translate-x-1/2 rounded-2xl border border-stone/60 bg-ivory p-2 shadow-xl"
+            className="absolute left-1/2 top-full z-50 mt-3 w-72 -translate-x-1/2 rounded-2xl border border-bv-line/60 bg-bv-background p-2 shadow-xl"
           >
             <ul className="flex flex-col gap-0.5">
               {tabs[hovered].children!.map((child) => (
                 <li key={child.href}>
                   <Link
                     href={child.href}
-                    className="block rounded-xl px-4 py-2.5 text-sm font-medium tracking-wide text-charcoal/80 transition-colors hover:bg-stone/60 hover:text-charcoal"
+                    className="block rounded-xl px-4 py-2.5 text-sm font-medium tracking-wide text-bv-ink/80 transition-colors hover:bg-bv-line/60 hover:text-bv-ink"
                   >
                     {child.label}
                   </Link>
@@ -124,7 +124,7 @@ const Tab = React.forwardRef<HTMLLIElement, TabProps>(
         <Link
           href={href}
           className={`block cursor-pointer px-5 py-2.5 text-sm font-medium tracking-wide transition-colors md:px-6 md:py-3 ${
-            isActive ? "text-ivory" : "text-charcoal/75"
+            isActive ? "text-bv-background" : "text-bv-ink/75"
           }`}
         >
           {children}
@@ -142,7 +142,7 @@ const Cursor = ({ position }: { position: Position }) => {
         ...position,
       }}
       transition={{ type: "spring", stiffness: 400, damping: 35 }}
-      className="absolute z-0 h-9 rounded-full bg-charcoal md:h-11"
+      className="absolute z-0 h-9 rounded-full bg-bv-ink md:h-11"
     />
   );
 };

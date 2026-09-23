@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import {
   AnimatePresence,
   motion,
@@ -15,7 +16,7 @@ const ICONS = [MessageCircle, PenTool, FileCheck2, HardHat, KeyRound];
 const EASE = [0.22, 1, 0.36, 1] as const;
 const AUTO_MS = 3200;
 
-type Step = { title: string; body: string };
+type Step = { title: string; body: string; image?: string };
 
 const slide = {
   enter: (d: number) => ({ opacity: 0, x: d * 48, filter: "blur(6px)" }),
@@ -93,7 +94,14 @@ export default function StagesTimeline({ steps }: { steps: Step[] }) {
             const current = i === active;
             return (
               <li key={step.title} className="flex justify-center">
-                <button type="button" onClick={() => go(i)} aria-current={current ? "step" : undefined} className="group flex flex-col items-center gap-3 px-1">
+                <button
+                  type="button"
+                  onClick={() => go(i)}
+                  onMouseEnter={() => go(i)}
+                  onFocus={() => go(i)}
+                  aria-current={current ? "step" : undefined}
+                  className="group flex flex-col items-center gap-3 px-1"
+                >
                   <span className="relative">
                     {current && !reduce && (
                       <motion.span
@@ -155,7 +163,8 @@ export default function StagesTimeline({ steps }: { steps: Step[] }) {
           style={{ transform: `scaleX(${(active + 1) / steps.length})` }}
         />
 
-        <div className="relative grid min-h-[280px] gap-8 p-7 sm:p-10 lg:grid-cols-[auto_1fr_auto] lg:items-center lg:gap-12 lg:p-14">
+        <div className="relative grid gap-8 p-7 sm:p-9 lg:grid-cols-[1fr_300px] lg:items-center lg:gap-10 lg:p-12">
+        <div className="grid gap-6 sm:grid-cols-[auto_1fr] sm:items-center lg:grid-cols-[auto_1fr_auto] lg:gap-10">
           <AnimatePresence mode="wait" custom={dir} initial={false}>
             <motion.div
               key={active}
@@ -167,22 +176,22 @@ export default function StagesTimeline({ steps }: { steps: Step[] }) {
               transition={{ duration: 0.45, ease: EASE }}
               className="contents"
             >
-              <div className="flex items-center gap-5 lg:flex-col lg:items-start lg:gap-6">
+              <div className="flex items-center gap-4 lg:flex-col lg:items-start lg:gap-4">
                 <motion.span
                   initial={reduce ? false : { scale: 0.6, rotate: -25 }}
                   animate={{ scale: 1, rotate: 0 }}
                   transition={{ type: "spring", stiffness: 260, damping: 16 }}
-                  className="flex h-16 w-16 items-center justify-center rounded-full bg-bv-accent text-bv-white"
+                  className="flex h-14 w-14 items-center justify-center rounded-full bg-bv-accent text-bv-white"
                 >
-                  <Icon className="h-7 w-7" strokeWidth={1.5} />
+                  <Icon className="h-6 w-6" strokeWidth={1.5} />
                 </motion.span>
-                <span className="font-[var(--font-bv-heading)] text-[56px] leading-none text-bv-white/15 lg:text-[88px]">
+                <span className="font-[var(--font-bv-heading)] text-[44px] leading-none text-bv-white/15 lg:text-[56px]">
                   {String(active + 1).padStart(2, "0")}
                 </span>
               </div>
 
               <div>
-                <h3 className="font-[var(--font-bv-heading)] text-[28px] font-medium leading-[1.15] text-bv-white sm:text-[36px]">
+                <h3 className="font-[var(--font-bv-heading)] text-[26px] font-medium leading-[1.15] text-bv-white sm:text-[32px]">
                   {steps[active].title.split(" ").map((w, i) => (
                     <span key={i} className="inline-block overflow-hidden align-bottom">
                       <motion.span
@@ -200,7 +209,7 @@ export default function StagesTimeline({ steps }: { steps: Step[] }) {
                   initial={reduce ? false : { opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: EASE, delay: 0.25 }}
-                  className="mt-4 max-w-xl text-[17px] leading-[1.6] text-bv-white/65"
+                  className="mt-4 max-w-xl text-[16px] leading-[1.6] text-bv-white/65"
                 >
                   {steps[active].body}
                 </motion.p>
@@ -219,12 +228,39 @@ export default function StagesTimeline({ steps }: { steps: Step[] }) {
                 aria-label={label}
                 disabled={off}
                 onClick={() => go(to)}
-                className="group/btn flex h-12 w-12 items-center justify-center rounded-full border border-bv-white/25 text-bv-white transition-[background-color,color,opacity,transform] duration-200 hover:bg-bv-white hover:text-bv-ink active:scale-90 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-bv-white motion-reduce:transition-none"
+                className="group/btn flex h-11 w-11 items-center justify-center rounded-full border border-bv-white/25 text-bv-white transition-[background-color,color,opacity,transform] duration-200 hover:bg-bv-white hover:text-bv-ink active:scale-90 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-bv-white motion-reduce:transition-none"
               >
                 <Ico className={`h-4 w-4 transition-transform duration-200 motion-reduce:transition-none ${nudge}`} />
               </button>
             ))}
           </div>
+        </div>
+
+          {steps[active].image && (
+            <div className="relative hidden aspect-[4/4.2] w-full self-center overflow-hidden rounded-[18px] lg:block">
+              <AnimatePresence mode="wait" custom={dir} initial={false}>
+                <motion.div
+                  key={active}
+                  custom={dir}
+                  variants={reduce ? undefined : slide}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.45, ease: EASE }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={steps[active].image}
+                    alt={steps[active].title}
+                    fill
+                    sizes="300px"
+                    className="object-cover"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bv-ink/40 via-transparent to-transparent" />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          )}
         </div>
       </motion.div>
     </div>

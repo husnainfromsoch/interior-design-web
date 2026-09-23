@@ -30,6 +30,7 @@ export default async function PortfolioPage({
     <>
       <PageHeader
         title={t("title")}
+        description={t("intro")}
         images={projects.map((p) => p.image)}
       />
       <PortfolioPreview />

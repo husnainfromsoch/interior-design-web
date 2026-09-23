@@ -1,5 +1,4 @@
 import { getTranslations, getLocale } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
 import HeroMedia from "./HeroMedia";
 
 export default async function Hero() {
@@ -42,16 +41,23 @@ export default async function Hero() {
             >
               {t("title")}
             </h1>
-            <p style={{ animationDelay: "0.45s" }} className="hero-in mt-6 max-w-lg text-[18px] leading-[1.55] text-bv-white sm:text-[20px]">
-              {t("subtitle")}
+            <p className="tagline-in mt-6 max-w-lg text-[18px] leading-[1.55] text-bv-white sm:text-[20px]">
+              {t("subtitle")
+                .split(" ")
+                .map((word, i) => (
+                  <span key={i} className="tagline-word" style={{ animationDelay: `${0.5 + i * 0.045}s` }}>
+                    {word}
+                    {i < t("subtitle").split(" ").length - 1 ? " " : ""}
+                  </span>
+                ))}
             </p>
             <div style={{ animationDelay: "0.6s" }} className="hero-in mt-9">
-              <Link
-                href="/contact"
+              <a
+                href="#project-enquiry"
                 className="btn-shine inline-flex h-[52px] items-center rounded-[2px] bg-bv-accent px-8 text-sm font-semibold tracking-[0.02em] text-bv-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-bv-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-white"
               >
                 {t("cta")}
-              </Link>
+              </a>
             </div>
           </div>
         </div>

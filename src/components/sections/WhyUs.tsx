@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import TextBlockAnimation from "@/components/ui/TextBlockAnimation";
 
 const icons = [
   <svg key="i1" viewBox="0 0 24 24" fill="none" className="h-5 w-5" stroke="currentColor" strokeWidth={1.6}>
@@ -25,7 +26,7 @@ export default function WhyUs() {
     { title: t("point3Title"), body: t("point3Body"), icon: icons[2] },
   ];
   return (
-    <section id="why" className="bg-ivory py-24 sm:py-28 lg:py-32">
+    <section id="why" className="bg-bv-background py-24 sm:py-28 lg:py-32">
       <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
         <div className="reveal-left group relative mb-14 aspect-video w-full overflow-hidden rounded-2xl shadow-[0_20px_45px_-20px_rgba(46,42,37,0.35)] lg:mb-16">
           <video
@@ -37,41 +38,43 @@ export default function WhyUs() {
             preload="metadata"
             className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-soft-black/30 via-transparent to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bv-ink/30 via-transparent to-transparent" />
         </div>
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-16">
           <div className="reveal-left w-full">
-            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-wood">
+            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-bv-accent">
               {t("badge")}
             </span>
-            <h2 className="font-serif text-[32px] leading-[1.15] sm:text-[42px]">
-              {t("titlePlain")}{" "}
-              <span className="italic text-wood">{t("titleItalic")}</span>
-            </h2>
-            <p className="mt-6 max-w-[46ch] text-[15px] leading-relaxed text-warm-grey">
+            <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
+              <h2 className="font-bv-heading text-[32px] leading-[1.15] sm:text-[42px]">
+                {t("titlePlain")}{" "}
+                <span className="italic text-bv-accent">{t("titleItalic")}</span>
+              </h2>
+            </TextBlockAnimation>
+            <p className="mt-6 max-w-[46ch] text-[15px] leading-relaxed text-bv-muted">
               {t("body")}
             </p>
 
-            <div className="mt-10 border-t border-stone">
+            <div className="mt-10 border-t border-bv-line">
               {points.map((point, i) => {
                 const isOpen = openIndex === i;
                 return (
                   <div
                     key={point.title}
-                    className="reveal border-b border-stone transition-colors duration-500"
+                    className="reveal border-b border-bv-line transition-colors duration-500"
                     style={{ "--reveal-delay": `${i * 70}ms` } as React.CSSProperties}
                   >
                     <button
                       type="button"
                       onClick={() => setOpenIndex(isOpen ? null : i)}
                       aria-expanded={isOpen}
-                      className="group/row flex w-full items-start justify-between gap-6 px-2 py-7 text-left transition-colors duration-500 hover:bg-wood/5 -mx-2 rounded-sm"
+                      className="group/row flex w-full items-start justify-between gap-6 px-2 py-7 text-left transition-colors duration-500 hover:bg-bv-accent/5 -mx-2 rounded-sm"
                     >
                       <div className="flex-1">
                         <h3
                           className={`text-[14px] font-semibold uppercase tracking-[0.06em] transition-colors duration-500 ${
-                            isOpen ? "text-wood" : "text-soft-black"
+                            isOpen ? "text-bv-accent" : "text-bv-ink"
                           }`}
                         >
                           {point.title}
@@ -82,7 +85,7 @@ export default function WhyUs() {
                         >
                           <div className="overflow-hidden">
                             <p
-                              className={`mt-2 max-w-[42ch] text-sm leading-relaxed text-warm-grey transition-all duration-500 ease-out ${
+                              className={`mt-2 max-w-[42ch] text-sm leading-relaxed text-bv-muted transition-all duration-500 ease-out ${
                                 isOpen
                                   ? "translate-y-0 opacity-100 delay-150"
                                   : "-translate-y-1 opacity-0"
@@ -96,8 +99,8 @@ export default function WhyUs() {
                       <div
                         className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-sm transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                           isOpen
-                            ? "rotate-45 bg-wood text-white"
-                            : "bg-wood/90 text-white group-hover/row:bg-wood"
+                            ? "rotate-45 bg-bv-accent text-white"
+                            : "bg-bv-accent/90 text-white group-hover/row:bg-bv-accent"
                         }`}
                       >
                         <div className={`transition-transform duration-500 ${isOpen ? "-rotate-45" : ""}`}>

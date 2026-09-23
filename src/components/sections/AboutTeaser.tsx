@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { PenTool, ShieldCheck, HardHat, Hammer } from "lucide-react";
 import Button from "@/components/ui/Button";
+import TextBlockAnimation from "@/components/ui/TextBlockAnimation";
 
 const MEDIA_SRC = "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1920&auto=format&fit=crop";
 
@@ -27,8 +28,8 @@ export default async function AboutTeaser() {
         />
         <div className="absolute inset-0 bg-black/25" />
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-4 text-center">
-          <p className="text-2xl text-ivory">{t("date")}</p>
-          <h2 className="font-serif text-4xl font-bold text-ivory md:text-5xl lg:text-6xl">
+          <p className="text-2xl text-bv-background">{t("date")}</p>
+          <h2 className="font-bv-heading text-4xl text-bv-background md:text-5xl lg:text-6xl">
             {t("title")}
           </h2>
         </div>
@@ -36,15 +37,17 @@ export default async function AboutTeaser() {
 
       <div className="flex w-full flex-col px-8 py-10 md:px-16 lg:py-20">
       <div className="mx-auto max-w-3xl text-center">
-        <span className="inline-block text-xs font-semibold uppercase tracking-[0.22em] text-wood">
+        <span className="inline-block text-xs font-semibold uppercase tracking-[0.22em] text-bv-accent">
           {t("badge")}
         </span>
 
-        <h2 className="mt-5 font-serif text-[30px] leading-[1.2] text-charcoal sm:text-[38px] lg:text-[44px]">
-          {t("heading")}
-        </h2>
+        <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
+          <h2 className="mt-5 font-bv-heading text-[30px] leading-[1.2] text-bv-ink sm:text-[38px] lg:text-[44px]">
+            {t("heading")}
+          </h2>
+        </TextBlockAnimation>
 
-        <p className="mx-auto mt-5 max-w-lg text-[17px] leading-relaxed text-warm-grey">
+        <p className="mx-auto mt-5 max-w-lg text-[17px] leading-relaxed text-bv-muted">
           {t("body")}
         </p>
 
@@ -52,12 +55,12 @@ export default async function AboutTeaser() {
           {pillars.map(({ icon: Icon, label }, i) => (
             <div key={label} className="relative flex flex-col items-center gap-3">
               {i > 0 && (
-                <span className="absolute -left-3 top-4 hidden h-8 w-px bg-charcoal/10 sm:block" />
+                <span className="absolute -left-3 top-4 hidden h-8 w-px bg-bv-ink/10 sm:block" />
               )}
-              <span className="flex h-12 w-12 items-center justify-center rounded-full border border-wood/25 bg-wood/5 text-wood">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full border border-bv-accent/25 bg-bv-accent/5 text-bv-accent">
                 <Icon size={20} strokeWidth={1.75} />
               </span>
-              <span className="text-[13px] font-medium uppercase tracking-[0.06em] text-charcoal/80">
+              <span className="text-[13px] font-medium uppercase tracking-[0.06em] text-bv-ink/80">
                 {label}
               </span>
             </div>

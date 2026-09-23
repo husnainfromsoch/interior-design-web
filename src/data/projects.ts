@@ -8,7 +8,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: "marina",
-    status: "completed" as const,
+    status: "concept" as const,
     image: "https://images.unsplash.com/photo-1783667818798-38903081f98f?q=80&w=1600&auto=format&fit=crop",
     gallery: [
       "https://images.unsplash.com/photo-1783667818798-38903081f98f?q=80&w=1200&auto=format&fit=crop",
@@ -23,7 +23,7 @@ export const projects: Project[] = [
   },
   {
     id: "downtown",
-    status: "completed" as const,
+    status: "concept" as const,
     image: "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=1600&auto=format&fit=crop",
     gallery: [
       "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=1200&auto=format&fit=crop",
@@ -51,7 +51,7 @@ export const projects: Project[] = [
   },
   {
     id: "jbr",
-    status: "completed" as const,
+    status: "concept" as const,
     image: "https://images.unsplash.com/photo-1754788358645-d6e6cca12e25?q=80&w=1600&auto=format&fit=crop",
     gallery: [
       "https://images.unsplash.com/photo-1754788358645-d6e6cca12e25?q=80&w=1200&auto=format&fit=crop",
