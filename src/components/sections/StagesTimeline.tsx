@@ -83,7 +83,7 @@ export default function StagesTimeline({ steps }: { steps: Step[] }) {
           />
           {/* glowing head travels with the fill */}
           <span
-            className="absolute top-1/2 h-[7px] w-[7px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-bv-accent shadow-[0_0_14px_3px_var(--color-bv-accent,#b0583a)] transition-[left] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
+            className="absolute top-1/2 h-[7px] w-[7px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-bv-accent  transition-[left] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
             style={{ left: `${(active / last) * 100}%` }}
           />
         </div>
@@ -119,7 +119,7 @@ export default function StagesTimeline({ steps }: { steps: Step[] }) {
                           ? "scale-110 border-bv-accent bg-bv-accent text-bv-white"
                           : done
                             ? "border-bv-accent bg-bv-ink text-bv-accent"
-                            : "border-bv-white/20 bg-bv-ink text-bv-white/50 group-hover:-translate-y-0.5 group-hover:border-bv-white/50"
+                            : "border-bv-white/20 bg-bv-ink text-bv-white/50 group-hover:border-bv-white/50"
                       }`}
                     >
                       {done ? (
@@ -152,7 +152,7 @@ export default function StagesTimeline({ steps }: { steps: Step[] }) {
           mx.set(((e.clientX - r.left) / r.width) * 100);
           my.set(((e.clientY - r.top) / r.height) * 100);
         }}
-        className="relative mt-10 overflow-hidden rounded-[24px] border border-bv-white/12 bg-bv-white/[0.04] lg:mt-14"
+        className="relative mt-10 overflow-hidden rounded-none border border-bv-white/12 bg-bv-white/[0.04] lg:mt-14"
       >
         {!reduce && <motion.div aria-hidden="true" style={{ background: spotlight }} className="pointer-events-none absolute inset-0" />}
 
@@ -185,13 +185,13 @@ export default function StagesTimeline({ steps }: { steps: Step[] }) {
                 >
                   <Icon className="h-6 w-6" strokeWidth={1.5} />
                 </motion.span>
-                <span className="font-[var(--font-bv-heading)] text-[44px] leading-none text-bv-white/15 lg:text-[56px]">
+                <span className="font-bv-heading text-[44px] leading-none text-bv-white/15 lg:text-[56px]">
                   {String(active + 1).padStart(2, "0")}
                 </span>
               </div>
 
               <div>
-                <h3 className="font-[var(--font-bv-heading)] text-[26px] font-medium leading-[1.15] text-bv-white sm:text-[32px]">
+                <h3 className="font-bv-heading text-[26px] font-medium leading-[1.15] text-bv-white sm:text-[32px]">
                   {steps[active].title.split(" ").map((w, i) => (
                     <span key={i} className="inline-block overflow-hidden align-bottom">
                       <motion.span
@@ -237,7 +237,7 @@ export default function StagesTimeline({ steps }: { steps: Step[] }) {
         </div>
 
           {steps[active].image && (
-            <div className="relative hidden aspect-[4/4.2] w-full self-center overflow-hidden rounded-[18px] lg:block">
+            <div className="relative hidden aspect-[4/4.2] w-full self-center overflow-hidden rounded-none lg:block">
               <AnimatePresence mode="wait" custom={dir} initial={false}>
                 <motion.div
                   key={active}

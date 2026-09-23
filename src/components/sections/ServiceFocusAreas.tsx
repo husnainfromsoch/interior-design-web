@@ -34,22 +34,22 @@ export default async function ServiceFocusAreas({
             {eyebrow}
           </span>
           <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-            <h2 className="font-bv-heading text-[28px] leading-snug sm:text-[34px]">{heading}</h2>
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] leading-snug sm:text-[34px]">{heading}</h2>
           </TextBlockAnimation>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-start lg:gap-10">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-stretch lg:gap-10">
           <div className="reveal-left space-y-5">
             {areas.map((area, i) => {
               const Icon = AREA_ICONS[i % AREA_ICONS.length];
               return (
                 <div
                   key={area.title}
-                  className="group relative overflow-hidden rounded-2xl border border-bv-line/70 bg-bv-background p-6 shadow-[0_2px_10px_-4px_rgba(46,42,37,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-bv-accent/40 hover:shadow-[0_16px_32px_-16px_rgba(46,42,37,0.22)] sm:p-7"
+                  className="group relative overflow-hidden rounded-none border border-bv-line/70 bg-bv-background p-6  transition-all duration-300 hover:border-bv-accent/40  sm:p-7"
                 >
                   <span className="absolute left-0 top-0 h-full w-[3px] origin-top scale-y-0 bg-bv-accent transition-transform duration-300 group-hover:scale-y-100" />
                   <div className="flex items-start gap-4">
-                    <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-bv-accent/10 text-bv-accent transition-colors duration-300 group-hover:bg-bv-accent group-hover:text-bv-background">
+                    <span className="flex h-11 w-11 flex-none items-center justify-center rounded-none bg-bv-accent/10 text-bv-accent transition-colors duration-300 group-hover:bg-bv-accent group-hover:text-bv-background">
                       <Icon size={20} strokeWidth={1.75} />
                     </span>
                     <div>
@@ -63,7 +63,7 @@ export default async function ServiceFocusAreas({
           </div>
 
           {problems && problems.length > 0 ? (
-            <div className="reveal-right rounded-2xl border border-bv-ink/10 bg-bv-ink p-8 text-bv-background sm:p-10">
+            <div className="reveal-right rounded-none border border-bv-ink/10 bg-bv-ink p-8 text-bv-background sm:p-10">
               <div className="mb-7 flex items-center gap-3">
                 <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-bv-accent/15 text-bv-accent">
                   <ShieldCheck size={20} strokeWidth={1.75} />
@@ -74,7 +74,7 @@ export default async function ServiceFocusAreas({
                 {problems.map((problem, i) => (
                   <li
                     key={problem}
-                    className="group flex items-start gap-3 rounded-xl border border-bv-background/10 bg-bv-background/[0.03] px-4 py-3 transition-colors duration-300 hover:border-bv-accent/30 hover:bg-bv-background/[0.06]"
+                    className="group flex items-start gap-3 rounded-none border border-bv-background/10 bg-bv-background/[0.03] px-4 py-3 transition-colors duration-300 hover:border-bv-accent/30 hover:bg-bv-background/[0.06]"
                     style={{ "--reveal-delay": `${i * 60}ms` } as React.CSSProperties}
                   >
                     <span className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-bv-accent/15 text-bv-accent">
@@ -86,9 +86,9 @@ export default async function ServiceFocusAreas({
               </ul>
             </div>
           ) : mediaVideo ? (
-            <div className="reveal-right relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-bv-ink/10 shadow-[0_20px_50px_-24px_rgba(46,42,37,0.35)] lg:aspect-auto lg:h-full lg:min-h-[420px]">
+            <div className="reveal-right relative aspect-[4/3] w-full overflow-hidden rounded-none border border-bv-ink/10  lg:aspect-auto lg:min-h-[420px]">
               <video
-                className="h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover"
                 src={mediaVideo}
                 autoPlay
                 muted

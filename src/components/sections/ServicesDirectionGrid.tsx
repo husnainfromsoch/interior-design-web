@@ -119,7 +119,7 @@ export default function ServicesDirectionGrid({ items }: { items: Direction[] })
         <article key={d.id} className="dir-card group relative flex flex-col will-change-transform">
           <Link
             href={d.hrefs[0].href}
-            className="relative block aspect-[4/5] w-full overflow-hidden rounded-[16px] bg-bv-surface shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:shadow-[0_24px_48px_-12px_rgba(20,16,12,0.35),0_0_0_1px_var(--bv-accent)]"
+            className="relative block aspect-[4/5] w-full overflow-hidden rounded-none bg-bv-surface  transition-shadow duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] "
           >
             <span
               aria-hidden="true"
@@ -137,7 +137,7 @@ export default function ServicesDirectionGrid({ items }: { items: Direction[] })
 
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
 
-            <span className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-bv-white/95 font-[var(--font-bv-body)] text-[12px] font-semibold tracking-[0.02em] text-bv-ink shadow-md backdrop-blur">
+            <span className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-bv-white/95 font-bv-body text-[12px] font-semibold tracking-[0.02em] text-bv-ink  backdrop-blur">
               {d.num}
             </span>
 
@@ -151,7 +151,7 @@ export default function ServicesDirectionGrid({ items }: { items: Direction[] })
             </span>
 
             <div className="absolute inset-x-4 bottom-4">
-              <h3 className="font-[var(--font-bv-heading)] text-[19px] font-medium leading-[1.15] text-bv-white [text-shadow:0_1px_8px_rgba(0,0,0,0.5)] lg:text-[21px]">
+              <h3 className="font-bv-heading text-[19px] font-medium leading-[1.15] text-bv-white [text-shadow:0_1px_8px_rgba(0,0,0,0.5)] lg:text-[21px]">
                 {d.title}
               </h3>
             </div>
@@ -159,15 +159,28 @@ export default function ServicesDirectionGrid({ items }: { items: Direction[] })
 
           <div className="mt-4 border-t border-bv-field-border pt-4">
             <p className="line-clamp-2 text-[13px] leading-[1.55] text-bv-ink/60">{d.body}</p>
-            <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+            <div className="mt-5 flex flex-wrap gap-2 xl:flex-nowrap">
               {d.hrefs.map((l) => (
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="group/link inline-flex items-center gap-1 text-[12px] font-semibold uppercase tracking-[0.06em] text-bv-ink transition-colors duration-200 hover:text-bv-accent"
+                  className="group/link relative inline-flex h-10 min-w-0 items-center gap-2.5 overflow-hidden rounded-full bg-bv-surface py-1 pl-4 pr-1 text-[11px] font-semibold uppercase tracking-[0.05em] text-bv-ink ring-1 ring-bv-ink/10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-bv-ink hover:text-bv-white hover:ring-bv-ink active:scale-[0.98] motion-reduce:transition-none"
                 >
-                  {l.label}
-                  <span className="h-px w-3 bg-current transition-[width] duration-300 group-hover/link:w-5" />
+                  <span className="relative truncate">{l.label}</span>
+                  <span
+                    aria-hidden="true"
+                    className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-bv-accent text-bv-white transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/link:scale-105"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      className="h-3.5 w-3.5 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                    >
+                      <path d="M7 17 17 7M9 7h8v8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
                 </Link>
               ))}
             </div>

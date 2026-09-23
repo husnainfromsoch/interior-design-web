@@ -19,7 +19,7 @@ export default async function FinalCta() {
       <div className="absolute inset-0 bg-bv-ink/55" />
       <div className="reveal relative mx-auto max-w-[1320px] px-6 text-center lg:px-8">
         <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-          <h2 className="font-bv-heading text-[32px] sm:text-[38px]">{t("title")}</h2>
+          <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[32px] sm:text-[38px]">{t("title")}</h2>
         </TextBlockAnimation>
         <p className="mx-auto mt-4 max-w-md text-[17px] text-bv-line">
           {t("body")}

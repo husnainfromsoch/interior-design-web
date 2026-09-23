@@ -29,7 +29,7 @@ export default async function AboutTeaser() {
         <div className="absolute inset-0 bg-black/25" />
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-4 text-center">
           <p className="text-2xl text-bv-background">{t("date")}</p>
-          <h2 className="font-bv-heading text-4xl text-bv-background md:text-5xl lg:text-6xl">
+          <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-bv-background ">
             {t("title")}
           </h2>
         </div>
@@ -42,7 +42,7 @@ export default async function AboutTeaser() {
         </span>
 
         <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-          <h2 className="mt-5 font-bv-heading text-[30px] leading-[1.2] text-bv-ink sm:text-[38px] lg:text-[44px]">
+          <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] mt-5 font-bv-heading text-[30px] leading-[1.2] text-bv-ink sm:text-[38px] lg:text-[44px]">
             {t("heading")}
           </h2>
         </TextBlockAnimation>

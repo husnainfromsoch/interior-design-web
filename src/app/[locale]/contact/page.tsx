@@ -53,8 +53,8 @@ export default async function ContactPage({
                 ["meetingsLabel", "meetingsValue"],
               ] as const
             ).map(([labelKey, valueKey]) => (
-              <div key={labelKey} className="reveal rounded-[20px] border border-bv-line bg-bv-surface p-7">
-                <h3 className="font-[var(--font-bv-heading)] text-[18px] font-medium text-bv-ink">{t(labelKey)}</h3>
+              <div key={labelKey} className="reveal rounded-none border border-bv-line bg-bv-surface p-7">
+                <h3 className="font-bv-heading text-[18px] font-medium text-bv-ink">{t(labelKey)}</h3>
                 <p className="mt-2 text-[15px] leading-[1.6] text-bv-muted">{t(valueKey)}</p>
               </div>
             ))}
@@ -62,13 +62,13 @@ export default async function ContactPage({
 
           <div className="mt-16 grid grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-16">
             <div className="reveal">
-              <h2 className="font-[var(--font-bv-heading)] text-[28px] font-medium leading-[1.15] text-bv-ink sm:text-[32px]">
+              <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] font-medium leading-[1.15] text-bv-ink sm:text-[32px]">
                 {t("nextHeading")}
               </h2>
               <ol className="mt-6 space-y-4">
                 {(["nextStep1", "nextStep2", "nextStep3"] as const).map((key, i) => (
                   <li key={key} className="flex gap-4">
-                    <span className="font-[var(--font-bv-heading)] text-[15px] text-bv-accent">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="font-bv-heading text-[15px] text-bv-accent">{String(i + 1).padStart(2, "0")}</span>
                     <p className="text-[16px] leading-[1.65] text-bv-muted">{t(key)}</p>
                   </li>
                 ))}
@@ -77,7 +77,7 @@ export default async function ContactPage({
             </div>
 
             <div className="reveal">
-              <h2 className="font-[var(--font-bv-heading)] text-[28px] font-medium leading-[1.15] text-bv-ink sm:text-[32px]">
+              <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] font-medium leading-[1.15] text-bv-ink sm:text-[32px]">
                 {t("faqHeading")}
               </h2>
               <div className="mt-6 divide-y divide-bv-line border-y border-bv-line">
@@ -89,7 +89,7 @@ export default async function ContactPage({
                   ] as const
                 ).map(([qKey, aKey]) => (
                   <div key={qKey} className="py-5">
-                    <p className="font-[var(--font-bv-heading)] text-[17px] font-medium text-bv-ink">{t(qKey)}</p>
+                    <p className="font-bv-heading text-[17px] font-medium text-bv-ink">{t(qKey)}</p>
                     <p className="mt-2 text-[15px] leading-[1.6] text-bv-muted">{t(aKey)}</p>
                   </div>
                 ))}

@@ -55,7 +55,7 @@ export default async function ProcessPage({ params }: { params: Promise<{ locale
       <section className="bg-bv-surface py-14 md:py-[72px] lg:py-[104px]">
         <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
           <div className="reveal max-w-2xl">
-            <h2 className="font-[var(--font-bv-heading)] text-[32px] font-medium leading-[1.12] text-bv-ink sm:text-[40px] lg:text-[48px]">
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[32px] font-medium leading-[1.12] text-bv-ink sm:text-[40px] lg:text-[48px]">
               {t("routesHeading")}
             </h2>
           </div>
@@ -69,19 +69,19 @@ export default async function ProcessPage({ params }: { params: Promise<{ locale
                 className="reveal group relative flex flex-col gap-4 border-b border-bv-line py-8 transition-colors duration-500 sm:flex-row sm:items-start sm:gap-10 sm:py-10"
               >
                 <div className="flex flex-none items-center gap-5 sm:w-[220px]">
-                  <span className="font-[var(--font-bv-heading)] text-[15px] leading-none text-bv-accent/60">
+                  <span className="font-bv-heading text-[15px] leading-none text-bv-accent/60">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="flex h-12 w-12 items-center justify-center rounded-full border border-bv-field-border/60 text-bv-ink transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:border-bv-accent group-hover:bg-bv-accent group-hover:text-bv-white">
                     <r.Icon className="h-5 w-5" strokeWidth={1.6} />
                   </span>
-                  <h3 className="font-[var(--font-bv-heading)] text-[22px] font-medium leading-[1.2] text-bv-ink transition-colors duration-300 group-hover:text-bv-accent sm:hidden">
+                  <h3 className="font-bv-heading text-[22px] font-medium leading-[1.2] text-bv-ink transition-colors duration-300 group-hover:text-bv-accent sm:hidden">
                     {t(`${r.key}Title`)}
                   </h3>
                 </div>
 
                 <div className="min-w-0 flex-1">
-                  <h3 className="hidden font-[var(--font-bv-heading)] text-[24px] font-medium leading-[1.2] text-bv-ink transition-colors duration-300 group-hover:text-bv-accent sm:block sm:text-[26px]">
+                  <h3 className="hidden font-bv-heading text-[24px] font-medium leading-[1.2] text-bv-ink transition-colors duration-300 group-hover:text-bv-accent sm:block sm:text-[26px]">
                     {t(`${r.key}Title`)}
                   </h3>
                   <p className="mt-2 max-w-xl text-[16px] leading-[1.6] text-bv-muted sm:mt-3">
@@ -107,7 +107,7 @@ export default async function ProcessPage({ params }: { params: Promise<{ locale
         <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="reveal-left lg:col-span-6">
-              <h2 className="font-[var(--font-bv-heading)] text-[32px] font-medium leading-[1.12] text-bv-ink sm:text-[40px] lg:text-[44px]">
+              <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[32px] font-medium leading-[1.12] text-bv-ink sm:text-[40px] lg:text-[44px]">
                 {t("decisionsHeading")}
               </h2>
               <div
@@ -124,7 +124,7 @@ export default async function ProcessPage({ params }: { params: Promise<{ locale
                     <Users className="h-5 w-5" strokeWidth={1.6} />
                   </span>
                   <div>
-                    <h3 className="font-[var(--font-bv-heading)] text-[19px] font-medium leading-[1.25] text-bv-ink">
+                    <h3 className="font-bv-heading text-[19px] font-medium leading-[1.25] text-bv-ink">
                       {t("decisionsRoleHeading")}
                     </h3>
                     <p className="mt-1.5 max-w-md text-[15px] leading-[1.6] text-bv-muted">
@@ -138,7 +138,7 @@ export default async function ProcessPage({ params }: { params: Promise<{ locale
                     <Wallet className="h-5 w-5" strokeWidth={1.6} />
                   </span>
                   <div>
-                    <h3 className="font-[var(--font-bv-heading)] text-[19px] font-medium leading-[1.25] text-bv-ink">
+                    <h3 className="font-bv-heading text-[19px] font-medium leading-[1.25] text-bv-ink">
                       {t("paymentHeading")}
                     </h3>
                     <p className="mt-1.5 max-w-md text-[15px] leading-[1.6] text-bv-muted">{t("paymentBody")}</p>

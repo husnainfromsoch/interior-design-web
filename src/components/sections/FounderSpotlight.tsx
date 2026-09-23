@@ -21,7 +21,7 @@ export default function FounderSpotlight() {
         <div className="grid grid-cols-1 items-stretch gap-14 lg:grid-cols-[0.95fr_1.05fr]">
           <div
             ref={ref}
-            className="reveal-left group relative min-h-[520px] w-full overflow-hidden rounded-2xl border border-bv-line/70 shadow-[0_30px_60px_-24px_rgba(46,42,37,0.45)] lg:min-h-[640px]"
+            className="reveal-left group relative min-h-[520px] w-full overflow-hidden rounded-none border border-bv-line/70  lg:min-h-[640px]"
           >
             <motion.div
               style={{ y, scale }}
@@ -45,7 +45,7 @@ export default function FounderSpotlight() {
               {t("badge")}
             </span>
             <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-              <h2 className="font-bv-heading text-[28px] leading-snug sm:text-[32px]">
+              <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] leading-snug sm:text-[32px]">
                 {t("title")}
               </h2>
             </TextBlockAnimation>

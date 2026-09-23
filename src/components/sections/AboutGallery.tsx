@@ -41,14 +41,14 @@ function ParallaxColumn({
         {images.map((img) => (
           <div
             key={img.src + img.alt}
-            className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-bv-line/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)]"
+            className="group relative aspect-[4/5] overflow-hidden rounded-none border border-bv-line/70 "
           >
             <Image
               src={img.src}
               alt={img.alt}
               fill
               sizes="(min-width: 1024px) 30vw, 90vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
             />
           </div>
         ))}
@@ -67,7 +67,7 @@ export default function AboutGallery() {
             {t("badge")}
           </span>
           <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-            <h2 className="font-bv-heading text-[28px] leading-snug sm:text-[34px]">
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] leading-snug sm:text-[34px]">
               {t("title")}
             </h2>
           </TextBlockAnimation>

@@ -47,7 +47,7 @@ export default function ServiceVideoShowcase({
             {t("onSite")}
           </span>
           <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-            <h2 className="font-bv-heading text-[28px] leading-snug sm:text-[34px]">
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] leading-snug sm:text-[34px]">
               {t("videoHeading")}
             </h2>
           </TextBlockAnimation>
@@ -55,7 +55,7 @@ export default function ServiceVideoShowcase({
 
         <div
           ref={frameRef}
-          className="relative mx-auto aspect-video w-full overflow-hidden rounded-3xl border border-bv-background/10 shadow-[0_30px_70px_-30px_rgba(0,0,0,0.65)]"
+          className="relative mx-auto aspect-video w-full overflow-hidden rounded-none border border-bv-background/10 "
         >
           <video
             className="h-full w-full object-cover"

@@ -29,7 +29,7 @@ export default async function CapabilityStrip() {
             {nodes.map((node, i) => (
               <div
                 key={node.label}
-                className="capability-node relative flex-1 rounded-xl border border-bv-background/10 bg-bv-background/[0.04] px-4 py-5 text-center transition-colors duration-200 hover:border-bv-accent/50 hover:bg-bv-background/[0.07]"
+                className="capability-node relative flex-1 rounded-none border border-bv-background/10 bg-bv-background/[0.04] px-4 py-5 text-center transition-colors duration-200 hover:border-bv-accent/50 hover:bg-bv-background/[0.07]"
                 style={
                   {
                     "--node-delay": `${0.5 + i * 0.15}s`,

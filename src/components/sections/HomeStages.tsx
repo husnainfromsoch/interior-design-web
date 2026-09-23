@@ -22,11 +22,11 @@ export default async function HomeStages() {
       <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
         <div className="reveal flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <span className="font-[var(--font-bv-body)] text-[13px] font-semibold uppercase tracking-[0.16em] text-bv-accent">
+            <span className="font-bv-body text-[13px] font-semibold uppercase tracking-[0.16em] text-bv-accent">
               {t("eyebrow")}
             </span>
             <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-              <h2 className="mt-3 max-w-2xl font-[var(--font-bv-heading)] text-[32px] font-medium leading-[1.12] text-bv-white sm:text-[40px] lg:text-[48px]">
+              <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] mt-3 max-w-2xl font-bv-heading text-[32px] font-medium leading-[1.12] text-bv-white sm:text-[40px] lg:text-[48px]">
                 {t("heading")}
               </h2>
             </TextBlockAnimation>
@@ -34,7 +34,7 @@ export default async function HomeStages() {
           </div>
           <Link
             href="/process"
-            className="btn-shine inline-flex h-[48px] shrink-0 items-center gap-2 self-start rounded-full border border-bv-white/25 px-6 text-[13px] font-semibold uppercase tracking-[0.08em] text-bv-white transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-bv-white hover:bg-bv-white hover:text-bv-ink active:translate-y-0 active:duration-100 motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:self-auto"
+            className="btn-shine inline-flex h-[48px] shrink-0 items-center gap-2 self-start rounded-[2px] border border-bv-white/25 px-6 text-[13px] font-semibold uppercase tracking-[0.08em] text-bv-white transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-bv-white hover:bg-bv-white hover:text-bv-ink active:translate-y-0 active:duration-100 motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:self-auto"
           >
             {t("processLink")}
           </Link>

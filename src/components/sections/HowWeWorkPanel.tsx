@@ -24,8 +24,10 @@ export default function HowWeWorkPanel({
   steps,
   slides,
   note,
+  header,
   interval = 4500,
 }: {
+  header?: React.ReactNode;
   steps: Step[];
   slides: Slide[];
   note: string;
@@ -66,6 +68,7 @@ export default function HowWeWorkPanel({
       onMouseLeave={() => setPaused(false)}
     >
       <div className="lg:col-span-7 xl:col-span-7">
+        {header && <div className="mb-8">{header}</div>}
         <div ref={listRef} className="relative">
           <span
             aria-hidden="true"
@@ -96,13 +99,13 @@ export default function HowWeWorkPanel({
                   setPaused(true);
                   setActive(i);
                 }}
-                className="step-row reveal group relative flex w-full items-start gap-5 rounded-2xl py-6 pl-0 pr-3 text-left transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] sm:pl-4"
+                className="step-row reveal group relative flex w-full items-start gap-5 rounded-none py-4 pl-0 pr-3 lg:py-3.5 text-left transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] sm:pl-4"
                 style={{ ["--reveal-delay" as string]: `${150 + i * 100}ms` }}
               >
                 <span
                   className={`relative z-10 flex h-12 w-12 flex-none items-center justify-center rounded-full border transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                     isActive
-                      ? "border-bv-accent bg-bv-accent text-bv-white shadow-[0_10px_24px_-8px_rgba(152,88,63,0.55)]"
+                      ? "border-bv-accent bg-bv-accent text-bv-white "
                       : "border-bv-field-border/60 bg-bv-surface text-bv-ink group-hover:border-bv-accent/50"
                   }`}
                 >
@@ -112,7 +115,7 @@ export default function HowWeWorkPanel({
                 <span className="min-w-0 flex-1">
                   <span className="flex items-baseline justify-between gap-4">
                     <h3
-                      className={`font-[var(--font-bv-heading)] text-[20px] font-medium leading-[1.2] transition-colors duration-300 sm:text-[25px] ${
+                      className={`font-bv-heading text-[20px] font-medium leading-[1.2] transition-colors duration-300 sm:text-[25px] ${
                         isActive ? "text-bv-accent" : "text-bv-ink"
                       }`}
                     >
@@ -120,7 +123,7 @@ export default function HowWeWorkPanel({
                     </h3>
                     <span
                       aria-hidden="true"
-                      className={`hidden select-none font-[var(--font-bv-heading)] text-[15px] font-medium leading-none transition-colors duration-300 sm:block ${
+                      className={`hidden select-none font-bv-heading text-[15px] font-medium leading-none transition-colors duration-300 sm:block ${
                         isActive ? "text-bv-accent/50" : "text-bv-line"
                       }`}
                     >
@@ -142,8 +145,8 @@ export default function HowWeWorkPanel({
       </div>
 
       <div className="lg:col-span-5">
-        <div className="sticky top-24 flex h-full flex-col gap-3">
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[24px] bg-bv-line shadow-[0_24px_48px_-28px_rgba(51,46,43,0.4)] lg:aspect-auto lg:min-h-[440px]">
+        <div className="flex h-full flex-col gap-3">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-none bg-bv-line  lg:aspect-auto lg:min-h-0 lg:flex-1">
             {slides.map((slide, i) => (
               <Image
                 key={slide.src}
@@ -160,7 +163,7 @@ export default function HowWeWorkPanel({
             ))}
             <div className="absolute inset-0 bg-gradient-to-t from-bv-ink/45 via-bv-ink/0 to-bv-ink/0" />
 
-            <div className="absolute bottom-4 left-4 right-4 inline-flex w-fit max-w-[calc(100%-2rem)] items-center gap-3 rounded-full bg-bv-white/95 px-4 py-2.5 backdrop-blur">
+            <div className="absolute bottom-4 left-4 right-4 inline-flex w-fit max-w-[calc(100%-2rem)] items-center gap-3 rounded-[2px] bg-bv-white/95 px-4 py-2.5 backdrop-blur">
               <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-bv-accent text-[12px] font-semibold text-bv-white">
                 PM
               </span>

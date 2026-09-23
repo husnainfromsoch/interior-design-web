@@ -72,14 +72,14 @@ export default function ProcessHero({
           <div className="lg:col-span-8">
             <span
               ref={eyebrowRef}
-              className="inline-block font-[var(--font-bv-body)] text-[13px] font-semibold uppercase tracking-[0.16em] text-bv-accent"
+              className="inline-block font-bv-body text-[13px] font-semibold uppercase tracking-[0.16em] text-bv-accent"
             >
               {eyebrow}
             </span>
             <h1
-              ref={titleRef}
-              className="mt-3 font-[var(--font-bv-heading)] text-[32px] font-medium leading-[1.1] text-bv-ink sm:text-[42px] lg:text-[46px]"
-            >
+ ref={titleRef}
+ className="text-[38px] sm:text-[52px] lg:text-[64px] mt-3 font-bv-heading text-[32px] font-medium leading-[1.1] text-bv-ink sm:text-[42px] lg:text-[46px]"
+ >
               {title}
             </h1>
             <p ref={introRef} className="mt-4 max-w-xl text-[16px] leading-[1.6] text-bv-muted">
@@ -97,7 +97,7 @@ export default function ProcessHero({
               <div className="marquee-track flex w-max items-center gap-x-14 group-hover:[animation-play-state:paused]">
                 {[...stats, ...stats].map((s, i) => (
                   <div key={`${s.label}-${i}`} className="hero-stat flex shrink-0 items-baseline gap-2.5">
-                    <div className="font-[var(--font-bv-heading)] text-[24px] font-medium leading-none text-bv-ink sm:text-[28px]">
+                    <div className="font-bv-heading text-[24px] font-medium leading-none text-bv-ink sm:text-[28px]">
                       {s.value}
                     </div>
                     <div className="text-[12.5px] leading-[1.4] text-bv-muted">{s.label}</div>
@@ -111,7 +111,7 @@ export default function ProcessHero({
             ref={imageRef}
             className="relative mx-auto grid w-full max-w-[300px] grid-cols-2 gap-3 lg:col-span-4 lg:max-w-none lg:gap-4"
           >
-            <div className="relative col-span-2 aspect-[16/10] w-full overflow-hidden rounded-[20px] shadow-[0_20px_40px_-22px_rgba(20,16,12,0.4)]">
+            <div className="relative col-span-2 aspect-[16/10] w-full overflow-hidden rounded-none ">
               <Image
                 src={images[0]}
                 alt={imageAlt}
@@ -125,7 +125,7 @@ export default function ProcessHero({
             {images.slice(1, 3).map((src, i) => (
               <div
                 key={src}
-                className={`relative aspect-square w-full overflow-hidden rounded-[16px] shadow-[0_16px_32px_-18px_rgba(20,16,12,0.4)] ${
+                className={`relative aspect-square w-full overflow-hidden rounded-none  ${
                   i === 1 ? "translate-y-4" : ""
                 }`}
               >

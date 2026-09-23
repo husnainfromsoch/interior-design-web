@@ -19,7 +19,7 @@ export default async function ApprovalsTeaser() {
             {t("badge")}
           </span>
           <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-            <h2 className="font-bv-heading text-[26px] sm:text-[30px]">{t("title")}</h2>
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[26px] sm:text-[30px]">{t("title")}</h2>
           </TextBlockAnimation>
           <p className="mt-4 max-w-md text-[17px] text-bv-muted">
             {t("body")}
@@ -45,13 +45,13 @@ export default async function ApprovalsTeaser() {
             ))}
           </ul>
         </div>
-        <div className="reveal-right group relative order-1 aspect-[4/3] overflow-hidden rounded-2xl border border-bv-line/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)] lg:order-2">
+        <div className="reveal-right group relative order-1 aspect-[4/3] overflow-hidden rounded-none border border-bv-line/70  lg:order-2">
           <Image
             src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80"
             alt="Approval documents and permits being reviewed and signed"
             fill
             sizes="(min-width: 1024px) 58vw, 100vw"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
           />
         </div>
       </div>

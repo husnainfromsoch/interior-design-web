@@ -89,14 +89,14 @@ export const SlideTabs = ({ tabs = defaultTabs }: { tabs?: SlideTabItem[] }) => 
             exit={{ opacity: 0, y: -8, scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 32 }}
             onMouseEnter={() => handleEnter(hovered)}
-            className="absolute left-1/2 top-full z-50 mt-3 w-72 -translate-x-1/2 rounded-2xl border border-bv-line/60 bg-bv-background p-2 shadow-xl"
+            className="absolute left-1/2 top-full z-50 mt-3 w-72 -translate-x-1/2 rounded-none border border-bv-line/60 bg-bv-background p-2 "
           >
             <ul className="flex flex-col gap-0.5">
               {tabs[hovered].children!.map((child) => (
                 <li key={child.href}>
                   <Link
                     href={child.href}
-                    className="block rounded-xl px-4 py-2.5 text-sm font-medium tracking-wide text-bv-ink/80 transition-colors hover:bg-bv-line/60 hover:text-bv-ink"
+                    className="block rounded-none px-4 py-2.5 text-sm font-medium tracking-wide text-bv-ink/80 transition-colors hover:bg-bv-line/60 hover:text-bv-ink"
                   >
                     {child.label}
                   </Link>

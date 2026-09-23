@@ -53,6 +53,7 @@ export type Article = {
   lastReviewedAt: string;
   featured?: boolean;
   cover: string;
+  coverAlt: { en: string; ru: string };
   relatedServiceSlugs: string[];
   relatedArticleIds: string[];
   en: ArticleLocaleContent;
@@ -69,6 +70,7 @@ export const ARTICLES: Article[] = [
     lastReviewedAt: "2026-09-22",
     featured: true,
     cover: "/visuals/PHOTO-2025-04-15-12-21-17(1).jpg",
+    coverAlt: { en: "Villa interior where a wall is being opened, with a temporary beam supported on props", ru: "Интерьер виллы, где открывается проём в стене, с временной балкой на стойках" },
     relatedServiceSlugs: ["approvals-noc-permits", "renovation-fit-out-dubai"],
     relatedArticleIds: ["INS-002", "INS-003"],
     en: {
@@ -98,10 +100,12 @@ That is why identifying the correct route is the first thing we do on any villa 
 
 In practice, most villa and apartment projects in Dubai and Abu Dhabi fall into one of four situations.
 
-- **Independent villa on Dubai mainland.** What usually comes first: no master-developer layer. Who issues the permit: Dubai Municipality, through the Build in Dubai platform.
-- **Villa in a master community.** What usually comes first: the community's own NOC, reviewed against its design guidelines. Who issues the permit: the authority with jurisdiction over that community.
-- **Apartment or office in a building.** What usually comes first: building management approval. Who issues the permit: the authority responsible for that zone; in some Dubai zones this is not the municipality.
-- **Property in Abu Dhabi.** What usually comes first: a different emirate and a different system. Who issues the permit: the responsible department, through the TAMM portal.
+| Where the property is | What usually comes first | Who issues the permit |
+|---|---|---|
+| Independent villa on Dubai mainland | No master-developer layer | Dubai Municipality, through the Build in Dubai platform |
+| Villa in a master community | The community's own NOC, reviewed against its design guidelines | The authority with jurisdiction over that community |
+| Apartment or office in a building | Building management approval | The authority responsible for that zone; in some Dubai zones this is not the municipality |
+| Property in Abu Dhabi | A different emirate and a different system | The responsible department, through the TAMM portal |
 
 The second row is where most villa owners are. In a master community, the developer or community management has its own guidelines for what a villa may look like from the outside, and sometimes for how works must be carried out. Their NOC is usually the first step, and the authority permit follows.
 
@@ -143,7 +147,7 @@ Callout — Important: Even where no authority permit applies, the community or 
 
 ## What we do on the approvals side
 
-When a client asks us to handle approvals, the work follows the same four steps on every project:
+When a client asks us to [handle approvals](/services/approvals-noc-permits), the work follows the same four steps on every project:
 
 1. **Review the proposed works and confirm the applicable route** for that specific property.
 2. **Prepare the required drawings** in the format the authority accepts.
@@ -167,7 +171,7 @@ After reviewing the case, we confirm which further documents are needed. We neve
 
 ## The practical takeaway
 
-If you are planning a villa renovation in Dubai, start by confirming the approval route for your property, then design within it. It is a short step at the beginning that avoids redrawing and delays later. If you are unsure which route applies to your villa, we can check it with you before any design work begins.`,
+If you are planning a [villa renovation](/services/renovation-fit-out-dubai) in Dubai, start by [confirming the approval route](#project-enquiry) for your property, then design within it. It is a short step at the beginning that avoids redrawing and delays later. If you are unsure which route applies to your villa, we can check it with you before any design work begins.`,
       faq: [
         { q: "Can I order approvals without a renovation?", a: "Yes. Drawings and approval support can be commissioned separately." },
         { q: "Are authority fees included in your price?", a: "Our service fee, authority charges and any deposits are identified separately in the proposal." },
@@ -202,10 +206,12 @@ If you are planning a villa renovation in Dubai, start by confirming the approva
 
 На практике большинство проектов вилл и квартир в Дубае и Абу-Даби относятся к одной из четырёх ситуаций.
 
-- **Отдельная вилла на материковой части Дубая.** Что обычно идёт первым: слоя управляющей компании нет. Кто выдаёт разрешение: муниципалитет Дубая через платформу Build in Dubai.
-- **Вилла в мастер-сообществе.** Что обычно идёт первым: NOC сообщества, который проверяется по его дизайн-регламенту. Кто выдаёт разрешение: орган, в чьей юрисдикции находится сообщество.
-- **Квартира или офис в здании.** Что обычно идёт первым: согласование управляющей компании здания. Кто выдаёт разрешение: орган, отвечающий за эту зону; в отдельных зонах Дубая это не муниципалитет.
-- **Объект в Абу-Даби.** Что обычно идёт первым: другой эмират и другая система. Кто выдаёт разрешение: профильный департамент через портал TAMM.
+| Где находится объект | Что обычно идёт первым | Кто выдаёт разрешение |
+|---|---|---|
+| Отдельная вилла на материковой части Дубая | Слоя управляющей компании нет | Муниципалитет Дубая через платформу Build in Dubai |
+| Вилла в мастер-сообществе | NOC сообщества, который проверяется по его дизайн-регламенту | Орган, в чьей юрисдикции находится сообщество |
+| Квартира или офис в здании | Согласование управляющей компании здания | Орган, отвечающий за эту зону; в отдельных зонах Дубая это не муниципалитет |
+| Объект в Абу-Даби | Другой эмират и другая система | Профильный департамент через портал TAMM |
 
 Большинство владельцев вилл находятся во второй строке. В мастер-сообществе у девелопера или управляющей компании есть собственный регламент того, как вилла может выглядеть снаружи, а иногда и того, как должны вестись работы. Их NOC обычно становится первым шагом, а разрешение органа следует за ним.
 
@@ -247,7 +253,7 @@ If you are planning a villa renovation in Dubai, start by confirming the approva
 
 ## Что мы делаем по согласованиям
 
-Когда клиент поручает нам согласования, работа на каждом проекте идёт в четыре шага:
+Когда клиент поручает нам [согласования](/services/approvals-noc-permits), работа на каждом проекте идёт в четыре шага:
 
 1. **Изучаем планируемые работы и подтверждаем применимый маршрут** для конкретного объекта.
 2. **Готовим необходимые чертежи** в формате, который принимает орган.
@@ -271,7 +277,7 @@ If you are planning a villa renovation in Dubai, start by confirming the approva
 
 ## Практический вывод
 
-Если вы планируете ремонт виллы в Дубае, начните с подтверждения маршрута согласований для вашего объекта и проектируйте уже в его рамках. Это короткий шаг в начале, который избавляет от переделок и задержек потом. Если вы не уверены, какой маршрут применим к вашей вилле, мы можем проверить это вместе с вами до начала проектирования.`,
+Если вы планируете [ремонт виллы](/services/renovation-fit-out-dubai) в Дубае, начните с [подтверждения маршрута согласований](#project-enquiry) для вашего объекта и проектируйте уже в его рамках. Это короткий шаг в начале, который избавляет от переделок и задержек потом. Если вы не уверены, какой маршрут применим к вашей вилле, мы можем проверить это вместе с вами до начала проектирования.`,
       faq: [
         { q: "Можно заказать согласования без ремонта?", a: "Да. Подготовку документации и сопровождение согласований можно заказать отдельно." },
         { q: "Сборы органов входят в вашу цену?", a: "Стоимость наших услуг, сборы и возможные депозиты указываются в предложении отдельно." },
@@ -288,6 +294,7 @@ If you are planning a villa renovation in Dubai, start by confirming the approva
     publishedAt: "2026-09-22",
     lastReviewedAt: "2026-09-22",
     cover: "/visuals/PHOTO-2025-04-15-12-21-17(1).jpg",
+    coverAlt: { en: "Two sets of kitchen finish samples compared side by side on a stone worktop", ru: "Два набора образцов кухонной отделки, разложенные для сравнения на каменной столешнице" },
     relatedServiceSlugs: ["renovation-fit-out-dubai", "interior-design"],
     relatedArticleIds: ["INS-001", "INS-003"],
     en: {
@@ -479,7 +486,8 @@ Decide the scope first, fix the specification second, and ask for a price third.
     publishedAt: "2026-09-22",
     lastReviewedAt: "2026-09-22",
     cover: "/visuals/PHOTO-2025-04-15-12-21-17(1).jpg",
-    relatedServiceSlugs: ["renovation-fit-out-dubai", "interior-design"],
+    coverAlt: { en: "Interior drawings in the foreground and the finished oak wall unit built from them behind", ru: "Чертежи интерьера на переднем плане и выполненная по ним дубовая стенка на заднем" },
+    relatedServiceSlugs: ["process-build-from-your-design", "custom-joinery-furniture"],
     relatedArticleIds: ["INS-001", "INS-002"],
     en: {
       title: "Building From Your Own Design: How We Take Over the Project",
@@ -500,7 +508,7 @@ Decide the scope first, fix the specification second, and ask for a price third.
 
 Some clients come to us at the very beginning, with a property and an idea. Many others arrive later: they have already worked with an interior designer, the drawings are finished, and sometimes the approvals are in hand. What they need is a team to build it.
 
-This is one of the routes we offer from the start, not an exception. We review your drawings and existing approvals, agree the implementation scope and coordinate the works. The design remains your designer's. Our job is to deliver it faithfully and to raise, early and in writing, anything that would stop it being delivered well.
+This is [one of the routes we offer](/process#build-from-your-design) from the start, not an exception. We review your drawings and existing approvals, agree the implementation scope and coordinate the works. The design remains your designer's. Our job is to deliver it faithfully and to raise, early and in writing, anything that would stop it being delivered well.
 
 ## What we review first
 
@@ -542,7 +550,7 @@ When a question comes up on site, it is recorded, sent to the person who owns th
 
 ## Joinery from your designer's drawings
 
-Bespoke furniture is often the most detailed part of a designer's project, and the part where the gap between a drawing and a finished item is largest. Because we have our own production for cabinetry, glass and stone work, we can manufacture joinery directly from your designer's drawings. The process is:
+Bespoke furniture is often the most detailed part of a designer's project, and the part where the gap between a drawing and a finished item is largest. Because we have our own production for cabinetry, glass and stone work, we can manufacture [joinery](/services/custom-joinery-furniture) directly from your designer's drawings. The process is:
 
 1. **Review** of the joinery drawings and specifications.
 2. **Technical measurement** on site, after the agreement is signed, once walls and ceilings are ready for it.
@@ -585,7 +593,7 @@ A finished design is a strong starting point. The step that protects it is a tec
 
 Одни клиенты приходят к нам в самом начале — с объектом и идеей. Многие другие приходят позже: они уже поработали с дизайнером интерьера, чертежи готовы, а иногда уже получены и разрешения. Им нужна команда, которая всё это реализует.
 
-Это один из маршрутов, которые мы предлагаем изначально, а не исключение. Мы изучаем чертежи и имеющиеся разрешения, согласовываем состав реализации и организуем работы. Дизайн остаётся за вашим дизайнером. Наша задача — точно его реализовать и заранее, письменно, поднять всё, что может этому помешать.
+Это [один из маршрутов, которые мы предлагаем](/process#build-from-your-design) изначально, а не исключение. Мы изучаем чертежи и имеющиеся разрешения, согласовываем состав реализации и организуем работы. Дизайн остаётся за вашим дизайнером. Наша задача — точно его реализовать и заранее, письменно, поднять всё, что может этому помешать.
 
 ## Что мы проверяем в первую очередь
 
@@ -627,7 +635,7 @@ A finished design is a strong starting point. The step that protects it is a tec
 
 ## Мебель по чертежам вашего дизайнера
 
-Мебель на заказ часто самая детальная часть дизайн-проекта — и та, где разрыв между чертежом и готовым изделием больше всего. Поскольку у нас собственное производство корпусной мебели, изделий из стекла и камня, мы можем изготовить мебель напрямую по чертежам вашего дизайнера. Порядок такой:
+Мебель на заказ часто самая детальная часть дизайн-проекта — и та, где разрыв между чертежом и готовым изделием больше всего. Поскольку у нас собственное производство корпусной мебели, изделий из стекла и камня, мы можем изготовить [мебель](/services/custom-joinery-furniture) напрямую по чертежам вашего дизайнера. Порядок такой:
 
 1. **Изучение** чертежей и спецификаций мебели.
 2. **Технический замер** на объекте после подписания договора, когда стены и потолки к нему готовы.
@@ -684,13 +692,45 @@ export function getRelatedArticles(article: Article, limit = 3) {
 }
 
 export function readingTime(text: string) {
-  const words = text.trim().split(/\s+/).length;
+  const plain = text
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+    .replace(/^\|[-| ]+\|$/gm, "")
+    .replace(/[#*>|]/g, " ");
+  const words = plain.trim().split(/\s+/).filter(Boolean).length;
   return Math.max(1, Math.ceil(words / 200));
 }
+
+/** Maps a related-service slug to the enquiry form's service option. */
+const FORM_SERVICE: Record<string, string> = {
+  "interior-design": "design",
+  "approvals-noc-permits": "approvals",
+  "renovation-fit-out-dubai": "villa",
+  "hvac-ventilation-dubai": "mep",
+  "custom-kitchens-dubai": "kitchens",
+  "custom-wardrobes-dubai": "wardrobes",
+  "custom-joinery-furniture": "joinery",
+  "process-build-from-your-design": "notSure",
+};
+
+export function formServiceFor(article?: Article) {
+  return (article && FORM_SERVICE[article.relatedServiceSlugs[0]]) || "notSure";
+}
+
+const PROCESS_SERVICE = {
+  en: { title: "Our Process: Build from Your Design", description: "Bring your designer's drawings: we review them, agree the scope and deliver the works." },
+  ru: { title: "Как мы работаем: реализация вашего дизайна", description: "Принесите чертежи вашего дизайнера: мы изучим их, согласуем состав работ и реализуем проект." },
+};
 
 export function getRelatedServices(article: Article, locale: string) {
   const services = getServices(locale);
   return article.relatedServiceSlugs
-    .map((slug) => services.find((s) => s.slug === slug))
+    .slice(0, 2)
+    .map((slug) => {
+      if (slug === "process-build-from-your-design") {
+        const p = locale === "ru" ? PROCESS_SERVICE.ru : PROCESS_SERVICE.en;
+        return { slug, title: p.title, description: p.description, href: "/process#build-from-your-design" };
+      }
+      return services.find((s) => s.slug === slug);
+    })
     .filter((s): s is NonNullable<typeof s> => Boolean(s));
 }

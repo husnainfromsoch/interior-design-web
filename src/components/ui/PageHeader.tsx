@@ -128,9 +128,9 @@ export default function PageHeader({
           </p>
         )}
         <h1
-          ref={titleRef}
-          className={`mt-6 overflow-hidden font-bv-heading text-[42px] leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl ${hasImages ? "text-bv-background" : "text-bv-ink"}`}
-        >
+ ref={titleRef}
+ className={`text-[38px] sm:text-[52px] lg:text-[64px] mt-6 overflow-hidden font-bv-heading text-[42px] leading-[1.1] tracking-tight ${hasImages ? "text-bv-background" : "text-bv-ink"}`}
+ >
           {title}
         </h1>
         {description && (

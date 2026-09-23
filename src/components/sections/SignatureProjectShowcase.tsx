@@ -25,7 +25,7 @@ export default async function SignatureProjectShowcase() {
           <p className="mb-5 text-xs font-semibold uppercase tracking-[0.28em] text-bv-accent">
             {t("projectDate")}
           </p>
-          <h2 className="font-bv-heading text-5xl font-medium leading-[1.05] text-bv-background sm:text-6xl lg:text-7xl">
+          <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading font-medium leading-[1.05] text-bv-background ">
             {projectTitle}
           </h2>
         </div>

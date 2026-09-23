@@ -1,11 +1,66 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import TextBlockAnimation from "@/components/ui/TextBlockAnimation";
 
 type Highlight = { title: string; body: string };
+
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+function HighlightRow({ item, index, reduce }: { item: Highlight; index: number; reduce: boolean }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 85%", "end 35%"] });
+  const focus = useTransform(scrollYProgress, [0, 0.35, 1], [0.35, 1, 1]);
+  const numX = useTransform(scrollYProgress, [0, 0.5], [-16, 0]);
+  const numColor = useTransform(
+    scrollYProgress,
+    [0.15, 0.5, 1],
+    ["rgba(247,243,236,0.2)", "rgba(152,88,63,1)", "rgba(152,88,63,1)"]
+  );
+
+  return (
+    <motion.div
+      ref={ref}
+      style={reduce ? undefined : { opacity: focus }}
+      initial={reduce ? false : { y: 40 }}
+      whileInView={{ y: 0 }}
+      viewport={{ once: true, margin: "0px 0px -8% 0px" }}
+      transition={{ duration: 0.9, ease: EASE, delay: 0.05 }}
+      className="group relative grid cursor-default grid-cols-1 gap-3 py-8 sm:grid-cols-[100px_1fr_1.4fr] sm:items-start sm:gap-8 sm:px-6"
+    >
+      <motion.span
+        aria-hidden
+        initial={reduce ? false : { scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2, ease: EASE }}
+        className="absolute inset-x-0 top-0 h-px origin-left bg-bv-background/15"
+      />
+      <span
+        aria-hidden
+        className="absolute inset-0 -z-0 origin-left scale-x-0 bg-bv-background/[0.035] transition-transform duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100"
+      />
+      <motion.span
+        style={reduce ? undefined : { x: numX, color: numColor }}
+        className="relative font-bv-heading text-4xl text-bv-background/25 sm:text-5xl"
+      >
+        {String(index + 1).padStart(2, "0")}
+      </motion.span>
+      <div className="relative">
+        <h3 className="font-bv-heading text-[20px] text-bv-accent transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-2 sm:text-[22px]">
+          {item.title}
+        </h3>
+        <span className="mt-3 block h-px w-10 origin-left scale-x-0 bg-bv-accent transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100" />
+      </div>
+      <p className="relative text-[15px] leading-relaxed text-bv-line transition-colors duration-500 group-hover:text-bv-background sm:mt-1">
+        {item.body}
+      </p>
+    </motion.div>
+  );
+}
 
 export default function ProjectHighlights({
   eyebrow,
@@ -20,6 +75,10 @@ export default function ProjectHighlights({
 }) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+  const reduce = !!useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: listRef, offset: ["start 70%", "end 60%"] });
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 24, mass: 0.4 });
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -29,21 +88,6 @@ export default function ProjectHighlights({
     const mm = gsap.matchMedia();
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
-      const rows = section.querySelectorAll(".highlight-row");
-
-      gsap.fromTo(
-        rows,
-        { autoAlpha: 0, y: 36 },
-        {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          stagger: 0.12,
-          scrollTrigger: { trigger: section, start: "top 75%" },
-        }
-      );
-
       gsap.fromTo(
         bg,
         { scale: 1.18, yPercent: -6 },
@@ -54,21 +98,6 @@ export default function ProjectHighlights({
           scrollTrigger: { trigger: section, start: "top bottom", end: "bottom top", scrub: true },
         }
       );
-
-      rows.forEach((row) => {
-        const num = row.querySelector(".highlight-num");
-        const line = row.querySelector(".highlight-line");
-        const enter = () => {
-          gsap.to(num, { color: "var(--bv-accent)", x: 4, duration: 0.35, ease: "power2.out" });
-          gsap.to(line, { scaleX: 1, duration: 0.5, ease: "power2.out" });
-        };
-        const leave = () => {
-          gsap.to(num, { color: "rgba(247,243,236,0.25)", x: 0, duration: 0.35, ease: "power2.out" });
-          gsap.to(line, { scaleX: 0, duration: 0.3, ease: "power2.in" });
-        };
-        row.addEventListener("mouseenter", enter);
-        row.addEventListener("mouseleave", leave);
-      });
     });
 
     return () => {
@@ -101,26 +130,28 @@ export default function ProjectHighlights({
             {eyebrow}
           </span>
           <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-            <h2 className="font-bv-heading text-[28px] leading-snug sm:text-[36px]">{heading}</h2>
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] leading-snug sm:text-[36px]">{heading}</h2>
           </TextBlockAnimation>
         </div>
 
-        <div className="border-t border-bv-background/10">
+        <div ref={listRef} className="relative">
+          <span aria-hidden className="absolute -left-4 top-0 hidden h-full w-px bg-bv-background/10 lg:block" />
+          <motion.span
+            aria-hidden
+            style={reduce ? { scaleY: 1 } : { scaleY: progress }}
+            className="absolute -left-4 top-0 hidden h-full w-px origin-top bg-bv-accent lg:block"
+          />
           {highlights.map((item, i) => (
-            <div
-              key={item.title}
-              className="highlight-row invisible group grid cursor-default grid-cols-1 gap-3 border-b border-bv-background/10 py-8 transition-colors duration-300 hover:bg-bv-background/[0.02] sm:grid-cols-[100px_1fr_1.4fr] sm:items-start sm:gap-8 sm:px-4"
-            >
-              <span className="highlight-num font-bv-heading text-4xl text-bv-background/25 transition-colors duration-300 sm:text-5xl">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div>
-                <h3 className="font-bv-heading text-[20px] text-bv-accent sm:text-[22px]">{item.title}</h3>
-                <span className="highlight-line mt-3 block h-px w-10 origin-left scale-x-0 bg-bv-accent" />
-              </div>
-              <p className="text-[15px] leading-relaxed text-bv-line sm:mt-1">{item.body}</p>
-            </div>
+            <HighlightRow key={item.title} item={item} index={i} reduce={reduce} />
           ))}
+          <motion.span
+            aria-hidden
+            initial={reduce ? false : { scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: EASE }}
+            className="block h-px origin-left bg-bv-background/15"
+          />
         </div>
       </div>
     </section>

@@ -20,22 +20,22 @@ export default async function HomeResponsibility() {
   }));
 
   return (
-    <section className="bg-bv-surface py-16 md:py-[96px] lg:py-[128px]">
+    <section className="bg-bv-surface py-14 md:py-[72px] lg:py-[56px]">
       <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
-        <div className="reveal max-w-2xl">
-          <span className="block font-[var(--font-bv-body)] text-[12px] font-semibold uppercase tracking-[0.16em] text-bv-accent">
+        <HowWeWorkPanel
+          header={
+        <div className="reveal max-w-3xl">
+          <span className="block font-bv-body text-[12px] font-semibold uppercase tracking-[0.16em] text-bv-accent">
             {t("eyebrow")}
           </span>
           <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-            <h2 className="mt-2.5 font-[var(--font-bv-heading)] text-[30px] font-medium leading-[1.15] text-bv-ink sm:text-[34px] lg:text-[52px]">
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] mt-2.5 font-bv-heading text-[30px] font-medium leading-[1.15] text-bv-ink sm:text-[34px] lg:text-[44px]">
               {t("heading")}
             </h2>
           </TextBlockAnimation>
-          <p className="mt-5 text-[18px] leading-[1.6] text-bv-muted">{t("body")}</p>
+          <p className="mt-3 text-[17px] leading-[1.55] text-bv-muted">{t("body")}</p>
         </div>
-
-        <div className="mt-12 lg:mt-16">
-          <HowWeWorkPanel
+          }
             steps={steps}
             note={t("contactNote")}
             slides={[
@@ -45,7 +45,6 @@ export default async function HomeResponsibility() {
               { src: "/visuals/PHOTO-2025-04-15-11-32-01.jpg", alt: t("imageAlt") },
             ]}
           />
-        </div>
       </div>
     </section>
   );

@@ -25,9 +25,9 @@ export default async function ProjectsPreview() {
             </span>
             <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
               <h2
-                className="font-bv-heading text-[28px] sm:text-[34px]"
-                style={{ fontVariationSettings: '"WONK" 0' }}
-              >
+ className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] sm:text-[34px]"
+ style={{ fontVariationSettings: '"WONK" 0' }}
+ >
                 {t("title")}
               </h2>
             </TextBlockAnimation>
@@ -39,7 +39,7 @@ export default async function ProjectsPreview() {
           {projects.map((project, i) => (
             <div
               key={project.id}
-              className="reveal-scale group overflow-hidden rounded-2xl border border-bv-line/70 bg-bv-background shadow-[0_8px_24px_-12px_rgba(46,42,37,0.15)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_48px_-20px_rgba(46,42,37,0.3)]"
+              className="reveal-scale group overflow-hidden rounded-none border border-bv-line/70 bg-bv-background  transition-all duration-300 "
               style={{ "--reveal-delay": `${(i % 2) * 120}ms` } as React.CSSProperties}
             >
               <div className="relative aspect-[5/4] w-full overflow-hidden">
@@ -48,12 +48,12 @@ export default async function ProjectsPreview() {
                   alt={tProjects(`${project.id}.title`)}
                   fill
                   sizes="(min-width: 640px) 50vw, 100vw"
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025]"
                   priority={i === 0}
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bv-ink/70 via-bv-ink/0 to-transparent" />
                 <span
-                  className={`absolute left-4 top-4 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-wider shadow-sm ${statusStyles[project.status]}`}
+                  className={`absolute left-4 top-4 rounded-[2px] px-3 py-1 text-[10px] font-semibold uppercase tracking-wider  ${statusStyles[project.status]}`}
                 >
                   {project.status === "completed" ? tCommon("statusCompleted") : tCommon("statusConcept")}
                 </span>
@@ -67,7 +67,7 @@ export default async function ProjectsPreview() {
                 </div>
                 <Link
                   href={`/portfolio/${project.id}`}
-                  className="inline-flex shrink-0 items-center rounded-full border border-bv-ink/25 px-5 py-2 text-[13px] font-semibold text-bv-ink transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-bv-accent hover:bg-bv-accent hover:text-bv-background active:translate-y-0"
+                  className="inline-flex shrink-0 items-center rounded-[2px] border border-bv-ink/25 px-5 py-2 text-[13px] font-semibold text-bv-ink transition-all duration-200 ease-out hover:border-bv-accent hover:bg-bv-accent hover:text-bv-background active:translate-y-0"
                 >
                   {t("viewProject")}
                 </Link>

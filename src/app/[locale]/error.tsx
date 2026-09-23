@@ -18,7 +18,7 @@ export default function LocaleError({
       <p className="text-xs font-semibold uppercase tracking-[0.28em] text-bv-accent">
         Something went wrong
       </p>
-      <h1 className="max-w-lg font-bv-heading text-3xl leading-tight text-bv-ink sm:text-4xl">
+      <h1 className="text-[38px] sm:text-[52px] lg:text-[64px] max-w-lg font-bv-heading leading-tight text-bv-ink ">
         This page hit a snag while loading.
       </h1>
       <p className="max-w-md text-bv-muted">
@@ -27,7 +27,7 @@ export default function LocaleError({
       <button
         type="button"
         onClick={reset}
-        className="inline-flex items-center gap-2 rounded-full border border-bv-accent bg-bv-accent px-[28px] py-[14px] text-sm font-semibold tracking-wide text-bv-background shadow-[0_8px_20px_-8px_rgba(124,90,58,0.65)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-bv-accent-hover hover:bg-bv-accent-hover active:translate-y-0"
+        className="inline-flex items-center gap-2 rounded-[2px] border border-bv-accent bg-bv-accent px-[28px] py-[14px] text-sm font-semibold tracking-wide text-bv-background  transition-all duration-200 ease-out hover:border-bv-accent-hover hover:bg-bv-accent-hover active:translate-y-0"
       >
         Try again
       </button>

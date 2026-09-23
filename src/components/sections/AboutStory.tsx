@@ -32,7 +32,7 @@ export default function AboutStory() {
               {t("badge")}
             </span>
             <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-              <h2 className="font-bv-heading text-[28px] leading-snug sm:text-[34px]">
+              <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] leading-snug sm:text-[34px]">
                 {t("titlePlain1")} <span className="italic text-bv-accent">{t("titleItalic1")}</span> {t("titleAnd")}{" "}
                 <span className="italic text-bv-accent">{t("titleItalic2")}</span>.
               </h2>
@@ -55,7 +55,7 @@ export default function AboutStory() {
                 return (
                   <motion.div
                     key={v.id}
-                    className="absolute h-[400px] w-[220px] overflow-hidden rounded-[22px] shadow-[0_24px_48px_-20px_rgba(46,42,37,0.45)]"
+                    className="absolute h-[400px] w-[220px] overflow-hidden rounded-none "
                     initial={false}
                     animate={{
                       x: offset * 130,
@@ -91,7 +91,7 @@ export default function AboutStory() {
                           e.stopPropagation();
                           setMuted((m) => !m);
                         }}
-                        className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-bv-background/90 text-bv-accent shadow-md transition hover:bg-bv-background"
+                        className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-bv-background/90 text-bv-accent  transition hover:bg-bv-background"
                         aria-label={muted ? t("unmute") : t("mute")}
                       >
                         {muted ? (
@@ -118,7 +118,7 @@ export default function AboutStory() {
               type="button"
               onClick={() => go(-1)}
               aria-label={t("previous")}
-              className="absolute left-0 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-bv-line/70 bg-bv-background text-bv-accent shadow-md transition hover:bg-bv-surface"
+              className="absolute left-0 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-bv-line/70 bg-bv-background text-bv-accent  transition hover:bg-bv-surface"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M15 18 9 12l6-6" />
@@ -128,7 +128,7 @@ export default function AboutStory() {
               type="button"
               onClick={() => go(1)}
               aria-label={t("next")}
-              className="absolute right-0 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-bv-line/70 bg-bv-background text-bv-accent shadow-md transition hover:bg-bv-surface"
+              className="absolute right-0 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-bv-line/70 bg-bv-background text-bv-accent  transition hover:bg-bv-surface"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="m9 18 6-6-6-6" />

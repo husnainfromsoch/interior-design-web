@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 const STORAGE_KEY = "bv-consent";
 
 const buttonClass =
-  "inline-flex h-[52px] flex-1 items-center justify-center rounded-full bg-bv-ink px-6 text-sm font-semibold tracking-[0.02em] text-bv-white transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:bg-bv-accent active:translate-y-0 active:duration-100 motion-reduce:transition-none motion-reduce:hover:translate-y-0";
+  "inline-flex h-[52px] flex-1 items-center justify-center rounded-[2px] bg-bv-ink px-6 text-sm font-semibold tracking-[0.02em] text-bv-white transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-bv-accent active:translate-y-0 active:duration-100 motion-reduce:transition-none motion-reduce:hover:translate-y-0";
 
 export default function CookieChoices() {
   const t = useTranslations("CookiesPage");
@@ -32,8 +32,8 @@ export default function CookieChoices() {
   ];
 
   return (
-    <div className="rounded-[20px] border border-bv-line bg-bv-surface p-7 sm:p-9">
-      <h2 className="font-[var(--font-bv-heading)] text-[28px] font-medium leading-[1.15] text-bv-ink sm:text-[32px]">
+    <div className="rounded-none border border-bv-line bg-bv-surface p-7 sm:p-9">
+      <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] font-medium leading-[1.15] text-bv-ink sm:text-[32px]">
         {t("choicesHeading")}
       </h2>
       <p className="mt-3 text-[16px] leading-[1.65] text-bv-muted">{t("choicesBody")}</p>

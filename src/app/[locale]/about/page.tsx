@@ -54,13 +54,13 @@ export default async function AboutPage({
       <section className="relative overflow-hidden bg-bv-surface py-14 md:py-[72px] lg:py-[104px]">
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -left-10 top-10 select-none font-[var(--font-bv-heading)] text-[220px] font-medium leading-none text-bv-ink/[0.035] sm:text-[280px]"
+          className="pointer-events-none absolute -left-10 top-10 select-none font-bv-heading text-[220px] font-medium leading-none text-bv-ink/[0.035] sm:text-[280px]"
         >
           &ldquo;
         </span>
         <div className="relative mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
           <div className="reveal max-w-2xl">
-            <h2 className="font-[var(--font-bv-heading)] text-[32px] font-medium leading-[1.12] text-bv-ink sm:text-[40px] lg:text-[48px]">
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[32px] font-medium leading-[1.12] text-bv-ink sm:text-[40px] lg:text-[48px]">
               {tFounders("heading")}
             </h2>
             <div
@@ -70,20 +70,20 @@ export default async function AboutPage({
           </div>
 
           <div className="mt-12 grid grid-cols-1 gap-6 lg:mt-16 lg:grid-cols-12">
-            <div className="reveal-left relative overflow-hidden rounded-[24px] bg-bv-ink p-8 text-bv-background sm:p-10 lg:col-span-5 lg:p-12">
+            <div className="reveal-left relative overflow-hidden rounded-none bg-bv-ink p-8 text-bv-background sm:p-10 lg:col-span-5 lg:p-12">
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute -bottom-10 -right-6 select-none font-[var(--font-bv-heading)] text-[160px] font-medium leading-none text-bv-background/[0.05]"
+                className="pointer-events-none absolute -bottom-10 -right-6 select-none font-bv-heading text-[160px] font-medium leading-none text-bv-background/[0.05]"
               >
                 21
               </span>
               <span className="relative flex h-11 w-11 items-center justify-center rounded-full bg-bv-accent text-bv-white">
                 <Sprout className="h-5 w-5" strokeWidth={1.6} />
               </span>
-              <span className="relative mt-6 block font-[var(--font-bv-body)] text-[13px] font-semibold uppercase tracking-[0.16em] text-bv-accent">
+              <span className="relative mt-6 block font-bv-body text-[13px] font-semibold uppercase tracking-[0.16em] text-bv-accent">
                 2021
               </span>
-              <p className="relative mt-4 max-w-sm font-[var(--font-bv-heading)] text-[22px] font-medium leading-[1.35] text-bv-background sm:text-[26px]">
+              <p className="relative mt-4 max-w-sm font-bv-heading text-[22px] font-medium leading-[1.35] text-bv-background sm:text-[26px]">
                 {tFounders("body1")}
               </p>
             </div>
@@ -93,13 +93,13 @@ export default async function AboutPage({
                 <div
                   key={key}
                   style={{ ["--reveal-delay" as string]: `${i * 100}ms` }}
-                  className="reveal-scale group relative overflow-hidden rounded-[24px] border border-bv-line bg-bv-background p-7 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 hover:border-bv-accent/50 hover:shadow-[0_24px_48px_-24px_rgba(46,42,37,0.25)] sm:p-8"
+                  className="reveal-scale group relative overflow-hidden rounded-none border border-bv-line bg-bv-background p-7 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-bv-accent/50  sm:p-8"
                 >
                   <div className="flex items-center justify-between">
                     <span className="flex h-11 w-11 items-center justify-center rounded-full bg-bv-accent/10 text-bv-accent transition-colors duration-500 group-hover:bg-bv-accent group-hover:text-bv-white">
                       <Icon className="h-5 w-5" strokeWidth={1.6} />
                     </span>
-                    <span className="font-[var(--font-bv-heading)] text-[15px] leading-none text-bv-accent/50">
+                    <span className="font-bv-heading text-[15px] leading-none text-bv-accent/50">
                       {mark}
                     </span>
                   </div>
@@ -118,7 +118,7 @@ export default async function AboutPage({
       <section className="bg-bv-background py-14 md:py-[72px] lg:py-[104px]">
         <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
           <div className="reveal max-w-2xl">
-            <h2 className="font-[var(--font-bv-heading)] text-[32px] font-medium leading-[1.12] text-bv-ink sm:text-[40px] lg:text-[48px]">
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[32px] font-medium leading-[1.12] text-bv-ink sm:text-[40px] lg:text-[48px]">
               {tLeadership("heading")}
             </h2>
             <div
@@ -131,11 +131,11 @@ export default async function AboutPage({
               <div
                 key={id}
                 style={{ ["--reveal-delay" as string]: `${i * 100}ms` }}
-                className="reveal-scale group relative overflow-hidden rounded-[24px] border border-bv-line bg-bv-surface p-7 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 hover:border-bv-accent/50 hover:shadow-[0_28px_56px_-28px_rgba(46,42,37,0.3)] sm:p-8"
+                className="reveal-scale group relative overflow-hidden rounded-none border border-bv-line bg-bv-surface p-7 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-bv-accent/50  sm:p-8"
               >
                 <span
                   aria-hidden="true"
-                  className="pointer-events-none absolute -right-2 -top-4 select-none font-[var(--font-bv-heading)] text-[80px] font-medium leading-none text-bv-ink/[0.04]"
+                  className="pointer-events-none absolute -right-2 -top-4 select-none font-bv-heading text-[80px] font-medium leading-none text-bv-ink/[0.04]"
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -144,7 +144,7 @@ export default async function AboutPage({
                   <Icon className="h-6 w-6" strokeWidth={1.5} />
                 </span>
 
-                <span className="relative mt-6 inline-block rounded-full bg-bv-ink/[0.05] px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-bv-accent">
+                <span className="relative mt-6 inline-block rounded-[2px] bg-bv-ink/[0.05] px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-bv-accent">
                   {tLeadership(`profiles.${id}.role`)}
                 </span>
 
@@ -168,14 +168,14 @@ export default async function AboutPage({
         <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="reveal">
-              <h2 className="font-[var(--font-bv-heading)] text-[28px] font-medium leading-[1.15] text-bv-ink sm:text-[32px]">
+              <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] font-medium leading-[1.15] text-bv-ink sm:text-[32px]">
                 {tExperience("heading")}
               </h2>
               <p className="mt-4 max-w-xl text-[15px] leading-[1.65] text-bv-muted/80">{tExperience("intro")}</p>
               <p className="mt-4 max-w-xl text-[16px] leading-[1.65] text-bv-muted">{tExperience("body")}</p>
             </div>
             <div className="reveal">
-              <h2 className="font-[var(--font-bv-heading)] text-[28px] font-medium leading-[1.15] text-bv-ink sm:text-[32px]">
+              <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] font-medium leading-[1.15] text-bv-ink sm:text-[32px]">
                 {tProduction("heading")}
               </h2>
               <p className="mt-4 max-w-xl text-[16px] leading-[1.65] text-bv-muted">{tProduction("body")}</p>
@@ -189,14 +189,14 @@ export default async function AboutPage({
       <section className="bg-bv-background py-14 md:py-[72px] lg:py-[104px]">
         <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
-            <div className="reveal rounded-[20px] border border-bv-line bg-bv-surface p-7 sm:p-9">
-              <h2 className="font-[var(--font-bv-heading)] text-[26px] font-medium leading-[1.15] text-bv-ink">
+            <div className="reveal rounded-none border border-bv-line bg-bv-surface p-7 sm:p-9">
+              <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[26px] font-medium leading-[1.15] text-bv-ink">
                 {tLegal("heading")}
               </h2>
               <p className="mt-4 text-[15px] leading-[1.65] text-bv-muted">{tLegal("body")}</p>
             </div>
             <div className="reveal">
-              <h2 className="font-[var(--font-bv-heading)] text-[26px] font-medium leading-[1.15] text-bv-ink">
+              <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[26px] font-medium leading-[1.15] text-bv-ink">
                 {tExpect("heading")}
               </h2>
               <p className="mt-4 text-[16px] leading-[1.65] text-bv-muted">{tExpect("body")}</p>

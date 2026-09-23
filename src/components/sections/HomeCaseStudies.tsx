@@ -23,18 +23,18 @@ export default async function HomeCaseStudies() {
       <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
         <div className="reveal flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <span className="mb-3 block font-[var(--font-bv-body)] text-[13px] font-semibold uppercase tracking-[0.14em] text-bv-accent">
+            <span className="mb-3 block font-bv-body text-[13px] font-semibold uppercase tracking-[0.14em] text-bv-accent">
               {t("statusConcept")}
             </span>
             <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-              <h2 className="font-[var(--font-bv-heading)] text-[32px] font-medium leading-[1.12] text-bv-ink sm:text-[40px] lg:text-[52px]">
+              <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[32px] font-medium leading-[1.12] text-bv-ink sm:text-[40px] lg:text-[52px]">
                 {t("heading")}
               </h2>
             </TextBlockAnimation>
           </div>
           <Link
             href="/projects"
-            className="btn-shine hidden h-[48px] shrink-0 items-center gap-2 rounded-full border border-bv-field-border px-6 text-[13px] font-semibold uppercase tracking-[0.08em] text-bv-ink transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-bv-ink hover:bg-bv-ink hover:text-bv-white active:translate-y-0 active:duration-100 motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:inline-flex"
+            className="btn-shine hidden h-[48px] shrink-0 items-center gap-2 rounded-[2px] border border-bv-field-border px-6 text-[13px] font-semibold uppercase tracking-[0.08em] text-bv-ink transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-bv-ink hover:bg-bv-ink hover:text-bv-white active:translate-y-0 active:duration-100 motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:inline-flex"
           >
             {t("allProjects")}
           </Link>
@@ -49,7 +49,7 @@ export default async function HomeCaseStudies() {
       <div className="mx-auto mt-10 w-full max-w-[1320px] px-4 sm:hidden sm:px-6 lg:px-8">
         <Link
           href="/projects"
-          className="inline-flex h-[48px] items-center gap-2 rounded-full border border-bv-field-border px-6 text-[13px] font-semibold uppercase tracking-[0.08em] text-bv-ink transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-bv-ink hover:bg-bv-ink hover:text-bv-white active:translate-y-0 active:duration-100 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+          className="inline-flex h-[48px] items-center gap-2 rounded-[2px] border border-bv-field-border px-6 text-[13px] font-semibold uppercase tracking-[0.08em] text-bv-ink transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-bv-ink hover:bg-bv-ink hover:text-bv-white active:translate-y-0 active:duration-100 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
         >
           {t("allProjects")}
         </Link>

@@ -116,7 +116,7 @@ export default async function ServiceDetailPage({
               <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-bv-accent">
                 {t("explore")}
               </span>
-              <h2 className="font-bv-heading text-[28px] sm:text-[34px]">{t("otherServices")}</h2>
+              <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] sm:text-[34px]">{t("otherServices")}</h2>
             </div>
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -124,7 +124,7 @@ export default async function ServiceDetailPage({
                 <Link
                   key={s.slug}
                   href={s.href}
-                  className="reveal-scale group flex flex-col overflow-hidden rounded-xl border border-bv-line/70 bg-bv-background shadow-[0_2px_10px_-4px_rgba(46,42,37,0.08)] transition-all duration-200 hover:-translate-y-1 hover:border-bv-accent/40 hover:shadow-[0_16px_32px_-16px_rgba(46,42,37,0.25)]"
+                  className="reveal-scale group flex flex-col overflow-hidden rounded-none border border-bv-line/70 bg-bv-background  transition-all duration-200 hover:border-bv-accent/40 "
                   style={{ "--reveal-delay": `${i * 100}ms` } as React.CSSProperties}
                 >
                   <div className="relative aspect-[16/10] w-full overflow-hidden">
@@ -133,7 +133,7 @@ export default async function ServiceDetailPage({
                       alt={s.title}
                       fill
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025]"
                     />
                   </div>
                   <div className="p-7">

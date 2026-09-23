@@ -17,7 +17,7 @@ export default function ServiceFAQ({ faqs }: { faqs: FAQItem[] }) {
             {t("frequentlyAsked")}
           </span>
           <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-            <h2 className="font-bv-heading text-[28px] leading-snug sm:text-[34px]">
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] leading-snug sm:text-[34px]">
               {t("faqHeading")}
             </h2>
           </TextBlockAnimation>

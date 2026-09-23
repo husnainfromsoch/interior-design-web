@@ -24,9 +24,8 @@ Three long-form specs live at the repo root and describe the target build in far
 
 - `Bellvero_Website_Technical_Specification_EN_1.md`-equivalent content (pasted into chat, not yet saved as a file in this repo — ask the user to drop it in if you need to re-consult it) — the full 32-section site spec: sitemap (P01–P24), design system tokens, copy (EN/RU) for every page, AI media production cards (100 images + 3 videos), CMS model, SEO/analytics/accessibility/performance requirements.
 - `INSIGHTS-SPEC.md` — condensed build reference for the Insights section (P25 listing, P26 article). Already implemented (see below).
-- `DESIGN-clay.md` — an unrelated Clay.com-style design system reference; do not use for this project's aesthetic unless explicitly asked to borrow that look.
 
-**Known conflict:** the full site spec's design tokens (`--bg #F7F4EE`, `--accent #98583F`, Cormorant Garamond + Manrope) do **not** match this repo's actual implemented palette documented in `DESIGN.md` (ivory/charcoal/wood, Fraunces + Instrument Sans). Treat `DESIGN.md` as the real, current design system; treat the full spec's design-system section as an aspirational reference only until the user confirms a rebrand of the visual language itself.
+**Design system:** follow the client spec's tokens, which the code already implements in `src/app/globals.css` and `src/app/[locale]/layout.tsx`: `--bg #F7F4EE`, `--surface #EBE4D9`, `--ink #332E2B`, `--muted #685F57`, `--accent #98583F`, `--line #D8CEC1`, Cormorant Garamond (headings) + Manrope (body). There is no separate DESIGN.md; do not reintroduce the old ivory/charcoal/wood palette or Fraunces/Instrument Sans, and do not borrow the Clay.com look.
 
 ## Page inventory vs. spec (as of 2026-09-23)
 

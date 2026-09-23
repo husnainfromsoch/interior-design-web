@@ -104,7 +104,7 @@ export default function Header() {
           </span>
           <Link
             href="/contact"
-            className="rounded-full bg-bv-accent px-7 py-3.5 text-sm font-semibold text-bv-background transition-colors hover:bg-bv-accent-hover"
+            className="rounded-[2px] bg-bv-accent px-7 py-3.5 text-sm font-semibold text-bv-background transition-colors hover:bg-bv-accent-hover"
           >
             {t("requestQuote")}
           </Link>
@@ -113,7 +113,7 @@ export default function Header() {
         <div className="flex items-center gap-3 md:hidden">
           <Link
             href="/contact"
-            className="rounded-full bg-bv-accent px-5 py-2.5 text-sm font-semibold text-bv-background"
+            className="rounded-[2px] bg-bv-accent px-5 py-2.5 text-sm font-semibold text-bv-background"
           >
             {tCommon("getQuote")}
           </Link>

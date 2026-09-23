@@ -62,7 +62,7 @@ export const PillDropdownNav = ({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.96 }}
             transition={{ type: "spring", stiffness: 400, damping: 32 }}
-            className="absolute right-0 top-14 z-50 w-56 origin-top-right rounded-3xl border border-bv-line/60 bg-bv-background p-2 shadow-xl"
+            className="absolute right-0 top-14 z-50 w-56 origin-top-right rounded-none border border-bv-line/60 bg-bv-background p-2 "
           >
             <motion.ul
               initial="closed"
@@ -86,7 +86,7 @@ export const PillDropdownNav = ({
                     <Link
                       href={tab.href}
                       onClick={() => setOpen(false)}
-                      className={`block rounded-full px-5 py-3 text-sm font-medium tracking-wide transition-colors ${
+                      className={`block rounded-[2px] px-5 py-3 text-sm font-medium tracking-wide transition-colors ${
                         isActive
                           ? "bg-bv-ink text-bv-background"
                           : "text-bv-ink/75 hover:bg-bv-line/60"
@@ -107,7 +107,7 @@ export const PillDropdownNav = ({
                     onSwitchLocale("en");
                     setOpen(false);
                   }}
-                  className={`rounded-full px-4 py-1.5 text-xs font-semibold tracking-wide transition-colors ${
+                  className={`rounded-[2px] px-4 py-1.5 text-xs font-semibold tracking-wide transition-colors ${
                     locale === "en" ? "bg-bv-ink text-bv-background" : "text-bv-ink/60 hover:bg-bv-line/60"
                   }`}
                 >
@@ -119,7 +119,7 @@ export const PillDropdownNav = ({
                     onSwitchLocale("ru");
                     setOpen(false);
                   }}
-                  className={`rounded-full px-4 py-1.5 text-xs font-semibold tracking-wide transition-colors ${
+                  className={`rounded-[2px] px-4 py-1.5 text-xs font-semibold tracking-wide transition-colors ${
                     locale === "ru" ? "bg-bv-ink text-bv-background" : "text-bv-ink/60 hover:bg-bv-line/60"
                   }`}
                 >

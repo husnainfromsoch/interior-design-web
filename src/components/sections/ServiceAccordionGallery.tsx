@@ -32,7 +32,7 @@ export default function ServiceAccordionGallery({
             {t("designGallery")}
           </span>
           <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-            <h2 className="font-bv-heading text-[28px] leading-snug text-bv-background sm:text-[34px]">
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] leading-snug text-bv-background sm:text-[34px]">
               {title} {t("galleryHeadingSuffix")}
             </h2>
           </TextBlockAnimation>
@@ -42,7 +42,7 @@ export default function ServiceAccordionGallery({
         </div>
 
         <div
-          className="reveal-scale flex h-[440px] w-full overflow-hidden rounded-2xl border border-bv-background/10 sm:h-[520px]"
+          className="reveal-scale flex h-[440px] w-full overflow-hidden rounded-none border border-bv-background/10 sm:h-[520px]"
           onMouseLeave={() => setActive(featureIndex)}
         >
           {slides.map((src, i) => {
@@ -63,7 +63,7 @@ export default function ServiceAccordionGallery({
                   alt={caption ?? `${title} visual ${i + 1}`}
                   fill
                   sizes="(min-width: 1024px) 60vw, 100vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                 />
                 <div
                   className="absolute inset-0 bg-bv-ink transition-opacity duration-500"
@@ -108,7 +108,7 @@ export default function ServiceAccordionGallery({
                     </p>
                     <Link
                       href="/contact"
-                      className="mt-4 inline-flex items-center rounded-full border border-bv-accent/50 px-5 py-2 text-[12px] font-semibold uppercase tracking-[0.08em] text-bv-accent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-bv-accent hover:bg-bv-accent hover:text-bv-ink active:translate-y-0"
+                      className="mt-4 inline-flex items-center rounded-[2px] border border-bv-accent/50 px-5 py-2 text-[12px] font-semibold uppercase tracking-[0.08em] text-bv-accent transition-all duration-200 ease-out hover:border-bv-accent hover:bg-bv-accent hover:text-bv-ink active:translate-y-0"
                     >
                       {ctaLabel ?? t("requestQuote")}
                     </Link>

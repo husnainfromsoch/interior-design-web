@@ -29,7 +29,7 @@ function ProjectCard({
   return (
     <Link
       href={`/portfolio/${project.id}`}
-      className="reveal-scale group relative block overflow-hidden rounded-2xl border border-bv-line/70 bg-bv-background shadow-[0_8px_24px_-14px_rgba(46,42,37,0.18)] transition-all duration-500 ease-out hover:-translate-y-2 hover:border-bv-accent/40 hover:shadow-[0_32px_56px_-20px_rgba(46,42,37,0.32)]"
+      className="reveal-scale group relative block overflow-hidden rounded-none border border-bv-line/70 bg-bv-background  transition-all duration-500 ease-out hover:border-bv-accent/40 "
       style={{ "--reveal-delay": `${delay}ms` } as React.CSSProperties}
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden">
@@ -38,12 +38,12 @@ function ProjectCard({
           alt={title}
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bv-ink/60 via-bv-ink/0 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
         <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
         <span
-          className={`absolute left-3.5 top-3.5 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider shadow-sm ${className}`}
+          className={`absolute left-3.5 top-3.5 inline-flex items-center gap-1.5 rounded-[2px] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider  ${className}`}
         >
           <StatusIcon size={12} strokeWidth={2} />
           {statusLabel}
@@ -81,7 +81,7 @@ export default async function PortfolioPreview() {
         <div className="reveal max-w-xl">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-bv-accent">{t("badge")}</p>
           <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-            <h2 className="mt-4 font-bv-heading text-[34px] text-bv-ink">{t("title")}</h2>
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] mt-4 font-bv-heading text-[34px] text-bv-ink">{t("title")}</h2>
           </TextBlockAnimation>
           <p className="mt-4 text-[16px] leading-relaxed text-bv-muted">{t("subtitle")}</p>
         </div>

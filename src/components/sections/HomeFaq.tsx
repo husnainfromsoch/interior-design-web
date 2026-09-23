@@ -14,26 +14,26 @@ export default async function HomeFaq() {
           {/* Left: sticky intro + contact card */}
           <div className="reveal lg:col-span-5">
             <div className="lg:sticky lg:top-28">
-              <span className="block font-[var(--font-bv-body)] text-[12px] font-semibold uppercase tracking-[0.16em] text-bv-accent">
+              <span className="block font-bv-body text-[12px] font-semibold uppercase tracking-[0.16em] text-bv-accent">
                 {t("eyebrow")}
               </span>
               <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-                <h2 className="mt-3 font-[var(--font-bv-heading)] text-[34px] font-medium leading-[1.1] text-bv-ink sm:text-[42px] lg:text-[52px]">
+                <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] mt-3 font-bv-heading text-[34px] font-medium leading-[1.1] text-bv-ink sm:text-[42px] lg:text-[52px]">
                   {t("heading")}
                 </h2>
               </TextBlockAnimation>
 
-              <div className="mt-10 overflow-hidden rounded-[24px] bg-bv-ink p-7 text-bv-white sm:p-8">
+              <div className="mt-10 overflow-hidden rounded-none bg-bv-ink p-7 text-bv-white sm:p-8">
                 <span className="flex h-12 w-12 items-center justify-center rounded-full bg-bv-white/10 text-bv-white">
                   <MessageCircle className="h-5 w-5" strokeWidth={1.6} />
                 </span>
-                <h3 className="mt-6 font-[var(--font-bv-heading)] text-[24px] font-medium leading-[1.2] sm:text-[26px]">
+                <h3 className="mt-6 font-bv-heading text-[24px] font-medium leading-[1.2] sm:text-[26px]">
                   {t("ctaHeading")}
                 </h3>
                 <p className="mt-2 max-w-sm text-[15px] leading-[1.6] text-bv-white/70">{t("ctaBody")}</p>
                 <a
                   href="#project-enquiry"
-                  className="btn-shine group/cta mt-7 inline-flex h-[50px] items-center gap-2 rounded-full bg-bv-white px-6 text-[13px] font-semibold uppercase tracking-[0.06em] text-bv-ink transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-bv-accent hover:text-bv-white active:scale-[0.98] motion-reduce:transition-none"
+                  className="btn-shine group/cta mt-7 inline-flex h-[50px] items-center gap-2 rounded-[2px] bg-bv-white px-6 text-[13px] font-semibold uppercase tracking-[0.06em] text-bv-ink transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-bv-accent hover:text-bv-white active:scale-[0.98] motion-reduce:transition-none"
                 >
                   {t("ctaButton")}
                   <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover/cta:-translate-y-0.5 group-hover/cta:translate-x-0.5 motion-reduce:transition-none" />
@@ -55,11 +55,11 @@ export default async function HomeFaq() {
                   <summary className="flex cursor-pointer list-none items-start gap-5 py-6 sm:gap-8 sm:py-7 [&::-webkit-details-marker]:hidden">
                     <span
                       aria-hidden="true"
-                      className="w-8 flex-none pt-1 font-[var(--font-bv-heading)] text-[15px] text-bv-muted transition-colors duration-300 group-open:text-bv-accent"
+                      className="w-8 flex-none pt-1 font-bv-heading text-[15px] text-bv-muted transition-colors duration-300 group-open:text-bv-accent"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="flex-1 font-[var(--font-bv-heading)] text-[19px] font-medium leading-[1.3] text-bv-ink transition-colors duration-200 group-hover:text-bv-accent sm:text-[23px]">
+                    <span className="flex-1 font-bv-heading text-[19px] font-medium leading-[1.3] text-bv-ink transition-colors duration-200 group-hover:text-bv-accent sm:text-[23px]">
                       {t(`${q}Q`)}
                     </span>
                     <span

@@ -1,47 +1,52 @@
+"use client";
+
 import { Link } from "@/i18n/navigation";
 import { TOPICS, topicName, type TopicSlug } from "@/data/insights";
+import { trackEvent } from "@/lib/analytics";
 
 export default function InsightsTopicFilter({
   active,
   locale,
   allLabel,
+  navLabel,
 }: {
   active?: TopicSlug;
   locale: string;
   allLabel: string;
+  navLabel: string;
 }) {
+  const item = (isActive: boolean) =>
+    `inline-block whitespace-nowrap border-b-2 pb-[6px] font-bv-body text-[15px] font-medium text-bv-ink transition-colors duration-200 ${
+      isActive ? "border-bv-accent" : "border-transparent hover:border-bv-line"
+    }`;
+
   return (
-    <nav aria-label="Topics" className="relative -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
-      <div className="flex items-center gap-2.5 whitespace-nowrap pb-1">
+    <nav aria-label={navLabel} className="relative">
+      <div className="flex gap-8 overflow-x-auto pr-12 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         <Link
           href="/insights"
           aria-current={!active ? "true" : undefined}
-          className={`rounded-full border px-4 py-2 font-[var(--font-bv-body)] text-[14px] font-medium transition-all duration-200 ${
-            !active
-              ? "border-bv-ink bg-bv-ink text-bv-background"
-              : "border-bv-line text-bv-ink/70 hover:border-bv-ink/40 hover:text-bv-ink"
-          }`}
+          className={item(!active)}
+          onClick={() => trackEvent("insights_filter", { topic: "all" })}
         >
           {allLabel}
         </Link>
-        {TOPICS.map((topic) => {
-          const isActive = active === topic.slug;
-          return (
-            <Link
-              key={topic.slug}
-              href={{ pathname: "/insights", query: { topic: topic.slug } }}
-              aria-current={isActive ? "true" : undefined}
-              className={`rounded-full border px-4 py-2 font-[var(--font-bv-body)] text-[14px] font-medium transition-all duration-200 ${
-                isActive
-                  ? "border-bv-ink bg-bv-ink text-bv-background"
-                  : "border-bv-line text-bv-ink/70 hover:border-bv-ink/40 hover:text-bv-ink"
-              }`}
-            >
-              {topicName(topic.slug, locale)}
-            </Link>
-          );
-        })}
+        {TOPICS.map((topic) => (
+          <Link
+            key={topic.slug}
+            href={{ pathname: "/insights", query: { topic: topic.slug } }}
+            aria-current={active === topic.slug ? "true" : undefined}
+            className={item(active === topic.slug)}
+            onClick={() => trackEvent("insights_filter", { topic: topic.slug })}
+          >
+            {topicName(topic.slug, locale)}
+          </Link>
+        ))}
       </div>
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-bv-background to-transparent md:hidden"
+      />
     </nav>
   );
 }

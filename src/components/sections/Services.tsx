@@ -44,7 +44,7 @@ export default async function Services({ limit }: { limit?: number }) {
             {t("badge")}
           </span>
           <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-            <h2 className="font-bv-heading text-[28px] sm:text-[34px]">
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] sm:text-[34px]">
               {t("titlePlain")} <span className="italic text-bv-accent">{t("titleItalic")}</span>
             </h2>
           </TextBlockAnimation>
@@ -54,23 +54,23 @@ export default async function Services({ limit }: { limit?: number }) {
           {visibleServices.map((service, i) => (
             <div
               key={service.slug}
-              className="reveal-scale group relative flex flex-col rounded-2xl border border-bv-line/70 bg-bv-background shadow-[0_2px_10px_-4px_rgba(46,42,37,0.08)] transition-all duration-200 hover:-translate-y-1 hover:border-bv-accent/40 hover:shadow-[0_20px_40px_-18px_rgba(46,42,37,0.28)]"
+              className="reveal-scale group relative flex flex-col rounded-none border border-bv-line/70 bg-bv-background  transition-all duration-200 hover:border-bv-accent/40 "
               style={{ "--reveal-delay": `${(i % 3) * 100}ms` } as React.CSSProperties}
             >
               <span className="absolute right-5 top-5 z-10 font-bv-heading text-3xl text-bv-background/70 mix-blend-luminosity transition-colors duration-300 group-hover:text-bv-accent">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div className="relative">
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-t-2xl">
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-t-none">
                   <Image
                     src={cardImages[i % cardImages.length]}
                     alt={service.title}
                     fill
                     sizes="(min-width: 1280px) 33vw, (min-width: 1024px) 50vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025]"
                   />
                 </div>
-                <div className="absolute -bottom-7 left-8 z-10 flex h-16 w-16 items-center justify-center rounded-xl bg-bv-accent text-bv-background shadow-[0_10px_24px_-8px_rgba(124,90,58,0.65)] transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-6">
+                <div className="absolute -bottom-7 left-8 z-10 flex h-16 w-16 items-center justify-center rounded-none bg-bv-accent text-bv-background  transition-transform duration-300 group-hover:rotate-6">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -94,7 +94,7 @@ export default async function Services({ limit }: { limit?: number }) {
                 </p>
                 <Link
                   href={service.href}
-                  className="inline-flex w-fit items-center rounded-full border border-bv-accent/40 px-5 py-2 text-[13px] font-semibold uppercase tracking-[0.06em] text-bv-accent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-bv-accent hover:bg-bv-accent hover:text-bv-background active:translate-y-0"
+                  className="inline-flex w-fit items-center rounded-[2px] border border-bv-accent/40 px-5 py-2 text-[13px] font-semibold uppercase tracking-[0.06em] text-bv-accent transition-all duration-200 ease-out hover:border-bv-accent hover:bg-bv-accent hover:text-bv-background active:translate-y-0"
                 >
                   {t("learnMore")}
                 </Link>
@@ -107,7 +107,7 @@ export default async function Services({ limit }: { limit?: number }) {
           <div className="reveal mt-14 flex justify-center">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 rounded-full border border-bv-accent/40 px-8 py-3 text-[13px] font-semibold uppercase tracking-[0.06em] text-bv-accent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-bv-accent hover:bg-bv-accent hover:text-bv-background active:translate-y-0"
+              className="inline-flex items-center gap-2 rounded-[2px] border border-bv-accent/40 px-8 py-3 text-[13px] font-semibold uppercase tracking-[0.06em] text-bv-accent transition-all duration-200 ease-out hover:border-bv-accent hover:bg-bv-accent hover:text-bv-background active:translate-y-0"
             >
               {t("viewAll")}
             </Link>

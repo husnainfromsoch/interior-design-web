@@ -34,7 +34,7 @@ export default async function Risks() {
               {t("badge")}
             </span>
             <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-              <h2 className="font-bv-heading text-[28px] sm:text-[34px]">
+              <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] sm:text-[34px]">
                 {t("title")}
               </h2>
             </TextBlockAnimation>
@@ -48,11 +48,11 @@ export default async function Risks() {
           {risks.map((risk, i) => (
             <div
               key={risk.id}
-              className="reveal group relative flex flex-col overflow-hidden rounded-[22px] border border-bv-line/50 bg-gradient-to-b from-white to-bv-background p-7 shadow-[0_1px_0_0_rgba(255,255,255,0.6)_inset] transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-transparent hover:shadow-[0_32px_60px_-28px_rgba(46,42,37,0.35)]"
+              className="reveal group relative flex flex-col overflow-hidden rounded-none border border-bv-line/50 bg-gradient-to-b from-white to-bv-background p-7  transition-all duration-500 ease-out hover:border-transparent "
               style={{ "--reveal-delay": `${(i % 3) * 90}ms` } as React.CSSProperties}
             >
               {/* Ambient hover glow */}
-              <div className="pointer-events-none absolute -inset-px rounded-[22px] bg-gradient-to-br from-bv-accent/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="pointer-events-none absolute -inset-px rounded-none bg-gradient-to-br from-bv-accent/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
               <div className="relative mb-6 flex items-start justify-between">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-bv-ink/20 bg-bv-ink/[0.08] text-bv-ink transition-all duration-500 group-hover:border-bv-ink/40 group-hover:bg-bv-ink group-hover:text-bv-background">

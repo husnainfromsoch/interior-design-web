@@ -16,11 +16,16 @@ export default function MobileBottomBar() {
   const [keyboardOpen, setKeyboardOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setPastFirstScreen(window.scrollY > window.innerHeight * 0.9);
+    const onScroll = () => {
+      // Insights articles: appear once the cover has scrolled out of view.
+      const cover = document.querySelector("[data-article-cover]");
+      if (cover) setPastFirstScreen(cover.getBoundingClientRect().bottom < 0);
+      else setPastFirstScreen(window.scrollY > window.innerHeight * 0.9);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     const form = document.getElementById("project-enquiry");
@@ -63,7 +68,7 @@ export default function MobileBottomBar() {
           href="#project-enquiry"
           onClick={discuss}
           tabIndex={hidden ? -1 : 0}
-          className="inline-flex h-[48px] flex-1 items-center justify-center rounded-full bg-bv-accent px-4 text-[13px] font-semibold text-bv-white active:bg-bv-accent-hover"
+          className="inline-flex h-[48px] flex-1 items-center justify-center rounded-[2px] bg-bv-accent px-4 text-[13px] font-semibold text-bv-white active:bg-bv-accent-hover"
         >
           {t("discuss")}
         </a>
@@ -72,7 +77,7 @@ export default function MobileBottomBar() {
           target="_blank"
           rel="noopener noreferrer"
           tabIndex={hidden ? -1 : 0}
-          className="inline-flex h-[48px] flex-1 items-center justify-center rounded-full bg-bv-ink px-4 text-[13px] font-semibold text-bv-white active:bg-bv-ink/85"
+          className="inline-flex h-[48px] flex-1 items-center justify-center rounded-[2px] bg-bv-ink px-4 text-[13px] font-semibold text-bv-white active:bg-bv-ink/85"
         >
           {t("whatsapp")}
         </a>

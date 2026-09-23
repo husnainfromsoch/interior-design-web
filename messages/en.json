@@ -33,7 +33,8 @@
     "formHeading": "Discuss Your Project",
     "formIntro": "Have a question about your own property? Share a few details and our client relations manager will contact you.",
     "aiDisclosure": "AI-generated image",
-    "faqHeading": "Frequently asked questions"
+    "faqHeading": "Frequently asked questions",
+    "pageSuffix": "— Page {n}"
   },
   "Nav": {
     "projects": "Projects",

@@ -9,7 +9,7 @@ export default async function Hero() {
   return (
     <section
       data-hero
-      className="relative flex w-full items-end overflow-hidden bg-bv-ink font-[var(--font-bv-body)] text-bv-white"
+      className="relative flex w-full items-end overflow-hidden bg-bv-ink font-bv-body text-bv-white"
       style={{
         minHeight: "clamp(620px, calc(100svh - 88px), 880px)",
       }}
@@ -32,12 +32,8 @@ export default async function Hero() {
               {t("eyebrow")}
             </p>
             <h1
-              className="hero-in mt-5 font-[var(--font-bv-heading)] font-medium tracking-tight"
-              style={{
-                animationDelay: "0.25s",
-                fontSize: isRu ? "clamp(34px, 6vw, 72px)" : "clamp(34px, 6.5vw, 80px)",
-                lineHeight: isRu ? 1.06 : 1.03,
-              }}
+              className={`hero-in mt-5 font-bv-heading font-medium tracking-tight ${isRu ? "text-[38px] sm:text-[56px] lg:text-[72px] leading-[1.06]" : "text-[42px] sm:text-[62px] lg:text-[80px] leading-[1.03]"}`}
+              style={{ animationDelay: "0.25s" }}
             >
               {t("title")}
             </h1>
@@ -54,7 +50,7 @@ export default async function Hero() {
             <div style={{ animationDelay: "0.6s" }} className="hero-in mt-9">
               <a
                 href="#project-enquiry"
-                className="btn-shine inline-flex h-[52px] items-center rounded-[2px] bg-bv-accent px-8 text-sm font-semibold tracking-[0.02em] text-bv-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-bv-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-white"
+                className="btn-shine inline-flex h-[52px] items-center rounded-[2px] bg-bv-accent px-8 text-sm font-semibold tracking-[0.02em] text-bv-white transition-all duration-200 hover:bg-bv-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-white"
               >
                 {t("cta")}
               </a>

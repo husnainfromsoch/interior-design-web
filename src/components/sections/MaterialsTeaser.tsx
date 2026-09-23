@@ -15,9 +15,9 @@ export default async function MaterialsTeaser() {
   return (
     <section className="bg-bv-surface py-24">
       <div className="mx-auto grid max-w-[1320px] grid-cols-1 items-stretch gap-14 px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8">
-        <div className="reveal-left group relative min-h-[420px] overflow-hidden rounded-2xl border border-bv-line/70 shadow-[0_20px_40px_-20px_rgba(46,42,37,0.35)] lg:min-h-0">
+        <div className="reveal-left group relative min-h-[420px] overflow-hidden rounded-none border border-bv-line/70  lg:min-h-0">
           <video
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
             src="/videos/Materials.mp4"
             poster="https://images.unsplash.com/photo-1566305977571-5666677c6e98?q=80&w=1600&auto=format&fit=crop"
             autoPlay
@@ -33,7 +33,7 @@ export default async function MaterialsTeaser() {
             {t("badge")}
           </span>
           <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-            <h2 className="font-bv-heading text-[26px] sm:text-[30px]">{t("title")}</h2>
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[26px] sm:text-[30px]">{t("title")}</h2>
           </TextBlockAnimation>
           <p className="mt-4 max-w-md text-[17px] text-bv-muted">
             {t("body")}
@@ -42,7 +42,7 @@ export default async function MaterialsTeaser() {
             {swatches.map((color) => (
               <div
                 key={color}
-                className="h-[34px] w-[34px] rounded-full border-2 border-bv-background shadow-[0_2px_8px_-2px_rgba(46,42,37,0.3)] ring-1 ring-bv-line/60 transition-transform duration-200 hover:scale-110"
+                className="h-[34px] w-[34px] rounded-full border-2 border-bv-background  ring-1 ring-bv-line/60 transition-transform duration-200 hover:scale-[1.025]"
                 style={{ background: color }}
               />
             ))}

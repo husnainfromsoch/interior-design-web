@@ -14,7 +14,7 @@ export default async function ServicesHero() {
         className="kenburns-fast object-cover"
       />
       <div className="hero-in relative mx-auto flex w-full max-w-[1320px] flex-col items-center px-6 pb-40 pt-24 text-center sm:pb-52 lg:px-8">
-        <h1 className="max-w-3xl font-bv-heading text-[38px] leading-[1.1] sm:text-[56px]">
+        <h1 className="text-[38px] sm:text-[52px] lg:text-[64px] max-w-3xl font-bv-heading text-[38px] leading-[1.1] sm:text-[56px]">
           {t("titlePlain")}
           <span className="italic text-bv-accent"> {t("titleItalic")}</span>
         </h1>

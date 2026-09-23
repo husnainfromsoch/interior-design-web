@@ -96,16 +96,16 @@ export default function ProjectsBentoGrid({ items }: { items: BentoProject[] }) 
         <Link
           key={item.id}
           href={item.href}
-          className="bento-card group relative flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5"
+          className="bento-card group relative flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] "
         >
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[16px] bg-bv-surface">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-none bg-bv-surface">
             <Image
               src={item.image}
               alt={item.title}
               fill
               sizes="(min-width: 1024px) 24vw, (min-width: 640px) 45vw, 100vw"
               priority={i === 0}
-              className="bento-img object-cover scale-[1.15] grayscale-[45%] transition-[transform,filter] duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05] group-hover:grayscale-0"
+              className="bento-img object-cover scale-[1.15] grayscale-[45%] transition-[transform,filter] duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.025] group-hover:grayscale-0"
             />
 
             {/* corner frame draws in on hover */}
@@ -114,12 +114,12 @@ export default function ProjectsBentoGrid({ items }: { items: BentoProject[] }) 
             <span aria-hidden="true" className="pointer-events-none absolute bottom-3 left-3 h-5 w-5 border-b-2 border-l-2 border-bv-white opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bottom-4 group-hover:left-4 group-hover:opacity-100" />
             <span aria-hidden="true" className="pointer-events-none absolute bottom-3 right-3 h-5 w-5 border-b-2 border-r-2 border-bv-white opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bottom-4 group-hover:right-4 group-hover:opacity-100" />
 
-            <span className="absolute left-4 top-4 font-[var(--font-bv-body)] text-[11px] font-semibold tracking-[0.12em] text-bv-white/80 [text-shadow:0_1px_6px_rgba(0,0,0,0.5)]">
+            <span className="absolute left-4 top-4 font-bv-body text-[11px] font-semibold tracking-[0.12em] text-bv-white/80 [text-shadow:0_1px_6px_rgba(0,0,0,0.5)]">
               {item.num}
             </span>
 
             {item.badge && (
-              <span className="absolute right-4 top-4 rounded-full border border-bv-white/40 bg-bv-white/10 px-3 py-1 font-[var(--font-bv-body)] text-[10px] font-semibold uppercase tracking-[0.1em] text-bv-white backdrop-blur-sm [text-shadow:0_1px_4px_rgba(0,0,0,0.4)]">
+              <span className="absolute right-4 top-4 rounded-[2px] border border-bv-white/40 bg-bv-white/10 px-3 py-1 font-bv-body text-[10px] font-semibold uppercase tracking-[0.1em] text-bv-white backdrop-blur-sm [text-shadow:0_1px_4px_rgba(0,0,0,0.4)]">
                 {item.badge}
               </span>
             )}
@@ -142,7 +142,7 @@ export default function ProjectsBentoGrid({ items }: { items: BentoProject[] }) 
 
           <div className="mt-4 flex items-start justify-between gap-3 border-t border-bv-field-border pt-4">
             <div className="min-w-0">
-              <h3 className="inline truncate bg-[linear-gradient(var(--bv-accent),var(--bv-accent))] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 font-[var(--font-bv-heading)] text-[19px] font-medium leading-[1.15] text-bv-ink transition-[background-size,color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-[length:100%_1px] group-hover:text-bv-accent lg:text-[21px]">
+              <h3 className="inline truncate bg-[linear-gradient(var(--bv-accent),var(--bv-accent))] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 font-bv-heading text-[19px] font-medium leading-[1.15] text-bv-ink transition-[background-size,color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-[length:100%_1px] group-hover:text-bv-accent lg:text-[21px]">
                 {item.title}
               </h3>
               <p className="mt-1 truncate text-[12px] text-bv-ink/55 transition-colors duration-300 group-hover:text-bv-ink/75">

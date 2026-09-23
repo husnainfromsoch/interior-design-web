@@ -6,7 +6,7 @@ import { getNavLinks } from "@/data/nav";
 import BackToTop from "@/components/ui/BackToTop";
 
 const contactPill =
-  "btn-shine group inline-flex h-11 items-center gap-2.5 rounded-full border border-bv-white/15 px-4 text-[13px] font-medium text-bv-white/80 transition-[background-color,border-color,color,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-bv-accent hover:bg-bv-accent hover:text-bv-white motion-reduce:transition-none motion-reduce:hover:translate-y-0";
+  "btn-shine group inline-flex h-11 items-center gap-2.5 rounded-[2px] border border-bv-white/20 bg-bv-white/5 px-4 text-[13px] font-medium text-bv-white transition-[background-color,border-color,color,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-bv-accent hover:bg-bv-accent hover:text-bv-white motion-reduce:transition-none motion-reduce:hover:translate-y-0";
 
 export default async function Footer() {
   const locale = await getLocale();
@@ -24,33 +24,31 @@ export default async function Footer() {
     insights: tInsights("navLabel"),
   });
 
-  const footerLinks = [...navLinks, { label: tInsights("navLabel"), href: "/insights" }];
+  // Spec A1: Explore column, Insights directly after "Our Story" (About).
+  const footerLinks = [...navLinks];
+  const aboutIdx = footerLinks.findIndex((l) => l.href === "/about");
+  footerLinks.splice(aboutIdx + 1, 0, { label: tInsights("navLabel"), href: "/insights" });
 
   return (
-    <footer className="relative overflow-hidden bg-bv-ink text-bv-white/70">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-40 left-1/2 h-[360px] w-[640px] -translate-x-1/2 rounded-full bg-bv-accent/10 blur-[120px]"
-      />
-
+    <footer className="relative mt-16 overflow-hidden rounded-t-none bg-bv-ink text-bv-white/70 lg:mt-24 lg:rounded-t-none">
       <div className="relative mx-auto max-w-[1320px] px-4 pt-12 sm:px-6 lg:px-8 lg:pt-14">
         {/* CTA banner */}
-        <div className="reveal group/cta relative flex flex-col items-start gap-6 overflow-hidden rounded-[24px] border border-bv-white/10 bg-bv-white/[0.04] px-7 py-8 transition-colors duration-500 hover:border-bv-accent/40 sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:py-9">
+        <div className="reveal group/cta relative flex flex-col items-start gap-6 overflow-hidden rounded-none border border-bv-white/10 bg-bv-white/[0.06] px-7 py-8 transition-colors duration-500 sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:py-9">
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-bv-accent/15 blur-[80px] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cta:scale-125 motion-reduce:transition-none"
+            className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-bv-accent/25 blur-[80px] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cta:scale-125 motion-reduce:transition-none"
           />
           <div className="relative">
-            <span className="font-[var(--font-bv-body)] text-[12px] font-semibold uppercase tracking-[0.16em] text-bv-accent">
+            <span className="font-bv-body text-[12px] font-semibold uppercase tracking-[0.16em] text-bv-accent">
               {t("ctaTag")}
             </span>
-            <h2 className="mt-2 max-w-xl font-[var(--font-bv-heading)] text-[24px] font-medium leading-[1.2] text-bv-white sm:text-[30px]">
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] mt-2 max-w-xl font-bv-heading text-[24px] font-medium leading-[1.2] text-bv-white sm:text-[30px]">
               {t("ctaHeading")}
             </h2>
           </div>
           <Link
             href="/contact"
-            className="btn-shine relative inline-flex h-[50px] flex-none items-center gap-2 rounded-full bg-bv-accent px-7 text-sm font-semibold tracking-[0.02em] text-bv-white transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:bg-bv-accent-hover active:translate-y-0 active:duration-100 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+            className="btn-shine relative inline-flex h-[50px] flex-none items-center gap-2 rounded-[2px] bg-bv-accent px-7 text-sm font-semibold tracking-[0.02em] text-bv-white transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-bv-accent-hover active:translate-y-0 active:duration-100 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
           >
             {t("ctaButton")}
             <span aria-hidden="true" className="transition-transform duration-200 group-hover/cta:translate-x-0.5">→</span>
@@ -63,17 +61,17 @@ export default async function Footer() {
             <Link href="/" aria-label="Bellvero Group" className="inline-block transition-opacity duration-200 hover:opacity-80">
               <Image src="/logos/logo-gold.png" alt="Bellvero Group" width={315} height={319} className="h-[84px] w-auto" />
             </Link>
-            <p className="mt-4 max-w-[320px] text-sm leading-relaxed text-bv-white/50">{t("tagline")}</p>
+            <p className="mt-4 max-w-[320px] text-sm leading-relaxed text-bv-white/65">{t("tagline")}</p>
           </div>
 
           <div className="reveal" style={{ ["--reveal-delay" as string]: "80ms" }}>
-            <h3 className="text-xs font-semibold tracking-[0.2em] text-bv-white/90">{t("explore").toUpperCase()}</h3>
+            <h3 className="text-xs font-semibold tracking-[0.2em] text-bv-white">{t("explore").toUpperCase()}</h3>
             <ul className="mt-5 space-y-2.5 text-sm">
               {footerLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="group inline-flex items-center gap-0 text-bv-white/60 transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:gap-2 hover:text-bv-accent"
+                    className="group inline-flex items-center gap-0 text-bv-white/65 transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:gap-2 hover:text-bv-accent"
                   >
                     {link.label}
                   </Link>
@@ -83,7 +81,7 @@ export default async function Footer() {
           </div>
 
           <div className="reveal" style={{ ["--reveal-delay" as string]: "160ms" }}>
-            <h3 className="text-xs font-semibold tracking-[0.2em] text-bv-white/90">{t("contactHeading").toUpperCase()}</h3>
+            <h3 className="text-xs font-semibold tracking-[0.2em] text-bv-white">{t("contactHeading").toUpperCase()}</h3>
             <div className="mt-5 flex flex-wrap gap-2.5">
               <a href="tel:+971588099223" className={contactPill}>
                 <Phone className="h-4 w-4" strokeWidth={1.7} />
@@ -98,7 +96,7 @@ export default async function Footer() {
                 info@bellverogroup.com
               </a>
             </div>
-            <ul className="mt-5 space-y-2.5 text-sm text-bv-white/50">
+            <ul className="mt-5 space-y-2.5 text-sm text-bv-white/65">
               <li className="flex items-start gap-2.5">
                 <Clock className="mt-0.5 h-4 w-4 flex-none text-bv-accent" strokeWidth={1.7} />
                 {t("hours")}
@@ -112,9 +110,9 @@ export default async function Footer() {
         </div>
 
         {/* Legal bar */}
-        <div className="flex flex-col items-center gap-3 border-t border-bv-white/10 pb-24 pt-5 text-center min-[1100px]:pb-5 sm:flex-row sm:justify-between sm:text-left">
-          <p className="text-xs text-bv-white/40">{t("copyright", { year: new Date().getFullYear() })}</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-bv-white/40">
+        <div className="flex flex-col items-center gap-3 border-t border-bv-white/15 pb-24 pt-5 text-center min-[1100px]:pb-5 sm:flex-row sm:justify-between sm:text-left">
+          <p className="text-xs text-bv-white/65">{t("copyright", { year: new Date().getFullYear() })}</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-bv-white/65">
             <Link href="/warranty" className="underline decoration-transparent underline-offset-4 transition-colors duration-200 hover:text-bv-accent hover:decoration-bv-accent">
               {t("warranty")}
             </Link>

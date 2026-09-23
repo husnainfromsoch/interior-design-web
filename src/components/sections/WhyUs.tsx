@@ -28,7 +28,7 @@ export default function WhyUs() {
   return (
     <section id="why" className="bg-bv-background py-24 sm:py-28 lg:py-32">
       <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
-        <div className="reveal-left group relative mb-14 aspect-video w-full overflow-hidden rounded-2xl shadow-[0_20px_45px_-20px_rgba(46,42,37,0.35)] lg:mb-16">
+        <div className="reveal-left group relative mb-14 aspect-video w-full overflow-hidden rounded-none  lg:mb-16">
           <video
             src="/videos/hero.mp4"
             autoPlay
@@ -36,7 +36,7 @@ export default function WhyUs() {
             loop
             playsInline
             preload="metadata"
-            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bv-ink/30 via-transparent to-transparent" />
         </div>
@@ -47,7 +47,7 @@ export default function WhyUs() {
               {t("badge")}
             </span>
             <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-              <h2 className="font-bv-heading text-[32px] leading-[1.15] sm:text-[42px]">
+              <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[32px] leading-[1.15] sm:text-[42px]">
                 {t("titlePlain")}{" "}
                 <span className="italic text-bv-accent">{t("titleItalic")}</span>
               </h2>
@@ -69,7 +69,7 @@ export default function WhyUs() {
                       type="button"
                       onClick={() => setOpenIndex(isOpen ? null : i)}
                       aria-expanded={isOpen}
-                      className="group/row flex w-full items-start justify-between gap-6 px-2 py-7 text-left transition-colors duration-500 hover:bg-bv-accent/5 -mx-2 rounded-sm"
+                      className="group/row flex w-full items-start justify-between gap-6 px-2 py-7 text-left transition-colors duration-500 hover:bg-bv-accent/5 -mx-2 rounded-none"
                     >
                       <div className="flex-1">
                         <h3
@@ -97,7 +97,7 @@ export default function WhyUs() {
                         </div>
                       </div>
                       <div
-                        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-sm transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-none transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                           isOpen
                             ? "rotate-45 bg-bv-accent text-white"
                             : "bg-bv-accent/90 text-white group-hover/row:bg-bv-accent"
@@ -115,40 +115,40 @@ export default function WhyUs() {
           </div>
 
           <div className="reveal-right grid grid-cols-2 gap-4 sm:gap-5 lg:sticky lg:top-28">
-            <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl shadow-[0_20px_45px_-20px_rgba(46,42,37,0.35)]">
+            <div className="group relative aspect-[4/5] overflow-hidden rounded-none ">
               <Image
                 src="https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?q=80&w=800&auto=format&fit=crop"
                 alt="Living room with sculptural wall accent"
                 fill
                 sizes="(min-width: 1024px) 20vw, 45vw"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
               />
             </div>
-            <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl shadow-[0_20px_45px_-20px_rgba(46,42,37,0.35)]">
+            <div className="group relative aspect-[4/5] overflow-hidden rounded-none ">
               <Image
                 src="https://images.unsplash.com/photo-1758448755856-01d3add0177b?q=80&w=800&auto=format&fit=crop"
                 alt="Modern lounge with layered textures and statement lighting"
                 fill
                 sizes="(min-width: 1024px) 20vw, 45vw"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
               />
             </div>
-            <div className="group relative aspect-square overflow-hidden rounded-2xl shadow-[0_20px_45px_-20px_rgba(46,42,37,0.35)]">
+            <div className="group relative aspect-square overflow-hidden rounded-none ">
               <Image
                 src="https://images.unsplash.com/photo-1611021061285-16c871740efa?q=80&w=800&auto=format&fit=crop"
                 alt="Custom joinery and material detailing"
                 fill
                 sizes="(min-width: 1024px) 20vw, 45vw"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
               />
             </div>
-            <div className="group relative aspect-square overflow-hidden rounded-2xl shadow-[0_20px_45px_-20px_rgba(46,42,37,0.35)]">
+            <div className="group relative aspect-square overflow-hidden rounded-none ">
               <Image
                 src="https://images.unsplash.com/photo-1751283226474-869937c075d6?q=80&w=800&auto=format&fit=crop"
                 alt="Dining room with refined finishes"
                 fill
                 sizes="(min-width: 1024px) 20vw, 45vw"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
               />
             </div>
           </div>

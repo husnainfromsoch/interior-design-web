@@ -22,21 +22,22 @@ export default function HeroMedia({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoReady, setVideoReady] = useState(false);
   const [videoAllowed, setVideoAllowed] = useState(false);
+  const [showPoster, setShowPoster] = useState(false);
   const [paused, setPaused] = useState(false);
 
-  // Poster is the LCP element; the video is only requested after first paint,
+  // No poster flash: the poster only renders when the video cannot play. The video starts loading as soon as the component mounts,
   // and never on a reduced-motion or constrained connection (spec §5 H01 / §2.4).
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const connection = (navigator as Navigator & { connection?: NetworkInformation }).connection;
     const slowConnection = connection?.saveData || connection?.effectiveType === "2g" || connection?.effectiveType === "slow-2g";
 
-    if (prefersReducedMotion || slowConnection) return;
+    if (prefersReducedMotion || slowConnection) {
+      setShowPoster(true);
+      return;
+    }
 
-    const id = window.requestAnimationFrame(() => {
-      window.setTimeout(() => setVideoAllowed(true), 0);
-    });
-    return () => window.cancelAnimationFrame(id);
+    setVideoAllowed(true);
   }, []);
 
   useEffect(() => {
@@ -44,14 +45,39 @@ export default function HeroMedia({
     const video = videoRef.current;
     if (!video) return;
 
+    // Fast opening: the first seconds play at 2x (quick zoom-in), then ease back to 1x.
+    const FAST_RATE = 2;
+    const FAST_MS = 5000;
+    const EASE_MS = 900;
+    let rampId: number | undefined;
+    let holdId: number | undefined;
+
     video.src = videoSrc;
+    video.playbackRate = FAST_RATE;
     video
       .play()
-      .then(() => setVideoReady(true))
+      .then(() => {
+        setVideoReady(true);
+        holdId = window.setTimeout(() => {
+          const start = performance.now();
+          const step = () => {
+            const p = Math.min((performance.now() - start) / EASE_MS, 1);
+            video.playbackRate = FAST_RATE - (FAST_RATE - 1) * p;
+            if (p < 1) rampId = window.requestAnimationFrame(step);
+          };
+          rampId = window.requestAnimationFrame(step);
+        }, FAST_MS);
+      })
       .catch(() => {
         // Autoplay refused or errored: poster remains, no error surfaced to the visitor.
         setVideoReady(false);
+        setShowPoster(true);
       });
+
+    return () => {
+      window.clearTimeout(holdId);
+      if (rampId) window.cancelAnimationFrame(rampId);
+    };
   }, [videoAllowed, videoSrc]);
 
   const togglePause = () => {
@@ -68,6 +94,7 @@ export default function HeroMedia({
 
   return (
     <div className="absolute inset-0 h-full w-full overflow-hidden">
+      {showPoster && (
       <Image
         src={poster}
         alt={posterAlt}
@@ -77,6 +104,7 @@ export default function HeroMedia({
         sizes="100vw"
         className="object-cover"
       />
+      )}
       {videoAllowed && (
         <video
           ref={videoRef}
@@ -86,7 +114,7 @@ export default function HeroMedia({
           muted
           loop
           playsInline
-          preload="none"
+          preload="auto"
           aria-hidden="true"
         />
       )}

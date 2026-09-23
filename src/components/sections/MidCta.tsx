@@ -20,7 +20,7 @@ export default async function MidCta() {
           {t("badge")}
         </span>
         <TextBlockAnimation blockColor="#98583F" duration={0.7} stagger={0.08}>
-          <h2 className="font-bv-heading text-[30px] leading-snug sm:text-[40px]">
+          <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[30px] leading-snug sm:text-[40px]">
             {t("titlePlain")} <span className="italic text-bv-accent">{t("titleItalic")}</span>{t("titleEnd")}
           </h2>
         </TextBlockAnimation>
