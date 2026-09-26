@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import { withPayload } from "@payloadcms/next/withPayload";
 import { SERVICE_PAGES } from "./src/data/servicePages";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
@@ -25,6 +26,8 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // No X-Powered-By header at all (withPayload would otherwise send "Next.js, Payload").
+  poweredByHeader: false,
   images: {
     remotePatterns: [
       {
@@ -44,4 +47,20 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default withNextIntl(nextConfig);
+const config = withPayload(withNextIntl(nextConfig), { devBundleServerPackages: false });
+
+// withPayload adds colour-scheme client hints (Accept-CH, Critical-CH, Vary) to every route
+// for the admin theme. On public pages Critical-CH can make the browser retry the first
+// request and Vary splits the CDN cache, so the hints are scoped to the admin only.
+const payloadHeaders = config.headers!;
+config.headers = async () =>
+  (await payloadHeaders()).flatMap((rule) =>
+    rule.source === "/:path*" && rule.headers.some((h) => h.key === "Critical-CH")
+      ? [
+          { ...rule, source: "/admin" },
+          { ...rule, source: "/admin/:path*" },
+        ]
+      : [rule]
+  );
+
+export default config;
