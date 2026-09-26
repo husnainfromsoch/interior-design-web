@@ -1,7 +1,28 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import { SERVICE_PAGES } from "./src/data/servicePages";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
+
+// Permanent redirects from pre-spec URLs to the spec §6 URLs, in both languages.
+const legacy: [string, string][] = [
+  ["/portfolio", "/projects"],
+  ["/portfolio/marina", "/projects/coastal-villa-concept"],
+  ["/portfolio/albarari", "/projects/garden-villa-concept"],
+  ["/portfolio/downtown", "/projects/tower-residence-concept"],
+  ["/portfolio/jbr", "/projects/business-district-office-concept"],
+  ...SERVICE_PAGES.flatMap((s) => (s.legacySlugs ?? []).map((old): [string, string] => [`/services/${old}`, `/services/${s.slug}`])),
+];
+
+// Spec §27 security headers. The CSP is left to the hosting step because the inline
+// bootstrap needs a per-request nonce; frame-ancestors is covered by X-Frame-Options.
+const securityHeaders = [
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+  { key: "X-Frame-Options", value: "DENY" },
+  { key: "Strict-Transport-Security", value: "max-age=63072000" },
+];
 
 const nextConfig: NextConfig = {
   images: {
@@ -11,6 +32,15 @@ const nextConfig: NextConfig = {
         hostname: "images.unsplash.com",
       },
     ],
+  },
+  async redirects() {
+    return legacy.flatMap(([from, to]) => [
+      { source: from, destination: to, permanent: true },
+      { source: `/ru${from}`, destination: `/ru${to}`, permanent: true },
+    ]);
+  },
+  async headers() {
+    return [{ source: "/:path*", headers: securityHeaders }];
   },
 };
 

@@ -37,13 +37,79 @@
   --font-bv-body: var(--font-bv-body);
 }
 
+/* Corner radius (client amendment 2026-09-25). Only these two values exist:
+   rounded-lg = large surfaces (images, cards, form block, media), rounded-sm = controls
+   (buttons, fields, dropdowns, switcher). Emitted on :root as --radius-lg / --radius-sm. */
+@theme {
+  --radius-*: initial;
+  --radius-lg: 20px;
+  --radius-sm: 12px;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+/* Image hover (client amendment): 1.03 zoom plus subtle darkening over 200 ms. No lift, no shadow.
+   Put .img-zoom on the image inside a .group container that has overflow-hidden + rounded-lg. */
+.img-zoom {
+  transition:
+    transform 200ms ease-out,
+    filter 200ms ease-out;
+}
+.group:hover .img-zoom {
+  transform: scale(1.03);
+  filter: brightness(0.9);
+}
+@media (prefers-reduced-motion: reduce) {
+  .img-zoom {
+    transition: none;
+  }
+  .group:hover .img-zoom {
+    transform: none;
+  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* Long words (Russian compounds, e-mail addresses) wrap inside their box instead of
+   pushing the page sideways at 320 px. Headings may hyphenate; <html lang> drives it. */
+h1,
+h2,
+h3,
+h4 {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+p,
+li,
+dd,
+dt,
+label,
+summary,
+figcaption,
+td,
+th {
+  overflow-wrap: break-word;
+}
+
+/* ---------- Type size trial (2026-09-26, NOT yet client-approved) ----------
+   Deviates from the spec (Cormorant 500, Manrope 400 body). Headings and body text
+   render ~10% larger and one weight step heavier. font-size-adjust scales glyphs by
+   x-height, so no component class changes: delete this block (and weight "600" for
+   Cormorant in [locale]/layout.tsx) to revert to the spec.
+   Native x-height aspect: Cormorant Garamond 0.386, Manrope 0.54; ×1.1 below.
+   Unlayered, so it wins over Tailwind's font-medium / font-normal utilities. */
+:where(p, li, dd, blockquote):not(.font-bv-heading, .font-semibold, .font-bold, .text-xs, .text-sm, .text-\[10px\], .text-\[11px\], .text-\[12px\], .text-\[13px\], .text-\[14px\]) {
+  font-size-adjust: 0.594;
+  font-weight: 500;
+}
+.font-bv-heading {
+  font-size-adjust: 0.425;
+  font-weight: 600;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -225,7 +291,6 @@ body {
 .capability-runner {
   left: 10%;
   opacity: 0;
-  box-shadow: 0 0 0 rgba(152, 88, 63, 0);
 }
 .reveal.is-visible .capability-runner {
   animation: run-line 4.5s cubic-bezier(0.65, 0, 0.35, 1) 1.3s infinite;
@@ -259,11 +324,9 @@ body {
   22%,
   100% {
     transform: scale(1);
-    box-shadow: none;
   }
   8% {
     transform: scale(1.7);
-    box-shadow: 0 0 10px 2px var(--bv-accent-hover);
   }
 }
 
@@ -396,36 +459,6 @@ body {
   }
 }
 
-.cta-pulse::after {
-  content: "";
-  position: absolute;
-  inset: -4px;
-  z-index: -1;
-  border-radius: inherit;
-  background: linear-gradient(120deg, var(--bv-accent), var(--bv-accent-hover), var(--bv-accent));
-  background-size: 200% 200%;
-  opacity: 0.4;
-  filter: blur(12px);
-  animation: cta-pulse-glow 3.2s ease-in-out infinite;
-}
-@keyframes cta-pulse-glow {
-  0%,
-  100% {
-    opacity: 0.3;
-    background-position: 0% 50%;
-  }
-  50% {
-    opacity: 0.75;
-    background-position: 100% 50%;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .cta-pulse::after {
-    animation: none;
-    opacity: 0.35;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .capability-line line {
     stroke-dashoffset: 0;
@@ -462,7 +495,7 @@ body {
   transition-delay: var(--reveal-delay, 0ms);
 }
 .reveal-clip.is-visible {
-  clip-path: inset(0 0 0 0 round 24px);
+  clip-path: inset(0 0 0 0 round 20px);
   opacity: 1;
 }
 
@@ -540,5 +573,347 @@ details[open]::details-content {
   }
   .row-hover:hover {
     padding-left: 0;
+  }
+}
+
+/* ---------- Inner-page motion layer (2026-09-26) ----------
+   Shared by the spec blocks in src/components/spec/blocks.tsx. Everything is readable with
+   JavaScript off and collapses to a static page under prefers-reduced-motion. No shadows. */
+
+/* Headline words rise out of a mask, one after another */
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+.word-rise {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: word-rise 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes word-rise {
+  to {
+    transform: none;
+  }
+}
+
+/* Hero image unmasks from a smaller rounded window, then drifts slowly */
+.hero-media-in {
+  animation: hero-media-in 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+@keyframes hero-media-in {
+  from {
+    clip-path: inset(10% 8% 10% 8% round 20px);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0 round 20px);
+    opacity: 1;
+  }
+}
+
+/* Links: an underline draws in from the left, the arrow nudges forward */
+.link-draw {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.group:hover .link-draw,
+.link-draw:hover,
+.group:focus-visible .link-draw {
+  background-size: 100% 1px;
+}
+.arrow-nudge {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.group:hover .arrow-nudge,
+.group:focus-visible .arrow-nudge {
+  transform: translateX(5px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word-rise,
+  .hero-media-in {
+    animation: none;
+    transform: none;
+    clip-path: none;
+    opacity: 1;
+  }
+  .link-draw,
+  .arrow-nudge {
+    transition: none;
+  }
+  .group:hover .arrow-nudge {
+    transform: none;
+  }
+}
+
+/* Plan drawing: each stroke draws on when its .reveal parent becomes visible */
+.plan-draw path:not(.plan-dash) {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.plan-draw .plan-dash {
+  opacity: 0;
+}
+.reveal.is-visible .plan-draw path:not(.plan-dash) {
+  animation: draw-line 1.6s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+.reveal.is-visible .plan-draw .plan-dash {
+  animation: plan-fade 1s ease-out forwards;
+}
+@keyframes plan-fade {
+  to {
+    opacity: 1;
+  }
+}
+/* Outlined year that fills with ink as it settles */
+.year-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--bv-accent);
+  transition: color 1.2s ease-out 1.4s;
+}
+.reveal.is-visible .year-outline {
+  color: color-mix(in srgb, var(--bv-accent) 14%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .plan-draw path:not(.plan-dash) {
+    stroke-dashoffset: 0;
+  }
+  .reveal.is-visible .plan-draw path,
+  .plan-draw .plan-dash {
+    animation: none;
+    opacity: 1;
+  }
+  .year-outline {
+    transition: none;
+  }
+}
+
+/* ---------- Interaction layer (2026-09-26, owner request, NOT client-approved yet) ----------
+   Fills the remaining static surfaces: header dropdown and mobile menu, nav underlines,
+   button press feedback, magnetic CTAs (src/components/ui/Magnetic.tsx), footer, form
+   success, hero scroll-out. No shadows, no cursor effects, no marquees; every rule below
+   collapses under prefers-reduced-motion. */
+
+/* Buttons: a short press, so every click reads as registered */
+.press {
+  transition-property: color, background-color, border-color, transform;
+}
+.press:active {
+  transform: scale(0.97);
+  transition-duration: 90ms;
+}
+/* Magnetic CTAs: Magnetic.tsx writes --mx/--my; the translate composes with press scale */
+[data-magnetic] {
+  translate: var(--mx, 0px) var(--my, 0px);
+  transition: translate 0.5s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s, background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+[data-magnetic].is-magnetic {
+  transition: translate 0.12s linear, color 0.2s, background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+/* Header navigation: an accent rule grows under the hovered link and stays under the active one */
+.nav-underline {
+  position: relative;
+}
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: 8px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-underline:hover::after,
+.nav-underline[aria-current="page"]::after,
+.nav-underline[data-active="true"]::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Services dropdown: fades and settles instead of snapping; links follow in sequence */
+.dropdown-panel {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.25s ease-out, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.35s;
+}
+.dropdown-panel[data-open="true"] {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  transition: opacity 0.25s ease-out, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s;
+}
+.dropdown-panel .stagger-item {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.35s ease-out, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.dropdown-panel[data-open="true"] .stagger-item {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(var(--i, 0) * 45ms + 60ms);
+}
+
+/* Mobile menu: the panel wipes down from the header, then items rise in order */
+.menu-enter {
+  animation: menu-enter 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes menu-enter {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+.menu-item-in {
+  animation: menu-item-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i, 0) * 55ms + 180ms);
+}
+@keyframes menu-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Footer wordmark: letters settle from wide tracking into place */
+.tracking-settle {
+  letter-spacing: 0.4em;
+  opacity: 0;
+  transition: letter-spacing 1.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease-out;
+}
+.reveal.is-visible .tracking-settle,
+.tracking-settle.is-visible {
+  letter-spacing: 0.14em;
+  opacity: 1;
+}
+
+/* Footer arrow (2026-09-26 redesign): WhatsApp arrow lifts toward its corner on hover. */
+.arrow-lift {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.group:hover .arrow-lift,
+.group:focus-visible .arrow-lift {
+  transform: translate(2px, -2px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .arrow-lift {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Enquiry success: the check draws itself, the message rises */
+.success-in {
+  animation: hero-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.check-draw path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw-line 0.7s 0.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Home hero: content drifts up and fades as the hero scrolls away (scroll-driven, no JS) */
+@supports (animation-timeline: view()) {
+  [data-hero] {
+    view-timeline-name: --hero;
+  }
+  .hero-scroll-out {
+    animation: hero-scroll-out linear both;
+    animation-timeline: --hero;
+    animation-range: exit 0% exit 70%;
+  }
+  @keyframes hero-scroll-out {
+    to {
+      opacity: 0;
+      transform: translateY(-60px);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .press:active {
+    transform: none;
+  }
+  [data-magnetic] {
+    translate: none;
+  }
+  .nav-underline::after,
+  .dropdown-panel,
+  .dropdown-panel .stagger-item {
+    transition: none;
+  }
+  .dropdown-panel .stagger-item {
+    opacity: 1;
+    transform: none;
+  }
+  .menu-enter,
+  .menu-item-in,
+  .success-in,
+  .hero-scroll-out,
+  .spin {
+    animation: none;
+  }
+  .check-draw path {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+  .tracking-settle {
+    letter-spacing: 0.14em;
+    opacity: 1;
+    transition: none;
+  }
+}
+
+/* ── Section rhythm (2026-09-26, owner request) ─────────────────────────────
+   Two neighbouring spec sections on the same background used to stack both
+   paddings (104 + 104 px). The second one drops its top padding, so the gap
+   between them is one section gap (104/72/56 px, spec §8.3). */
+.bv-flow.bg-bv-background + .bv-flow.bg-bv-background,
+.bv-flow.bg-bv-surface + .bv-flow.bg-bv-surface {
+  padding-top: 0;
+}
+/* Page heroes, home sections and the enquiry form all carry .bv-flow now, so the rule
+   above holds site-wide: one section gap between same-background neighbours. */
+
+/* FAQ answers fade up as their question opens. */
+details[open] > .faq-answer {
+  animation: faq-answer-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes faq-answer-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  details[open] > .faq-answer {
+    animation: none;
   }
 }

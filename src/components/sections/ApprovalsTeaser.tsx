@@ -45,13 +45,13 @@ export default async function ApprovalsTeaser() {
             ))}
           </ul>
         </div>
-        <div className="reveal-right group relative order-1 aspect-[4/3] overflow-hidden rounded-none border border-bv-line/70  lg:order-2">
+        <div className="reveal-right group relative order-1 aspect-[4/3] overflow-hidden rounded-lg border border-bv-line/70  lg:order-2">
           <Image
             src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80"
             alt="Approval documents and permits being reviewed and signed"
             fill
             sizes="(min-width: 1024px) 58vw, 100vw"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+            className="object-cover img-zoom"
           />
         </div>
       </div>

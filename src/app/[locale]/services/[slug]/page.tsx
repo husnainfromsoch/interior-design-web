@@ -1,153 +1,60 @@
 import type { Metadata } from "next";
+import type { ComponentType } from "react";
 import { notFound } from "next/navigation";
-import Image from "next/image";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
-import ServiceHero from "@/components/sections/ServiceHero";
-import ServiceOverview from "@/components/sections/ServiceOverview";
-import ServiceSpotlight from "@/components/sections/ServiceSpotlight";
-import ServiceProcessTimeline from "@/components/sections/ServiceProcessTimeline";
-import ServiceAccordionGallery from "@/components/sections/ServiceAccordionGallery";
-import ServiceVideoShowcase from "@/components/sections/ServiceVideoShowcase";
-import ServiceFocusAreas from "@/components/sections/ServiceFocusAreas";
-import ServiceFAQ from "@/components/sections/ServiceFAQ";
-import MidCta from "@/components/sections/MidCta";
-import { getServices } from "@/data/services";
+import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { SERVICE_PAGES, getServicePage, type ServiceSlug } from "@/data/servicePages";
+import { sc } from "@/lib/spec";
+import type { ServicePageProps } from "@/components/service-pages/common";
+import P03InteriorDesign from "@/components/service-pages/P03InteriorDesign";
+import P04LandscapeDesign from "@/components/service-pages/P04LandscapeDesign";
+import P05VillaRenovation from "@/components/service-pages/P05VillaRenovation";
+import P06ApartmentRenovation from "@/components/service-pages/P06ApartmentRenovation";
+import P07CommercialFitOut from "@/components/service-pages/P07CommercialFitOut";
+import P08BespokeJoinery from "@/components/service-pages/P08BespokeJoinery";
+import P09CustomKitchens from "@/components/service-pages/P09CustomKitchens";
+import P10Wardrobes from "@/components/service-pages/P10Wardrobes";
+import P11Approvals from "@/components/service-pages/P11Approvals";
+import P12MepHvac from "@/components/service-pages/P12MepHvac";
+import P13MaterialsProcurement from "@/components/service-pages/P13MaterialsProcurement";
 
-const DEFAULT_VIDEO = "/videos/hero.mp4";
+// P03–P13 (spec §15.3–15.13). Each page is composed in its own file in the spec's
+// section order; copy is read verbatim from the spec.
+const PAGES: Record<ServiceSlug, ComponentType<ServicePageProps>> = {
+  "interior-design": P03InteriorDesign,
+  "landscape-design": P04LandscapeDesign,
+  "villa-renovation": P05VillaRenovation,
+  "apartment-renovation": P06ApartmentRenovation,
+  "commercial-fit-out": P07CommercialFitOut,
+  "bespoke-joinery": P08BespokeJoinery,
+  "custom-kitchens": P09CustomKitchens,
+  wardrobes: P10Wardrobes,
+  approvals: P11Approvals,
+  "mep-hvac": P12MepHvac,
+  "materials-procurement": P13MaterialsProcurement,
+};
+
+export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return routing.locales.flatMap((locale) =>
-    getServices(locale).map((service) => ({ locale, slug: service.slug }))
-  );
+  return routing.locales.flatMap((locale) => SERVICE_PAGES.map((s) => ({ locale, slug: s.slug })));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string; slug: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const service = getServices(locale).find((s) => s.slug === slug);
-  if (!service) return {};
+  const page = getServicePage(slug);
+  if (!page) return {};
   return {
-    title: `${service.title} | Bellvero Group Dubai`,
-    description: service.description,
+    title: `${page.title[locale === "ru" ? "ru" : "en"]} | Bellvero Group`,
+    description: sc(page.heroCode, "body", locale),
   };
 }
 
-export default async function ServiceDetailPage({
-  params,
-}: {
-  params: Promise<{ locale: string; slug: string }>;
-}) {
+export default async function ServicePage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
-  const services = getServices(locale);
-  const service = services.find((s) => s.slug === slug);
-  if (!service) notFound();
-
-  const t = await getTranslations("ServiceDetail");
-
-  const otherServices = services.filter((s) => s.slug !== slug).slice(0, 3);
-
-  const heroSlides = Array.from(
-    new Set([service.heroImage ?? service.image, ...(service.gallery ?? [])])
-  ).slice(0, 4);
-
-  const spotlightImage = service.gallery?.[2] ?? service.gallery?.[0] ?? service.heroImage ?? service.image;
-  const secondaryImage = service.gallery?.find((src) => src !== service.image);
-
-  return (
-    <>
-      <ServiceHero title={service.title} images={heroSlides} />
-
-      <ServiceOverview
-        image={service.image}
-        secondaryImage={secondaryImage}
-        title={service.title}
-        highlights={service.highlights}
-        stats={service.stats}
-        ctaLabel={service.cta}
-      />
-
-      {service.process && <ServiceProcessTimeline steps={service.process} />}
-
-      <ServiceSpotlight
-        image={spotlightImage}
-        eyebrow={t("spotlightEyebrow")}
-        heading={t("spotlightHeading", { title: service.title.toLowerCase() })}
-        caption={t("spotlightCaption")}
-      />
-
-      {service.gallery && (
-        <ServiceAccordionGallery
-          images={service.gallery}
-          captions={service.galleryCaptions}
-          title={service.title}
-          featureCaption={service.intro}
-          ctaLabel={service.cta}
-        />
-      )}
-
-      <ServiceVideoShowcase
-        video={service.video ?? DEFAULT_VIDEO}
-        caption={service.videoCaption ?? t("defaultVideoCaption")}
-      />
-
-      {service.focusAreas && (
-        <ServiceFocusAreas
-          eyebrow={t("whatsIncluded")}
-          heading={t("focusHeading", { title: service.title.toLowerCase() })}
-          areas={service.focusAreas}
-          problems={service.problems}
-          mediaVideo={service.video ?? DEFAULT_VIDEO}
-          mediaCaption={service.videoCaption ?? t("defaultVideoCaption")}
-        />
-      )}
-
-      {service.faqs && <ServiceFAQ faqs={service.faqs} />}
-
-      {otherServices.length > 0 && (
-        <section className="bg-bv-surface py-24">
-          <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
-            <div className="reveal mb-12">
-              <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-bv-accent">
-                {t("explore")}
-              </span>
-              <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] sm:text-[34px]">{t("otherServices")}</h2>
-            </div>
-
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {otherServices.map((s, i) => (
-                <Link
-                  key={s.slug}
-                  href={s.href}
-                  className="reveal-scale group flex flex-col overflow-hidden rounded-none border border-bv-line/70 bg-bv-background  transition-all duration-200 hover:border-bv-accent/40 "
-                  style={{ "--reveal-delay": `${i * 100}ms` } as React.CSSProperties}
-                >
-                  <div className="relative aspect-[16/10] w-full overflow-hidden">
-                    <Image
-                      src={s.image}
-                      alt={s.title}
-                      fill
-                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025]"
-                    />
-                  </div>
-                  <div className="p-7">
-                    <h3 className="mb-2.5 text-[19px] font-medium">{s.title}</h3>
-                    <p className="text-sm text-bv-muted">{s.description}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      <MidCta />
-    </>
-  );
+  const page = getServicePage(slug);
+  if (!page) notFound();
+  const Page = PAGES[page.slug];
+  return <Page locale={locale} />;
 }

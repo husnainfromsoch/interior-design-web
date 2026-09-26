@@ -44,9 +44,9 @@ export async function generateMetadata({
   const page = Math.max(1, parseInt(pageParam ?? "1", 10) || 1);
   const pageQuery = page > 1 && !filtered ? `?page=${page}` : "";
 
-  // Suffix goes before the brand: "Renovation & Design Insights — Page 2 | Bellvero Group".
+  // Suffix goes before the brand: "Renovation & Design Insights, Page 2 | Bellvero Group".
   const base = t("metaTitle");
-  const title = page > 1 ? base.replace(/ \| /, ` ${t("pageSuffix", { n: page })} | `) : base;
+  const title = page > 1 ? base.replace(/ \| /, `, ${t("pageSuffix", { n: page })} | `) : base;
 
   // Filtered views: canonical to /insights, noindex. Paginated pages: self canonical.
   const alternates = localeAlternates("/insights", locale);

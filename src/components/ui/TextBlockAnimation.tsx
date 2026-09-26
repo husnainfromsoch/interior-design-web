@@ -25,78 +25,65 @@ export default function TextBlockAnimation({
 
   useGSAP(
     () => {
-      if (!containerRef.current) return;
+      const el = containerRef.current;
+      if (!el) return;
+      // Spec §25: with reduced motion the heading is simply shown, with no block sweep.
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-      const split = new SplitText(containerRef.current, {
+      // autoSplit re-splits on resize and font load, so line breaks always match the real column width.
+      // Once the reveal has played, the split is reverted so the heading wraps as normal text again.
+      const split = SplitText.create(el, {
         type: "lines",
         linesClass: "block-line-parent",
+        autoSplit: true,
+        onSplit(self) {
+          const lines = self.lines;
+          const blocks: HTMLDivElement[] = [];
+
+          lines.forEach((line) => {
+            const wrapper = document.createElement("div");
+            wrapper.style.position = "relative";
+            wrapper.style.display = "block";
+            wrapper.style.overflow = "hidden";
+
+            const block = document.createElement("div");
+            block.style.position = "absolute";
+            block.style.top = "0";
+            block.style.left = "0";
+            block.style.width = "100%";
+            block.style.height = "100%";
+            block.style.backgroundColor = blockColor;
+            block.style.zIndex = "2";
+            block.style.transform = "scaleX(0)";
+            block.style.transformOrigin = "left center";
+
+            line.parentNode?.insertBefore(wrapper, line);
+            wrapper.appendChild(line);
+            wrapper.appendChild(block);
+
+            gsap.set(line, { opacity: 0 });
+            blocks.push(block);
+          });
+
+          const tl = gsap.timeline({
+            defaults: { ease: "expo.inOut" },
+            scrollTrigger: animateOnScroll
+              ? { trigger: el, start: "top 85%", toggleActions: "play none none none" }
+              : undefined,
+            delay,
+            onComplete: () => {
+              self.kill();
+              self.revert();
+            },
+          });
+
+          tl.to(blocks, { scaleX: 1, duration, stagger, transformOrigin: "left center" })
+            .set(lines, { opacity: 1, stagger }, `<${duration / 2}`)
+            .to(blocks, { scaleX: 0, duration, stagger, transformOrigin: "right center" }, `<${duration * 0.4}`);
+
+          return tl;
+        },
       });
-
-      const lines = split.lines;
-      const blocks: HTMLDivElement[] = [];
-
-      lines.forEach((line) => {
-        const wrapper = document.createElement("div");
-        wrapper.style.position = "relative";
-        wrapper.style.display = "block";
-        wrapper.style.overflow = "hidden";
-
-        const block = document.createElement("div");
-        block.style.position = "absolute";
-        block.style.top = "0";
-        block.style.left = "0";
-        block.style.width = "100%";
-        block.style.height = "100%";
-        block.style.backgroundColor = blockColor;
-        block.style.zIndex = "2";
-        block.style.transform = "scaleX(0)";
-        block.style.transformOrigin = "left center";
-
-        line.parentNode?.insertBefore(wrapper, line);
-        wrapper.appendChild(line);
-        wrapper.appendChild(block);
-
-        gsap.set(line, { opacity: 0 });
-
-        blocks.push(block);
-      });
-
-      const tl = gsap.timeline({
-        defaults: { ease: "expo.inOut" },
-        scrollTrigger: animateOnScroll
-          ? {
-              trigger: containerRef.current,
-              start: "top 85%",
-              toggleActions: "play none none reverse",
-            }
-          : undefined,
-        delay,
-      });
-
-      tl.to(blocks, {
-        scaleX: 1,
-        duration,
-        stagger,
-        transformOrigin: "left center",
-      })
-        .set(
-          lines,
-          {
-            opacity: 1,
-            stagger,
-          },
-          `<${duration / 2}`
-        )
-        .to(
-          blocks,
-          {
-            scaleX: 0,
-            duration,
-            stagger,
-            transformOrigin: "right center",
-          },
-          `<${duration * 0.4}`
-        );
 
       return () => {
         split.revert();

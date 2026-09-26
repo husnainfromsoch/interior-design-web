@@ -27,7 +27,7 @@ export default function LocaleError({
       <button
         type="button"
         onClick={reset}
-        className="inline-flex items-center gap-2 rounded-[2px] border border-bv-accent bg-bv-accent px-[28px] py-[14px] text-sm font-semibold tracking-wide text-bv-background  transition-all duration-200 ease-out hover:border-bv-accent-hover hover:bg-bv-accent-hover active:translate-y-0"
+        className="inline-flex items-center gap-2 rounded-sm border border-bv-accent bg-bv-accent px-[28px] py-[14px] text-sm font-semibold tracking-wide text-bv-background  transition-all duration-200 ease-out hover:border-bv-accent-hover hover:bg-bv-accent-hover active:translate-y-0"
       >
         Try again
       </button>

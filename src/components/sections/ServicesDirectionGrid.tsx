@@ -41,7 +41,6 @@ export default function ServicesDirectionGrid({ items }: { items: Direction[] })
 
       cards.forEach((card, i) => {
         const img = card.querySelector<HTMLElement>(".dir-img");
-        const glow = card.querySelector<HTMLElement>(".dir-glow");
 
         gsap.fromTo(
           card,
@@ -69,36 +68,6 @@ export default function ServicesDirectionGrid({ items }: { items: Direction[] })
             }
           );
         }
-
-        const onMove = (e: MouseEvent) => {
-          const rect = card.getBoundingClientRect();
-          const px = (e.clientX - rect.left) / rect.width - 0.5;
-          const py = (e.clientY - rect.top) / rect.height - 0.5;
-          gsap.to(card, {
-            rotateY: px * 8,
-            rotateX: py * -8,
-            y: -8,
-            duration: 0.5,
-            ease: "power2.out",
-            transformPerspective: 800,
-          });
-          if (glow) {
-            gsap.to(glow, {
-              opacity: 1,
-              duration: 0.3,
-              ease: "power1.out",
-              css: { left: `${(px + 0.5) * 100}%`, top: `${(py + 0.5) * 100}%` },
-            });
-          }
-        };
-        const onEnter = () => gsap.to(card, { scale: 1.02, duration: 0.4, ease: "power2.out" });
-        const onLeave = () => {
-          gsap.to(card, { rotateY: 0, rotateX: 0, y: 0, scale: 1, duration: 0.6, ease: "power3.out" });
-          if (glow) gsap.to(glow, { opacity: 0, duration: 0.4, ease: "power1.out" });
-        };
-        card.addEventListener("mouseenter", onEnter);
-        card.addEventListener("mousemove", onMove);
-        card.addEventListener("mouseleave", onLeave);
       });
     });
 
@@ -116,38 +85,26 @@ export default function ServicesDirectionGrid({ items }: { items: Direction[] })
       className="grid grid-cols-1 gap-x-5 gap-y-10 [transform-style:preserve-3d] sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-6"
     >
       {items.map((d, i) => (
-        <article key={d.id} className="dir-card group relative flex flex-col will-change-transform">
+        <article key={d.id} className="dir-card group relative flex flex-col">
           <Link
             href={d.hrefs[0].href}
-            className="relative block aspect-[4/5] w-full overflow-hidden rounded-none bg-bv-surface  transition-shadow duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] "
+            className="relative block aspect-[4/5] w-full overflow-hidden rounded-lg bg-bv-surface  "
           >
-            <span
-              aria-hidden="true"
-              className="dir-glow pointer-events-none absolute left-1/2 top-1/2 z-10 h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 mix-blend-soft-light"
-              style={{ background: "radial-gradient(circle, rgba(255,255,255,0.9), transparent 70%)" }}
-            />
-            <Image
+            <div className="img-zoom absolute inset-0">
+              <Image
               src={d.image}
               alt=""
               fill
               sizes="(min-width: 1024px) 24vw, (min-width: 640px) 45vw, 100vw"
               priority={i === 0}
-              className="dir-img scale-[1.15] object-cover brightness-100 saturate-100 transition-[transform,filter] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.24] group-hover:brightness-[1.05] group-hover:saturate-[1.1]"
+              className="dir-img scale-[1.15] object-cover"
             />
+            </div>
 
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-transparent opacity-90" />
 
-            <span className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-bv-white/95 font-bv-body text-[12px] font-semibold tracking-[0.02em] text-bv-ink  backdrop-blur">
+            <span className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-sm bg-bv-white/95 font-bv-body text-[12px] font-semibold tracking-[0.02em] text-bv-ink  backdrop-blur">
               {d.num}
-            </span>
-
-            <span
-              aria-hidden="true"
-              className="absolute bottom-4 right-4 flex h-10 w-10 translate-y-2 items-center justify-center rounded-full border border-bv-white/70 bg-bv-white/0 text-bv-white opacity-0 backdrop-blur-sm transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:bg-bv-white group-hover:text-bv-ink group-hover:opacity-100"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-4 w-4">
-                <path d="M7 17 17 7M9 7h8v8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
             </span>
 
             <div className="absolute inset-x-4 bottom-4">
@@ -158,25 +115,25 @@ export default function ServicesDirectionGrid({ items }: { items: Direction[] })
           </Link>
 
           <div className="mt-4 border-t border-bv-field-border pt-4">
-            <p className="line-clamp-2 text-[13px] leading-[1.55] text-bv-ink/60">{d.body}</p>
-            <div className="mt-5 flex flex-wrap gap-2 xl:flex-nowrap">
+            <p className="text-[13px] leading-[1.55] text-bv-ink/60">{d.body}</p>
+            <div className="mt-5 flex flex-wrap gap-2">
               {d.hrefs.map((l) => (
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="group/link relative inline-flex h-10 min-w-0 items-center gap-2.5 overflow-hidden rounded-full bg-bv-surface py-1 pl-4 pr-1 text-[11px] font-semibold uppercase tracking-[0.05em] text-bv-ink ring-1 ring-bv-ink/10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-bv-ink hover:text-bv-white hover:ring-bv-ink active:scale-[0.98] motion-reduce:transition-none"
+                  className="group/link relative inline-flex min-h-11 min-w-0 items-center gap-2.5 overflow-hidden rounded-sm bg-bv-surface py-1.5 pl-4 pr-1.5 text-[11px] font-semibold uppercase tracking-[0.05em] text-bv-ink ring-1 ring-bv-ink/10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-bv-ink hover:text-bv-white hover:ring-bv-ink motion-reduce:transition-none"
                 >
-                  <span className="relative truncate">{l.label}</span>
+                  <span className="relative leading-[1.3]">{l.label}</span>
                   <span
                     aria-hidden="true"
-                    className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-bv-accent text-bv-white transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/link:scale-105"
+                    className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-sm bg-bv-accent text-bv-white transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
                   >
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="1.6"
-                      className="h-3.5 w-3.5 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                      className="h-3.5 w-3.5 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
                     >
                       <path d="M7 17 17 7M9 7h8v8" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>

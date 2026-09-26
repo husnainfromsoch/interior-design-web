@@ -23,11 +23,6 @@ export default async function ProcessPage({ params }: { params: Promise<{ locale
   const t = await getTranslations("ProcessPage");
   const stages = t.raw("stages") as { title: string; body: string }[];
 
-  const heroStats = [
-    { value: t("heroStat1Value"), label: t("heroStat1Label") },
-    { value: t("heroStat2Value"), label: t("heroStat2Label") },
-    { value: t("heroStat3Value"), label: t("heroStat3Label") },
-  ];
 
   return (
     <>
@@ -35,7 +30,7 @@ export default async function ProcessPage({ params }: { params: Promise<{ locale
         eyebrow={t("eyebrow")}
         title={t("title")}
         intro={t("intro")}
-        stats={heroStats}
+        stats={[]}
         images={[
           "/visuals/PHOTO-2025-04-15-11-32-01.jpg",
           "/visuals/PHOTO-2025-04-15-12-00-05.jpg",
@@ -47,13 +42,13 @@ export default async function ProcessPage({ params }: { params: Promise<{ locale
       <ProcessStagesTimeline heading={t("stagesHeading")} stages={stages} />
 
       <section className="bg-bv-ink pb-14 md:pb-[72px] lg:pb-[104px]">
-        <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-8 lg:px-[60px]">
           <p className="max-w-3xl text-[14px] leading-[1.65] text-bv-white/50">{t("overlapNote")}</p>
         </div>
       </section>
 
       <section className="bg-bv-surface py-14 md:py-[72px] lg:py-[104px]">
-        <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-8 lg:px-[60px]">
           <div className="reveal max-w-2xl">
             <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[32px] font-medium leading-[1.12] text-bv-ink sm:text-[40px] lg:text-[48px]">
               {t("routesHeading")}
@@ -104,16 +99,12 @@ export default async function ProcessPage({ params }: { params: Promise<{ locale
       </section>
 
       <section className="bg-bv-background py-14 md:py-[72px] lg:py-[104px]">
-        <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-8 lg:px-[60px]">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="reveal-left lg:col-span-6">
               <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[32px] font-medium leading-[1.12] text-bv-ink sm:text-[40px] lg:text-[44px]">
                 {t("decisionsHeading")}
               </h2>
-              <div
-                className="reveal-line mt-6 h-px w-16 bg-bv-accent"
-                style={{ "--reveal-delay": "150ms" } as React.CSSProperties}
-              />
               <p className="mt-6 max-w-xl text-[17px] leading-[1.65] text-bv-muted">{t("decisionsBody")}</p>
             </div>
 

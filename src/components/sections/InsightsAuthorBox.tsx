@@ -24,7 +24,7 @@ export default function InsightsAuthorBox({
           </div>
         )}
         <div>
-          <h3 className="font-bv-heading text-[22px] font-medium text-bv-ink">{AUTHOR.name}</h3>
+          <h3 className="font-bv-heading text-[26px] font-medium leading-[1.18] text-bv-ink sm:text-[28px] min-[1200px]:text-[30px]">{AUTHOR.name}</h3>
           <p className="mt-1 font-bv-body text-[15px] font-medium text-bv-accent">{role}</p>
           <p className="mt-3 text-[16px] leading-[1.65] text-bv-ink/80">{bio}</p>
           <Link

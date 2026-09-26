@@ -32,7 +32,7 @@ export default function ArticleTOC({
   if (headings.length < 3) return null;
 
   return (
-    <nav aria-label={label} className="hidden lg:sticky lg:top-[120px] lg:block">
+    <nav aria-label={label} className="sticky top-[120px]">
       <span className="block font-bv-body text-[13px] font-semibold uppercase tracking-[0.08em] text-bv-ink">
         {label}
       </span>
@@ -68,7 +68,7 @@ export function ArticleTOCMobile({
   if (headings.length < 3) return null;
 
   return (
-    <details className="mb-8 border-y border-bv-line py-4 lg:hidden">
+    <details className="mb-8 border-y border-bv-line py-4 min-[1200px]:hidden">
       <summary className="cursor-pointer font-bv-body text-[13px] font-semibold uppercase tracking-[0.08em] text-bv-ink">
         {label}
       </summary>

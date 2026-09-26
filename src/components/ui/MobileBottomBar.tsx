@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
-
-const WHATSAPP_NUMBER = "971588099223";
+import { trackEvent } from "@/lib/analytics";
+import { company } from "@/data/company";
 
 export default function MobileBottomBar() {
   const t = useTranslations("BottomBar");
-  const tWa = useTranslations("WhatsApp");
+  const tForm = useTranslations("EnquiryForm");
   const router = useRouter();
   const pathname = usePathname();
   const [pastFirstScreen, setPastFirstScreen] = useState(false);
@@ -47,7 +47,7 @@ export default function MobileBottomBar() {
   }, []);
 
   const hidden = !pastFirstScreen || formVisible || keyboardOpen;
-  const waHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(tWa("message"))}`;
+  const waHref = `https://wa.me/${company.whatsappDigits}?text=${encodeURIComponent(tForm("whatsappPrefill", { topic: tForm("whatsappTopicDefault") }))}`;
 
   function discuss(e: React.MouseEvent<HTMLAnchorElement>) {
     const form = document.getElementById("project-enquiry");
@@ -68,7 +68,7 @@ export default function MobileBottomBar() {
           href="#project-enquiry"
           onClick={discuss}
           tabIndex={hidden ? -1 : 0}
-          className="inline-flex h-[48px] flex-1 items-center justify-center rounded-[2px] bg-bv-accent px-4 text-[13px] font-semibold text-bv-white active:bg-bv-accent-hover"
+          className="press inline-flex h-[48px] flex-1 items-center justify-center rounded-sm bg-bv-accent px-4 text-[13px] font-semibold text-bv-white active:bg-bv-accent-hover"
         >
           {t("discuss")}
         </a>
@@ -76,8 +76,9 @@ export default function MobileBottomBar() {
           href={waHref}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackEvent("whatsapp_click", { placement: "bottom_bar" })}
           tabIndex={hidden ? -1 : 0}
-          className="inline-flex h-[48px] flex-1 items-center justify-center rounded-[2px] bg-bv-ink px-4 text-[13px] font-semibold text-bv-white active:bg-bv-ink/85"
+          className="press inline-flex h-[48px] flex-1 items-center justify-center rounded-sm bg-bv-ink px-4 text-[13px] font-semibold text-bv-white active:bg-bv-ink/85"
         >
           {t("whatsapp")}
         </a>

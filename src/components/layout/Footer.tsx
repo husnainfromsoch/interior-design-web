@@ -1,129 +1,152 @@
+import type { CSSProperties, ReactNode } from "react";
 import Image from "next/image";
-import { getTranslations, getLocale } from "next-intl/server";
-import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { getLocale, getTranslations } from "next-intl/server";
+import { ArrowUpRight, Clock } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { getNavLinks } from "@/data/nav";
-import BackToTop from "@/components/ui/BackToTop";
+import { company, legalLine, whatsappHref } from "@/data/company";
+import { sc } from "@/lib/spec";
 
-const contactPill =
-  "btn-shine group inline-flex h-11 items-center gap-2.5 rounded-[2px] border border-bv-white/20 bg-bv-white/5 px-4 text-[13px] font-medium text-bv-white transition-[background-color,border-color,color,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-bv-accent hover:bg-bv-accent hover:text-bv-white motion-reduce:transition-none motion-reduce:hover:translate-y-0";
+// Spec §7.2 footer: one footer on every page, #F7F4EE with a 1 px top line, 72/56 px
+// vertical padding. Wordmark and positioning line; Explore, Contact and Visits columns;
+// bottom row © year · Warranty · Privacy Notice · Cookie Settings · legal entity line.
+// No social icons (the company has none), no address or map (there is no office).
+// Layout (2026-09-27 redesign, editorial minimal): brand, positioning line in display type
+// and Explore on the left; a hairline divider; Contact as an index of full-width hairline
+// rows (phone, WhatsApp, email) with hours and Visits beneath. Same copy, no new strings.
+
+const headingClass = "text-[12px] font-semibold uppercase tracking-[0.16em] text-bv-muted";
+const focusClass =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink rounded-sm";
+const smallLink = `group inline-flex min-h-11 items-center lg:min-h-9 text-[13px] text-bv-muted transition-colors hover:text-bv-ink ${focusClass}`;
+const rowClass = `row-hover group flex min-h-[46px] items-center justify-between gap-6 border-b border-bv-line py-1.5 text-bv-ink transition-colors hover:text-bv-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink`;
+// Motion: blocks reveal in sequence, link underlines draw in from the left on hover.
+const col = (i: number) => ({ ["--reveal-delay" as string]: `${i * 90}ms` }) as CSSProperties;
+const u = (text: ReactNode) => <span className="link-draw">{text}</span>;
+const arrow = (
+  <ArrowUpRight
+    aria-hidden="true"
+    className="arrow-lift h-5 w-5 flex-none text-bv-muted transition-colors group-hover:text-bv-accent"
+    strokeWidth={1.4}
+  />
+);
 
 export default async function Footer() {
   const locale = await getLocale();
-  const t = await getTranslations("Footer");
+  const ru = locale === "ru";
   const tNav = await getTranslations("Nav");
-
   const tInsights = await getTranslations("Insights");
+  const tForm = await getTranslations("EnquiryForm");
+  const f = (label: string) => sc("C-FOOTER", label, locale);
+  const legal = legalLine(locale);
 
-  const navLinks = getNavLinks(locale, {
-    projects: tNav("projects"),
-    services: tNav("services"),
-    process: tNav("process"),
-    about: tNav("about"),
-    contact: tNav("contact"),
-    insights: tInsights("navLabel"),
-  });
-
-  // Spec A1: Explore column, Insights directly after "Our Story" (About).
-  const footerLinks = [...navLinks];
-  const aboutIdx = footerLinks.findIndex((l) => l.href === "/about");
-  footerLinks.splice(aboutIdx + 1, 0, { label: tInsights("navLabel"), href: "/insights" });
+  // Spec §7.2 Explore column; Insights sits directly after Our Story (Insights spec A1).
+  const explore = [
+    { label: tNav("services"), href: "/services" },
+    { label: tNav("projects"), href: "/projects" },
+    { label: tNav("process"), href: "/process" },
+    { label: ru ? "О компании" : "Our Story", href: "/about" },
+    { label: tInsights("navLabel"), href: "/insights" },
+    { label: tNav("contact"), href: "/contact" },
+  ];
 
   return (
-    <footer className="relative mt-16 overflow-hidden rounded-t-none bg-bv-ink text-bv-white/70 lg:mt-24 lg:rounded-t-none">
-      <div className="relative mx-auto max-w-[1320px] px-4 pt-12 sm:px-6 lg:px-8 lg:pt-14">
-        {/* CTA banner */}
-        <div className="reveal group/cta relative flex flex-col items-start gap-6 overflow-hidden rounded-none border border-bv-white/10 bg-bv-white/[0.06] px-7 py-8 transition-colors duration-500 sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:py-9">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-bv-accent/25 blur-[80px] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cta:scale-125 motion-reduce:transition-none"
-          />
-          <div className="relative">
-            <span className="font-bv-body text-[12px] font-semibold uppercase tracking-[0.16em] text-bv-accent">
-              {t("ctaTag")}
-            </span>
-            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] mt-2 max-w-xl font-bv-heading text-[24px] font-medium leading-[1.2] text-bv-white sm:text-[30px]">
-              {t("ctaHeading")}
-            </h2>
-          </div>
-          <Link
-            href="/contact"
-            className="btn-shine relative inline-flex h-[50px] flex-none items-center gap-2 rounded-[2px] bg-bv-accent px-7 text-sm font-semibold tracking-[0.02em] text-bv-white transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-bv-accent-hover active:translate-y-0 active:duration-100 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
-          >
-            {t("ctaButton")}
-            <span aria-hidden="true" className="transition-transform duration-200 group-hover/cta:translate-x-0.5">→</span>
-          </Link>
-        </div>
-
-        {/* Columns */}
-        <div className="grid grid-cols-2 gap-x-8 gap-y-10 py-10 lg:grid-cols-[1.3fr_0.8fr_1.6fr] lg:gap-x-14 lg:py-12">
-          <div className="reveal col-span-2 lg:col-span-1">
-            <Link href="/" aria-label="Bellvero Group" className="inline-block transition-opacity duration-200 hover:opacity-80">
-              <Image src="/logos/logo-gold.png" alt="Bellvero Group" width={315} height={319} className="h-[84px] w-auto" />
-            </Link>
-            <p className="mt-4 max-w-[320px] text-sm leading-relaxed text-bv-white/65">{t("tagline")}</p>
-          </div>
-
-          <div className="reveal" style={{ ["--reveal-delay" as string]: "80ms" }}>
-            <h3 className="text-xs font-semibold tracking-[0.2em] text-bv-white">{t("explore").toUpperCase()}</h3>
-            <ul className="mt-5 space-y-2.5 text-sm">
-              {footerLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="group inline-flex items-center gap-0 text-bv-white/65 transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:gap-2 hover:text-bv-accent"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="reveal" style={{ ["--reveal-delay" as string]: "160ms" }}>
-            <h3 className="text-xs font-semibold tracking-[0.2em] text-bv-white">{t("contactHeading").toUpperCase()}</h3>
-            <div className="mt-5 flex flex-wrap gap-2.5">
-              <a href="tel:+971588099223" className={contactPill}>
-                <Phone className="h-4 w-4" strokeWidth={1.7} />
-                +971 58 809 9223
-              </a>
-              <a href="https://wa.me/971588099223" target="_blank" rel="noopener noreferrer" className={contactPill}>
-                <MessageCircle className="h-4 w-4" strokeWidth={1.7} />
-                {t("whatsappLabel")}
-              </a>
-              <a href="mailto:info@bellverogroup.com" className={contactPill}>
-                <Mail className="h-4 w-4" strokeWidth={1.7} />
-                info@bellverogroup.com
-              </a>
+    <footer className="border-t border-bv-line bg-bv-background pb-24 pt-10 lg:pb-4 lg:pt-10">
+      <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-8 lg:px-[60px]">
+        <div className="grid gap-y-8 lg:grid-cols-12">
+          <div className="flex flex-col lg:col-span-6 lg:pr-10">
+            <div className="reveal" style={col(0)}>
+              <Link
+                href="/"
+                aria-label={sc("UI", "a11y.logo", locale)}
+                className={`inline-flex items-center gap-3 text-bv-ink ${focusClass}`}
+              >
+                <Image src="/logos/mark-dark.png" alt="" width={205} height={205} className="h-11 w-11" />
+                <span className="flex flex-col leading-none">
+                  <span className="tracking-settle font-bv-body text-[17px] font-medium uppercase tracking-[0.14em]">
+                    Bellvero
+                  </span>
+                  <span className="mt-1 font-bv-body text-[10px] font-medium uppercase tracking-[0.22em] text-bv-muted">
+                    Group
+                  </span>
+                </span>
+              </Link>
+              <p className="mt-4 max-w-[500px] text-balance font-bv-heading text-[clamp(20px,1.8vw,25px)] leading-[1.15] text-bv-ink">
+                {f("Footer line")}
+              </p>
             </div>
-            <ul className="mt-5 space-y-2.5 text-sm text-bv-white/65">
-              <li className="flex items-start gap-2.5">
-                <Clock className="mt-0.5 h-4 w-4 flex-none text-bv-accent" strokeWidth={1.7} />
-                {t("hours")}
+
+            <nav aria-label={ru ? "Разделы сайта" : "Explore"} className="reveal mt-6 lg:mt-auto lg:pt-6" style={col(1)}>
+              <p className={headingClass}>{ru ? "Разделы" : "Explore"}</p>
+              <ul className="mt-1 grid grid-cols-2 gap-x-8 sm:flex sm:flex-wrap sm:gap-x-6">
+                {explore.map((l) => (
+                  <li key={l.href}>
+                    <Link
+                      href={l.href}
+                      className={`group inline-flex min-h-11 items-center text-[15px] text-bv-ink transition-colors hover:text-bv-accent lg:min-h-9 ${focusClass}`}
+                    >
+                      {u(l.label)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+
+          <div className="reveal lg:col-span-6 lg:border-l lg:border-bv-line lg:pl-12" style={col(2)}>
+            <p className={headingClass}>{f("Contact heading")}</p>
+            <ul className="mt-3 border-t border-bv-line">
+              <li>
+                <a href={`tel:${company.phoneE164}`} className={rowClass}>
+                  <span className="font-bv-heading text-[clamp(20px,1.6vw,23px)] leading-none">{company.phoneDisplay}</span>
+                  {arrow}
+                </a>
               </li>
-              <li className="flex items-start gap-2.5">
-                <MapPin className="mt-0.5 h-4 w-4 flex-none text-bv-accent" strokeWidth={1.7} />
-                <span className="max-w-[360px] leading-relaxed">{t("visitsText")}</span>
+              <li>
+                <a
+                  href={whatsappHref(tForm("whatsappPrefill", { topic: tForm("whatsappTopicDefault") }))}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={rowClass}
+                >
+                  <span className="font-bv-heading text-[clamp(20px,1.6vw,23px)] leading-none">WhatsApp</span>
+                  {arrow}
+                </a>
+              </li>
+              <li>
+                <a href={`mailto:${company.email}`} className={rowClass}>
+                  <span className="break-all font-bv-heading text-[clamp(19px,1.6vw,23px)] leading-none">{company.email}</span>
+                  {arrow}
+                </a>
               </li>
             </ul>
+
+            <div className="mt-4 grid gap-4 sm:grid-cols-2 sm:gap-10">
+              <p className="flex items-start gap-2.5 text-[14px] leading-[1.6] text-bv-muted">
+                <Clock aria-hidden="true" className="mt-[3px] h-4 w-4 flex-none text-bv-accent" strokeWidth={1.5} />
+                {f("Working hours")}
+              </p>
+              <div>
+                <p className={headingClass}>{f("Visits heading")}</p>
+                <p className="mt-2 text-[14px] leading-[1.6] text-bv-muted">{f("Visits line")}</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Legal bar */}
-        <div className="flex flex-col items-center gap-3 border-t border-bv-white/15 pb-24 pt-5 text-center min-[1100px]:pb-5 sm:flex-row sm:justify-between sm:text-left">
-          <p className="text-xs text-bv-white/65">{t("copyright", { year: new Date().getFullYear() })}</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-bv-white/65">
-            <Link href="/warranty" className="underline decoration-transparent underline-offset-4 transition-colors duration-200 hover:text-bv-accent hover:decoration-bv-accent">
-              {t("warranty")}
+        <div className="reveal mt-8 flex flex-col gap-2 border-t border-bv-line pt-2 text-[13px] text-bv-muted lg:mt-8 lg:flex-row lg:flex-wrap lg:items-center lg:justify-between">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-1">
+            <span>{sc("UI", "footer.rights", locale).replace("{year}", String(new Date().getFullYear()))}</span>
+            <Link href="/warranty" className={smallLink}>
+              {u(sc("UI", "footer.warranty", locale))}
             </Link>
-            <Link href="/privacy" className="underline decoration-transparent underline-offset-4 transition-colors duration-200 hover:text-bv-accent hover:decoration-bv-accent">
-              {t("privacy")}
+            <Link href="/privacy" className={smallLink}>
+              {u(sc("UI", "footer.privacy", locale))}
             </Link>
-            <Link href="/cookies" className="underline decoration-transparent underline-offset-4 transition-colors duration-200 hover:text-bv-accent hover:decoration-bv-accent">
-              {t("cookies")}
+            <Link href="/cookies" className={smallLink}>
+              {u(sc("UI", "footer.cookie_settings", locale))}
             </Link>
-            <BackToTop label="Back to top" />
           </div>
+          {legal && <p>{legal}</p>}
         </div>
       </div>
     </footer>

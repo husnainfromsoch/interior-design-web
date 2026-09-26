@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 
 type NetworkInformation = {
   saveData?: boolean;
@@ -25,6 +26,12 @@ export default function HeroMedia({
   const [showPoster, setShowPoster] = useState(false);
   const [paused, setPaused] = useState(false);
 
+  // Depth on scroll: the media sinks and slowly scales as the hero leaves the viewport.
+  const reduce = useReducedMotion();
+  const { scrollY } = useScroll();
+  const mediaY = useTransform(scrollY, [0, 900], [0, 180]);
+  const mediaScale = useTransform(scrollY, [0, 900], [1, 1.08]);
+
   // No poster flash: the poster only renders when the video cannot play. The video starts loading as soon as the component mounts,
   // and never on a reduced-motion or constrained connection (spec §5 H01 / §2.4).
   useEffect(() => {
@@ -45,10 +52,10 @@ export default function HeroMedia({
     const video = videoRef.current;
     if (!video) return;
 
-    // Fast opening: the first seconds play at 2x (quick zoom-in), then ease back to 1x.
-    const FAST_RATE = 2;
-    const FAST_MS = 5000;
-    const EASE_MS = 900;
+    // Fast opening: the first seconds play at 3x (quick zoom-in), then ease out back to 1x.
+    const FAST_RATE = 3;
+    const FAST_MS = 3000;
+    const EASE_MS = 1400;
     let rampId: number | undefined;
     let holdId: number | undefined;
 
@@ -62,7 +69,8 @@ export default function HeroMedia({
           const start = performance.now();
           const step = () => {
             const p = Math.min((performance.now() - start) / EASE_MS, 1);
-            video.playbackRate = FAST_RATE - (FAST_RATE - 1) * p;
+            const eased = 1 - Math.pow(1 - p, 3); // ease-out cubic: sheds speed quickly, settles gently
+            video.playbackRate = FAST_RATE - (FAST_RATE - 1) * eased;
             if (p < 1) rampId = window.requestAnimationFrame(step);
           };
           rampId = window.requestAnimationFrame(step);
@@ -94,6 +102,7 @@ export default function HeroMedia({
 
   return (
     <div className="absolute inset-0 h-full w-full overflow-hidden">
+      <motion.div className="absolute inset-0 will-change-transform" style={reduce ? undefined : { y: mediaY, scale: mediaScale }}>
       {showPoster && (
       <Image
         src={poster}
@@ -118,12 +127,13 @@ export default function HeroMedia({
           aria-hidden="true"
         />
       )}
+      </motion.div>
       {videoReady && (
         <button
           type="button"
           onClick={togglePause}
           aria-label={paused ? labels.play : labels.pause}
-          className="absolute bottom-6 right-6 z-10 flex h-11 w-11 items-center justify-center rounded-[2px] border border-bv-white/40 bg-bv-ink/30 text-bv-white backdrop-blur-sm transition-colors hover:bg-bv-ink/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-white"
+          className="press absolute bottom-6 right-6 z-10 flex h-11 w-11 items-center justify-center rounded-sm border border-bv-white/40 bg-bv-ink/30 text-bv-white backdrop-blur-sm duration-200 hover:bg-bv-ink/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-white"
         >
           {paused ? (
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">

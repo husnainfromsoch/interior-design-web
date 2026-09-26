@@ -1,48 +1,47 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
+import { consentSnapshot, readConsent, subscribeConsent, writeConsent } from "@/lib/consent";
 
-const STORAGE_KEY = "bv-consent";
+// Cookie Settings page controls (spec §15.21). Same first-party consent record as the
+// dialog; changing it takes effect immediately.
 
 const buttonClass =
-  "inline-flex h-[52px] flex-1 items-center justify-center rounded-[2px] bg-bv-ink px-6 text-sm font-semibold tracking-[0.02em] text-bv-white transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-bv-accent active:translate-y-0 active:duration-100 motion-reduce:transition-none motion-reduce:hover:translate-y-0";
+  "inline-flex h-[52px] items-center sm:flex-1 justify-center rounded-sm border border-bv-ink bg-bv-ink px-6 text-[14px] font-semibold tracking-[0.02em] text-bv-white transition-colors hover:border-bv-accent hover:bg-bv-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink";
 
 export default function CookieChoices() {
   const t = useTranslations("CookiesPage");
-  const [analytics, setAnalytics] = useState(false);
-  const [marketing, setMarketing] = useState(false);
+  const snapshot = useSyncExternalStore(subscribeConsent, consentSnapshot, () => "");
+  const stored = snapshot ? readConsent() : null;
+  const [draft, setDraft] = useState<{ analytics: boolean; marketing: boolean } | null>(null);
   const [saved, setSaved] = useState(false);
+  const analytics = draft?.analytics ?? stored?.analytics ?? false;
+  const marketing = draft?.marketing ?? stored?.marketing ?? false;
 
   function save(next: { analytics: boolean; marketing: boolean }) {
-    setAnalytics(next.analytics);
-    setMarketing(next.marketing);
-    try {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ necessary: true, ...next }));
-    } catch {
-      // Storage unavailable: the choice applies to this visit only.
-    }
+    writeConsent(next);
+    setDraft(null);
     setSaved(true);
   }
 
   const rows = [
     { id: "necessary", checked: true, disabled: true, onChange: () => {} },
-    { id: "analytics", checked: analytics, disabled: false, onChange: () => setAnalytics((v) => !v) },
-    { id: "marketing", checked: marketing, disabled: false, onChange: () => setMarketing((v) => !v) },
+    { id: "analytics", checked: analytics, disabled: false, onChange: () => setDraft({ analytics: !analytics, marketing }) },
+    { id: "marketing", checked: marketing, disabled: false, onChange: () => setDraft({ analytics, marketing: !marketing }) },
   ];
 
   return (
-    <div className="rounded-none border border-bv-line bg-bv-surface p-7 sm:p-9">
-      <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] font-medium leading-[1.15] text-bv-ink sm:text-[32px]">
-        {t("choicesHeading")}
-      </h2>
-      <p className="mt-3 text-[16px] leading-[1.65] text-bv-muted">{t("choicesBody")}</p>
+    <div className="rounded-lg bg-bv-surface p-6 sm:p-9">
+      <h2 className="font-bv-heading text-[26px] font-medium leading-[1.18] text-bv-ink lg:text-[30px]">{t("choicesHeading")}</h2>
+      <p className="mt-3 text-[16px] leading-[1.65] text-bv-ink lg:text-[17px]">{t("choicesBody")}</p>
 
       <ul className="mt-6 divide-y divide-bv-line border-y border-bv-line">
         {rows.map((r) => (
-          <li key={r.id} className="flex items-center justify-between gap-6 py-4">
+          <li key={r.id} className="flex min-h-[56px] items-center justify-between gap-6 py-2">
             <label htmlFor={`consent-${r.id}`} className="text-[16px] font-medium text-bv-ink">
               {t(`${r.id}Title`)}
+              {r.disabled && <span className="ml-2 text-[14px] font-normal text-bv-muted">{t("alwaysActive")}</span>}
             </label>
             <input
               id={`consent-${r.id}`}
@@ -51,7 +50,7 @@ export default function CookieChoices() {
               checked={r.checked}
               disabled={r.disabled}
               onChange={r.onChange}
-              className="h-6 w-11 cursor-pointer appearance-none rounded-full bg-bv-field-border/50 transition-colors duration-200 checked:bg-bv-accent disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none"
+              className="h-6 w-11 cursor-pointer appearance-none rounded-full bg-bv-field-border/50 transition-colors checked:bg-bv-accent disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink"
             />
           </li>
         ))}
@@ -69,7 +68,7 @@ export default function CookieChoices() {
         </button>
       </div>
 
-      <p role="status" aria-live="polite" className="mt-4 min-h-[1.5rem] text-[14px] text-bv-accent">
+      <p role="status" aria-live="polite" className="mt-4 min-h-[1.5rem] text-[14px] text-bv-success">
         {saved ? t("saved") : ""}
       </p>
     </div>

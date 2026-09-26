@@ -5,7 +5,7 @@ type Block =
   | { type: "h2"; text: string; id: string }
   | { type: "h3"; text: string; id: string }
   | { type: "p"; text: string }
-  | { type: "quote"; text: string }
+  | { type: "quote"; text: string; cite?: string }
   | { type: "callout"; label: string; text: string }
   | { type: "ul"; items: string[] }
   | { type: "ol"; items: string[] }
@@ -91,7 +91,8 @@ export function parseArticleBody(markdown: string): Block[] {
     }
 
     if (line.startsWith("> ")) {
-      blocks.push({ type: "quote", text: line.slice(2).trim() });
+      const [text, cite] = line.slice(2).split(" | ");
+      blocks.push({ type: "quote", text: text.trim(), cite: cite?.trim() });
       i++;
       continue;
     }
@@ -113,7 +114,7 @@ export function parseArticleBody(markdown: string): Block[] {
       continue;
     }
 
-    const calloutMatch = line.match(/^(?:Callout\s*—\s*|Врезка\s*«)(Important|Важно)[:»]?\s*(.*)$/i);
+    const calloutMatch = line.match(/^(?:Callout\s*:\s*|Врезка\s*«)(Important|Важно)[:»]?\s*(.*)$/i);
     if (calloutMatch) {
       blocks.push({ type: "callout", label: calloutMatch[1], text: calloutMatch[2].replace(/^:\s*/, "") });
       i++;
@@ -198,7 +199,10 @@ export default function ArticleBody({
                 key={i}
                 className="my-10 border-y border-bv-line py-6 font-bv-heading text-[26px] leading-[1.35] text-bv-ink sm:text-[30px]"
               >
-                {block.text}
+                <p>{block.text}</p>
+                {block.cite && (
+                  <footer className="mt-4 font-bv-body text-[14px] leading-[1.5] text-bv-muted">{block.cite}</footer>
+                )}
               </blockquote>
             );
           case "callout":
@@ -212,7 +216,7 @@ export default function ArticleBody({
             );
           case "table":
             return (
-              <div key={i} className="mb-8 overflow-x-auto">
+              <div key={i} className="mb-8 overflow-x-auto rounded-lg border border-bv-line">
                 <table className="w-full min-w-[560px] border-collapse text-left font-bv-body text-[15px] text-bv-ink/85">
                   <thead>
                     <tr className="bg-bv-surface">
@@ -240,7 +244,7 @@ export default function ArticleBody({
           case "image":
             return (
               <figure key={i} className={`my-10 ${block.wide ? "lg:-mx-[180px]" : ""}`}>
-                <div className="relative aspect-[3/2] w-full overflow-hidden">
+                <div className="relative aspect-[3/2] w-full overflow-hidden rounded-lg">
                   <Image src={block.src} alt={block.alt} fill sizes="(min-width: 1080px) 1080px, 100vw" className="object-cover" loading="lazy" />
                 </div>
                 <figcaption className="mt-2 text-[13px] leading-[1.5] text-bv-muted">

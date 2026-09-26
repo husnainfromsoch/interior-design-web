@@ -34,7 +34,7 @@
     "formIntro": "Have a question about your own property? Share a few details and our client relations manager will contact you.",
     "aiDisclosure": "AI-generated image",
     "faqHeading": "Frequently asked questions",
-    "pageSuffix": "— Page {n}"
+    "pageSuffix": "Page {n}"
   },
   "Nav": {
     "projects": "Projects",
@@ -42,7 +42,14 @@
     "about": "About",
     "contact": "Contact",
     "requestQuote": "Discuss Your Project",
-    "process": "Our Process"
+    "process": "Our Process",
+    "allServices": "All Services",
+    "specialist": "Specialist Services",
+    "menuOpen": "Menu",
+    "menuClose": "Close",
+    "skip": "Skip to main content",
+    "langSwitch": "Switch language to Russian / English",
+    "logo": "Bellvero Group: home"
   },
   "Footer": {
     "ctaTag": "Your dream space starts here",
@@ -593,7 +600,7 @@
     "metaDescription": "Tell Bellvero Group about your project or book a site visit. We reply within one business day.",
     "eyebrow": "Get in Touch",
     "title": "Tell Us About Your Project",
-    "description": "A home, a workspace or a bespoke furniture commission — share what you are planning, and our client relations manager will help define the next step.",
+    "description": "A home, a workspace or a bespoke furniture commission: share what you are planning, and our client relations manager will help define the next step.",
     "hoursLabel": "Working Hours",
     "hoursValue": "Monday–Friday, 9:00–18:00, UAE time",
     "locationsLabel": "Project Locations",
@@ -661,7 +668,7 @@
     "explore": "Explore More",
     "otherProjects": "Related Concepts",
     "backToPortfolio": "Back to all projects",
-    "consultNote": "No obligation — we typically reply within a few hours.",
+    "consultNote": "No obligation: we typically reply within a few hours.",
     "briefEyebrow": "The Brief",
     "briefHeading": "Where the project started",
     "approachEyebrow": "Our Approach",
@@ -766,7 +773,6 @@
     "paymentA": "The payment schedule is agreed before work begins and is recorded in the contract. It sets out the initial payment, the payments that follow and the conditions for each. Manufacturing and material purchases may be scheduled as separate payments."
   },
   "EnquiryForm": {
-    "eyebrow": "Get In Touch",
     "heading": "Tell Us About Your Project",
     "body": "Share your plans. Our client relations manager will contact you to understand the brief and agree the next step.",
     "nameLabel": "Name",
@@ -797,14 +803,17 @@
     "submit": "Send Enquiry",
     "whatsapp": "WhatsApp Us",
     "sending": "Sending…",
-    "success": "Thank you. Your enquiry has been received. We will contact you shortly — if your message arrives outside working hours, we will reply at the start of the next working day.",
+    "success": "Thank you. Your enquiry has been received. We will contact you shortly. If your message arrives outside working hours, we will reply at the start of the next working day.",
     "error": "We couldn't send your enquiry. Your details are still here. Please try again or contact us on WhatsApp.",
     "rateLimit": "Please wait a moment before trying again.",
     "errorName": "Please enter your name.",
     "errorPhone": "Enter a valid phone number with country code.",
     "errorEmail": "Check your email address.",
     "privacyNote": "We use these details to respond to your enquiry.",
-    "privacyLink": "Read our Privacy Notice."
+    "privacyLink": "Read our Privacy Notice.",
+    "whatsappPrefill": "Hello Bellvero Group, I would like to discuss {topic}.",
+    "whatsappTopicDefault": "my project",
+    "reasonAftercare": "Aftercare"
   },
   "ProcessPage": {
     "metaTitle": "Our Process | Bellvero Group",
@@ -894,7 +903,7 @@
     "productsBody": "Appliances, hardware, upholstered furniture and other sourced products carry the warranty terms stated for those products. Normal wear, maintenance needs and damage caused by misuse or third-party alterations are assessed separately. The cause of a reported defect is reviewed before a decision is made. These terms do not remove any mandatory customer rights.",
     "contactHeading": "How to Contact Us",
     "contactBody": "Contact Bellvero with your project reference, a description and photos or video where possible. We record the issue, review the available information and agree the appropriate inspection or next step. Please avoid altering the affected area before assessment unless urgent action is needed for safety or to prevent further damage.",
-    "cta": "Contact Us"
+    "cta": "Contact Aftercare"
   },
   "PrivacyPage": {
     "metaTitle": "Privacy Policy | Bellvero Group",
@@ -945,7 +954,7 @@
     "intro": "We use necessary technologies to operate and protect this website. With your permission, we also use analytics to understand website use and marketing technologies to measure campaigns and support relevant advertising. You can accept, reject or change optional categories below.",
     "toolsHeading": "Tools installed",
     "necessaryTitle": "Necessary",
-    "necessaryBody": "Language preference: remembers whether you use the English or the Russian version of the site. Always active.",
+    "necessaryBody": "Language preference (NEXT_LOCALE, this website, remembers English or Russian, 1 year) and consent record (bv_consent, this website, remembers your privacy choices, 180 days). Always active.",
     "analyticsTitle": "Analytics",
     "analyticsBody": "No analytics tools are currently installed.",
     "marketingTitle": "Marketing",
@@ -955,11 +964,15 @@
     "acceptAll": "Accept All",
     "rejectOptional": "Reject Optional",
     "saveSettings": "Save Choices",
-    "saved": "Your choices have been saved."
+    "saved": "Your choices have been saved.",
+    "settings": "Settings",
+    "alwaysActive": "always active",
+    "analyticsGa": "Google Analytics 4 · Google Ireland Ltd · measures how the website is used, with the page language and page path · cookies _ga and _ga_* · up to 2 years · policies.google.com/privacy",
+    "openSettings": "Change your choices"
   },
   "NotFound": {
-    "title": "Page not found",
-    "body": "The page you are looking for does not exist or has moved. These pages may help.",
+    "title": "This Page Could Not Be Found",
+    "body": "The address may have changed. Explore our services or projects, or contact us about your enquiry.",
     "services": "Services",
     "projects": "Projects",
     "contact": "Contact"
@@ -967,5 +980,57 @@
   "BottomBar": {
     "discuss": "Discuss Project",
     "whatsapp": "WhatsApp"
+  },
+  "ServiceFees": {
+    "heading": "Design Services & Fees",
+    "exclVat": "excluding VAT",
+    "inclVat": "including VAT",
+    "from": "From",
+    "perM2": "/m²",
+    "note": "Fees are based on the agreed design area and scope. Individual rooms are quoted separately. Furniture, materials, construction, delivery and installation are not included in the design fee unless expressly listed. Post-design site support is offered separately.",
+    "full": {
+      "title": "Full Interior Design",
+      "description": "A complete interior design package with visualisations, working drawings and specifications for the agreed scope.",
+      "features": [
+        "Layouts and concept",
+        "2–4 views per agreed visualised room",
+        "Interior working drawings",
+        "Specifications",
+        "Two design revision rounds across the agreed stages",
+        "PDF and DWG deliverables"
+      ],
+      "cta": "Discuss Full Design"
+    },
+    "procurement": {
+      "title": "Interior Design & Procurement",
+      "description": "The full design package, with material and furniture sourcing, supplier coordination and order tracking within an agreed procurement scope.",
+      "features": [
+        "Everything in Full Interior Design, plus supplier quotations",
+        "Samples and alternatives",
+        "Purchasing schedule",
+        "Order and delivery coordination",
+        "Discrepancy follow-up"
+      ],
+      "cta": "Discuss Design & Procurement"
+    }
+  },
+  "FromInsights": {
+    "label": "From Insights"
+  },
+  "SpecUi": {
+    "faq": "Frequently Asked Questions",
+    "related": "Related services",
+    "scope": "Scope",
+    "process": "Process",
+    "processWarranty": "Process and Warranty",
+    "allProjects": "All Projects",
+    "allServices": "All Services",
+    "viewProject": "View the concept",
+    "breadcrumbHome": "Home",
+    "overview": "Project Overview",
+    "scopeIllustrated": "Scope Illustrated",
+    "planDesign": "Plan and Design",
+    "materials": "Materials",
+    "projectsEmpty": "Concept projects are being prepared. Contact us to discuss relevant examples."
   }
 }

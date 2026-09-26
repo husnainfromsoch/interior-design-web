@@ -15,9 +15,9 @@ export default async function MaterialsTeaser() {
   return (
     <section className="bg-bv-surface py-24">
       <div className="mx-auto grid max-w-[1320px] grid-cols-1 items-stretch gap-14 px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8">
-        <div className="reveal-left group relative min-h-[420px] overflow-hidden rounded-none border border-bv-line/70  lg:min-h-0">
+        <div className="reveal-left group relative min-h-[420px] overflow-hidden rounded-lg border border-bv-line/70  lg:min-h-0">
           <video
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+            className="absolute inset-0 h-full w-full object-cover img-zoom"
             src="/videos/Materials.mp4"
             poster="https://images.unsplash.com/photo-1566305977571-5666677c6e98?q=80&w=1600&auto=format&fit=crop"
             autoPlay

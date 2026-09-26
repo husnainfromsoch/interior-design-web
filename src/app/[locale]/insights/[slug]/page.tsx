@@ -190,7 +190,7 @@ export default async function InsightArticlePage({
 
       <div className="bg-bv-background px-4 py-10 sm:px-10 lg:px-16">
         <figure data-article-cover className="mx-auto max-w-[1320px]">
-          <div className="relative aspect-[4/3] w-full overflow-hidden sm:aspect-[16/9]">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg sm:aspect-[16/9]">
             <Image src={article.cover} alt={coverAlt} fill priority sizes="(min-width: 1320px) 1320px, 100vw" className="object-cover" fetchPriority="high" />
           </div>
           <figcaption className="mt-2 text-[11px] text-bv-muted sm:text-[12px]">{t("aiDisclosure")}</figcaption>
@@ -198,13 +198,15 @@ export default async function InsightArticlePage({
       </div>
 
       <div className="bg-bv-background px-4 pb-20 sm:px-10 lg:px-16">
-        <div className="mx-auto grid max-w-[1320px] grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-12">
-          <div className="lg:col-span-4">
+        {/* ≥1200: TOC in a 3-column left gutter, text column in columns 5–10 (spec AR06/AR07).
+            Below 1200: single centred 720 px column. */}
+        <div className="mx-auto grid max-w-[1320px] grid-cols-1 gap-x-8 gap-y-12 min-[1200px]:grid-cols-12">
+          <div className="hidden min-[1200px]:col-span-3 min-[1200px]:block">
             <ArticleTOC headings={headings} label={t("contents")} />
           </div>
 
-          <div className="lg:col-span-6">
-            <div className="max-w-[720px] bg-bv-surface px-6 py-6 sm:p-8">
+          <div className="mx-auto w-full max-w-[720px] min-[1200px]:col-span-6 min-[1200px]:col-start-5 min-[1200px]:mx-0">
+            <div className="max-w-[720px] rounded-lg bg-bv-surface px-6 py-6 sm:p-8">
               <span className="font-bv-body text-[14px] font-semibold uppercase tracking-[0.08em] text-bv-ink">
                 {t("inShort")}
               </span>
@@ -288,7 +290,12 @@ export default async function InsightArticlePage({
         )}
       </div>
 
-      <EnquiryForm defaultService={formServiceFor(article)} leadSource={article.id} />
+      <EnquiryForm
+        defaultService={formServiceFor(article)}
+        leadSource={article.id}
+        heading={t("formHeading")}
+        intro={t("formIntro")}
+      />
     </>
   );
 }

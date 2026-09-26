@@ -110,11 +110,11 @@ export default function StagesTimeline({ steps }: { steps: Step[] }) {
                         initial={{ scale: 1, opacity: 0.6 }}
                         animate={{ scale: 1.9, opacity: 0 }}
                         transition={{ duration: 0.9, ease: "easeOut" }}
-                        className="absolute inset-0 rounded-full border border-bv-accent"
+                        className="absolute inset-0 rounded-sm border border-bv-accent"
                       />
                     )}
                     <span
-                      className={`relative flex h-11 w-11 items-center justify-center rounded-full border text-[14px] font-semibold transition-[background-color,border-color,color,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none sm:h-[52px] sm:w-[52px] ${
+                      className={`relative flex h-11 w-11 items-center justify-center rounded-sm border text-[14px] font-semibold transition-[background-color,border-color,color,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none sm:h-[52px] sm:w-[52px] ${
                         current
                           ? "scale-110 border-bv-accent bg-bv-accent text-bv-white"
                           : done
@@ -152,7 +152,7 @@ export default function StagesTimeline({ steps }: { steps: Step[] }) {
           mx.set(((e.clientX - r.left) / r.width) * 100);
           my.set(((e.clientY - r.top) / r.height) * 100);
         }}
-        className="relative mt-10 overflow-hidden rounded-none border border-bv-white/12 bg-bv-white/[0.04] lg:mt-14"
+        className="relative mt-10 overflow-hidden rounded-lg border border-bv-white/12 bg-bv-white/[0.04] lg:mt-14"
       >
         {!reduce && <motion.div aria-hidden="true" style={{ background: spotlight }} className="pointer-events-none absolute inset-0" />}
 
@@ -228,7 +228,7 @@ export default function StagesTimeline({ steps }: { steps: Step[] }) {
                 aria-label={label}
                 disabled={off}
                 onClick={() => go(to)}
-                className="group/btn flex h-11 w-11 items-center justify-center rounded-full border border-bv-white/25 text-bv-white transition-[background-color,color,opacity,transform] duration-200 hover:bg-bv-white hover:text-bv-ink active:scale-90 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-bv-white motion-reduce:transition-none"
+                className="group/btn flex h-11 w-11 items-center justify-center rounded-sm border border-bv-white/25 text-bv-white transition-[background-color,color,opacity,transform] duration-200 hover:bg-bv-white hover:text-bv-ink active:scale-90 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-bv-white motion-reduce:transition-none"
               >
                 <Ico className={`h-4 w-4 transition-transform duration-200 motion-reduce:transition-none ${nudge}`} />
               </button>
@@ -237,7 +237,7 @@ export default function StagesTimeline({ steps }: { steps: Step[] }) {
         </div>
 
           {steps[active].image && (
-            <div className="relative hidden aspect-[4/4.2] w-full self-center overflow-hidden rounded-none lg:block">
+            <div className="relative hidden aspect-[4/4.2] w-full self-center overflow-hidden rounded-lg lg:block">
               <AnimatePresence mode="wait" custom={dir} initial={false}>
                 <motion.div
                   key={active}

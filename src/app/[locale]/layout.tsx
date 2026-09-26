@@ -9,14 +9,21 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileBottomBar from "@/components/ui/MobileBottomBar";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import ScrollProgress from "@/components/ui/ScrollProgress";
+import PageFade from "@/components/ui/PageFade";
 import SmoothScroll from "@/components/ui/SmoothScroll";
+import Magnetic from "@/components/ui/Magnetic";
+import ConsentBanner from "@/components/ui/ConsentBanner";
+import Analytics from "@/components/ui/Analytics";
+import PreviewBar from "@/components/ui/PreviewBar";
 
 // Bellvero v2 design-system typefaces (client spec §2.2). Latin + Cyrillic so RU
 // copy never falls back to a system font.
 const bvHeading = Cormorant_Garamond({
   variable: "--font-bv-heading",
   subsets: ["latin", "cyrillic"],
-  weight: ["500"],
+  // 600: trial type-weight bump (see "Type size trial" in globals.css).
+  weight: ["500", "600"],
 });
 
 const bvBody = Manrope({
@@ -54,12 +61,18 @@ export default async function LocaleLayout({
     >
       <body className="min-h-full flex flex-col bg-bv-background text-bv-ink font-bv-body">
         <NextIntlClientProvider>
+          <PreviewBar />
           <Header />
-          <main className="flex-1 [&:has(>_[data-hero])]:pt-0 pt-[76px] lg:pt-[92px]">{children}</main>
+          <main id="main-content" tabIndex={-1} className="flex-1 outline-none">{children}</main>
           <Footer />
           <MobileBottomBar />
           <ScrollReveal />
+          <ScrollProgress />
+          <PageFade />
           <SmoothScroll />
+          <Magnetic />
+          <ConsentBanner />
+          <Analytics />
         </NextIntlClientProvider>
       </body>
     </html>

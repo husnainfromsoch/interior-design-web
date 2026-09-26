@@ -23,14 +23,12 @@ type Slide = { src: string; alt: string };
 export default function HowWeWorkPanel({
   steps,
   slides,
-  note,
   header,
   interval = 4500,
 }: {
   header?: React.ReactNode;
   steps: Step[];
   slides: Slide[];
-  note: string;
   interval?: number;
 }) {
   const [active, setActive] = useState(0);
@@ -99,7 +97,7 @@ export default function HowWeWorkPanel({
                   setPaused(true);
                   setActive(i);
                 }}
-                className="step-row reveal group relative flex w-full items-start gap-5 rounded-none py-4 pl-0 pr-3 lg:py-3.5 text-left transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] sm:pl-4"
+                className="step-row reveal group relative flex w-full items-start gap-5 rounded-sm py-4 pl-0 pr-3 lg:py-3.5 text-left transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] sm:pl-4"
                 style={{ ["--reveal-delay" as string]: `${150 + i * 100}ms` }}
               >
                 <span
@@ -146,7 +144,7 @@ export default function HowWeWorkPanel({
 
       <div className="lg:col-span-5">
         <div className="flex h-full flex-col gap-3">
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-none bg-bv-line  lg:aspect-auto lg:min-h-0 lg:flex-1">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-bv-line  lg:aspect-auto lg:min-h-0 lg:flex-1">
             {slides.map((slide, i) => (
               <Image
                 key={slide.src}
@@ -162,16 +160,10 @@ export default function HowWeWorkPanel({
               />
             ))}
             <div className="absolute inset-0 bg-gradient-to-t from-bv-ink/45 via-bv-ink/0 to-bv-ink/0" />
-
-            <div className="absolute bottom-4 left-4 right-4 inline-flex w-fit max-w-[calc(100%-2rem)] items-center gap-3 rounded-[2px] bg-bv-white/95 px-4 py-2.5 backdrop-blur">
-              <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-bv-accent text-[12px] font-semibold text-bv-white">
-                PM
-              </span>
-              <span className="text-[13px] font-medium leading-[1.35] text-bv-ink">{note}</span>
-            </div>
           </div>
 
-          <div className="flex gap-2">
+          {/* Each 4 px bar sits in a 44 px tall button (touch target); -my-5 keeps the visual spacing. */}
+          <div className="-my-5 flex gap-2">
             {slides.map((slide, i) => (
               <button
                 key={slide.src}
@@ -182,15 +174,17 @@ export default function HowWeWorkPanel({
                 }}
                 aria-label={slide.alt}
                 aria-current={i === active}
-                className={`h-1 flex-1 overflow-hidden rounded-full bg-bv-line transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-accent`}
+                className="flex h-11 flex-1 items-center rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-accent"
               >
-                <span
-                  className="block h-full bg-bv-accent transition-transform duration-300 ease-out"
-                  style={{
-                    transform: i === active ? "scaleX(1)" : "scaleX(0)",
-                    transformOrigin: "left",
-                  }}
-                />
+                <span className="block h-1 w-full overflow-hidden rounded-full bg-bv-line transition-colors duration-300">
+                  <span
+                    className="block h-full bg-bv-accent transition-transform duration-300 ease-out"
+                    style={{
+                      transform: i === active ? "scaleX(1)" : "scaleX(0)",
+                      transformOrigin: "left",
+                    }}
+                  />
+                </span>
               </button>
             ))}
           </div>

@@ -1,0 +1,2026 @@
+{
+  "UI": {
+    "nav.services": {
+      "en": "Services",
+      "ru": "Услуги"
+    },
+    "nav.projects": {
+      "en": "Projects",
+      "ru": "Проекты"
+    },
+    "nav.process": {
+      "en": "Our Process",
+      "ru": "Как мы работаем"
+    },
+    "nav.about": {
+      "en": "About",
+      "ru": "О компании"
+    },
+    "nav.contact": {
+      "en": "Contact",
+      "ru": "Контакты"
+    },
+    "nav.all_services": {
+      "en": "All Services",
+      "ru": "Все услуги"
+    },
+    "nav.specialist": {
+      "en": "Specialist Services",
+      "ru": "Специализированные услуги"
+    },
+    "nav.menu_open": {
+      "en": "Menu",
+      "ru": "Меню"
+    },
+    "nav.menu_close": {
+      "en": "Close",
+      "ru": "Закрыть"
+    },
+    "nav.lang": {
+      "en": "EN / RU",
+      "ru": "EN / RU"
+    },
+    "cta.primary": {
+      "en": "Discuss Your Project",
+      "ru": "Обсудить проект"
+    },
+    "cta.whatsapp": {
+      "en": "WhatsApp Us",
+      "ru": "Написать в WhatsApp"
+    },
+    "cta.call": {
+      "en": "Call Us",
+      "ru": "Позвонить"
+    },
+    "cta.all_projects": {
+      "en": "All Projects",
+      "ru": "Все проекты"
+    },
+    "cta.similar_project": {
+      "en": "Discuss a Similar Project",
+      "ru": "Обсудить похожий проект"
+    },
+    "cta.sample_package": {
+      "en": "View a Sample Drawing Set",
+      "ru": "Посмотреть пример комплекта чертежей"
+    },
+    "cta.meet_leadership": {
+      "en": "How our team works on your project",
+      "ru": "Как наша команда работает над вашим проектом"
+    },
+    "cta.explore_joinery": {
+      "en": "Explore Bespoke Joinery",
+      "ru": "Подробнее о мебели на заказ"
+    },
+    "cta.workshop_visit": {
+      "en": "Request a Production Visit",
+      "ru": "Обсудить посещение производства"
+    },
+    "cta.aftercare": {
+      "en": "Contact Aftercare",
+      "ru": "Обратиться по гарантии"
+    },
+    "label.optional": {
+      "en": "Optional",
+      "ru": "Необязательно"
+    },
+    "label.status_concept": {
+      "en": "Concept project",
+      "ru": "Концептуальный проект"
+    },
+    "gallery.counter": {
+      "en": "{n} of {total}",
+      "ru": "{n} из {total}"
+    },
+    "gallery.close": {
+      "en": "Close gallery",
+      "ru": "Закрыть галерею"
+    },
+    "gallery.prev": {
+      "en": "Previous image",
+      "ru": "Предыдущее изображение"
+    },
+    "gallery.next": {
+      "en": "Next image",
+      "ru": "Следующее изображение"
+    },
+    "video.pause": {
+      "en": "Pause video",
+      "ru": "Приостановить видео"
+    },
+    "video.play": {
+      "en": "Play video",
+      "ru": "Воспроизвести видео"
+    },
+    "video.unavailable": {
+      "en": "Video is unavailable.",
+      "ru": "Видео недоступно."
+    },
+    "image.unavailable": {
+      "en": "Image unavailable",
+      "ru": "Изображение недоступно"
+    },
+    "error.retry": {
+      "en": "Retry",
+      "ru": "Повторить"
+    },
+    "faq.expand": {
+      "en": "Show answer",
+      "ru": "Показать ответ"
+    },
+    "faq.collapse": {
+      "en": "Hide answer",
+      "ru": "Скрыть ответ"
+    },
+    "breadcrumb.projects": {
+      "en": "Projects",
+      "ru": "Проекты"
+    },
+    "footer.rights": {
+      "en": "© {year} Bellvero Group",
+      "ru": "© {year} Bellvero Group"
+    },
+    "footer.cookie_settings": {
+      "en": "Cookie Settings",
+      "ru": "Настройки cookie"
+    },
+    "footer.privacy": {
+      "en": "Privacy Notice",
+      "ru": "Обработка персональных данных"
+    },
+    "footer.warranty": {
+      "en": "Warranty",
+      "ru": "Гарантия"
+    },
+    "a11y.skip": {
+      "en": "Skip to main content",
+      "ru": "Перейти к основному содержанию"
+    },
+    "a11y.lang_switch": {
+      "en": "Switch language to Russian / English",
+      "ru": "Переключить язык на английский / русский"
+    },
+    "a11y.logo": {
+      "en": "Bellvero Group: home",
+      "ru": "Bellvero Group: на главную"
+    }
+  },
+  "C-FOOTER": {
+    "Footer line": {
+      "en": "Interior design, renovation and bespoke joinery. A family-led business serving Dubai and Abu Dhabi.",
+      "ru": "Дизайн интерьера, ремонт и мебель на заказ. Семейный бизнес с проектами в Дубае и Абу-Даби."
+    },
+    "Contact heading": {
+      "en": "Contact",
+      "ru": "Связаться"
+    },
+    "Working hours": {
+      "en": "Monday–Friday, 9:00–18:00 (UAE time)",
+      "ru": "Понедельник–пятница, 9:00–18:00, время ОАЭ"
+    },
+    "Visits heading": {
+      "en": "Visits",
+      "ru": "Встречи"
+    },
+    "Visits line": {
+      "en": "Meetings at your property or another agreed location. Production visits by appointment.",
+      "ru": "Встречи на вашем объекте или в другом согласованном месте. Посещение производства: по договорённости."
+    },
+    "Company line": {
+      "en": "[LEGAL ENTITY NAME] · Licence no. [LICENCE NUMBER] · [ISSUING AUTHORITY]",
+      "ru": "[ЮРИДИЧЕСКОЕ ЛИЦО] · Лицензия № [НОМЕР] · [ОРГАН ВЫДАЧИ]"
+    }
+  },
+  "C-F1": {
+    "Heading": {
+      "en": "Tell Us About Your Project",
+      "ru": "Расскажите о вашем проекте"
+    },
+    "Body": {
+      "en": "Share your plans. Our client relations manager will contact you to understand the brief and agree the next step.",
+      "ru": "Расскажите о ваших планах. Менеджер по работе с клиентами свяжется с вами, чтобы уточнить задачу и согласовать следующий шаг."
+    },
+    "Field: name": {
+      "en": "Name",
+      "ru": "Имя"
+    },
+    "Field: phone": {
+      "en": "Phone / WhatsApp",
+      "ru": "Телефон / WhatsApp"
+    },
+    "Field: email": {
+      "en": "Email",
+      "ru": "Email"
+    },
+    "Field: service": {
+      "en": "Service",
+      "ru": "Услуга"
+    },
+    "Field: location": {
+      "en": "Location",
+      "ru": "Местоположение"
+    },
+    "Field: details": {
+      "en": "Project details",
+      "ru": "О проекте"
+    },
+    "Placeholder: details": {
+      "en": "Property, location and what you would like to change",
+      "ru": "Объект, район и что вы хотите изменить"
+    },
+    "Service options": {
+      "en": "Design · Landscape · Villa · Apartment · Commercial · Kitchens · Wardrobes · Joinery · Approvals · MEP · Procurement · Not sure yet",
+      "ru": "Дизайн · Ландшафт · Вилла · Квартира · Коммерческий объект · Кухни · Шкафы · Мебель · Согласования · Инженерные системы · Комплектация · Пока не знаю"
+    },
+    "Location options": {
+      "en": "Dubai · Abu Dhabi · Other",
+      "ru": "Дубай · Абу-Даби · Другое"
+    },
+    "Submit": {
+      "en": "Send Enquiry",
+      "ru": "Отправить запрос"
+    },
+    "Secondary": {
+      "en": "WhatsApp Us",
+      "ru": "Написать в WhatsApp"
+    },
+    "Privacy line": {
+      "en": "We use these details to respond to your enquiry. Read our Privacy Notice.",
+      "ru": "Используем эти данные для ответа на обращение. Подробнее: в политике обработки данных."
+    },
+    "Validation: name": {
+      "en": "Please enter your name.",
+      "ru": "Укажите имя."
+    },
+    "Validation: phone": {
+      "en": "Enter a valid phone number with country code.",
+      "ru": "Укажите корректный номер с кодом страны."
+    },
+    "Validation: email": {
+      "en": "Check your email address.",
+      "ru": "Проверьте email."
+    },
+    "Sending": {
+      "en": "Sending…",
+      "ru": "Отправляем…"
+    },
+    "Success": {
+      "en": "Thank you. Your enquiry has been received. We will contact you shortly. If your message arrives outside working hours, we will reply at the start of the next working day.",
+      "ru": "Спасибо. Ваш запрос получен. Мы свяжемся с вами в ближайшее время. Если сообщение отправлено вне рабочих часов, ответим в начале следующего рабочего дня."
+    },
+    "Error": {
+      "en": "We couldn't send your enquiry. Your details are still here. Please try again or contact us on WhatsApp.",
+      "ru": "Не удалось отправить запрос. Введённые данные сохранены. Повторите попытку или напишите в WhatsApp."
+    },
+    "Rate limit": {
+      "en": "Please wait a moment before trying again.",
+      "ru": "Подождите немного и повторите попытку."
+    },
+    "WhatsApp prefill": {
+      "en": "Hello Bellvero Group, I would like to discuss [service/project].",
+      "ru": "Здравствуйте, Bellvero Group. Хочу обсудить [услугу/проект]."
+    }
+  },
+  "C-ENG-SHORT": {
+    "Heading": {
+      "en": "Engineering Experience From Large-Scale Construction",
+      "ru": "Инженерный опыт крупного строительства"
+    },
+    "Body": {
+      "en": "Our technical direction is led by a co-founder who has held chief engineer positions with UAE contracting companies on large residential, commercial and public buildings. The same approach to technical review and coordination is applied to your property.",
+      "ru": "Техническое направление возглавляет сооснователь компании, занимавший должность главного инженера в подрядных компаниях ОАЭ на крупных жилых, коммерческих и общественных объектах. Тот же подход к технической проверке и координации применяется к вашему объекту."
+    },
+    "Link": {
+      "en": "How our team works on your project →",
+      "ru": "Как наша команда работает над вашим проектом →"
+    }
+  },
+  "C-PAY-SHORT": {
+    "Heading": {
+      "en": "How Payment Is Arranged",
+      "ru": "Как устроен порядок оплаты"
+    },
+    "Body": {
+      "en": "The payment schedule is agreed before work begins and is recorded in the contract. It sets out the initial payment, the payments that follow and the conditions for each. Manufacturing and material purchases may be scheduled as separate payments.",
+      "ru": "График оплаты согласовывается до начала работ и фиксируется в договоре. В нём указываются аванс, последующие платежи и условия их внесения. Для изготовления мебели и закупки материалов могут предусматриваться отдельные платежи."
+    },
+    "Additional line": {
+      "en": "Additional works are quoted and approved before they start, and are invoiced according to the same agreement.",
+      "ru": "Дополнительные работы рассчитываются и согласовываются до начала и оплачиваются по тому же договору."
+    }
+  },
+  "C-WARRANTY-STRIP": {
+    "Renovation strip": {
+      "en": "3-year renovation workmanship warranty",
+      "ru": "3 года гарантии на качество ремонтных работ"
+    },
+    "Joinery strip": {
+      "en": "4-year warranty on our bespoke joinery manufacture and installation",
+      "ru": "4 года гарантии на изготовление и монтаж нашей корпусной мебели"
+    }
+  },
+  "C-404": {
+    "heading": {
+      "en": "This Page Could Not Be Found",
+      "ru": "Страница не найдена"
+    },
+    "body": {
+      "en": "The address may have changed. Explore our services or projects, or contact us about your enquiry.",
+      "ru": "Возможно, адрес изменился. Перейдите к услугам или проектам либо свяжитесь с нами."
+    }
+  },
+  "C-ERR-GALLERY": {
+    "text": {
+      "en": "Images could not be loaded. Try again.",
+      "ru": "Не удалось загрузить изображения. Попробуйте ещё раз."
+    }
+  },
+  "C-ERR-VIDEO": {
+    "text": {
+      "en": "Video is unavailable.",
+      "ru": "Видео недоступно."
+    }
+  },
+  "C-P01-H01": {
+    "Eyebrow": {
+      "en": "BELLVERO GROUP",
+      "ru": "BELLVERO GROUP"
+    },
+    "H1": {
+      "en": "Interior Design, Renovation & Bespoke Joinery",
+      "ru": "Дизайн интерьера, ремонт и мебель на заказ"
+    },
+    "Body": {
+      "en": "Thoughtful spaces for living and working. Design, approvals, renovation and custom-made furniture, coordinated by one team in Dubai and Abu Dhabi.",
+      "ru": "Продуманные пространства для жизни и работы. Дизайн, согласования, ремонт и мебель на заказ: с единой координацией в Дубае и Абу-Даби."
+    },
+    "CTA": {
+      "en": "Discuss Your Project",
+      "ru": "Обсудить проект"
+    }
+  },
+  "C-P01-H02": {
+    "H2": {
+      "en": "Explore Our Services",
+      "ru": "Наши направления"
+    },
+    "01 title": {
+      "en": "Interior & Landscape Design",
+      "ru": "Дизайн интерьера и ландшафта"
+    },
+    "01 line": {
+      "en": "A design project on its own, or developed as the basis for the renovation that follows.",
+      "ru": "Дизайн-проект отдельно или как основа для последующей реализации."
+    },
+    "01 links": {
+      "en": "Interior Design → · Landscape Design →",
+      "ru": "Дизайн интерьера → · Ландшафт →"
+    },
+    "02 title": {
+      "en": "Villa & Apartment Renovation",
+      "ru": "Ремонт вилл и квартир"
+    },
+    "02 line": {
+      "en": "A complete renovation with design and approvals, or delivery of a design you already have.",
+      "ru": "Комплексный ремонт с дизайном и согласованиями или реализация вашего готового проекта."
+    },
+    "02 links": {
+      "en": "Villas → · Apartments →",
+      "ru": "Виллы → · Квартиры →"
+    },
+    "03 title": {
+      "en": "Commercial Fit-Out",
+      "ru": "Коммерческая отделка"
+    },
+    "03 line": {
+      "en": "A workspace developed from scratch, or fit-out from your existing drawings and approvals.",
+      "ru": "Разработка проекта помещения или отделка по предоставленным чертежам и согласованиям."
+    },
+    "03 links": {
+      "en": "Explore Commercial Fit-Out →",
+      "ru": "Подробнее →"
+    },
+    "04 title": {
+      "en": "Bespoke Joinery & Furniture",
+      "ru": "Столярные изделия и мебель"
+    },
+    "04 line": {
+      "en": "A single kitchen or wardrobe, or the full set of joinery for a property.",
+      "ru": "Отдельная кухня или гардеробная либо весь комплекс мебели для объекта."
+    },
+    "04 links": {
+      "en": "Explore Joinery →",
+      "ru": "Подробнее →"
+    },
+    "Footer link": {
+      "en": "All Services →",
+      "ru": "Все услуги →"
+    }
+  },
+  "C-P01-H03": {
+    "H2": {
+      "en": "Concept Projects",
+      "ru": "Концептуальные проекты"
+    },
+    "Intro": {
+      "en": "Concept projects that show how we plan, coordinate and detail a space, and the scope our team covers.",
+      "ru": "Концептуальные проекты показывают, как мы планируем, координируем и прорабатываем пространство, и какой объём работ берёт на себя команда."
+    },
+    "Card 1 title": {
+      "en": "Coastal Villa",
+      "ru": "Вилла у воды"
+    },
+    "Card 1 scope": {
+      "en": "Interior Design · Approvals · Complete Renovation · Bespoke Joinery",
+      "ru": "Дизайн · Согласования · Комплексный ремонт · Мебель на заказ"
+    },
+    "Card 2 title": {
+      "en": "Tower Residence",
+      "ru": "Квартира в башне"
+    },
+    "Card 2 scope": {
+      "en": "Interior Design · Approvals · Complete Renovation · Bespoke Joinery",
+      "ru": "Дизайн · Согласования · Комплексный ремонт · Мебель на заказ"
+    },
+    "Card 3 title": {
+      "en": "Garden Villa",
+      "ru": "Вилла с садом"
+    },
+    "Card 3 scope": {
+      "en": "Renovation · Landscape · Selected Bespoke Joinery",
+      "ru": "Ремонт · Ландшафт · Отдельные элементы мебели"
+    },
+    "Card 4 title": {
+      "en": "Business District Office",
+      "ru": "Офис в деловом районе"
+    },
+    "Card 4 scope": {
+      "en": "Approvals · Office Fit-Out · Furniture Procurement",
+      "ru": "Согласования · Отделка офиса · Закупка мебели"
+    },
+    "CTA": {
+      "en": "All Projects →",
+      "ru": "Все проекты →"
+    }
+  },
+  "C-P01-H04": {
+    "H2": {
+      "en": "One Team. One Responsibility.",
+      "ru": "Одна команда. Единая ответственность."
+    },
+    "Body": {
+      "en": "Design decisions, site works and joinery are coordinated around one agreed scope, with a project manager as your main point of contact.",
+      "ru": "Дизайн, работы на объекте и мебель координируются в рамках согласованного объёма. Основной контакт по проекту: ваш проектный менеджер."
+    },
+    "Item 1": {
+      "en": "Defined Scope: Works, specifications and exclusions are clarified before execution.",
+      "ru": "Согласованный объём: До начала реализации определяем работы, спецификации и исключения."
+    },
+    "Item 2": {
+      "en": "Approved Changes: Additional work starts after you approve the revised scope and cost.",
+      "ru": "Согласованные изменения: Дополнительные работы начинаются после вашего подтверждения состава и стоимости."
+    },
+    "Item 3": {
+      "en": "Regular Updates: Photos, videos and written updates keep you informed as work progresses.",
+      "ru": "Регулярные отчёты: Фото, видео и письменные обновления помогают следить за ходом работ."
+    },
+    "Item 4": {
+      "en": "Site Supervision: Your foreman oversees day-to-day execution, with issues recorded and followed through.",
+      "ru": "Контроль на объекте: Прораб контролирует выполнение работ, замечания фиксируются и отрабатываются."
+    }
+  },
+  "C-P01-H05": {
+    "1": {
+      "en": "Your Brief: We discuss the property, your priorities and the intended budget.",
+      "ru": "Ваша задача: Обсуждаем объект, приоритеты и предполагаемый бюджет."
+    },
+    "2": {
+      "en": "Design & Planning: We develop the required design or review your existing project.",
+      "ru": "Дизайн и планирование: Разрабатываем необходимый дизайн или изучаем ваш готовый проект."
+    },
+    "3": {
+      "en": "Scope & Preparation: We coordinate documentation, the quotation and required approvals.",
+      "ru": "Смета и подготовка: Координируем документацию, смету и необходимые согласования."
+    },
+    "4": {
+      "en": "Works & Production: Site works, procurement and manufacturing are planned together.",
+      "ru": "Работы и изготовление: Работы на объекте, закупки и изготовление планируются совместно."
+    },
+    "5": {
+      "en": "Inspection & Handover: We inspect the completed scope and confirm the handover and warranty details.",
+      "ru": "Проверка и передача: Проверяем выполненный объём, оформляем передачу и гарантийные условия."
+    },
+    "H2": {
+      "en": "From First Conversation to Handover",
+      "ru": "От первого разговора до сдачи объекта"
+    },
+    "Link": {
+      "en": "Our Process →",
+      "ru": "Как мы работаем →"
+    }
+  },
+  "C-P01-H06": {
+    "H2": {
+      "en": "Family-Led. Personally Involved.",
+      "ru": "Семейный бизнес. Личное участие."
+    },
+    "Body": {
+      "en": "Our family business began in 2021, started by two brothers who came from large-scale construction. One has held chief engineer positions with UAE contracting companies on major residential, commercial and public buildings; the other has managed construction projects across several countries. Today they lead the engineering and project management of Bellvero Group, alongside a third partner responsible for client relations. Our own production makes bespoke cabinetry, glass and stone work.",
+      "ru": "Наша семейная история в бизнесе началась в 2021 году: её начали два брата, пришедшие из большого строительства. Один занимал должность главного инженера в подрядных компаниях ОАЭ на крупных жилых, коммерческих и общественных объектах, второй управлял строительными проектами в нескольких странах. Сегодня они возглавляют инженерное направление и управление проектами Bellvero Group вместе с третьим партнёром, отвечающим за работу с клиентами. На собственном производстве изготавливаем корпусную мебель, выполняем работы со стеклом и камнем."
+    },
+    "Role line 1": {
+      "en": "Co-Founder & Chief Engineer",
+      "ru": "Сооснователь и главный инженер"
+    },
+    "Role line 2": {
+      "en": "Co-Founder & Head of Project Management",
+      "ru": "Сооснователь и руководитель управления проектами"
+    },
+    "Role line 3": {
+      "en": "Partner & Head of Client Relations",
+      "ru": "Партнёр и руководитель по работе с клиентами"
+    },
+    "Link": {
+      "en": "How our team works on your project →",
+      "ru": "Как наша команда работает над вашим проектом →"
+    }
+  },
+  "C-P01-H07": {
+    "Q1": {
+      "en": "Can I start with an existing design? Yes. We can review your drawings and specifications and discuss renovation or joinery based on your designer's project.",
+      "ru": "Можно обратиться с готовым дизайном? Да. Изучим чертежи и спецификации и обсудим ремонт или изготовление мебели по проекту вашего дизайнера."
+    },
+    "Q2": {
+      "en": "Do you take on individual areas of work? Yes. Alongside complete projects, we undertake individual rooms, joinery orders and specialist services.",
+      "ru": "Вы принимаете отдельные заказы? Да. Помимо комплексных проектов, выполняем работы в отдельных помещениях, мебельные заказы и специализированные услуги."
+    },
+    "Q3": {
+      "en": "Where do you work? Our main project locations are Dubai and Abu Dhabi. Contact us to discuss your property.",
+      "ru": "Где вы работаете? Основные направления: Дубай и Абу-Даби. Свяжитесь с нами, чтобы обсудить ваш объект."
+    },
+    "Q4": {
+      "en": "How is the budget established? We clarify the scope and specifications, then prepare a proposal. Any additional work requires your approval before it proceeds.",
+      "ru": "Как определяется бюджет? Уточняем объём и спецификации, затем готовим предложение. Дополнительные работы выполняются после вашего подтверждения."
+    },
+    "Q5": {
+      "en": "Can I follow the project remotely? Your project manager shares photos, videos and written updates in a dedicated project group. The communication arrangements are agreed at the start.",
+      "ru": "Можно следить за проектом дистанционно? Проектный менеджер отправляет фото, видео и письменные обновления в рабочую группу. Порядок коммуникации согласовываем в начале."
+    },
+    "Q6": {
+      "en": "What happens after I enquire? Our client relations manager contacts you to discuss your plans. For renovation projects, we then arrange an initial site visit. The first discussion and initial renovation visit are complimentary.",
+      "ru": "Что происходит после обращения? Менеджер по работе с клиентами связывается с вами для обсуждения планов. Для ремонта затем согласовываем ознакомительный выезд. Первичное обсуждение и ознакомительный выезд по ремонту: без оплаты."
+    },
+    "Q7": {
+      "en": "How is payment arranged? `C-PAY-SHORT` body, verbatim.",
+      "ru": "Как устроен порядок оплаты? текст `C-PAY-SHORT`, дословно."
+    }
+  },
+  "C-P02-S01": {
+    "H1": {
+      "en": "Design, Renovation & Bespoke Joinery",
+      "ru": "Дизайн, ремонт и мебель на заказ"
+    },
+    "body": {
+      "en": "Choose a complete project or the expertise you need for one part of it. We work with homes and commercial spaces in Dubai and Abu Dhabi.",
+      "ru": "Выберите комплексный проект или отдельное направление. Работаем с жилыми и коммерческими пространствами в Дубае и Абу-Даби."
+    }
+  },
+  "C-P02-S02": {
+    "row 1": {
+      "en": "Interior & Landscape Design: From the layout and material palette to visualisations and working drawings, we shape spaces around their use and character.",
+      "ru": "Дизайн интерьера и ландшафта: От планировки и палитры материалов до визуализаций и рабочих чертежей: разрабатываем пространства с учётом их назначения и характера."
+    },
+    "row 2": {
+      "en": "Villa & Apartment Renovation: Complete renovations and individual upgrades, including work from a design you already have.",
+      "ru": "Ремонт вилл и квартир: Комплексный ремонт и отдельные работы, в том числе по вашему готовому дизайн-проекту."
+    },
+    "row 3": {
+      "en": "Commercial Fit-Out: Office renovation and commercial spaces, with approvals, execution and furnishing coordinated to the agreed brief.",
+      "ru": "Коммерческая отделка: Ремонт офисов и коммерческих помещений с координацией согласований, работ и меблировки по согласованной задаче."
+    },
+    "row 4": {
+      "en": "Bespoke Joinery & Furniture: Made-to-measure kitchens, wardrobes and furniture, with glass and stone details coordinated through our own production.",
+      "ru": "Столярные изделия и мебель на заказ: Кухни, шкафы и мебель по индивидуальным размерам с согласованными деталями из стекла и камня на нашем производстве."
+    }
+  },
+  "C-P02-S03": {
+    "H2": {
+      "en": "Specialist Services",
+      "ru": "Специализированные услуги"
+    },
+    "intro": {
+      "en": "Available separately or as part of a wider project.",
+      "ru": "Можно заказать отдельно или в составе комплексного проекта."
+    },
+    "item 1": {
+      "en": "Approvals & NOCs: Drawings, submission preparation and coordination with the relevant approving parties.",
+      "ru": "Согласования и NOC: Чертежи, подготовка подачи и взаимодействие с согласующими сторонами."
+    },
+    "item 2": {
+      "en": "MEP & HVAC: Engineering design and installation aligned with the needs of the property.",
+      "ru": "Инженерные системы: Проектирование и монтаж с учётом требований объекта."
+    },
+    "item 3": {
+      "en": "Materials & Procurement: Material selection and purchasing coordination across the agreed project scope.",
+      "ru": "Материалы и комплектация: Подбор материалов и сопровождение закупок в рамках согласованного проекта."
+    }
+  },
+  "C-P02-S04": {
+    "Q1": {
+      "en": "Can I combine services? Yes. We can prepare a coordinated proposal covering the services you need.",
+      "ru": "Можно объединить услуги? Да. Подготовим единое предложение по необходимым вам направлениям."
+    },
+    "Q2": {
+      "en": "Can you work with another designer? Yes. We review the supplied project before agreeing the scope of execution or manufacturing.",
+      "ru": "Работаете с другим дизайнером? Да. Изучаем предоставленный проект до согласования объёма реализации или изготовления."
+    },
+    "Q3": {
+      "en": "I'm not sure where to start. Send a short description and any available plan. We will help identify the next step.",
+      "ru": "Я пока не знаю, с чего начать. Пришлите краткое описание и имеющийся план. Поможем определить следующий шаг."
+    }
+  },
+  "C-P02-S05": {
+    "link": {
+      "en": "Design Scope & Fees →",
+      "ru": "Состав и стоимость дизайна →"
+    }
+  },
+  "C-P03-D01": {
+    "eyebrow": {
+      "en": "Dubai & Abu Dhabi",
+      "ru": "Дубай и Абу-Даби"
+    },
+    "H1": {
+      "en": "Interior Design for the Way You Live and Work",
+      "ru": "Дизайн интерьера для жизни и работы"
+    },
+    "body": {
+      "en": "Layouts, materials, visualisations and working drawings developed together, with the practical demands of implementation in mind.",
+      "ru": "Планировки, материалы, визуализации и рабочие чертежи разрабатываются совместно: с учётом будущей реализации."
+    },
+    "CTA": {
+      "en": "Discuss Your Interior",
+      "ru": "Обсудить интерьер"
+    }
+  },
+  "C-P03-D02": {
+    "H2": {
+      "en": "From an Idea to a Defined Interior",
+      "ru": "От идеи к проработанному интерьеру"
+    },
+    "body": {
+      "en": "A design project connects the use of the space with the finishes, furniture and technical details needed to realise it.",
+      "ru": "Дизайн-проект связывает организацию пространства с отделкой, мебелью и техническими деталями, необходимыми для реализации."
+    },
+    "captions": {
+      "en": "Layout · Materials · Realisation",
+      "ru": "Планировка · Материалы · Реализация"
+    }
+  },
+  "C-P03-D03": {
+    "H2": {
+      "en": "What Your Design Project Includes",
+      "ru": "Состав дизайн-проекта"
+    },
+    "list": {
+      "en": "Brief & measured base · Layout and furniture arrangement · Concept and material palette · 3D visualisations of agreed rooms · Demolition and proposed partitions, where applicable · Floor finishes and setting-out · Reflected ceiling plan and lighting layout · Switches, sockets and electrical points · Plumbing fixture layout · Wall elevations and relevant interior details · Design drawings for bespoke joinery · Finishes, furniture, lighting and sanitaryware schedules",
+      "ru": "Задача и обмерная основа · Планировка и расстановка мебели · Концепция и палитра материалов · 3D-визуализации согласованных помещений · Демонтаж и новые перегородки, где применимо · План полов и раскладки покрытий · План потолков и размещения освещения · Выключатели, розетки и электрические точки · Расстановка сантехнического оборудования · Развёртки стен и необходимые интерьерные узлы · Дизайнерские чертежи встроенной мебели · Спецификации отделки, мебели, освещения и сантехники"
+    },
+    "note": {
+      "en": "The drawing register is agreed for your project. Specialist engineering calculations, structural design, authority submissions and manufacturing drawings are identified separately where required.",
+      "ru": "Перечень чертежей согласовывается для вашего проекта. Специальные инженерные расчёты, конструктивные решения, документация для согласований и производственные чертежи определяются отдельно при необходимости."
+    }
+  },
+  "C-P03-D03a": {
+    "button": {
+      "en": "View a Sample Drawing Set",
+      "ru": "Посмотреть пример комплекта чертежей"
+    },
+    "note": {
+      "en": "An illustration of the drawing types a design package contains: layout, lighting and ceiling, wall elevation, joinery detail, finishes schedule and a room visualisation. The drawing register for your project is agreed in the proposal.",
+      "ru": "Иллюстрация того, какие типы чертежей входят в дизайн-проект: планировка, освещение и потолки, развёртка стены, узел мебели, спецификация и визуализация помещения. Перечень чертежей вашего проекта фиксируется в предложении."
+    }
+  },
+  "C-P03-D04": {
+    "H2": {
+      "en": "Design Services & Fees",
+      "ru": "Программы и стоимость дизайна"
+    },
+    "card A": {
+      "en": "Full Interior Design: From AED 250/m², excluding VAT (AED 262.50/m² including VAT), A complete interior design package with visualisations, working drawings and specifications for the agreed scope. Layouts and concept · 2–4 views per agreed visualised room · Interior working drawings · Specifications · Two design revision rounds across the agreed stages · PDF and DWG deliverables.",
+      "ru": "Полный дизайн-проект: От 250 AED/м² без VAT (262.50 AED/м² с VAT): Полный дизайн интерьера с визуализациями, рабочими чертежами и спецификациями по согласованному составу. Планировка и концепция · 2–4 ракурса на согласованное визуализируемое помещение · Рабочие чертежи интерьера · Спецификации · Два раунда изменений дизайна на согласованных этапах · Выдача PDF и DWG."
+    },
+    "card A CTA": {
+      "en": "Discuss Full Design",
+      "ru": "Обсудить полный дизайн"
+    },
+    "card B": {
+      "en": "Interior Design & Procurement: From AED 310/m², excluding VAT (AED 325.50/m² including VAT), The full design package, with material and furniture sourcing, supplier coordination and order tracking within an agreed procurement scope. Everything in Full Interior Design, plus supplier quotations · samples and alternatives · purchasing schedule · order and delivery coordination · discrepancy follow-up.",
+      "ru": "Дизайн и комплектация: От 310 AED/м² без VAT (325.50 AED/м² с VAT): Полный дизайн-проект с подбором материалов и мебели, взаимодействием с поставщиками и отслеживанием заказов по согласованному составу комплектации. Всё из полного дизайн-проекта, плюс предложения поставщиков · образцы и замены · ведомость закупок · координация заказов и поставок · сопровождение выявленных несоответствий."
+    },
+    "card B CTA": {
+      "en": "Discuss Design & Procurement",
+      "ru": "Обсудить дизайн и комплектацию"
+    },
+    "note": {
+      "en": "Fees are based on the agreed design area and scope. Individual rooms are quoted separately. Furniture, materials, construction, delivery and installation are not included in the design fee unless expressly listed. Post-design site support is offered separately.",
+      "ru": "Стоимость определяется по согласованной площади и составу проекта. Отдельные помещения рассчитываются индивидуально. Мебель, материалы, ремонт, доставка и монтаж не входят в стоимость дизайна, если прямо не указано иное. Сопровождение после выдачи проекта предлагается отдельно."
+    }
+  },
+  "C-P03-D05": {
+    "H2": {
+      "en": "A Clear Review Process",
+      "ru": "Понятный порядок согласования"
+    },
+    "body": {
+      "en": "Each revision round is one consolidated set of comments. We agree the rooms and views before visualisation begins. Changes to an approved brief or additional scope are quoted separately; correcting our own errors does not use your revision allowance.",
+      "ru": "Раунд изменений: единый список комментариев. Перечень помещений и ракурсов согласовываем до визуализации. Изменение утверждённой задачи или дополнительный объём рассчитываются отдельно; исправление наших ошибок не расходует ваши раунды правок."
+    }
+  },
+  "C-P03-D06": {
+    "H2": {
+      "en": "Design in Concept",
+      "ru": "Дизайн в концепциях"
+    }
+  },
+  "C-P03-D07": {
+    "Q1": {
+      "en": "Can I order design without renovation? Yes. We provide a design-only service. You can take the agreed documentation to your chosen contractor.",
+      "ru": "Можно заказать только дизайн? Да. Можно получить дизайн-проект и передать согласованную документацию выбранному подрядчику."
+    },
+    "Q2": {
+      "en": "What files will I receive? The agreed design package is delivered as PDF and DWG files. The deliverable register is defined in the proposal.",
+      "ru": "Какие файлы я получу? Согласованный комплект передаём в PDF и DWG. Перечень выдаваемых материалов фиксируется в предложении."
+    },
+    "Q3": {
+      "en": "Does the fee include approvals? Approval preparation and submissions can be commissioned separately or included as a defined additional scope.",
+      "ru": "Согласования входят в цену? Подготовку и сопровождение согласований можно заказать отдельно или включить в предложение определённым дополнительным объёмом."
+    },
+    "Q4": {
+      "en": "Do you support the project after design delivery? Yes. Post-design support is agreed separately, including the required consultations and site involvement.",
+      "ru": "Есть сопровождение после выдачи проекта? Да. Сопровождение согласовываем отдельно, с определением консультаций и участия на объекте."
+    },
+    "Q5": {
+      "en": "How is the design area measured? We use the agreed area of the rooms included in the design brief, recorded on the project plan.",
+      "ru": "Какая площадь используется для расчёта? Согласованная площадь помещений, включённых в задание и отмеченных на плане проекта."
+    }
+  },
+  "C-P04-L01": {
+    "eyebrow": {
+      "en": "Landscape Design Concept",
+      "ru": "Концепция ландшафтного дизайна"
+    },
+    "H1": {
+      "en": "Outdoor Spaces Designed Around Your Home",
+      "ru": "Ландшафт как продолжение вашего дома"
+    },
+    "body": {
+      "en": "Gardens, terraces and outdoor living areas developed around the architecture, your lifestyle and the conditions of the site.",
+      "ru": "Сады, террасы и пространства для отдыха с учётом архитектуры дома, вашего образа жизни и особенностей участка."
+    },
+    "CTA": {
+      "en": "Discuss Your Landscape",
+      "ru": "Обсудить ландшафт"
+    }
+  },
+  "C-P04-L02": {
+    "H2": {
+      "en": "Plan the Whole Outdoor Experience",
+      "ru": "Продумать пространство целиком"
+    },
+    "body": {
+      "en": "We begin with how you want to use the space, then coordinate the layout, planting, finishes and lighting.",
+      "ru": "Начинаем с того, как вы хотите использовать территорию, затем согласовываем планировку, озеленение, покрытия и освещение."
+    }
+  },
+  "C-P04-L03": {
+    "list": {
+      "en": "Zoning & circulation · Planting palette · Paving & finishes · Lighting concept · Outdoor furniture · Coordinated technical documentation",
+      "ru": "Зонирование и маршруты · Подбор растений · Покрытия и отделка · Концепция освещения · Уличная мебель · Согласованная техническая документация"
+    },
+    "note": {
+      "en": "Pools, pergolas, level changes and specialist systems are developed to a separately defined technical scope where required.",
+      "ru": "Бассейны, перголы, перепады уровней и специальные системы прорабатываются по отдельно определённому техническому составу, где это требуется."
+    }
+  },
+  "C-P04-L04": {
+    "H2": {
+      "en": "A Proposal for Your Site",
+      "ru": "Предложение под ваш участок"
+    },
+    "body": {
+      "en": "Landscape design is quoted individually. The fee reflects the design area, complexity, required documentation and specialist coordination.",
+      "ru": "Ландшафтный дизайн рассчитываем индивидуально. Стоимость зависит от проектируемой площади, сложности, состава документации и специальной координации."
+    }
+  },
+  "C-P04-L05": {
+    "steps": {
+      "en": "Site & brief → Concept → Design & materials → Documentation",
+      "ru": "Участок и задача → Концепция → Проработка и материалы → Документация"
+    },
+    "note": {
+      "en": "Implementation can be discussed as a separate or combined scope.",
+      "ru": "Реализацию можно обсудить отдельно или в составе комплексного заказа."
+    }
+  },
+  "C-P04-L06": {
+    "Q1": {
+      "en": "Do you design existing gardens? Yes. We assess what can be retained and what should change as part of the brief.",
+      "ru": "Проектируете обновление существующего сада? Да. При обсуждении определяем, что сохранить и что изменить."
+    },
+    "Q2": {
+      "en": "Can the landscape be developed with the villa interior? Yes. We can coordinate the relationship between indoor and outdoor spaces.",
+      "ru": "Можно объединить ландшафт с интерьером виллы? Да. Можем согласовать связь внутренних и наружных пространств."
+    },
+    "Q3": {
+      "en": "Are plants and construction included in the design fee? No. Design, supplies and implementation are priced as defined scopes.",
+      "ru": "Растения и работы включены в стоимость дизайна? Нет. Дизайн, поставки и реализация рассчитываются по определённым составам."
+    }
+  },
+  "C-P05-V01": {
+    "H1": {
+      "en": "Villa Renovation in Dubai & Abu Dhabi",
+      "ru": "Ремонт вилл в Дубае и Абу-Даби"
+    },
+    "body": {
+      "en": "From a complete transformation to carefully considered upgrades: design, approvals, renovation and bespoke joinery coordinated by one team.",
+      "ru": "От полного преображения до обновления отдельных пространств: дизайн, согласования, ремонт и мебель на заказ с единой координацией."
+    }
+  },
+  "C-P05-V02": {
+    "H2": {
+      "en": "Villa Concept Projects",
+      "ru": "Концептуальные проекты вилл"
+    }
+  },
+  "C-P05-V03": {
+    "H2": {
+      "en": "Renovation Around Your Priorities",
+      "ru": "Ремонт с учётом ваших задач"
+    },
+    "body": {
+      "en": "Renovate the entire villa or focus on the spaces that need attention. The scope is defined around your property, priorities and budget.",
+      "ru": "Обновите виллу целиком или отдельные помещения. Определяем состав работ с учётом объекта, приоритетов и бюджета."
+    },
+    "list": {
+      "en": "Layouts & design · Kitchens & bathrooms · Interior finishes · MEP & HVAC · Bespoke furniture · Outdoor and building works",
+      "ru": "Планировка и дизайн · Кухни и санузлы · Внутренняя отделка · Инженерные системы · Мебель на заказ · Наружные и строительные работы"
+    },
+    "note": {
+      "en": "Façade works are offered as part of a wider project. Extensions, pools and other changes are assessed against the site and required approvals.",
+      "ru": "Фасадные работы выполняем в составе комплексного проекта. Пристройки, бассейны и другие изменения рассматриваем с учётом объекта и необходимых согласований."
+    }
+  },
+  "C-P05-V04": {
+    "H2": {
+      "en": "A Project You Can Follow",
+      "ru": "Проект, за которым удобно следить"
+    },
+    "body": {
+      "en": "Your project manager coordinates decisions and communication. The foreman oversees the site. Photos, videos and written updates are shared daily or every few days, depending on the stage of work.",
+      "ru": "Проектный менеджер координирует решения и коммуникацию. Прораб контролирует объект. Фото, видео и письменные обновления направляем ежедневно или раз в несколько дней в зависимости от этапа."
+    }
+  },
+  "C-P05-V05": {
+    "H2": {
+      "en": "Scope and Changes, Clearly Agreed",
+      "ru": "Понятный объём и согласованные изменения"
+    },
+    "body": {
+      "en": "We prepare the quotation around agreed works and specifications. Additional work proceeds only after you approve its scope and cost. Any effect on the schedule is discussed before approval.",
+      "ru": "Смета строится на согласованных работах и спецификациях. Дополнительный объём выполняем только после подтверждения состава и стоимости. Влияние на график обсуждаем до согласования."
+    },
+    "list": {
+      "en": "Scope · Specifications · Changes",
+      "ru": "Объём · Спецификации · Изменения"
+    }
+  },
+  "C-P05-V06": {
+    "H2": {
+      "en": "Bespoke Joinery, Coordinated with the Build",
+      "ru": "Мебель, согласованная с ремонтом"
+    },
+    "body": {
+      "en": "Our own production supports kitchens, wardrobes and fitted furniture, with glass and stone details developed alongside the interior.",
+      "ru": "На собственном производстве выполняем кухни, шкафы и встроенную мебель, согласуя детали из стекла и камня с интерьером."
+    }
+  },
+  "C-P05-V08": {
+    "Q1": {
+      "en": "Can you build from my designer's project? Yes. We review the drawings, specifications and approval status before agreeing the work.",
+      "ru": "Реализуете проект моего дизайнера? Да. Изучаем чертежи, спецификации и статус согласований до определения работ."
+    },
+    "Q2": {
+      "en": "Is the initial site visit charged? The first renovation consultation and initial site visit in Dubai or Abu Dhabi are complimentary.",
+      "ru": "Первичный выезд платный? Первичное обсуждение ремонта и ознакомительный выезд в Дубае или Абу-Даби: без оплаты."
+    },
+    "Q3": {
+      "en": "Can I stay in the villa during renovation? This depends on the work, safe access and the availability of essential services. We discuss it when planning the sequence.",
+      "ru": "Можно жить на вилле во время ремонта? Это зависит от работ, безопасного доступа и сохранения необходимых коммуникаций. Обсуждаем вопрос при планировании последовательности."
+    },
+    "Q4": {
+      "en": "How long will it take? The programme depends on the agreed scope, approvals, design readiness and material lead times. We establish a project-specific schedule.",
+      "ru": "Сколько длится ремонт? График зависит от объёма, согласований, готовности дизайна и поставок. Составляем его для конкретного проекта."
+    },
+    "Q5": {
+      "en": "Do you obtain every permit yourselves? We prepare and coordinate the relevant submissions within the agreed service. Approval decisions remain with the responsible authorities and community management.",
+      "ru": "Вы получаете все разрешения самостоятельно? Готовим и сопровождаем необходимые подачи в согласованном объёме услуг. Решения принимают соответствующие органы и управляющие организации."
+    }
+  },
+  "C-P05-V09": {
+    "form heading": {
+      "en": "Let's Discuss Your Villa",
+      "ru": "Обсудим вашу виллу"
+    }
+  },
+  "C-P06-A01": {
+    "H1": {
+      "en": "Apartment Renovation in Dubai & Abu Dhabi",
+      "ru": "Ремонт квартир в Дубае и Абу-Даби"
+    },
+    "body": {
+      "en": "Thoughtful layouts, updated finishes and bespoke furniture, with works coordinated around your building's requirements.",
+      "ru": "Продуманная планировка, новая отделка и мебель на заказ: с организацией работ по требованиям вашего здания."
+    }
+  },
+  "C-P06-A02": {
+    "H2": {
+      "en": "A Complete Apartment Concept",
+      "ru": "Концепция комплексного обновления квартиры"
+    }
+  },
+  "C-P06-A03": {
+    "H2": {
+      "en": "Make Better Use of Your Space",
+      "ru": "Использовать пространство продуманно"
+    },
+    "body": {
+      "en": "We can renovate the whole apartment or selected rooms, working with your existing design or developing a new one.",
+      "ru": "Можем обновить квартиру целиком или отдельные помещения, работая по вашему дизайну или разрабатывая новый."
+    },
+    "list": {
+      "en": "Layouts · Kitchens and bathrooms · Finishes · Lighting and services · Storage · Furniture",
+      "ru": "Планировка · Кухни и санузлы · Отделка · Освещение и инженерия · Хранение · Мебель"
+    }
+  },
+  "C-P06-A04": {
+    "H2": {
+      "en": "Planned Around the Building",
+      "ru": "С учётом требований здания"
+    },
+    "items": {
+      "en": "Access & working hours: Coordinate access and the permitted work schedule. · Deliveries & waste: Plan material deliveries and waste removal. · Shared areas: Plan protection of shared routes within the agreed scope. · Approvals: Prepare the required documents for the proposed changes.",
+      "ru": "Допуски и часы работ: Согласовать доступ и разрешённый график. · Доставка и вывоз: Спланировать доставку материалов и вывоз отходов. · Общие зоны: Предусмотреть защиту общих зон по согласованному объёму. · Согласования: Подготовить документы для планируемых изменений."
+    }
+  },
+  "C-P06-A05": {
+    "body": {
+      "en": "Your project manager keeps decisions, progress updates and changes in one communication channel.",
+      "ru": "Проектный менеджер объединяет решения, отчёты и изменения в одном канале коммуникации."
+    }
+  },
+  "C-P06-A06": {
+    "H2": {
+      "en": "Finishes and Storage That Work Together",
+      "ru": "Отделка и хранение в едином решении"
+    }
+  },
+  "C-P06-A07": {
+    "Q1": {
+      "en": "Can you renovate only a bathroom or kitchen? Yes. We assess the room and any connected technical work before defining the scope.",
+      "ru": "Можно отремонтировать только санузел или кухню? Да. Оцениваем помещение и связанные инженерные работы до определения состава."
+    },
+    "Q2": {
+      "en": "Will I need to move out? It depends on the extent of work, access and essential services. Major works may require temporary accommodation.",
+      "ru": "Потребуется переезд? Зависит от масштаба, доступа и коммуникаций. При значительных работах может потребоваться временное жильё."
+    },
+    "Q3": {
+      "en": "Can you work on a recently handed-over apartment? Yes. We review the existing finishes, building requirements and the changes you want.",
+      "ru": "Работаете в недавно сданной квартире? Да. Изучаем существующую отделку, требования здания и желаемые изменения."
+    },
+    "Q4": {
+      "en": "Are approvals and furniture included? They can be included as defined parts of the proposal; the exact scope is agreed before work.",
+      "ru": "Согласования и мебель входят в заказ? Их можно включить отдельными определёнными частями предложения; точный объём согласовывается до работ."
+    }
+  },
+  "C-P07-C01": {
+    "H1": {
+      "en": "Commercial Fit-Out for the Way Your Business Works",
+      "ru": "Коммерческий интерьер под задачи бизнеса"
+    },
+    "body": {
+      "en": "Office renovation and commercial spaces in Dubai and Abu Dhabi, with design coordination, approvals, fit-out and furnishing matched to your brief.",
+      "ru": "Ремонт офисов и коммерческих помещений в Дубае и Абу-Даби: координация дизайна, согласования, отделка и меблировка под вашу задачу."
+    },
+    "CTA": {
+      "en": "Discuss Your Commercial Project",
+      "ru": "Обсудить коммерческий проект"
+    }
+  },
+  "C-P07-C02": {
+    "H2": {
+      "en": "Business District Office Concept",
+      "ru": "Концепция офиса в деловом районе"
+    },
+    "body": {
+      "en": "A concept showing approvals coordination, fit-out works and office furniture procurement handled as one scope.",
+      "ru": "Концепция показывает, как согласования, отделочные работы и закупка офисной мебели ведутся в едином объёме."
+    }
+  },
+  "C-P07-C03": {
+    "H2": {
+      "en": "From the Brief to a Working Space",
+      "ru": "От задачи к готовому рабочему пространству"
+    },
+    "list": {
+      "en": "Layout review · Technical coordination · Approval documentation · Interior fit-out · Office furniture · Inspection and handover",
+      "ru": "Анализ планировки · Техническая координация · Документация для согласований · Отделочные работы · Офисная мебель · Проверка и передача"
+    },
+    "note": {
+      "en": "Our commercial work covers office renovation. Retail and other commercial projects are assessed individually against their operational and technical requirements.",
+      "ru": "Коммерческое направление охватывает ремонт офисов. Магазины и другие коммерческие проекты рассматриваем индивидуально с учётом эксплуатационных и технических требований."
+    }
+  },
+  "C-P07-C04": {
+    "H2": {
+      "en": "Planning Around Your Operations",
+      "ru": "С учётом работы вашей компании"
+    },
+    "body": {
+      "en": "We discuss access, deliveries, the sequence of works and any constraints around ongoing operations. The programme is built around the agreed scope and dependencies.",
+      "ru": "Обсуждаем доступ, поставки, последовательность работ и ограничения действующего бизнеса. График строится на согласованном объёме и зависимостях."
+    }
+  },
+  "C-P07-C05": {
+    "H2": {
+      "en": "Workspace Details",
+      "ru": "Детали рабочего пространства"
+    }
+  },
+  "C-P07-C06": {
+    "Q1": {
+      "en": "Can you work from our existing design? Yes. We review the design and technical information and agree the execution scope.",
+      "ru": "Работаете по нашему дизайну? Да. Изучаем дизайн и технические материалы, затем согласовываем объём реализации."
+    },
+    "Q2": {
+      "en": "Can you source office furniture? Yes. We can procure office furniture and coordinate bespoke elements where specified.",
+      "ru": "Можете закупить офисную мебель? Да. Можем организовать закупку офисной мебели и индивидуальные элементы, предусмотренные проектом."
+    },
+    "Q3": {
+      "en": "Do you only work with offices? Office fit-out is our defined commercial offer. Other property types are reviewed individually before we confirm scope and feasibility.",
+      "ru": "Вы работаете только с офисами? Отделка офисов: наше определённое коммерческое предложение. Другие типы помещений оцениваем индивидуально перед подтверждением состава и возможности выполнения."
+    },
+    "Q4": {
+      "en": "What do you need for an initial discussion? The property location, available plans, intended use and the work you are considering.",
+      "ru": "Что нужно для первого обсуждения? Местоположение, имеющиеся планы, назначение помещения и предполагаемые работы."
+    }
+  },
+  "C-P08-J01": {
+    "H1": {
+      "en": "Bespoke Joinery, Made for Your Space",
+      "ru": "Мебель, созданная под ваше пространство"
+    },
+    "body": {
+      "en": "Kitchens, wardrobes and fitted furniture, with coordinated glass and stone work from our own production.",
+      "ru": "Кухни, шкафы и встроенная мебель с согласованными работами по стеклу и камню на нашем собственном производстве."
+    },
+    "CTA": {
+      "en": "Discuss Your Joinery",
+      "ru": "Обсудить мебель"
+    }
+  },
+  "C-P08-J02": {
+    "H2": {
+      "en": "Choose the Piece Your Project Needs",
+      "ru": "Выберите, что нужно вашему проекту"
+    },
+    "items": {
+      "en": "Kitchens: Cabinetry, storage and worktops planned together. · Wardrobes & Dressing Rooms: Storage shaped around your belongings and routine. · Fitted & Individual Pieces: Wall panels, TV units, vanities, shelving and project-specific furniture.",
+      "ru": "Кухни: Корпуса, хранение и столешницы в едином решении. · Шкафы и гардеробные: Хранение под ваши вещи и повседневные привычки. · Встроенная мебель и отдельные изделия: Стеновые панели, ТВ-зоны, тумбы, стеллажи и индивидуальные изделия."
+    }
+  },
+  "C-P08-J03": {
+    "H2": {
+      "en": "Materials and Details, Considered Together",
+      "ru": "Материалы и детали в едином решении"
+    },
+    "body": {
+      "en": "We select construction, finishes and fittings around the design, intended use and budget. We can work from your designer's drawings or develop the joinery brief with you.",
+      "ru": "Подбираем конструкцию, отделку и фурнитуру под дизайн, условия эксплуатации и бюджет. Работаем по чертежам вашего дизайнера или прорабатываем задачу вместе с вами."
+    }
+  },
+  "C-P08-J04": {
+    "H2": {
+      "en": "Our Production",
+      "ru": "Наше производство"
+    },
+    "body": {
+      "en": "Our own production covers cabinet furniture, glass and stone work. Upholstered furniture is sourced from selected suppliers. Production visits can be arranged by appointment.",
+      "ru": "Собственное производство охватывает корпусную мебель, работы со стеклом и камнем. Мягкую мебель закупаем у выбранных поставщиков. Посещение производства организуем по договорённости."
+    }
+  },
+  "C-P08-J05": {
+    "H2": {
+      "en": "From Brief to Installation",
+      "ru": "От задачи до монтажа"
+    },
+    "steps": {
+      "en": "Brief and available dimensions · Preliminary proposal · Agreement and technical survey · Drawings and samples · Production · Installation and handover",
+      "ru": "Задача и исходные размеры · Предварительное предложение · Договор и технический замер · Чертежи и образцы · Изготовление · Монтаж и передача"
+    },
+    "note": {
+      "en": "Technical measurements are taken after the agreement and before final manufacturing drawings are approved. If site findings change the scope or price, we agree the adjustment before production.",
+      "ru": "Технический замер выполняем после договора и до утверждения окончательных производственных чертежей. Если условия объекта меняют состав или стоимость, согласовываем корректировку до изготовления."
+    }
+  },
+  "C-P08-J07": {
+    "Q1": {
+      "en": "Can I order one item? Yes. Individual joinery orders are assessed against the dimensions, material and installation requirements.",
+      "ru": "Можно заказать одно изделие? Да. Рассматриваем отдельные заказы с учётом размеров, материалов и требований к монтажу."
+    },
+    "Q2": {
+      "en": "Are manufacturing drawings included? The required manufacturing drawings for the agreed joinery order are included and approved before production.",
+      "ru": "Производственные чертежи включены? Необходимые производственные чертежи по согласованному мебельному заказу включены и утверждаются до изготовления."
+    },
+    "Q3": {
+      "en": "Can you make furniture from supplied drawings? Yes. We review and adapt the documentation to the agreed manufacturing and installation requirements.",
+      "ru": "Изготавливаете по готовым чертежам? Да. Изучаем и уточняем документацию с учётом согласованных требований к изготовлению и монтажу."
+    },
+    "Q4": {
+      "en": "Is every material covered by the same warranty? No. Our workmanship cover and the applicable material, hardware and equipment terms are stated separately.",
+      "ru": "На всё действует одинаковая гарантия? Нет. Гарантию на нашу работу и условия на материалы, фурнитуру и оборудование указываем отдельно."
+    }
+  },
+  "C-P09-K01": {
+    "H1": {
+      "en": "A Kitchen Designed Around Your Everyday Life",
+      "ru": "Кухня, продуманная под вашу жизнь"
+    },
+    "body": {
+      "en": "Made-to-measure cabinetry, practical storage and coordinated finishes, manufactured and installed for your space.",
+      "ru": "Мебель по индивидуальным размерам, удобное хранение и согласованные материалы: с изготовлением и монтажом под ваше пространство."
+    },
+    "CTA": {
+      "en": "Discuss Your Kitchen",
+      "ru": "Обсудить кухню"
+    }
+  },
+  "C-P09-K02": {
+    "H2": {
+      "en": "Start with How You Use the Kitchen",
+      "ru": "Начинаем с того, как вы пользуетесь кухней"
+    },
+    "body": {
+      "en": "We discuss cooking, storage, appliances and movement before finalising the layout and appearance.",
+      "ru": "Обсуждаем приготовление еды, хранение, технику и перемещение до окончательного выбора планировки и внешнего вида."
+    }
+  },
+  "C-P09-K03": {
+    "H2": {
+      "en": "The Details That Shape the Result",
+      "ru": "Детали, из которых складывается результат"
+    },
+    "items": {
+      "en": "Cabinet construction · Front finishes · Worktops · Storage & hardware · Appliances · Lighting & installation",
+      "ru": "Конструкция корпусов · Отделка фасадов · Столешницы · Хранение и фурнитура · Техника · Свет и монтаж"
+    },
+    "note": {
+      "en": "Materials and fittings are selected for the design, use and budget. Appliance models and dimensions are coordinated before production.",
+      "ru": "Материалы и фурнитуру выбираем с учётом дизайна, эксплуатации и бюджета. Модели и размеры техники согласовываем до производства."
+    }
+  },
+  "C-P09-K04": {
+    "H2": {
+      "en": "Kitchen Details",
+      "ru": "Детали кухни"
+    }
+  },
+  "C-P09-K05": {
+    "H2": {
+      "en": "Your Kitchen, Step by Step",
+      "ru": "Этапы заказа кухни"
+    }
+  },
+  "C-P09-K06": {
+    "H2": {
+      "en": "A Quote Based on Your Kitchen",
+      "ru": "Расчёт под вашу кухню"
+    },
+    "body": {
+      "en": "The quotation reflects the layout, cabinet sizes, fronts, worktops, fittings and installation conditions. Appliances and additional site works are identified separately.",
+      "ru": "Смета учитывает планировку, размеры, фасады, столешницы, фурнитуру и условия монтажа. Техника и дополнительные работы на объекте указываются отдельно."
+    }
+  },
+  "C-P09-K07": {
+    "Q1": {
+      "en": "When do you take exact measurements? After the agreement, before final manufacturing drawings and production.",
+      "ru": "Когда выполняется точный замер? После заключения договора, до окончательного утверждения производственных чертежей и изготовления."
+    },
+    "Q2": {
+      "en": "Can I use my own appliances? Yes. We need their exact models and installation dimensions before the drawings are approved.",
+      "ru": "Можно использовать свою технику? Да. До утверждения чертежей нужны точные модели и монтажные размеры."
+    },
+    "Q3": {
+      "en": "Do you remove the old kitchen? Removal and associated site works can be included when specifically agreed in the quotation.",
+      "ru": "Демонтируете старую кухню? Демонтаж и связанные работы можно включить, если они отдельно согласованы в смете."
+    },
+    "Q4": {
+      "en": "How long does production take? The programme is agreed after confirming the drawings, materials, hardware and site readiness.",
+      "ru": "Какой срок изготовления? График согласовывается после определения чертежей, материалов, фурнитуры и готовности объекта."
+    }
+  },
+  "C-P10-W01": {
+    "H1": {
+      "en": "Storage Designed Around You",
+      "ru": "Хранение, продуманное под вас"
+    },
+    "body": {
+      "en": "Made-to-measure wardrobes and dressing rooms, planned around your belongings, space and daily routine.",
+      "ru": "Шкафы и гардеробные по индивидуальным размерам: под ваши вещи, пространство и повседневные привычки."
+    },
+    "CTA": {
+      "en": "Discuss Your Storage",
+      "ru": "Обсудить систему хранения"
+    }
+  },
+  "C-P10-W02": {
+    "H2": {
+      "en": "A Place for What Matters",
+      "ru": "Место для каждой вещи"
+    },
+    "body": {
+      "en": "We define hanging space, shelves, drawers and specialist storage before coordinating doors, finishes and lighting.",
+      "ru": "Сначала определяем секции для одежды, полки, ящики и специальное хранение, затем согласовываем двери, отделку и освещение."
+    },
+    "list": {
+      "en": "Open dressing rooms · Fitted wardrobes · Hinged or sliding doors · Drawers and accessories · Integrated lighting",
+      "ru": "Открытые гардеробные · Встроенные шкафы · Распашные или раздвижные двери · Ящики и аксессуары · Встроенный свет"
+    },
+    "note": {
+      "en": "Not every type is automatically included in an order; the composition is agreed for your project.",
+      "ru": "Не все типы автоматически входят в каждый заказ; состав согласовывается под ваш проект."
+    }
+  },
+  "C-P10-W03": {
+    "H2": {
+      "en": "Inside and Out",
+      "ru": "Снаружи и внутри"
+    },
+    "captions": {
+      "en": "Closed · Open: internal layout and fittings",
+      "ru": "Закрыто · Открыто: наполнение и фурнитура"
+    }
+  },
+  "C-P10-W06": {
+    "Q1": {
+      "en": "Can you work with a niche or sloping ceiling? We assess the site and develop the design around the measured constraints.",
+      "ru": "Работаете с нишами и наклонными потолками? Оцениваем объект и разрабатываем решение с учётом измеренных ограничений."
+    },
+    "Q2": {
+      "en": "Can the internal layout be customised? Yes. Sections, drawers and accessories are agreed around your storage needs.",
+      "ru": "Можно изменить внутреннее наполнение? Да. Секции, ящики и аксессуары согласовываем под ваши задачи хранения."
+    },
+    "Q3": {
+      "en": "Are lighting and accessories included? Only the lighting and accessories listed in the agreed specification are included.",
+      "ru": "Освещение и аксессуары входят? Включены позиции, перечисленные в согласованной спецификации."
+    },
+    "Q4": {
+      "en": "Can you manufacture from my designer's drawings? Yes. We review the drawings, take the technical measurements after agreement and prepare the manufacturing documentation.",
+      "ru": "Изготовите по чертежам моего дизайнера? Да. Изучим чертежи, после договора выполним технический замер и подготовим производственную документацию."
+    }
+  },
+  "C-P11-N01": {
+    "H1": {
+      "en": "Approvals & NOCs for Your Project",
+      "ru": "Согласования и NOC для вашего проекта"
+    },
+    "body": {
+      "en": "Preparation of the required drawings and documents, with submission support and coordination for renovation and fit-out projects.",
+      "ru": "Подготовка необходимых чертежей и документов, сопровождение подачи и координация согласований для ремонта и отделки."
+    },
+    "CTA": {
+      "en": "Discuss Your Approvals",
+      "ru": "Обсудить согласования"
+    }
+  },
+  "C-P11-N02": {
+    "H2": {
+      "en": "The Route Depends on Where Your Property Is",
+      "ru": "Маршрут зависит от того, где находится ваш объект"
+    },
+    "intro": {
+      "en": "Approval in Dubai is not one process. Which authority issues the permit, which drawing format is accepted and whether a community No Objection Certificate comes first are all decided by the location of the property, not by the type of work. Identifying the correct route is the first thing we do, and it is done before design work begins.",
+      "ru": "Согласование в Дубае не сводится к одной процедуре. Какой орган выдаёт разрешение, в каком формате принимаются чертежи и нужен ли сначала NOC от управляющей компании сообщества, определяется расположением объекта, а не видом работ. Определение правильного маршрута: первое, что мы делаем, и делается это до начала проектирования."
+    },
+    "row 1": {
+      "en": "Independent villa, Dubai mainland. The building permit is issued by the municipality through the Build in Dubai platform. There is no master-developer layer.",
+      "ru": "Отдельная вилла на материковой части Дубая. Разрешение выдаёт муниципалитет через платформу Build in Dubai. Слоя управляющей компании нет."
+    },
+    "row 2": {
+      "en": "Villa in a master community. The community's own No Objection Certificate comes first and is reviewed against the community's design guidelines. The building permit follows, from the authority with jurisdiction over that community.",
+      "ru": "Вилла в мастер-сообществе. Сначала NOC управляющей компании, который проверяется по дизайн-регламенту сообщества. Разрешение на строительство выдаётся после этого органом, в чьей юрисдикции находится сообщество."
+    },
+    "row 3": {
+      "en": "Apartment or office in a building. Building management approval comes first. A fit-out permit follows from the authority responsible for that zone; in some Dubai zones this is not the municipality.",
+      "ru": "Квартира или офис в здании. Сначала согласование управляющей компании здания. Затем разрешение на отделочные работы от органа, отвечающего за эту зону; в отдельных зонах Дубая это не муниципалитет."
+    },
+    "row 4": {
+      "en": "Property in Abu Dhabi. A different emirate, a different system: permits are handled by the responsible department through the TAMM portal.",
+      "ru": "Объект в Абу-Даби. Другой эмират и другая система: разрешения оформляются профильным департаментом на портале TAMM."
+    },
+    "closing": {
+      "en": "We confirm the applicable route for your specific property before quoting the approvals scope.",
+      "ru": "Применимый маршрут для вашего конкретного объекта мы подтверждаем до расчёта стоимости согласований."
+    }
+  },
+  "C-P11-N02a": {
+    "H2": {
+      "en": "Why This Is Settled Before the Design, Not After",
+      "ru": "Почему это решается до дизайна, а не после"
+    },
+    "body 1": {
+      "en": "Approval requirements shape the design itself. External changes, structural openings, extensions, pool additions, changes to mechanical, electrical and plumbing loads: each carries its own requirement, and in a master community the external appearance is reviewed against guidelines written for that community. A design developed without these constraints in mind is redrawn later, and redrawing costs time on a project that has already started.",
+      "ru": "Требования согласований влияют на сам дизайн. Изменения фасада, проёмы в конструкциях, пристройки, бассейн, изменение нагрузок инженерных систем: у каждого пункта свои требования, а в мастер-сообществе внешний вид проверяется по регламенту, написанному для этого сообщества. Дизайн, разработанный без учёта этих ограничений, переделывается позже, а переделка стоит времени на уже начатом проекте."
+    },
+    "body 2": {
+      "en": "Drawing format matters as much as content. Authorities do not share a submission format, and a set prepared for one authority can be rejected by another without its content being assessed. Establishing the route first is what prevents this.",
+      "ru": "Формат чертежей важен не меньше содержания. У разных органов разные требования к подаче, и комплект, подготовленный для одного, может быть отклонён другим без рассмотрения по существу. Именно поэтому маршрут определяется первым."
+    }
+  },
+  "C-P11-N02b": {
+    "H2": {
+      "en": "What Usually Requires a Permit",
+      "ru": "Какие работы обычно требуют разрешения"
+    },
+    "column 1": {
+      "en": "Usually requires approval: removing or adding walls and changes to layout; work affecting structure; extensions and additions to built-up area; changes to the external appearance, including windows, cladding and roof elements; pools, canopies and permanent outdoor structures; relocation of drainage and water points; changes to electrical load or distribution; modification of HVAC ducting and equipment.",
+      "ru": "Обычно требует согласования: снос и возведение стен, изменение планировки; работы, затрагивающие конструкции; пристройки и увеличение застроенной площади; изменение внешнего вида, включая окна, облицовку и элементы кровли; бассейны, навесы и постоянные наружные конструкции; перенос точек водоснабжения и канализации; изменение электрической нагрузки и распределения; изменение воздуховодов и оборудования вентиляции и кондиционирования."
+    },
+    "column 2": {
+      "en": "Usually does not, but check: painting, replacing floor and wall finishes, replacing fixtures without relocating services, furniture and non-structural false ceilings. The community or building management may still require notification even where no authority permit applies.",
+      "ru": "Обычно не требует, но проверяется: покраска, замена напольных и настенных покрытий, замена сантехнических приборов без переноса коммуникаций, мебель и неконструктивные подвесные потолки. Управляющая компания сообщества или здания может требовать уведомления даже там, где разрешение органа не нужно."
+    },
+    "disclaimer": {
+      "en": "This is a general guide, not a determination for your property. The requirements depend on the property, the responsible parties and the actual scope of works.",
+      "ru": "Это общий ориентир, а не заключение по вашему объекту. Требования зависят от объекта, отвечающих за него организаций и фактического состава работ."
+    }
+  },
+  "C-P11-N03": {
+    "H2": {
+      "en": "What We Do",
+      "ru": "Что делаем мы"
+    },
+    "items": {
+      "en": "Review the proposed works and confirm the applicable route · Prepare the required drawings in the format the authority accepts · Coordinate submissions and respond to comments · Track status and keep you informed",
+      "ru": "Изучаем планируемые работы и подтверждаем применимый маршрут · Готовим необходимые чертежи в формате, принимаемом органом · Подаём документы и отрабатываем замечания · Отслеживаем статус и информируем вас"
+    }
+  },
+  "C-P11-N03a": {
+    "line": {
+      "en": "Approvals are coordinated by our engineering lead, a co-founder who has held chief engineer positions with UAE contracting companies on large residential, commercial and public buildings.",
+      "ru": "Согласования координирует руководитель инженерного направления: сооснователь компании, занимавший должность главного инженера в подрядных компаниях ОАЭ на крупных жилых, коммерческих и общественных объектах."
+    }
+  },
+  "C-P11-N04": {
+    "H2": {
+      "en": "What to Share with Us",
+      "ru": "Что подготовить для обсуждения"
+    },
+    "body": {
+      "en": "Property location, available plans, a description of the changes and any existing approvals. We will confirm further documents after reviewing the case.",
+      "ru": "Местоположение, имеющиеся планы, описание изменений и уже полученные согласования. Дополнительные документы уточним после изучения задачи."
+    }
+  },
+  "C-P11-N06": {
+    "Q1": {
+      "en": "Can I order this service without renovation? Yes. Drawings and approval support can be commissioned separately.",
+      "ru": "Можно заказать отдельно от ремонта? Да. Подготовку документации и сопровождение согласований можно заказать отдельно."
+    },
+    "Q2": {
+      "en": "Are authority fees included? Our service fee, authority charges and any deposits are identified separately in the proposal.",
+      "ru": "Сборы включены? Стоимость наших услуг, сборы и возможные депозиты указываются в предложении отдельно."
+    },
+    "Q3": {
+      "en": "Can you guarantee approval by a fixed date? No. Decisions and review periods depend on the approving parties and the completeness and scope of the application.",
+      "ru": "Гарантируете разрешение к определённой дате? Нет. Решение и сроки рассмотрения зависят от согласующих сторон, полноты и содержания заявки."
+    },
+    "Q4": {
+      "en": "Can you continue an existing application? We can review its current status and advise what is required before confirming involvement.",
+      "ru": "Можете продолжить начатую заявку? Изучим её статус и определим необходимые действия до подтверждения участия."
+    },
+    "Q5": {
+      "en": "Does my villa need a permit for interior work only? It depends on what the work touches. Layout changes, structural openings and changes to services usually require approval; finishes alone usually do not. Your community or building management may require notification either way. We confirm this for your property before any work is planned.",
+      "ru": "Нужно ли разрешение, если работы только внутренние? Зависит от того, что затрагивается. Изменение планировки, проёмы в конструкциях и изменения инженерных систем обычно требуют согласования; только отделка: обычно нет. Уведомление управляющей компании может потребоваться в любом случае. Мы подтверждаем это по вашему объекту до планирования работ."
+    },
+    "Q6": {
+      "en": "Why do you ask about the community before quoting? Because the community determines the route. The authority, the required documents and the accepted drawing format differ, and quoting before this is confirmed would not be accurate.",
+      "ru": "Почему вы спрашиваете о сообществе до расчёта стоимости? Потому что сообщество определяет маршрут. Орган, состав документов и принимаемый формат чертежей различаются, и расчёт до подтверждения маршрута не был бы достоверным."
+    }
+  },
+  "C-P12-E01": {
+    "H1": {
+      "en": "Engineering Systems That Support the Interior",
+      "ru": "Инженерные системы для продуманного интерьера"
+    },
+    "body": {
+      "en": "MEP and HVAC design, installation and coordination for residential and commercial projects.",
+      "ru": "Проектирование, монтаж и координация инженерных систем для жилых и коммерческих проектов."
+    },
+    "CTA": {
+      "en": "Discuss Your Engineering Scope",
+      "ru": "Обсудить инженерные работы"
+    }
+  },
+  "C-P12-E02": {
+    "items": {
+      "en": "Electrical: Power and lighting requirements coordinated with the layout. · Plumbing: Water supply and drainage requirements for the agreed works. · HVAC: Air conditioning and ventilation planned around use and spatial constraints. · Coordination: Drawings, ceilings, furniture and installation requirements reviewed together.",
+      "ru": "Электрика: Электропитание и освещение с учётом планировки. · Сантехника: Водоснабжение и водоотведение в рамках согласованных работ. · Климатические системы: Кондиционирование и вентиляция с учётом эксплуатации и ограничений пространства. · Координация: Совместная проверка чертежей, потолков, мебели и требований к монтажу."
+    }
+  },
+  "C-P12-E03": {
+    "H2": {
+      "en": "Resolve Conflicts Before Installation",
+      "ru": "Уточнить несоответствия до монтажа"
+    },
+    "body": {
+      "en": "We review the relationship between engineering routes and the interior, so decisions on ceilings, access and equipment can be made before the relevant works.",
+      "ru": "Сопоставляем инженерные трассы с интерьером, чтобы решения по потолкам, доступу и оборудованию принимались до соответствующих работ."
+    }
+  },
+  "C-P12-E04": {
+    "steps": {
+      "en": "Brief and survey · Design · Coordination and required approvals · Installation · Checks and handover",
+      "ru": "Задача и обследование · Проектирование · Координация и согласования · Монтаж · Проверки и передача"
+    }
+  },
+  "C-P12-E05": {
+    "Q1": {
+      "en": "Can I order design only or installation only? Both can be discussed as separate scopes, subject to the available documentation and site requirements.",
+      "ru": "Можно заказать только проектирование или монтаж? Оба формата можно обсудить отдельно с учётом документации и требований объекта."
+    },
+    "Q2": {
+      "en": "Do you provide routine AC servicing? This page covers project design, installation and upgrades. Routine servicing is not part of the offer shown here.",
+      "ru": "Вы обслуживаете кондиционеры? Здесь представлены проектирование, монтаж и модернизация. Регулярное обслуживание не входит в предложение этой страницы."
+    },
+    "Q3": {
+      "en": "Can existing systems be retained? We assess their condition, capacity and compatibility with the proposed changes before confirming the solution.",
+      "ru": "Можно сохранить существующие системы? Оцениваем состояние, возможности и совместимость с изменениями до подтверждения решения."
+    }
+  },
+  "C-P13-M01": {
+    "H1": {
+      "en": "Materials and Procurement, Coordinated",
+      "ru": "Материалы и комплектация с единой координацией"
+    },
+    "body": {
+      "en": "Finishes, furniture, lighting and equipment selected around your design, budget and project requirements.",
+      "ru": "Отделка, мебель, освещение и оборудование с учётом дизайна, бюджета и требований проекта."
+    },
+    "CTA": {
+      "en": "Discuss Procurement",
+      "ru": "Обсудить комплектацию"
+    }
+  },
+  "C-P13-M02": {
+    "H2": {
+      "en": "What We Take Off Your Hands",
+      "ru": "Какие задачи берёт на себя команда"
+    },
+    "item 1": {
+      "en": "Selection. We shortlist materials, furniture and equipment that match the approved design, the intended budget and the project programme.",
+      "ru": "Подбор. Отбираем материалы, мебель и оборудование, которые соответствуют утверждённому дизайну, предполагаемому бюджету и графику проекта."
+    },
+    "item 2": {
+      "en": "Comparison. We request and compare supplier quotations for the specified items, so the choice is made on comparable terms.",
+      "ru": "Сравнение предложений. Запрашиваем и сравниваем предложения поставщиков по выбранным позициям, чтобы решение принималось на сопоставимых условиях."
+    },
+    "item 3": {
+      "en": "Specification. Dimensions, finishes and technical parameters are agreed and recorded before an order is placed.",
+      "ru": "Согласование спецификаций. До размещения заказа фиксируем размеры, отделку и технические параметры."
+    },
+    "item 4": {
+      "en": "Coordination. Orders, delivery dates and site readiness are coordinated with the works programme, and discrepancies are followed up.",
+      "ru": "Координация. Увязываем заказы, сроки поставки и готовность объекта с графиком работ, отрабатываем выявленные несоответствия."
+    },
+    "line": {
+      "en": "Your designer and procurement specialist work on this together, so the specification, the purchase and the installation date stay connected.",
+      "ru": "Эту работу совместно ведут дизайнер и специалист по закупкам: чтобы спецификация, покупка и дата монтажа оставались связанными."
+    },
+    "categories": {
+      "en": "Finishes · Sanitaryware · Lighting · Loose and fitted furniture · Appliances · Curtains, textiles and decor. This is the possible scope, not an automatic inclusion of every category in every order.",
+      "ru": "Отделка · Сантехника · Свет · Готовая и встроенная мебель · Техника · Шторы, текстиль и декор. Это возможный охват, а не автоматическое включение каждой категории в любой заказ."
+    }
+  },
+  "C-P13-M03": {
+    "H2": {
+      "en": "Two Purchasing Routes",
+      "ru": "Два способа закупки"
+    },
+    "A": {
+      "en": "Supply through Bellvero: you approve our proposal for the specified goods.",
+      "ru": "Поставка через Bellvero: вы утверждаете наше предложение на конкретные товары."
+    },
+    "B": {
+      "en": "Direct supplier purchase: you pay the supplier while we provide the agreed coordination service.",
+      "ru": "Прямая покупка у поставщика: вы оплачиваете поставщику, а мы выполняем согласованное сопровождение."
+    },
+    "note": {
+      "en": "The seller, payment route and responsibility for each order are identified before purchase.",
+      "ru": "До покупки определяем продавца, порядок оплаты и ответственность по каждому заказу."
+    }
+  },
+  "C-P13-M04": {
+    "H2": {
+      "en": "A Defined Procurement Scope",
+      "ru": "Определённый состав комплектации"
+    },
+    "body": {
+      "en": "Categories, responsibilities and the support period are agreed in the proposal. Goods, shipping, storage and installation are priced separately unless expressly included.",
+      "ru": "Категории, ответственность и период сопровождения согласовываем в предложении. Товары, перевозка, хранение и монтаж оплачиваются отдельно, если прямо не включены."
+    }
+  },
+  "C-P13-M05": {
+    "H2": {
+      "en": "Material Palettes",
+      "ru": "Палитры материалов"
+    }
+  },
+  "C-P13-M06": {
+    "Q1": {
+      "en": "Can I use procurement without your design service? Yes. We review the available design and specifications and define the procurement scope.",
+      "ru": "Можно заказать комплектацию без вашего дизайна? Да. Изучаем имеющийся дизайн и спецификации и определяем состав комплектации."
+    },
+    "Q2": {
+      "en": "Are goods included in the design-and-procurement fee? No. The service fee and the cost of goods are separate unless your proposal expressly states otherwise.",
+      "ru": "Товары входят в цену дизайна с комплектацией? Нет. Стоимость услуги и товаров разделены, если в предложении прямо не указано иное."
+    },
+    "Q3": {
+      "en": "What if an item becomes unavailable? We identify alternatives for your approval and explain any price or timing difference before ordering.",
+      "ru": "Что если позиция исчезла из продажи? Предложим замены и объясним разницу в цене или сроках до заказа."
+    },
+    "Q4": {
+      "en": "Who follows up on delivery discrepancies? Our team provides the agreed coordination and follows up with the seller according to the purchasing arrangement.",
+      "ru": "Кто занимается несоответствиями при поставке? Команда выполняет согласованное сопровождение и взаимодействует с продавцом по выбранной схеме закупки."
+    }
+  },
+  "C-P14-G01": {
+    "H1": {
+      "en": "Concept Projects",
+      "ru": "Концептуальные проекты"
+    },
+    "intro": {
+      "en": "These are concept projects, created to show how we plan a space, coordinate the technical side and detail the joinery. They are AI-generated visualisations of the scope our team covers, not photographs of delivered properties.",
+      "ru": "Это концептуальные проекты: они показывают, как мы планируем пространство, координируем техническую часть и прорабатываем мебель. Это AI-визуализации того объёма работ, который берёт на себя команда, а не фотографии сданных объектов."
+    }
+  },
+  "C-P14-G03": {
+    "CTA": {
+      "en": "Discuss a Similar Project",
+      "ru": "Обсудить похожий проект"
+    }
+  },
+  "C-CS08": {
+    "H2": {
+      "en": "Related Concepts",
+      "ru": "Связанные концепции"
+    }
+  },
+  "C-P15-CS02": {
+    "H1": {
+      "en": "Coastal Villa: Concept Project",
+      "ru": "Вилла у воды: концептуальный проект"
+    },
+    "scope line": {
+      "en": "Concept · Interior Design · Approvals · Complete Renovation · Bespoke Joinery",
+      "ru": "Концепция · Дизайн · Согласования · Комплексный ремонт · Мебель на заказ"
+    }
+  },
+  "C-P15-CS03": {
+    "overview": {
+      "en": "A concept for a two-storey family villa, developed to show how a complete project is coordinated: interior design, the approvals route, renovation works, final finishes and fitted furniture inside one agreed scope. The concept demonstrates the decisions our team takes and the level of detail we work to.",
+      "ru": "Концепция двухэтажной семейной виллы: показывает, как координируется комплексный проект: дизайн интерьера, маршрут согласований, ремонтные работы, чистовая отделка и встроенная мебель в рамках одного согласованного объёма. Концепция демонстрирует, какие решения принимает команда и с какой степенью детализации мы работаем."
+    }
+  },
+  "C-P15-CS04": {
+    "scope": {
+      "en": "Interior design · Approval coordination · Renovation works · Installation of final finishes and fittings · Bespoke cabinet furniture and installation",
+      "ru": "Дизайн интерьера · Сопровождение согласований · Ремонтные работы · Монтаж чистовой отделки и элементов интерьера · Корпусная мебель и установка"
+    }
+  },
+  "C-P15-CS05": {
+    "caption": {
+      "en": "Concept layout",
+      "ru": "Планировка концепции"
+    }
+  },
+  "C-P15-CS06": {
+    "caption": {
+      "en": "Material palette of this concept",
+      "ru": "Палитра материалов концепции"
+    }
+  },
+  "C-P15-CS07": {
+    "H2": {
+      "en": "Concept Gallery",
+      "ru": "Галерея концепции"
+    }
+  },
+  "C-P16-CS02": {
+    "H1": {
+      "en": "Garden Villa: Concept Project",
+      "ru": "Вилла с садом: концептуальный проект"
+    },
+    "scope line": {
+      "en": "Concept · Renovation · Landscape · Selected Bespoke Joinery",
+      "ru": "Концепция · Ремонт · Ландшафт · Отдельные элементы мебели"
+    }
+  },
+  "C-P16-CS03": {
+    "overview": {
+      "en": "A single-storey villa concept built around the relationship between the interior and the garden. It shows how renovation, outdoor design and selected joinery elements are coordinated when the living space opens directly onto a terrace.",
+      "ru": "Концепция одноэтажной виллы, построенная вокруг связи интерьера и сада. Показывает, как координируются ремонт, наружное пространство и отдельные элементы мебели, когда жилая зона напрямую выходит на террасу."
+    }
+  },
+  "C-P16-CS04": {
+    "scope": {
+      "en": "Renovation works · Interior finishes · Terrace and planting concept · Selected cabinet furniture",
+      "ru": "Ремонтные работы · Внутренняя отделка · Концепция террасы и озеленения · Отдельные элементы корпусной мебели"
+    }
+  },
+  "C-P17-CS02": {
+    "H1": {
+      "en": "Tower Residence: Concept Project",
+      "ru": "Квартира в башне: концептуальный проект"
+    },
+    "scope line": {
+      "en": "Concept · Interior Design · Approvals · Complete Renovation · Bespoke Joinery",
+      "ru": "Концепция · Дизайн · Согласования · Комплексный ремонт · Мебель на заказ"
+    }
+  },
+  "C-P17-CS03": {
+    "overview": {
+      "en": "An apartment concept developed around the constraints of a managed building: access, deliveries, protection of shared areas and the approval documents a change of layout requires. It shows a complete apartment scope from design to fitted furniture.",
+      "ru": "Концепция квартиры, выстроенная вокруг ограничений управляемого здания: доступ, поставки, защита общих зон и документы, которые требуются при изменении планировки. Показывает полный объём работ по квартире: от дизайна до встроенной мебели."
+    }
+  },
+  "C-P17-CS04": {
+    "scope": {
+      "en": "Interior design · Approval coordination · Complete renovation · Final finishes and fittings · Cabinet furniture installation",
+      "ru": "Дизайн интерьера · Сопровождение согласований · Комплексный ремонт · Чистовая отделка и элементы интерьера · Установка корпусной мебели"
+    }
+  },
+  "C-P18-CS02": {
+    "H1": {
+      "en": "Business District Office: Concept Project",
+      "ru": "Офис в деловом районе: концептуальный проект"
+    },
+    "scope line": {
+      "en": "Concept · Approvals · Office Fit-Out · Furniture Procurement",
+      "ru": "Концепция · Согласования · Отделка офиса · Закупка мебели"
+    }
+  },
+  "C-P18-CS03": {
+    "overview": {
+      "en": "A workspace concept showing how an office fit-out is planned around the way a business operates: approval documentation, the sequence of works, the finishes and the procurement of office furniture as one coordinated scope.",
+      "ru": "Концепция рабочего пространства: показывает, как отделка офиса планируется с учётом работы компании: документация для согласований, последовательность работ, отделка и закупка офисной мебели в едином координируемом объёме."
+    }
+  },
+  "C-P18-CS04": {
+    "scope": {
+      "en": "Approval documentation · Fit-out works · Interior finishes · Office furniture procurement · Inspection and handover",
+      "ru": "Документация для согласований · Отделочные работы · Внутренняя отделка · Закупка офисной мебели · Проверка и передача"
+    }
+  },
+  "C-P19-PR01": {
+    "H1": {
+      "en": "From the First Conversation to Handover",
+      "ru": "От первого разговора до передачи объекта"
+    },
+    "body": {
+      "en": "A clear sequence, a dedicated project manager and agreed decisions at each stage. The route is adapted to your property and the services you commission.",
+      "ru": "Понятная последовательность, выделенный проджект-менеджер и согласованные решения на каждом этапе. Порядок зависит от объекта и выбранных услуг."
+    }
+  },
+  "C-P19-PR02": {
+    "10": {
+      "en": "Inspection & Handover. We inspect the agreed works, record outstanding items and arrange handover with the relevant project and warranty information.",
+      "ru": "Проверка и передача. Проверяем согласованные работы, фиксируем замечания и организуем передачу объекта с необходимой проектной и гарантийной информацией."
+    },
+    "01": {
+      "en": "Brief & Initial Budget. We discuss the property, your priorities, the intended scope and an initial budget direction.",
+      "ru": "Задача и предварительный бюджет. Обсуждаем объект, приоритеты, предполагаемые работы и ориентир по бюджету."
+    },
+    "02": {
+      "en": "Site Review & Survey. We review existing conditions and arrange the measurements required for the agreed stage.",
+      "ru": "Осмотр и обмеры. Изучаем существующее состояние и организуем замеры, необходимые для согласованного этапа."
+    },
+    "03": {
+      "en": "Concept & Layout. We develop the agreed design direction, layouts and material palette, or review your existing design.",
+      "ru": "Концепция и планировка. Разрабатываем согласованную концепцию, планировки и палитру материалов либо изучаем ваш готовый дизайн."
+    },
+    "04": {
+      "en": "Design & Technical Coordination. We coordinate design drawings, services, specifications and the requirements of the next project stages.",
+      "ru": "Проектирование и техническая координация. Увязываем дизайн, инженерные решения, спецификации и требования следующих этапов."
+    },
+    "05": {
+      "en": "Scope, Quotation & Agreement. The scope, exclusions, responsibilities, programme and commercial terms are recorded before the relevant work begins.",
+      "ru": "Объём, смета и договорённости. До начала соответствующих работ фиксируем состав, исключения, ответственность, график и коммерческие условия."
+    },
+    "06": {
+      "en": "Approvals & Preparation. We prepare and coordinate the required submissions within the agreed scope and plan site access and mobilisation.",
+      "ru": "Согласования и подготовка. В рамках согласованного объёма готовим и сопровождаем необходимые подачи, планируем доступ и начало работ."
+    },
+    "07": {
+      "en": "Construction & Engineering. Site works and engineering installations follow the agreed documentation, with site supervision and progress reporting.",
+      "ru": "Строительные и инженерные работы. Работы выполняются по согласованной документации, с контролем на объекте и отчётами о ходе реализации."
+    },
+    "08": {
+      "en": "Production & Procurement. Joinery is manufactured and agreed materials and products are procured in coordination with the site programme.",
+      "ru": "Производство и комплектация. Изготавливаем мебель и закупаем согласованные материалы и изделия, увязывая поставки с графиком объекта."
+    },
+    "09": {
+      "en": "Installation & Completion. We coordinate final installations, finishing details and the preparation of the property for inspection.",
+      "ru": "Монтаж и завершение. Координируем установку, завершающую отделку и подготовку объекта к проверке."
+    },
+    "note": {
+      "en": "Some stages overlap. Production and procurement can run alongside site works, while quality checks continue throughout. Exact technical measurements for standalone joinery follow the agreement and precede production.",
+      "ru": "Некоторые этапы идут параллельно. Производство и закупки могут совпадать с работами на объекте, а контроль качества ведётся на протяжении реализации. Точные технические замеры для отдельного заказа мебели выполняются после договора и до изготовления."
+    }
+  },
+  "C-P19-PR03": {
+    "route 1": {
+      "en": "Design Only: Brief, agreed design stages, review rounds and delivery of the design package. Support after delivery is commissioned separately.",
+      "ru": "Только дизайн: Задача, согласованные этапы проектирования, раунды изменений и передача проекта. Сопровождение после выдачи заказывается отдельно."
+    },
+    "route 2": {
+      "en": "Build from Your Design: We review your drawings and existing approvals, agree the implementation scope and coordinate the works.",
+      "ru": "Реализация вашего дизайна: Изучаем чертежи и имеющиеся разрешения, согласовываем состав реализации и организуем работы."
+    },
+    "route 3": {
+      "en": "Bespoke Joinery: Brief and quotation, agreement, technical survey, drawings and samples, production and installation.",
+      "ru": "Мебель на заказ: Задача и предложение, договор, технический замер, чертежи и образцы, производство и монтаж."
+    }
+  },
+  "C-P19-PR04": {
+    "H2": {
+      "en": "Decisions You Can Follow",
+      "ru": "Решения, которые понятны вам"
+    },
+    "body": {
+      "en": "Your project manager coordinates communication. The site foreman oversees the works. Photos, videos and written updates are shared in the project group daily or every few days, according to the agreed reporting rhythm. Additional works begin only after approval of their scope and cost; any programme impact is discussed.",
+      "ru": "Проджект-менеджер координирует общение, прораб контролирует работы на объекте. Фото, видео и письменные отчёты отправляются в рабочую группу ежедневно или раз в несколько дней: по согласованному графику. Дополнительные работы начинаются только после подтверждения состава и стоимости; влияние на сроки обсуждается отдельно."
+    }
+  },
+  "C-P20-A01": {
+    "H1": {
+      "en": "A Family Business. A Shared Standard.",
+      "ru": "Семейный бизнес. Общий стандарт работы."
+    },
+    "body": {
+      "en": "Bellvero Group brings design, engineering, project delivery and bespoke joinery together for homes and commercial spaces in Dubai and Abu Dhabi.",
+      "ru": "Bellvero Group объединяет дизайн, инженерные решения, реализацию и мебель на заказ для жилых и коммерческих пространств в Дубае и Абу-Даби."
+    }
+  },
+  "C-P20-A02": {
+    "H2": {
+      "en": "Two Founders, One Standard of Work",
+      "ru": "Два основателя и общий стандарт работы"
+    },
+    "body 1": {
+      "en": "In 2021 two brothers started their own renovation and construction business. Today that work continues as Bellvero Group.",
+      "ru": "В 2021 году два брата начали собственный бизнес в сфере ремонта и строительства. Сегодня эта работа продолжается под именем Bellvero Group."
+    },
+    "body 2": {
+      "en": "Each of them brought an established career into it. One had spent his working life as an engineer on large construction sites in the UAE, holding chief engineer positions with contracting companies. The other had managed construction projects in several countries. A third partner is responsible for client relations.",
+      "ru": "Каждый пришёл в него со сложившейся профессией. Один работал инженером на крупных стройках ОАЭ и занимал должность главного инженера в подрядных компаниях. Второй управлял строительными проектами в нескольких странах. Третий партнёр отвечает за работу с клиентами."
+    },
+    "body 3": {
+      "en": "That background shapes how we work. An interior is a connected project: the design has to be technically buildable, the works have to follow an agreed scope, and the furniture has to fit the space it was made for. Keeping those decisions connected is the reason the family stays directly involved rather than delegating the project and stepping away.",
+      "ru": "Этот опыт определяет и то, как мы работаем. Интерьер представляет собой связанный проект: дизайн должен быть технически реализуемым, работы должны соответствовать согласованному объёму, а мебель должна подходить пространству, для которого она создана. Именно поэтому владельцы участвуют в проектах лично, а не передают их и отходят в сторону."
+    }
+  },
+  "C-P20-A03": {
+    "H2": {
+      "en": "Leadership",
+      "ru": "Руководство"
+    },
+    "profile 1": {
+      "en": "Co-Founder & Chief Engineer: Leads the technical direction of Bellvero Group. Before the family business, held chief engineer positions with UAE contracting companies on large residential, commercial and public buildings in Dubai and Abu Dhabi. On a private project that experience is applied where mistakes are expensive to correct: checking that the design can actually be built in your property, coordinating mechanical, electrical and plumbing works with the interior, and reviewing the technical decisions before works proceed.",
+      "ru": "Сооснователь и главный инженер: Отвечает за техническое направление Bellvero Group. До семейного бизнеса занимал должность главного инженера в подрядных компаниях ОАЭ на крупных жилых, коммерческих и общественных объектах Дубая и Абу-Даби. В частном проекте этот опыт применяется там, где ошибки дорого исправлять: проверка того, что дизайн действительно реализуем на вашем объекте, увязка инженерных систем с интерьером и техническая проверка решений до начала работ."
+    },
+    "profile 2": {
+      "en": "Co-Founder & Head of Project Management: Leads project management, with eighteen years of experience in construction, including work as a project manager on projects in several countries. At Bellvero Group leads the project managers: how the programme is planned, how site teams, production and suppliers are coordinated, and how issues raised on site are resolved and reported back to you.",
+      "ru": "Сооснователь и руководитель управления проектами: Руководит управлением проектами, имеет 18 лет опыта в строительстве, включая работу проджект-менеджером на проектах в нескольких странах. В Bellvero Group руководит проджект-менеджерами: планирование графика, координация бригад, производства и поставщиков, решение вопросов на объекте и отчётность перед вами."
+    },
+    "profile 3": {
+      "en": "Partner & Head of Client Relations: Represents the owners in client relations. Takes the first conversation, establishes your priorities and the likely scope of work, and hands the brief to the designers, engineers and project managers. The role is to keep the communication between you and the team consistent: that what was discussed at the start is what appears in the proposal, and that you always know who is responsible for the next step.",
+      "ru": "Партнёр и руководитель по работе с клиентами: Представляет сторону владельцев в работе с клиентами. Проводит первое обсуждение, выясняет приоритеты и предполагаемый состав работ и передаёт задачу дизайнерам, инженерам и проджект-менеджерам. Задача роли: сохранять понятную коммуникацию между вами и командой, чтобы обсуждённое в начале соответствовало подготовленному предложению и чтобы всегда было ясно, кто отвечает за следующий шаг."
+    }
+  },
+  "C-P20-A03b": {
+    "H2": {
+      "en": "The Experience Behind Bellvero",
+      "ru": "Опыт, стоящий за Bellvero"
+    },
+    "intro": {
+      "en": "The experience the founders bring to Bellvero. These projects were delivered by their previous employers.",
+      "ru": "Опыт, с которым основатели пришли в Bellvero. Эти объекты выполнены их прежними работодателями."
+    },
+    "table columns": {
+      "en": "Project · Employer · Role · Period · Responsibility",
+      "ru": "Проект · Работодатель · Должность · Период · Ответственность"
+    }
+  },
+  "C-P20-A03c": {
+    "body": {
+      "en": "In practice this means the technical review of your design before works start, coordination between the interior and the engineering systems, and a defined set of stages that the founders check. Your day-to-day contact remains your project manager.",
+      "ru": "На практике это означает техническую проверку вашего проекта до начала работ, увязку интерьера с инженерными системами и определённый перечень этапов, которые проверяют основатели. Ежедневное общение остаётся за вашим проджект-менеджером."
+    }
+  },
+  "C-P20-A04": {
+    "H2": {
+      "en": "Made for the Project",
+      "ru": "Производство под проект"
+    },
+    "body": {
+      "en": "Our own production makes bespoke cabinetry, with glass and stone work also carried out by our team. Upholstered furniture and other selected products are sourced to suit the agreed design. Production visits can be arranged by appointment.",
+      "ru": "На собственном производстве изготавливаем корпусную мебель; работы со стеклом и камнем также выполняет наша команда. Мягкую мебель и другие выбранные изделия закупаем под согласованный дизайн. Посещение производства возможно по предварительной договорённости."
+    }
+  },
+  "C-P20-A04b": {
+    "H2": {
+      "en": "Who You Are Contracting With",
+      "ru": "С кем вы заключаете договор"
+    },
+    "body": {
+      "en": "Bellvero Group operates as [LEGAL ENTITY NAME], licence no. [LICENCE NUMBER], issued by [ISSUING AUTHORITY]. The licensed activities are [ACTIVITIES]. Contracts, invoices and warranty documents are issued in this name.",
+      "ru": "Bellvero Group работает как [ЮРИДИЧЕСКОЕ ЛИЦО], лицензия № [НОМЕР ЛИЦЕНЗИИ], выдана [ОРГАН ВЫДАЧИ]. Виды деятельности по лицензии: [ДЕЯТЕЛЬНОСТЬ]. Договоры, счета и гарантийные документы оформляются на это наименование."
+    }
+  },
+  "C-P20-A05": {
+    "H2": {
+      "en": "What You Can Expect",
+      "ru": "Что важно в нашей работе"
+    },
+    "body": {
+      "en": "A defined scope. Decisions recorded before changes proceed. Coordinated design and execution. Progress updates and a clear route to handover.",
+      "ru": "Определённый состав работ. Зафиксированные решения до начала изменений. Согласованность дизайна и реализации. Отчёты о ходе работ и понятный порядок передачи объекта."
+    }
+  },
+  "C-P21-K01": {
+    "H1": {
+      "en": "Tell Us About Your Project",
+      "ru": "Расскажите о вашем проекте"
+    },
+    "body": {
+      "en": "A home, a workspace or a bespoke furniture commission: share what you are planning, and our client relations manager will help define the next step.",
+      "ru": "Жилой интерьер, рабочее пространство или мебель на заказ: расскажите о своей задаче, и наш менеджер по работе с клиентами поможет определить следующий шаг."
+    }
+  },
+  "C-P21-K02": {
+    "hours": {
+      "en": "Working Hours: Monday–Friday, 9:00–18:00, UAE time",
+      "ru": "Часы работы: Понедельник–пятница, 9:00–18:00, время ОАЭ"
+    },
+    "locations": {
+      "en": "Project Locations: Dubai & Abu Dhabi. Other locations by arrangement.",
+      "ru": "География проектов: Дубай и Абу-Даби. Другие эмираты: по согласованию."
+    },
+    "meetings": {
+      "en": "Meetings: At your property or another agreed location. Production visits by appointment.",
+      "ru": "Встречи: На вашем объекте или в другом согласованном месте. Производство: по предварительной договорённости."
+    },
+    "company": {
+      "en": "Company Details: [LEGAL ENTITY NAME] · Licence no. [LICENCE NUMBER] · [ISSUING AUTHORITY]",
+      "ru": "Реквизиты компании: [ЮРИДИЧЕСКОЕ ЛИЦО] · Лицензия № [НОМЕР] · [ОРГАН ВЫДАЧИ]"
+    }
+  },
+  "C-P21-K03": {
+    "1": {
+      "en": "We review your enquiry and contact you during working hours.",
+      "ru": "Изучаем обращение и связываемся в рабочее время."
+    },
+    "2": {
+      "en": "We discuss your priorities, design direction and the work you are considering.",
+      "ru": "Обсуждаем приоритеты, пожелания к дизайну и предполагаемые работы."
+    },
+    "3": {
+      "en": "Where relevant, we arrange an initial site visit and outline the next steps.",
+      "ru": "При необходимости согласовываем первичный выезд и дальнейшие шаги."
+    },
+    "H2": {
+      "en": "What Happens Next",
+      "ru": "Что будет дальше"
+    },
+    "note": {
+      "en": "The initial discussion and first renovation site visit in Dubai or Abu Dhabi are complimentary. Design work, technical surveys and other commissioned services are agreed separately.",
+      "ru": "Первичное обсуждение и первый осмотр объекта ремонта в Дубае или Абу-Даби проводятся без оплаты. Проектирование, технические замеры и другие заказываемые услуги согласовываются отдельно."
+    }
+  },
+  "C-P21-K04": {
+    "Q1": {
+      "en": "Do I need drawings before contacting you? No. Photos, a floor plan or a short description are useful if available, but you can start with a conversation.",
+      "ru": "Нужны чертежи для первого обращения? Нет. Если есть фотографии, план или краткое описание: они помогут, но начать можно с разговора."
+    },
+    "Q2": {
+      "en": "Can we meet online? Yes. We can begin remotely and arrange a site meeting when needed.",
+      "ru": "Можно начать онлайн? Да. Первое обсуждение можно провести дистанционно, а встречу на объекте организовать при необходимости."
+    },
+    "Q3": {
+      "en": "Can I visit the production? Yes, by prior arrangement so the relevant team can meet you.",
+      "ru": "Можно приехать на производство? Да, по предварительной договорённости, чтобы вас встретили нужные специалисты."
+    }
+  },
+  "C-P22-WA01": {
+    "H1": {
+      "en": "Warranty & Aftercare",
+      "ru": "Гарантия и обращения после сдачи"
+    },
+    "body": {
+      "en": "Clear responsibility after handover. Your project documents identify the work covered, the warranty period and the relevant product warranties.",
+      "ru": "Понятная ответственность после передачи объекта. В документах проекта указываются покрываемые работы, гарантийный срок и применимые гарантии на изделия."
+    }
+  },
+  "C-P22-WA02": {
+    "col 1": {
+      "en": "36 Months: Renovation Workmanship. Covers defects attributable to our workmanship within the agreed renovation scope, from documented handover of the relevant works.",
+      "ru": "36 месяцев: выполненные ремонтные работы. На дефекты, связанные с качеством выполненных нами работ в согласованном объёме ремонта, с документально оформленной передачи соответствующих работ."
+    },
+    "col 2": {
+      "en": "48 Months: Our Bespoke Cabinetry. Covers manufacturing and installation defects in cabinetry made and installed by Bellvero, from documented handover of the relevant items.",
+      "ru": "48 месяцев: наша корпусная мебель. На производственные и монтажные дефекты корпусной мебели, изготовленной и установленной Bellvero, с документально оформленной передачи соответствующих изделий."
+    },
+    "note": {
+      "en": "Engineering systems, glass and stone are classified in the contract according to the actual works and items.",
+      "ru": "Инженерные системы, стекло и камень классифицируются в договоре по фактическим работам и изделиям."
+    }
+  },
+  "C-P22-WA03": {
+    "H2": {
+      "en": "Products and Use",
+      "ru": "Изделия и эксплуатация"
+    },
+    "body": {
+      "en": "Appliances, hardware, upholstered furniture and other sourced products carry the warranty terms stated for those products. Normal wear, maintenance needs and damage caused by misuse or third-party alterations are assessed separately. The cause of a reported defect is reviewed before a decision is made. These terms do not remove any mandatory customer rights.",
+      "ru": "Для техники, фурнитуры, мягкой мебели и других закупаемых изделий действуют указанные для них гарантийные условия. Естественный износ, необходимость обслуживания и повреждения из-за неправильной эксплуатации или изменений третьими лицами рассматриваются отдельно. До принятия решения устанавливается причина заявленного дефекта. Эти условия не отменяют обязательные права заказчика."
+    }
+  },
+  "C-P22-WA04": {
+    "H2": {
+      "en": "How to Contact Us",
+      "ru": "Как обратиться"
+    },
+    "body": {
+      "en": "Contact Bellvero with your project reference, a description and photos or video where possible. We record the issue, review the available information and agree the appropriate inspection or next step. Please avoid altering the affected area before assessment unless urgent action is needed for safety or to prevent further damage.",
+      "ru": "Обратитесь в Bellvero: укажите проект, опишите проблему и по возможности приложите фото или видео. Мы зарегистрируем обращение, изучим информацию и согласуем осмотр или дальнейшие действия. По возможности не изменяйте проблемный участок до оценки, кроме срочных мер для безопасности и предотвращения дальнейшего ущерба."
+    }
+  },
+  "C-P23": {
+    "Who we are": {
+      "en": "This website is operated by [LEGAL ENTITY], trading as Bellvero Group. Contact: [CONTACT EMAIL]. Registered address: [LEGAL ADDRESS].",
+      "ru": "Сайт принадлежит [ЮРИДИЧЕСКОЕ ЛИЦО], работающему под брендом Bellvero Group. Контакт: [CONTACT EMAIL]. Юридический адрес: [ЮРИДИЧЕСКИЙ АДРЕС]."
+    },
+    "Information you provide": {
+      "en": "When you enquire, we receive the information you submit, such as your name, phone number, optional email, project type, location and message. Information you send later through email or messaging may include project documents and images.",
+      "ru": "При обращении получаем указанные вами имя, телефон, необязательный email, тип проекта, местоположение и сообщение. В дальнейшей переписке по почте или в мессенджере вы можете передавать проектные документы и изображения."
+    },
+    "How we use it": {
+      "en": "We use enquiry information to respond, discuss your project, prepare relevant proposals and manage the relationship. We also use necessary technical information to operate and secure the website. Optional analytics and advertising technologies operate according to your choices.",
+      "ru": "Используем сведения из обращения, чтобы ответить, обсудить проект, подготовить предложение и вести взаимодействие. Необходимые технические данные используются для работы и защиты сайта. Необязательные инструменты аналитики и рекламы работают с учётом вашего выбора."
+    },
+    "Service providers": {
+      "en": "Authorised hosting, communication and enquiry-management providers may process information for these purposes. The providers used by this website and any relevant international processing arrangements are listed here: [ACTUAL PROVIDERS AND LOCATIONS].",
+      "ru": "Уполномоченные поставщики хостинга, связи и систем учёта обращений могут обрабатывать сведения для этих задач. Используемые поставщики и сведения о международной обработке перечислены здесь: [ФАКТИЧЕСКИЕ ПОСТАВЩИКИ И ГЕОГРАФИЯ]."
+    },
+    "Retention": {
+      "en": "We keep information for the period necessary for the stated purpose and applicable record-keeping requirements. Enquiry, project and technical retention periods are described here: [APPROVED RETENTION SCHEDULE].",
+      "ru": "Храним данные в течение срока, необходимого для указанной цели и применимых требований к учёту. Сроки хранения обращений, проектных и технических данных: [УТВЕРЖДЁННЫЙ ПОРЯДОК ХРАНЕНИЯ]."
+    },
+    "Your choices": {
+      "en": "You can change optional cookie choices through Cookie Settings. Contact [CONTACT EMAIL] to ask about your information, request correction or deletion, or raise a privacy concern. We assess requests under the requirements that apply to your circumstances.",
+      "ru": "Необязательные cookies можно настроить через «Настройки cookie». Для вопросов о данных, исправления, удаления или обращения по конфиденциальности напишите на [CONTACT EMAIL]. Запрос рассматривается с учётом применимых к вашей ситуации требований."
+    },
+    "External services": {
+      "en": "Following a WhatsApp, telephone, email or other external-service link may involve that service's own processing practices. Please review the relevant service's privacy information.",
+      "ru": "Переход в WhatsApp, почтовое приложение или другой внешний сервис может сопровождаться обработкой данных этим сервисом. Ознакомьтесь с его правилами конфиденциальности."
+    },
+    "Changes": {
+      "en": "We update this notice when our website or processing arrangements change. The current revision date appears above.",
+      "ru": "Обновляем политику при изменении сайта или порядка обработки данных. Дата действующей редакции указана выше."
+    }
+  },
+  "C-P24": {
+    "intro": {
+      "en": "We use necessary technologies to operate and protect this website. With your permission, we also use analytics to understand website use and marketing technologies to measure campaigns and support relevant advertising. You can accept, reject or change optional categories below.",
+      "ru": "Используем необходимые технологии для работы и защиты сайта. С вашего разрешения применяем аналитику для понимания использования сайта и рекламные технологии для измерения кампаний и показа подходящей рекламы. Необязательные категории можно принять, отклонить или изменить ниже."
+    },
+    "dialog": {
+      "en": "Your Privacy Choices: Allow optional analytics and advertising technologies? Necessary website functions remain available if you decline. Accept All · Reject Optional · Settings · Save Choices",
+      "ru": "Ваши настройки конфиденциальности: Разрешить необязательные технологии аналитики и рекламы? При отказе необходимые функции сайта останутся доступны. Принять все · Отклонить необязательные · Настроить · Сохранить выбор"
+    },
+    "categories": {
+      "en": "Necessary: always active · Analytics · Marketing",
+      "ru": "Необходимые: всегда активны · Аналитика · Реклама"
+    }
+  }
+}

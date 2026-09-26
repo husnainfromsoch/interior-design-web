@@ -1,11 +1,12 @@
 import type { MetadataRoute } from "next";
 import { ARTICLES } from "@/data/insights";
-import { services } from "@/data/services";
+import { SERVICE_PAGES } from "@/data/servicePages";
+import { CONCEPTS } from "@/data/concepts";
 import { localeAlternates, localeUrl } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPaths = ["/", "/services", "/portfolio", "/process", "/about", "/contact", "/warranty", "/privacy", "/cookies", "/insights"];
-  const servicePaths = [...new Set(services.map((s) => s.href))];
+  const staticPaths = ["/", "/services", "/projects", "/process", "/about", "/contact", "/warranty", "/privacy", "/cookies", "/insights"];
+  const servicePaths = [...SERVICE_PAGES.map((s) => `/services/${s.slug}`), ...CONCEPTS.map((c) => `/projects/${c.slug}`)];
 
   const entry = (path: string, lastModified?: string) =>
     (["en", "ru"] as const).map((locale) => ({

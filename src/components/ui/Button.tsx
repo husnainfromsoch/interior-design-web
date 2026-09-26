@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 type Variant = "primary" | "outline" | "outline-light";
 
 const base =
-  "inline-flex items-center gap-2 rounded-[2px] px-[28px] py-[14px] text-sm font-semibold tracking-wide transition-all duration-200 ease-out active:translate-y-0";
+  "press btn-shine inline-flex items-center gap-2 rounded-sm px-[28px] py-[14px] text-sm font-semibold tracking-wide duration-200 ease-out";
 
 const variants: Record<Variant, string> = {
   primary:

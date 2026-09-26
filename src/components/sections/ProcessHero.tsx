@@ -43,7 +43,8 @@ export default function ProcessHero({
       const split = titleRef.current ? new SplitText(titleRef.current, { type: "lines", linesClass: "hero-line" }) : null;
       const statRows = statsRef.current ? gsap.utils.toArray<HTMLElement>(".hero-stat", statsRef.current) : [];
 
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      // Revert the line split once the intro has played, so the title wraps naturally at any width.
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" }, onComplete: () => split?.revert() });
       tl.fromTo(eyebrowRef.current, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.6 })
         .fromTo(
           split ? split.lines : titleRef.current,
@@ -66,8 +67,8 @@ export default function ProcessHero({
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-bv-background pb-16 pt-16 md:pb-24 md:pt-24 lg:pb-28 lg:pt-28">
-      <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} className="bv-flow bg-bv-background pb-14 pt-10 md:pb-[72px] lg:pb-[104px] lg:pt-16">
+      <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-8 lg:px-[60px]">
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-8">
             <span
@@ -78,7 +79,7 @@ export default function ProcessHero({
             </span>
             <h1
  ref={titleRef}
- className="text-[38px] sm:text-[52px] lg:text-[64px] mt-3 font-bv-heading text-[32px] font-medium leading-[1.1] text-bv-ink sm:text-[42px] lg:text-[46px]"
+ className="mt-4 font-bv-heading text-[38px] font-medium leading-[1.08] text-bv-ink md:text-[52px] lg:text-[64px]"
  >
               {title}
             </h1>
@@ -86,6 +87,7 @@ export default function ProcessHero({
               {intro}
             </p>
 
+            {stats.length > 0 && (
             <div
               ref={statsRef}
               className="hero-stats-marquee group relative mt-7 overflow-hidden border-t border-bv-line pt-6"
@@ -105,13 +107,14 @@ export default function ProcessHero({
                 ))}
               </div>
             </div>
+            )}
           </div>
 
           <div
             ref={imageRef}
-            className="relative mx-auto grid w-full max-w-[300px] grid-cols-2 gap-3 lg:col-span-4 lg:max-w-none lg:gap-4"
+            className="relative grid w-full max-w-[560px] grid-cols-2 gap-3 lg:col-span-4 lg:max-w-none lg:gap-4"
           >
-            <div className="relative col-span-2 aspect-[16/10] w-full overflow-hidden rounded-none ">
+            <div className="relative col-span-2 aspect-[16/10] w-full overflow-hidden rounded-lg ">
               <Image
                 src={images[0]}
                 alt={imageAlt}
@@ -125,7 +128,7 @@ export default function ProcessHero({
             {images.slice(1, 3).map((src, i) => (
               <div
                 key={src}
-                className={`relative aspect-square w-full overflow-hidden rounded-none  ${
+                className={`relative aspect-square w-full overflow-hidden rounded-lg  ${
                   i === 1 ? "translate-y-4" : ""
                 }`}
               >

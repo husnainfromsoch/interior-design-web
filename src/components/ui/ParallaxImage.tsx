@@ -26,7 +26,7 @@ export default function ParallaxImage({ src, alt, sizes, className = "" }: Props
     >
       <motion.div
         style={reduce ? undefined : { y }}
-        className="absolute inset-x-0 -inset-y-[9%] transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.025]"
+        className="absolute inset-x-0 -inset-y-[9%] img-zoom"
       >
         <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" />
       </motion.div>

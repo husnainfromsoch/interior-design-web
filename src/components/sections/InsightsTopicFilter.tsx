@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@/i18n/navigation";
-import { TOPICS, topicName, type TopicSlug } from "@/data/insights";
+import { TOPICS, topicName, type TopicSlug } from "@/data/insightsTopics";
 import { trackEvent } from "@/lib/analytics";
 
 export default function InsightsTopicFilter({

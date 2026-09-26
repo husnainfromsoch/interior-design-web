@@ -8,7 +8,6 @@ import HomeStages from "@/components/sections/HomeStages";
 import HomeFamily from "@/components/sections/HomeFamily";
 import HomeFaq from "@/components/sections/HomeFaq";
 import EnquiryForm from "@/components/ui/EnquiryForm";
-import ScrollProgress from "@/components/ui/ScrollProgress";
 
 export async function generateMetadata({
   params,
@@ -33,7 +32,6 @@ export default async function Home({
 
   return (
     <>
-      <ScrollProgress />
       {/* H01 */}
       <Hero />
       {/* H02 */}

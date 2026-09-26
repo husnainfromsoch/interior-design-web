@@ -1,5 +1,6 @@
 import { getTranslations, getLocale } from "next-intl/server";
 import HeroMedia from "./HeroMedia";
+import { RiseWords } from "@/components/spec/blocks";
 
 export default async function Hero() {
   const t = await getTranslations("Hero");
@@ -25,17 +26,16 @@ export default async function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-bv-ink/65 via-bv-ink/35 to-bv-ink/10" />
       <div className="absolute inset-0 bg-gradient-to-t from-bv-ink/70 via-transparent to-transparent" />
 
-      <div className="relative w-full">
-        <div className="mx-auto w-full max-w-[1320px] px-4 pb-20 sm:px-6 sm:pb-24 lg:px-8">
+      <div className="hero-scroll-out relative w-full">
+        <div className="mx-auto w-full max-w-[1320px] px-4 pb-20 sm:px-8 sm:pb-24 lg:px-[60px]">
           <div className="max-w-[780px] lg:w-7/12">
             <p style={{ animationDelay: "0.1s" }} className="hero-in flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-bv-white/90">
               {t("eyebrow")}
             </p>
             <h1
-              className={`hero-in mt-5 font-bv-heading font-medium tracking-tight ${isRu ? "text-[38px] sm:text-[56px] lg:text-[72px] leading-[1.06]" : "text-[42px] sm:text-[62px] lg:text-[80px] leading-[1.03]"}`}
-              style={{ animationDelay: "0.25s" }}
+              className={`mt-5 font-bv-heading font-medium tracking-tight ${isRu ? "text-[38px] sm:text-[56px] lg:text-[72px] leading-[1.06]" : "text-[42px] sm:text-[62px] lg:text-[80px] leading-[1.03]"}`}
             >
-              {t("title")}
+              <RiseWords text={t("title")} start={200} step={70} />
             </h1>
             <p className="tagline-in mt-6 max-w-lg text-[18px] leading-[1.55] text-bv-white sm:text-[20px]">
               {t("subtitle")
@@ -50,7 +50,8 @@ export default async function Hero() {
             <div style={{ animationDelay: "0.6s" }} className="hero-in mt-9">
               <a
                 href="#project-enquiry"
-                className="btn-shine inline-flex h-[52px] items-center rounded-[2px] bg-bv-accent px-8 text-sm font-semibold tracking-[0.02em] text-bv-white transition-all duration-200 hover:bg-bv-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-white"
+                data-magnetic
+                className="press btn-shine inline-flex h-[52px] items-center rounded-sm bg-bv-accent px-8 text-sm font-semibold tracking-[0.02em] text-bv-white duration-200 hover:bg-bv-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-white"
               >
                 {t("cta")}
               </a>

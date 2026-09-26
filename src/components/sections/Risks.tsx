@@ -48,18 +48,18 @@ export default async function Risks() {
           {risks.map((risk, i) => (
             <div
               key={risk.id}
-              className="reveal group relative flex flex-col overflow-hidden rounded-none border border-bv-line/50 bg-gradient-to-b from-white to-bv-background p-7  transition-all duration-500 ease-out hover:border-transparent "
+              className="reveal group relative flex flex-col overflow-hidden rounded-lg border border-bv-line/50 bg-gradient-to-b from-white to-bv-background p-7  transition-all duration-500 ease-out hover:border-transparent "
               style={{ "--reveal-delay": `${(i % 3) * 90}ms` } as React.CSSProperties}
             >
               {/* Ambient hover glow */}
-              <div className="pointer-events-none absolute -inset-px rounded-none bg-gradient-to-br from-bv-accent/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="pointer-events-none absolute -inset-px rounded-lg bg-gradient-to-br from-bv-accent/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
               <div className="relative mb-6 flex items-start justify-between">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-bv-ink/20 bg-bv-ink/[0.08] text-bv-ink transition-all duration-500 group-hover:border-bv-ink/40 group-hover:bg-bv-ink group-hover:text-bv-background">
                   <RiskIcon id={risk.id} />
                 </div>
 
-                <div className="flex items-center gap-1.5 rounded-full bg-bv-ink/5 py-1.5 pl-2.5 pr-3 transition-colors duration-500 group-hover:bg-bv-accent/10">
+                <div className="flex items-center gap-1.5 rounded-sm bg-bv-ink/5 py-1.5 pl-2.5 pr-3 transition-colors duration-500 group-hover:bg-bv-accent/10">
                   <svg
                     width="12"
                     height="12"

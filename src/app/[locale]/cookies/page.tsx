@@ -18,17 +18,20 @@ export default async function CookiesPage({ params }: { params: Promise<{ locale
 
   return (
     <>
-      <PageIntro eyebrow={t("eyebrow")} title={t("title")} intro={t("intro")} />
+      <PageIntro narrow eyebrow={t("eyebrow")} title={t("title")} intro={t("intro")} />
       <section className="bg-bv-background pb-14 md:pb-[72px] lg:pb-[104px]">
-        <div className="mx-auto w-full max-w-[800px] px-4 sm:px-6 lg:px-8">
-          <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[28px] font-medium leading-[1.15] text-bv-ink sm:text-[32px]">
+        <div className="mx-auto w-full max-w-[800px] px-4 sm:px-8">
+          <h2 className="font-bv-heading text-[32px] font-medium leading-[1.12] text-bv-ink md:text-[40px] lg:text-[48px]">
             {t("toolsHeading")}
           </h2>
           <div className="mt-6 divide-y divide-bv-line border-y border-bv-line">
             {tools.map((k) => (
               <div key={k} className="py-6">
                 <h3 className="font-bv-heading text-[22px] font-medium text-bv-ink">{t(`${k}Title`)}</h3>
-                <p className="mt-2 text-[16px] leading-[1.65] text-bv-muted">{t(`${k}Body`)}</p>
+                {/* A tool is listed only once it is actually installed (spec §24). */}
+                <p className="mt-2 text-[16px] leading-[1.65] text-bv-muted">
+                  {k === "analytics" && process.env.NEXT_PUBLIC_GA_ID ? t("analyticsGa") : t(`${k}Body`)}
+                </p>
               </div>
             ))}
           </div>

@@ -21,7 +21,7 @@ export default function ArticleFaq({ items, label }: { items: { q: string; a: st
               <span className="text-[17px] font-medium text-bv-ink">{item.q}</span>
               <span
                 aria-hidden="true"
-                className={`flex h-7 w-7 flex-none items-center justify-center rounded-full border border-bv-accent/40 text-bv-accent transition-transform duration-300 ${
+                className={`flex h-7 w-7 flex-none items-center justify-center rounded-sm border border-bv-accent/40 text-bv-accent transition-transform duration-300 ${
                   isOpen ? "rotate-45" : ""
                 }`}
               >

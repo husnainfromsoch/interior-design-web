@@ -24,14 +24,14 @@ export function InsightsCard({
 }) {
   return (
     <Link href={data.href} className="group flex h-full flex-col" {...dataAttrs}>
-      <div className="relative aspect-[3/2] w-full overflow-hidden rounded-none bg-bv-surface">
+      <div className="relative aspect-[3/2] w-full overflow-hidden rounded-lg bg-bv-surface">
         <Image
           src={data.cover}
           alt={data.coverAlt}
           fill
           loading="lazy"
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover"
+          className="img-zoom object-cover"
         />
       </div>
       <p className="mt-2 text-[11px] text-bv-muted sm:text-[12px]">{data.aiLabel}</p>
@@ -62,7 +62,7 @@ export function InsightsFeaturedCard({
   return (
     <Link href={data.href} className="group grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-center lg:gap-12">
       <div className="lg:col-span-7">
-        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-none bg-bv-surface">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-bv-surface">
           <Image
             src={data.cover}
             alt={data.coverAlt}
@@ -70,7 +70,7 @@ export function InsightsFeaturedCard({
             priority
             fetchPriority="high"
             sizes="(min-width: 1024px) 58vw, 100vw"
-            className="object-cover"
+            className="img-zoom object-cover"
           />
         </div>
         <p className="mt-2 text-[11px] text-bv-muted sm:text-[12px]">{data.aiLabel}</p>

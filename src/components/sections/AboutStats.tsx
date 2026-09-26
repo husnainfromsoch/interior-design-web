@@ -28,40 +28,40 @@ export default async function AboutStats() {
         </div>
 
         <div className="reveal-right grid grid-cols-2 grid-rows-2 gap-4">
-          <div className="group relative aspect-[4/5] overflow-hidden rounded-none border border-bv-line/70 ">
+          <div className="group relative aspect-[4/5] overflow-hidden rounded-lg border border-bv-line/70 ">
             <Image
               src="https://images.unsplash.com/photo-1681516771357-25b8d2901efd?q=80&w=1200&auto=format&fit=crop"
               alt="Wood flooring with balcony view"
               fill
               sizes="(min-width: 1024px) 22vw, 45vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+              className="object-cover img-zoom"
             />
           </div>
-          <div className="group relative aspect-[4/5] overflow-hidden rounded-none border border-bv-line/70 ">
+          <div className="group relative aspect-[4/5] overflow-hidden rounded-lg border border-bv-line/70 ">
             <Image
               src="https://images.unsplash.com/photo-1661351224676-f1b437f6a9c2?q=80&w=1200&auto=format&fit=crop"
               alt="Outdoor patio tiling with garden edge"
               fill
               sizes="(min-width: 1024px) 22vw, 45vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+              className="object-cover img-zoom"
             />
           </div>
-          <div className="group relative aspect-[4/5] overflow-hidden rounded-none border border-bv-line/70 ">
+          <div className="group relative aspect-[4/5] overflow-hidden rounded-lg border border-bv-line/70 ">
             <Image
               src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200&auto=format&fit=crop"
               alt="Entrance flooring detail"
               fill
               sizes="(min-width: 1024px) 22vw, 45vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+              className="object-cover img-zoom"
             />
           </div>
-          <div className="group relative aspect-[4/5] overflow-hidden rounded-none border border-bv-line/70 ">
+          <div className="group relative aspect-[4/5] overflow-hidden rounded-lg border border-bv-line/70 ">
             <Image
               src="https://images.unsplash.com/photo-1621535884102-d13e00c76283?q=80&w=1200&auto=format&fit=crop"
               alt="Patio walkway with paver detailing"
               fill
               sizes="(min-width: 1024px) 22vw, 45vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+              className="object-cover img-zoom"
             />
           </div>
         </div>

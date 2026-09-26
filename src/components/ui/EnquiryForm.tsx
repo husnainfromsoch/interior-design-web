@@ -1,13 +1,16 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-import Image from "next/image";
+import { useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { CheckCircle2 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
+import { company, whatsappHref } from "@/data/company";
+import { PACKAGE_EVENT } from "@/components/spec/PackageCta";
 
-const WHATSAPP_NUMBER = "971588099223";
+// Enquiry form F1 (spec §14.1, §8.4, §17.3). Six fields, two required. Success is shown
+// only after the server returns a durable acceptance id. Submit and WhatsApp carry equal
+// visual weight. A honeypot field and the time since the form rendered are sent for the
+// server's spam checks (spec §20.1).
 
 const SERVICE_VALUES = [
   "design",
@@ -24,36 +27,112 @@ const SERVICE_VALUES = [
   "notSure",
 ] as const;
 
-type Status = "idle" | "validating" | "sending" | "success" | "error" | "rateLimited";
+type Status = "idle" | "validating" | "submitting" | "success" | "error" | "rateLimited";
 
 const fieldClass =
-  "mt-2 h-[56px] w-full rounded-[2px] border border-bv-field-border/50 bg-bv-surface/60 px-4 text-[16px] text-bv-ink outline-none transition-all duration-200 placeholder:text-bv-muted/60 hover:border-bv-field-border focus-visible:border-bv-accent focus-visible:bg-bv-white focus-visible:ring-4 focus-visible:ring-bv-accent/10 aria-[invalid=true]:border-bv-error";
+  "mt-2 h-[52px] w-full rounded-sm border border-bv-field-border bg-bv-white px-4 text-[16px] text-bv-ink outline-none transition-colors duration-200 placeholder:text-bv-muted/70 focus-visible:border-bv-ink focus-visible:ring-2 focus-visible:ring-bv-ink/20 aria-[invalid=true]:border-bv-error";
 const textareaClass =
-  "mt-2 w-full resize-none rounded-[2px] border border-bv-field-border/50 bg-bv-surface/60 px-4 py-4 text-[16px] text-bv-ink outline-none transition-all duration-200 placeholder:text-bv-muted/60 hover:border-bv-field-border focus-visible:border-bv-accent focus-visible:bg-bv-white focus-visible:ring-4 focus-visible:ring-bv-accent/10";
+  "mt-2 w-full resize-y rounded-sm border border-bv-field-border bg-bv-white px-4 py-3 text-[16px] text-bv-ink outline-none transition-colors duration-200 placeholder:text-bv-muted/70 focus-visible:border-bv-ink focus-visible:ring-2 focus-visible:ring-bv-ink/20";
+const buttonBase =
+  "press btn-shine inline-flex h-[52px] w-full items-center justify-center gap-2 rounded-sm px-6 text-[14px] font-semibold tracking-[0.02em] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink sm:w-auto sm:min-w-[200px]";
 
 function makeIdempotencyKey() {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) return crypto.randomUUID();
   return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 }
 
+function Label({ htmlFor, children, optional }: { htmlFor: string; children: string; optional?: string }) {
+  return (
+    <label htmlFor={htmlFor} className="flex flex-wrap items-baseline justify-between gap-x-3 text-[16px] font-medium text-bv-ink lg:text-[15px]">
+      <span>{children}</span>
+      {optional && <span className="text-[13px] font-normal leading-5 text-[#6B625B]">{optional}</span>}
+    </label>
+  );
+}
+
 export default function EnquiryForm({
   id = "project-enquiry",
   defaultService,
   leadSource,
+  heading,
+  intro,
+  topic,
+  project,
+  bare,
+  framed,
 }: {
   id?: string;
+  /** F1 service value preselected for this page (e.g. "villa") */
   defaultService?: string;
   leadSource?: string;
+  /** Page-specific heading (e.g. "Let's Discuss Your Villa", "Discuss a Similar Project") */
+  heading?: string;
+  intro?: string;
+  /** Service or project name used in the WhatsApp prefill */
+  topic?: string;
+  /** Concept project context passed with the enquiry (spec CS09) */
+  project?: string;
+  /** Render only the form, for layouts that place their own heading (P21 Contact) */
+  bare?: boolean;
+  /**
+   * Service-page layout: the form sits in its own panel across seven columns.
+   * (Every variant shares its top gap with a preceding same-background section via bv-flow.)
+   */
+  framed?: boolean;
 }) {
   const t = useTranslations("EnquiryForm");
+  const tContact = useTranslations("ContactPage");
   const locale = useLocale();
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<{ name?: string; phone?: string; email?: string }>({});
   const [idempotencyKey, setIdempotencyKey] = useState(() => makeIdempotencyKey());
+  const startedAt = useRef<number>(0);
+  const started = useRef(false);
+  const rootRef = useRef<HTMLElement>(null);
+  const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
+  // "?reason=aftercare" from the Warranty page CTA (spec WA04) preselects the aftercare context.
+  const search = useSyncExternalStore(
+    () => () => {},
+    () => window.location.search,
+    () => ""
+  );
+  const reasonContext = new URLSearchParams(search).get("reason") === "aftercare" ? t("reasonAftercare") : null;
+  const context = selectedPackage ?? reasonContext;
+
+  useEffect(() => {
+    const onPackage = (e: Event) => setSelectedPackage((e as CustomEvent<string>).detail);
+    window.addEventListener(PACKAGE_EVENT, onPackage);
+    return () => window.removeEventListener(PACKAGE_EVENT, onPackage);
+  }, []);
+
+  useEffect(() => {
+    startedAt.current = Date.now();
+    const el = rootRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          trackEvent("enquiry_view", {});
+          io.disconnect();
+        }
+      },
+      { threshold: 0.25 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const prefill = t("whatsappPrefill", { topic: topic ?? t("whatsappTopicDefault") });
+
+  function onFirstFocus() {
+    if (started.current) return;
+    started.current = true;
+    trackEvent("enquiry_start", {});
+  }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (status === "sending") return;
+    if (status === "submitting") return;
 
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -69,13 +148,22 @@ export default function EnquiryForm({
     if (Object.keys(nextErrors).length > 0) {
       setErrors(nextErrors);
       setStatus("validating");
+      const first = Object.keys(nextErrors)[0];
+      form.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
       return;
     }
 
     setErrors({});
-    setStatus("sending");
+    setStatus("submitting");
+    trackEvent("enquiry_submit", {});
 
     try {
+      const params = new URLSearchParams(window.location.search);
+      const utm = Object.fromEntries(
+        ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"]
+          .map((k) => [k, params.get(k)])
+          .filter(([, v]) => v)
+      );
       const res = await fetch("/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json", "Idempotency-Key": idempotencyKey },
@@ -86,225 +174,299 @@ export default function EnquiryForm({
           service: data.get("service") || undefined,
           location: data.get("location") || undefined,
           message: String(data.get("message") || "").trim() || undefined,
+          project: [project, context].filter(Boolean).join(" · ") || undefined,
           locale,
-          sourcePage: typeof window !== "undefined" ? window.location.pathname : undefined,
+          sourcePage: window.location.pathname,
+          referrer: document.referrer || undefined,
+          utm: Object.keys(utm).length ? utm : undefined,
+          website: String(data.get("website") || ""),
+          elapsedMs: Date.now() - startedAt.current,
         }),
       });
 
       if (res.status === 429) {
         setStatus("rateLimited");
+        trackEvent("enquiry_error", { reason: "rate_limited" });
         return;
       }
-      if (!res.ok) {
+      const body = (await res.json().catch(() => ({}))) as { enquiryId?: string };
+      if (!res.ok || !body.enquiryId) {
         setStatus("error");
+        trackEvent("enquiry_error", { reason: String(res.status) });
         return;
       }
 
       setStatus("success");
+      trackEvent("enquiry_success", {});
       if (leadSource) trackEvent("generate_lead", { source_page: leadSource });
       setIdempotencyKey(makeIdempotencyKey());
       form.reset();
     } catch {
+      // Network loss: keep the values, return to a state that allows retry, never claim receipt.
       setStatus("error");
+      trackEvent("enquiry_error", { reason: "network" });
     }
   }
 
-  if (status === "success") {
+  const content = (
+        status === "success" ? (
+          <div role="status" className={
+              framed
+                ? "success-in flex items-start gap-4 self-start rounded-lg bg-bv-background p-6 sm:p-8 lg:col-span-7 lg:col-start-6 lg:p-10"
+                : "success-in flex items-start gap-4 lg:col-span-6 lg:col-start-7"
+            }>
+            <svg viewBox="0 0 24 24" aria-hidden="true" className="check-draw mt-0.5 h-7 w-7 flex-none text-bv-success">
+              <path d="M4 12.5l5 5L20 6.5" pathLength={1} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <p className="max-w-[560px] text-[18px] leading-[1.65] text-bv-success">{t("success")}</p>
+          </div>
+        ) : (
+          <form
+            onSubmit={handleSubmit}
+            onFocus={onFirstFocus}
+            className={
+              framed
+                ? "reveal sm:rounded-lg sm:bg-bv-background sm:p-8 lg:col-span-7 lg:col-start-6 lg:p-10"
+                : "reveal max-w-[560px] lg:col-span-6 lg:col-start-7"
+            }
+            style={{ ["--reveal-delay" as string]: "120ms" } as React.CSSProperties}
+            noValidate
+            aria-busy={status === "submitting"}
+          >
+            <div className="flex flex-col gap-5">
+              {context && (
+                <p className="rounded-sm border border-bv-line bg-bv-background px-4 py-3 text-[15px] text-bv-ink">{context}</p>
+              )}
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <Label htmlFor={`${id}-name`}>{t("nameLabel")}</Label>
+                  <input
+                    id={`${id}-name`}
+                    name="name"
+                    type="text"
+                    autoComplete="name"
+                    maxLength={100}
+                    required
+                    aria-invalid={Boolean(errors.name)}
+                    aria-describedby={errors.name ? `${id}-name-error` : undefined}
+                    className={fieldClass}
+                  />
+                  {errors.name && (
+                    <p id={`${id}-name-error`} className="mt-1.5 text-[14px] text-bv-error">
+                      {errors.name}
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <Label htmlFor={`${id}-phone`}>{t("phoneLabel")}</Label>
+                  <input
+                    id={`${id}-phone`}
+                    name="phone"
+                    type="tel"
+                    autoComplete="tel"
+                    inputMode="tel"
+                    required
+                    aria-invalid={Boolean(errors.phone)}
+                    aria-describedby={errors.phone ? `${id}-phone-error` : undefined}
+                    placeholder="+971"
+                    className={fieldClass}
+                  />
+                  {errors.phone && (
+                    <p id={`${id}-phone-error`} className="mt-1.5 text-[14px] text-bv-error">
+                      {errors.phone}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <Label htmlFor={`${id}-email`} optional={t("optional")}>
+                  {t("emailLabel")}
+                </Label>
+                <input
+                  id={`${id}-email`}
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  aria-invalid={Boolean(errors.email)}
+                  aria-describedby={errors.email ? `${id}-email-error` : undefined}
+                  className={fieldClass}
+                />
+                {errors.email && (
+                  <p id={`${id}-email-error`} className="mt-1.5 text-[14px] text-bv-error">
+                    {errors.email}
+                  </p>
+                )}
+              </div>
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <Label htmlFor={`${id}-service`} optional={t("optional")}>
+                    {t("serviceLabel")}
+                  </Label>
+                  <select id={`${id}-service`} name="service" defaultValue={defaultService ?? ""} className={fieldClass}>
+                    <option value="">{t("servicePlaceholder")}</option>
+                    {SERVICE_VALUES.map((v) => (
+                      <option key={v} value={v}>
+                        {t(`service_${v}`)}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <Label htmlFor={`${id}-location`} optional={t("optional")}>
+                    {t("locationLabel")}
+                  </Label>
+                  <select id={`${id}-location`} name="location" defaultValue="" className={fieldClass}>
+                    <option value="">{t("locationPlaceholder")}</option>
+                    <option value="dubai">{t("locationDubai")}</option>
+                    <option value="abuDhabi">{t("locationAbuDhabi")}</option>
+                    <option value="other">{t("locationOther")}</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <Label htmlFor={`${id}-message`} optional={t("optional")}>
+                  {t("messageLabel")}
+                </Label>
+                <textarea
+                  id={`${id}-message`}
+                  name="message"
+                  maxLength={2000}
+                  rows={4}
+                  placeholder={t("messagePlaceholder")}
+                  className={textareaClass}
+                />
+              </div>
+
+              {/* Honeypot: invisible to people, tempting to bots. */}
+              <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+                <label htmlFor={`${id}-website`}>Website</label>
+                <input id={`${id}-website`} name="website" type="text" tabIndex={-1} autoComplete="off" />
+              </div>
+
+              <div aria-live="polite" className="empty:-mt-5">
+                {status === "error" && <p className="text-[15px] text-bv-error">{t("error")}</p>}
+                {status === "rateLimited" && <p className="text-[15px] text-bv-error">{t("rateLimit")}</p>}
+              </div>
+
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  data-magnetic
+                  className={`${buttonBase} bg-bv-accent text-bv-white hover:bg-bv-accent-hover disabled:opacity-60`}
+                >
+                  {status === "submitting" && (
+                    <svg viewBox="0 0 24 24" aria-hidden="true" className="spin h-4 w-4">
+                      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeOpacity="0.3" strokeWidth="2" />
+                      <path d="M21 12a9 9 0 0 0-9-9" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    </svg>
+                  )}
+                  {status === "submitting" ? t("sending") : t("submit")}
+                </button>
+                <a
+                  href={whatsappHref(prefill)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackEvent("whatsapp_click", { placement: "form" })}
+                  className={`${buttonBase} border border-bv-ink bg-transparent text-bv-ink hover:bg-bv-ink hover:text-bv-white`}
+                >
+                  {t("whatsapp")}
+                </a>
+              </div>
+
+              <p className="text-[14px] leading-[1.6] text-bv-muted">
+                {t("privacyNote")}{" "}
+                <Link href="/privacy" className="underline underline-offset-2 transition-colors duration-200 hover:text-bv-ink">
+                  {t("privacyLink")}
+                </Link>
+              </p>
+            </div>
+          </form>
+        )
+  );
+
+  if (bare) {
     return (
-      <div className="bg-bv-surface px-4 py-16 sm:px-10 md:py-[96px] lg:px-16 lg:py-[128px]" style={{ scrollMarginTop: "104px" }}>
-        <div
-          id={id}
-          className="mx-auto flex w-full max-w-[1320px] flex-col items-center gap-5 rounded-none border border-bv-line bg-bv-background px-8 py-14 text-center"
-        >
-          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-bv-accent text-bv-white">
-            <CheckCircle2 className="h-7 w-7" strokeWidth={1.6} />
-          </span>
-          <p className="max-w-md text-[18px] leading-[1.65] text-bv-ink">{t("success")}</p>
-        </div>
+      <div ref={rootRef as React.RefObject<HTMLDivElement>} id={id} className="scroll-mt-[88px] lg:scroll-mt-[104px]">
+        {content}
       </div>
     );
   }
 
   return (
-    <div id={id} className="bg-bv-surface px-4 py-16 sm:px-10 md:py-[96px] lg:px-16 lg:py-[128px]" style={{ scrollMarginTop: "104px" }}>
-      <div className="mx-auto grid w-full max-w-[1320px] grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10">
-        <div className="lg:col-span-5">
-          <div className="relative overflow-hidden rounded-none bg-bv-ink p-8 text-bv-white sm:p-10 lg:sticky lg:top-28 lg:p-12">
-            <Image
-              src="/visuals/PHOTO-2025-04-15-12-21-17(1).jpg"
-              alt=""
-              fill
-              sizes="(min-width: 1024px) 40vw, 100vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-bv-ink/95 via-bv-ink/75 to-bv-ink/55" />
-            <div className="relative flex min-h-[420px] flex-col justify-end lg:min-h-[560px]">
-              <span className="font-bv-body text-[12px] font-semibold uppercase tracking-[0.16em] text-bv-white/80">
-                {t("eyebrow")}
-              </span>
-              <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] mt-4 font-bv-heading text-[34px] font-medium leading-[1.1] sm:text-[40px] lg:text-[44px]">
-                {t("heading")}
-              </h2>
-              <p className="mt-5 max-w-md text-[17px] leading-[1.65] text-bv-white/90">{t("body")}</p>
+    <section
+      ref={rootRef}
+      id={id}
+      className="bv-flow scroll-mt-[88px] bg-bv-background py-14 md:py-[72px] lg:scroll-mt-[104px] lg:py-[104px]"
+    >
+      {/* Same container as every Section, so the panel edges line up with the content above. */}
+      <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-8 lg:px-[60px]">
+      <div
+        className={`grid w-full gap-10 rounded-lg bg-bv-surface px-6 py-8 sm:px-10 sm:py-12 lg:grid-cols-12 lg:gap-0 ${framed ? "lg:p-12 xl:p-14" : "lg:p-16"}`}
+      >
+        <div className={`reveal flex flex-col lg:col-span-5 ${framed ? "lg:pr-12" : "lg:pr-4"}`}>
+          <h2 className="font-bv-heading text-[32px] font-medium leading-[1.12] text-bv-ink md:text-[40px] lg:text-[48px]">
+            {heading ?? t("heading")}
+          </h2>
+          <p className="mt-4 max-w-md text-[16px] leading-[1.65] text-bv-ink lg:text-[17px]">{intro ?? t("body")}</p>
 
-              <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-flex h-[52px] w-fit items-center gap-2 rounded-[2px] border border-bv-white/50 bg-bv-white/10 px-7 backdrop-blur-sm text-sm font-semibold tracking-[0.02em] transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-bv-white hover:text-bv-ink active:scale-[0.98] motion-reduce:transition-none"
-              >
-                <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5" aria-hidden="true">
-                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24s8.24 3.7 8.24 8.24-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.17-.48-.29Z" />
-                </svg>
-                {t("whatsapp")}
-              </a>
-            </div>
+          {/* What happens next (C-P21-K03) and direct contact lines, so the column carries
+              the answer to "what do I get by sending this?" next to the form. */}
+          <div className="mt-10 lg:mt-auto lg:pt-12">
+            <h3 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-bv-muted">{tContact("nextHeading")}</h3>
+            <ol className="mt-5 grid gap-0 border-l border-bv-line">
+              {(["nextStep1", "nextStep2", "nextStep3"] as const).map((k, i) => (
+                <li
+                  key={k}
+                  className="reveal relative grid grid-cols-[40px_1fr] items-baseline py-2.5 pl-5"
+                  style={{ ["--reveal-delay" as string]: `${200 + i * 110}ms` } as React.CSSProperties}
+                >
+                  <span aria-hidden="true" className="absolute -left-px top-3 h-5 w-px bg-bv-accent" />
+                  <span className="font-bv-heading text-[20px] leading-none text-bv-accent tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-[15px] leading-[1.55] text-bv-ink">{tContact(k)}</span>
+                </li>
+              ))}
+            </ol>
+
+            <dl className="mt-8 grid grid-cols-1 gap-x-6 border-t border-bv-line sm:grid-cols-2">
+              <div className="border-b border-bv-line py-4">
+                <dt className="text-[13px] text-bv-muted">{t("phoneLabel")}</dt>
+                <dd className="m-0 mt-1">
+                  <a
+                    href={`tel:${company.phoneE164}`}
+                    className="inline-flex min-h-11 items-center text-[16px] font-semibold text-bv-ink transition-colors duration-200 hover:text-bv-accent"
+                  >
+                    {company.phoneDisplay}
+                  </a>
+                </dd>
+              </div>
+              <div className="border-b border-bv-line py-4">
+                <dt className="text-[13px] text-bv-muted">{t("emailLabel")}</dt>
+                <dd className="m-0 mt-1">
+                  <a
+                    href={`mailto:${company.email}`}
+                    className="inline-flex min-h-11 items-center break-all text-[16px] font-semibold text-bv-ink transition-colors duration-200 hover:text-bv-accent"
+                  >
+                    {company.email}
+                  </a>
+                </dd>
+              </div>
+              <div className="border-b border-bv-line py-4 sm:col-span-2">
+                <dt className="text-[13px] text-bv-muted">{tContact("hoursLabel")}</dt>
+                <dd className="m-0 mt-1 text-[15px] leading-[1.55] text-bv-ink">{tContact("hoursValue")}</dd>
+              </div>
+            </dl>
           </div>
         </div>
 
-        <form
-          onSubmit={handleSubmit}
-          className="rounded-none border border-bv-line bg-bv-background p-6  sm:p-10 lg:col-span-7 lg:p-12"
-          noValidate
-          aria-busy={status === "sending"}
-        >
-          <div className="flex flex-col gap-5">
-            <div>
-              <label htmlFor="ef-name" className="block text-[14px] font-medium text-bv-ink">
-                {t("nameLabel")}
-              </label>
-              <input
-                id="ef-name"
-                name="name"
-                type="text"
-                autoComplete="name"
-                maxLength={100}
-                required
-                aria-invalid={Boolean(errors.name)}
-                aria-describedby={errors.name ? "ef-name-error" : undefined}
-                className={fieldClass}
-              />
-              {errors.name && (
-                <p id="ef-name-error" className="mt-1 text-[13px] text-bv-error">
-                  {errors.name}
-                </p>
-              )}
-            </div>
-
-            <div>
-              <label htmlFor="ef-phone" className="block text-[14px] font-medium text-bv-ink">
-                {t("phoneLabel")}
-              </label>
-              <input
-                id="ef-phone"
-                name="phone"
-                type="tel"
-                autoComplete="tel"
-                required
-                aria-invalid={Boolean(errors.phone)}
-                aria-describedby={errors.phone ? "ef-phone-error" : undefined}
-                placeholder="+971 5X XXX XXXX"
-                className={fieldClass}
-              />
-              {errors.phone && (
-                <p id="ef-phone-error" className="mt-1 text-[13px] text-bv-error">
-                  {errors.phone}
-                </p>
-              )}
-            </div>
-
-            <div>
-              <label htmlFor="ef-email" className="block text-[14px] font-medium text-bv-ink">
-                {t("emailLabel")}{" "}
-                <span className="font-normal text-[13px] text-bv-muted">({t("optional")})</span>
-              </label>
-              <input
-                id="ef-email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                aria-invalid={Boolean(errors.email)}
-                aria-describedby={errors.email ? "ef-email-error" : undefined}
-                className={fieldClass}
-              />
-              {errors.email && (
-                <p id="ef-email-error" className="mt-1 text-[13px] text-bv-error">
-                  {errors.email}
-                </p>
-              )}
-            </div>
-
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              <div>
-                <label htmlFor="ef-service" className="block text-[14px] font-medium text-bv-ink">
-                  {t("serviceLabel")}{" "}
-                  <span className="font-normal text-[13px] text-bv-muted">({t("optional")})</span>
-                </label>
-                <select id="ef-service" name="service" defaultValue={defaultService ?? ""} className={fieldClass}>
-                  <option value="" disabled>
-                    {t("servicePlaceholder")}
-                  </option>
-                  {SERVICE_VALUES.map((v) => (
-                    <option key={v} value={v}>
-                      {t(`service_${v}`)}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="ef-location" className="block text-[14px] font-medium text-bv-ink">
-                  {t("locationLabel")}{" "}
-                  <span className="font-normal text-[13px] text-bv-muted">({t("optional")})</span>
-                </label>
-                <select id="ef-location" name="location" defaultValue="" className={fieldClass}>
-                  <option value="" disabled>
-                    {t("locationPlaceholder")}
-                  </option>
-                  <option value="dubai">{t("locationDubai")}</option>
-                  <option value="abuDhabi">{t("locationAbuDhabi")}</option>
-                  <option value="other">{t("locationOther")}</option>
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="ef-message" className="block text-[14px] font-medium text-bv-ink">
-                {t("messageLabel")}{" "}
-                <span className="font-normal text-[13px] text-bv-muted">({t("optional")})</span>
-              </label>
-              <textarea
-                id="ef-message"
-                name="message"
-                maxLength={2000}
-                rows={4}
-                placeholder={t("messagePlaceholder")}
-                className={textareaClass}
-              />
-            </div>
-
-            {status === "error" && <p className="text-[14px] text-bv-error">{t("error")}</p>}
-            {status === "rateLimited" && <p className="text-[14px] text-bv-error">{t("rateLimit")}</p>}
-
-            <div className="flex flex-wrap items-center gap-4 pt-1">
-              <button
-                type="submit"
-                disabled={status === "sending"}
-                className="inline-flex h-[56px] w-full items-center justify-center rounded-[2px] bg-bv-accent px-8 sm:w-auto sm:min-w-[220px] text-sm font-semibold tracking-[0.02em] text-bv-white transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-bv-accent-hover active:translate-y-0 active:duration-100 disabled:pointer-events-none disabled:translate-y-0 disabled:opacity-60 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
-              >
-                {status === "sending" ? t("sending") : t("submit")}
-              </button>
-            </div>
-
-            <p className="text-[13px] leading-[1.6] text-bv-muted">
-              {t("privacyNote")}{" "}
-              <Link href="/privacy" className="underline underline-offset-2 hover:text-bv-ink">
-                {t("privacyLink")}
-              </Link>
-            </p>
-          </div>
-        </form>
+        {content}
       </div>
-    </div>
+      </div>
+    </section>
   );
 }

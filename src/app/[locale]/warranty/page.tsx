@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { ShieldCheck, Boxes, Info, Package, MessageCircle, ArrowUpRight } from "lucide-react";
-import FinalCta from "@/components/sections/FinalCta";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -23,13 +22,13 @@ export default async function WarrantyPage({ params }: { params: Promise<{ local
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-bv-surface pb-14 pt-14 md:pb-[72px] md:pt-[72px] lg:pb-[88px] lg:pt-[104px]">
+      <section className="relative overflow-hidden bg-bv-surface py-14 md:py-[72px] lg:py-[104px]">
         <ShieldCheck
           aria-hidden="true"
           strokeWidth={0.6}
           className="pointer-events-none absolute -right-16 top-1/2 hidden h-[380px] w-[380px] -translate-y-1/2 text-bv-accent/[0.07] lg:block"
         />
-        <div className="relative mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
+        <div className="relative mx-auto w-full max-w-[1320px] px-4 sm:px-8 lg:px-[60px]">
           <div className="max-w-3xl">
             <span className="hero-in inline-flex items-center gap-2 font-bv-body text-[13px] font-semibold uppercase tracking-[0.16em] text-bv-accent">
               <span className="flex h-8 w-8 items-center justify-center rounded-full border border-bv-accent/40 bg-bv-background">
@@ -40,10 +39,6 @@ export default async function WarrantyPage({ params }: { params: Promise<{ local
             <h1 className="text-[38px] sm:text-[52px] lg:text-[64px] hero-in mt-5 font-bv-heading text-[38px] font-medium leading-[1.08] text-bv-ink sm:text-[52px] lg:text-[64px]">
               {t("title")}
             </h1>
-            <div
-              className="reveal-line mt-6 h-px w-16 bg-bv-accent"
-              style={{ ["--reveal-delay" as string]: "150ms" }}
-            />
             <p className="hero-in mt-6 max-w-2xl text-[17px] leading-[1.65] text-bv-muted">{t("intro")}</p>
           </div>
         </div>
@@ -51,13 +46,13 @@ export default async function WarrantyPage({ params }: { params: Promise<{ local
 
       {/* Terms */}
       <section className="bg-bv-background py-14 md:py-[72px] lg:py-[104px]">
-        <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-8 lg:px-[60px]">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {terms.map(({ key, Icon }, i) => (
               <div
                 key={key}
                 style={{ ["--reveal-delay" as string]: `${i * 80}ms` }}
-                className="reveal group relative overflow-hidden rounded-none border border-bv-line bg-bv-surface p-8 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-bv-accent/50  sm:p-10"
+                className="reveal group relative overflow-hidden rounded-lg border border-bv-line bg-bv-surface p-8 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-bv-accent/50  sm:p-10"
               >
                 <div className="flex items-start justify-between">
                   <span className="flex h-12 w-12 items-center justify-center rounded-full bg-bv-accent/10 text-bv-accent transition-colors duration-500 group-hover:bg-bv-accent group-hover:text-bv-white">
@@ -79,7 +74,7 @@ export default async function WarrantyPage({ params }: { params: Promise<{ local
             ))}
           </div>
 
-          <div className="reveal mt-6 flex items-start gap-3 rounded-none border border-bv-line bg-bv-surface/60 px-5 py-4">
+          <div className="reveal mt-6 flex items-start gap-3 rounded-lg border border-bv-line bg-bv-surface/60 px-5 py-4">
             <Info className="mt-0.5 h-4 w-4 flex-none text-bv-accent" strokeWidth={1.8} />
             <p className="max-w-2xl text-[14px] leading-[1.65] text-bv-muted">{t("classificationNote")}</p>
           </div>
@@ -106,8 +101,8 @@ export default async function WarrantyPage({ params }: { params: Promise<{ local
               </h2>
               <p className="mt-4 max-w-xl text-[16px] leading-[1.65] text-bv-muted">{t("contactBody")}</p>
               <Link
-                href="/contact"
-                className="group mt-7 inline-flex h-[52px] items-center gap-2 rounded-[2px] bg-bv-accent px-8 text-sm font-semibold tracking-[0.02em] text-bv-white transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-bv-accent-hover active:translate-y-0 active:duration-100 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+                href="/contact?reason=aftercare#project-enquiry"
+                className="group mt-7 inline-flex h-[52px] items-center gap-2 rounded-sm bg-bv-accent px-8 text-sm font-semibold tracking-[0.02em] text-bv-white transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-bv-accent-hover active:translate-y-0 active:duration-100 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
               >
                 {t("cta")}
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 " strokeWidth={2} />
@@ -117,7 +112,6 @@ export default async function WarrantyPage({ params }: { params: Promise<{ local
         </div>
       </section>
 
-      <FinalCta />
     </>
   );
 }

@@ -1,12 +1,15 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
 
 export default function ScrollProgress() {
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 140, damping: 28, mass: 0.3 });
-  if (reduce) return null;
+  const pathname = usePathname();
+  // Insights spec A3: no full-viewport progress bar on article pages.
+  if (reduce || /\/insights\/[^/]+/.test(pathname)) return null;
 
   return (
     <motion.div
