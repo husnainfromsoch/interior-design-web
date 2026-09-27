@@ -16,6 +16,8 @@ import Magnetic from "@/components/ui/Magnetic";
 import ConsentBanner from "@/components/ui/ConsentBanner";
 import Analytics from "@/components/ui/Analytics";
 import PreviewBar from "@/components/ui/PreviewBar";
+import { SiteSettingsProvider } from "@/components/cms/SiteSettingsProvider";
+import { getNavigation, getSiteSettings } from "@/cms/data";
 
 // Bellvero v2 design-system typefaces (client spec §2.2). Latin + Cyrillic so RU
 // copy never falls back to a system font.
@@ -53,6 +55,8 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) notFound();
 
   setRequestLocale(locale);
+  const [settings, navigation] = await Promise.all([getSiteSettings(locale), getNavigation(locale)]);
+  const { phoneDisplay, phoneE164, whatsappNumber, email } = settings.contact;
 
   return (
     <html
@@ -61,18 +65,20 @@ export default async function LocaleLayout({
     >
       <body className="min-h-full flex flex-col bg-bv-background text-bv-ink font-bv-body">
         <NextIntlClientProvider>
-          <PreviewBar />
-          <Header />
-          <main id="main-content" tabIndex={-1} className="flex-1 outline-none">{children}</main>
-          <Footer />
-          <MobileBottomBar />
-          <ScrollReveal />
-          <ScrollProgress />
-          <PageFade />
-          <SmoothScroll />
-          <Magnetic />
-          <ConsentBanner />
-          <Analytics />
+          <SiteSettingsProvider contact={{ phoneDisplay, phoneE164, whatsappNumber, email }}>
+            <PreviewBar />
+            <Header nav={navigation.header} />
+            <main id="main-content" tabIndex={-1} className="flex-1 outline-none">{children}</main>
+            <Footer />
+            <MobileBottomBar />
+            <ScrollReveal />
+            <ScrollProgress />
+            <PageFade />
+            <SmoothScroll />
+            <Magnetic />
+            <ConsentBanner />
+            <Analytics />
+          </SiteSettingsProvider>
         </NextIntlClientProvider>
       </body>
     </html>

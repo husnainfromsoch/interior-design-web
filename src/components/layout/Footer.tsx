@@ -3,7 +3,8 @@ import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
 import { ArrowUpRight, Clock } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { company, legalLine, whatsappHref } from "@/data/company";
+import { getNavigation, getSiteSettings } from "@/cms/data";
+import { legalLine, whatsappHref } from "@/lib/contact";
 import { sc } from "@/lib/spec";
 
 // Spec §7.2 footer: one footer on every page, #F7F4EE with a 1 px top line, 72/56 px
@@ -33,21 +34,12 @@ const arrow = (
 export default async function Footer() {
   const locale = await getLocale();
   const ru = locale === "ru";
-  const tNav = await getTranslations("Nav");
-  const tInsights = await getTranslations("Insights");
   const tForm = await getTranslations("EnquiryForm");
   const f = (label: string) => sc("C-FOOTER", label, locale);
-  const legal = legalLine(locale);
-
-  // Spec §7.2 Explore column; Insights sits directly after Our Story (Insights spec A1).
-  const explore = [
-    { label: tNav("services"), href: "/services" },
-    { label: tNav("projects"), href: "/projects" },
-    { label: tNav("process"), href: "/process" },
-    { label: ru ? "О компании" : "Our Story", href: "/about" },
-    { label: tInsights("navLabel"), href: "/insights" },
-    { label: tNav("contact"), href: "/contact" },
-  ];
+  const [{ contact, legal: legalEntity }, { footer }] = await Promise.all([getSiteSettings(locale), getNavigation(locale)]);
+  const legal = legalLine(legalEntity, locale);
+  // Spec §7.2 Explore column (CMS Navigation); Insights sits directly after Our Story (Insights spec A1).
+  const explore = footer.exploreLinks;
 
   return (
     <footer className="border-t border-bv-line bg-bv-background pb-24 pt-10 lg:pb-4 lg:pt-10">
@@ -76,7 +68,7 @@ export default async function Footer() {
             </div>
 
             <nav aria-label={ru ? "Разделы сайта" : "Explore"} className="reveal mt-6 lg:mt-auto lg:pt-6" style={col(1)}>
-              <p className={headingClass}>{ru ? "Разделы" : "Explore"}</p>
+              <p className={headingClass}>{footer.exploreHeading}</p>
               <ul className="mt-1 grid grid-cols-2 gap-x-8 sm:flex sm:flex-wrap sm:gap-x-6">
                 {explore.map((l) => (
                   <li key={l.href}>
@@ -96,14 +88,14 @@ export default async function Footer() {
             <p className={headingClass}>{f("Contact heading")}</p>
             <ul className="mt-3 border-t border-bv-line">
               <li>
-                <a href={`tel:${company.phoneE164}`} className={rowClass}>
-                  <span className="font-bv-heading text-[clamp(20px,1.6vw,23px)] leading-none">{company.phoneDisplay}</span>
+                <a href={`tel:${contact.phoneE164}`} className={rowClass}>
+                  <span className="font-bv-heading text-[clamp(20px,1.6vw,23px)] leading-none">{contact.phoneDisplay}</span>
                   {arrow}
                 </a>
               </li>
               <li>
                 <a
-                  href={whatsappHref(tForm("whatsappPrefill", { topic: tForm("whatsappTopicDefault") }))}
+                  href={whatsappHref(contact.whatsappNumber, tForm("whatsappPrefill", { topic: tForm("whatsappTopicDefault") }))}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={rowClass}
@@ -113,8 +105,8 @@ export default async function Footer() {
                 </a>
               </li>
               <li>
-                <a href={`mailto:${company.email}`} className={rowClass}>
-                  <span className="break-all font-bv-heading text-[clamp(19px,1.6vw,23px)] leading-none">{company.email}</span>
+                <a href={`mailto:${contact.email}`} className={rowClass}>
+                  <span className="break-all font-bv-heading text-[clamp(19px,1.6vw,23px)] leading-none">{contact.email}</span>
                   {arrow}
                 </a>
               </li>
@@ -123,11 +115,11 @@ export default async function Footer() {
             <div className="mt-4 grid gap-4 sm:grid-cols-2 sm:gap-10">
               <p className="flex items-start gap-2.5 text-[14px] leading-[1.6] text-bv-muted">
                 <Clock aria-hidden="true" className="mt-[3px] h-4 w-4 flex-none text-bv-accent" strokeWidth={1.5} />
-                {f("Working hours")}
+                {contact.workingHours}
               </p>
               <div>
                 <p className={headingClass}>{f("Visits heading")}</p>
-                <p className="mt-2 text-[14px] leading-[1.6] text-bv-muted">{f("Visits line")}</p>
+                <p className="mt-2 text-[14px] leading-[1.6] text-bv-muted">{contact.visitsLine}</p>
               </div>
             </div>
           </div>

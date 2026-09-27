@@ -2,9 +2,12 @@ import path from "path";
 import { buildConfig } from "payload";
 import { postgresAdapter } from "@payloadcms/db-postgres";
 import { Users } from "./cms/collections/Users";
+import { Navigation } from "./cms/globals/Navigation";
+import { SiteSettings } from "./cms/globals/SiteSettings";
 
-// Payload CMS (step 1: foundation only). The admin lives at /admin; the public site does
-// not read from the CMS yet. All values come from server-side env vars (.env.example);
+// Payload CMS. The admin lives at /admin. The public site reads Site Settings and
+// Navigation from here (src/cms/data.ts); other content still comes from the code files
+// until its migration step. All values come from server-side env vars (.env.example);
 // nothing here is exposed to the browser.
 //
 // Schema changes always go through committed migrations in src/migrations (push: false),
@@ -20,6 +23,7 @@ export default buildConfig({
     meta: { titleSuffix: " | Bellvero CMS" },
   },
   collections: [Users],
+  globals: [SiteSettings, Navigation],
   // EN and RU as localised fields on the same record (main spec §22 rule 2). No fallback,
   // so a missing Russian value shows up as missing instead of silently rendering English.
   localization: {

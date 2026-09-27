@@ -4,7 +4,8 @@ import { Body, CtaButton, H2, MediaFigure, PrimaryButton, ProjectCards, RiseWord
 import EnquiryForm from "@/components/ui/EnquiryForm";
 import CountUp from "@/components/ui/CountUp";
 import PlanDrawing from "@/components/ui/PlanDrawing";
-import { company, hasLegalLine } from "@/data/company";
+import { getSiteSettings } from "@/cms/data";
+import { hasLegalLine } from "@/lib/contact";
 import { getMedia, getMediaList } from "@/data/media";
 import { linkText, pair, sc } from "@/lib/spec";
 
@@ -42,14 +43,15 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     </div>
   );
 
-  const legal = hasLegalLine()
+  const { legal: entity } = await getSiteSettings(locale);
+  const legal = hasLegalLine(entity)
     ? (ru
-        ? `Bellvero Group работает как ${company.legal.entityName}, лицензия № ${company.legal.licenceNumber}, выдана ${company.legal.issuingAuthority}.`
-        : `Bellvero Group operates as ${company.legal.entityName}, licence no. ${company.legal.licenceNumber}, issued by ${company.legal.issuingAuthority}.`) +
-      (company.legal.activities[ru ? "ru" : "en"]
+        ? `Bellvero Group работает как ${entity.entityName}, лицензия № ${entity.licenceNumber}, выдана ${entity.issuingAuthority}.`
+        : `Bellvero Group operates as ${entity.entityName}, licence no. ${entity.licenceNumber}, issued by ${entity.issuingAuthority}.`) +
+      (entity.activities
         ? ru
-          ? ` Виды деятельности по лицензии: ${company.legal.activities.ru}.`
-          : ` The licensed activities are ${company.legal.activities.en}.`
+          ? ` Виды деятельности по лицензии: ${entity.activities}.`
+          : ` The licensed activities are ${entity.activities}.`
         : "") +
       (ru ? " Договоры, счета и гарантийные документы оформляются на это наименование." : " Contracts, invoices and warranty documents are issued in this name.")
     : null;

@@ -4,7 +4,8 @@ import { useCallback, useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, getPathname, usePathname, useRouter } from "@/i18n/navigation";
-import { NAV_GROUPS, SPECIALIST_SLUGS, serviceHref, getServicePage, type ServiceSlug } from "@/data/servicePages";
+import { serviceHref, getServicePage, type ServiceSlug } from "@/data/servicePages";
+import type { NavigationData } from "@/cms/data";
 import { trackEvent } from "@/lib/analytics";
 
 // Spec §7.1 header. Desktop ≥ 1100 px: 88 px, sticky, #F7F4EE with a 1 px bottom line;
@@ -76,11 +77,10 @@ function LanguageSwitch({ className }: { className?: string }) {
   );
 }
 
-export default function Header() {
+export default function Header({ nav }: { nav: NavigationData["header"] }) {
   const locale = useLocale();
   const pathname = usePathname();
   const t = useTranslations("Nav");
-  const tCommon = useTranslations("Common");
   const onCta = useCta();
   const lang = locale === "ru" ? "ru" : "en";
 
@@ -157,12 +157,7 @@ export default function Header() {
     };
   }, [menuOpen]);
 
-  const primaryItems = [
-    { label: t("projects"), href: "/projects" },
-    { label: t("process"), href: "/process" },
-    { label: t("about"), href: "/about" },
-    { label: t("contact"), href: "/contact" },
-  ];
+  const primaryItems = nav.links;
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
   const navLink = (active: boolean) =>
     `nav-underline flex h-11 items-center whitespace-nowrap rounded-sm px-1 text-[14px] font-medium leading-5 transition-colors ${
@@ -186,14 +181,14 @@ export default function Header() {
           <ul className="flex items-center gap-4 xl:gap-6">
             <li className="flex items-center">
               <Link href="/services" className={navLink(isActive("/services"))} data-active={servicesOpen || undefined}>
-                {t("services")}
+                {nav.servicesLabel}
               </Link>
               <button
                 ref={servicesBtn}
                 type="button"
                 aria-expanded={servicesOpen}
                 aria-controls={panelId}
-                aria-label={`${t("services")}: ${t("allServices")}`}
+                aria-label={`${nav.servicesLabel}: ${nav.allServicesLabel}`}
                 onClick={() => setServicesOpen((o) => !o)}
                 className={`flex h-11 w-8 items-center justify-center rounded-sm text-bv-ink hover:text-bv-accent ${focusRing}`}
               >
@@ -214,7 +209,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <LanguageSwitch />
           <Link href="/contact#project-enquiry" onClick={(e) => onCta(e)} className={ctaClass} data-magnetic>
-            {tCommon("requestQuote")}
+            {nav.ctaLabel}
           </Link>
         </div>
       </div>
@@ -227,11 +222,11 @@ export default function Header() {
         className="dropdown-panel absolute inset-x-0 top-full hidden border-b border-bv-line bg-bv-background min-[1100px]:block"
       >
         <div className="mx-auto grid w-full max-w-[1320px] grid-cols-4 gap-8 px-[40px] py-10 xl:px-[60px]">
-          {NAV_GROUPS.map((g, gi) => (
-            <div key={g.id} className="stagger-item" style={{ ["--i" as string]: gi } as React.CSSProperties}>
-              <p className="text-[12px] font-semibold uppercase tracking-[0.12em] text-bv-muted">{g.label[lang]}</p>
+          {nav.serviceGroups.map((g, gi) => (
+            <div key={gi} className="stagger-item" style={{ ["--i" as string]: gi } as React.CSSProperties}>
+              <p className="text-[12px] font-semibold uppercase tracking-[0.12em] text-bv-muted">{g.label}</p>
               <ul className="mt-3 space-y-1">
-                {g.slugs.map((s) => (
+                {g.services.map((s) => (
                   <li key={s}>
                     <Link href={serviceHref(s)} className={`flex min-h-11 items-center rounded-sm text-[15px] font-medium text-bv-ink transition-[color,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:translate-x-1 hover:text-bv-accent ${focusRing}`}>
                       {title(s)}
@@ -244,18 +239,18 @@ export default function Header() {
         </div>
         <div
           className="stagger-item mx-auto flex w-full max-w-[1320px] flex-wrap items-center justify-between gap-6 border-t border-bv-line px-[40px] py-6 xl:px-[60px]"
-          style={{ ["--i" as string]: NAV_GROUPS.length } as React.CSSProperties}
+          style={{ ["--i" as string]: nav.serviceGroups.length } as React.CSSProperties}
         >
           <div className="flex flex-wrap items-center gap-x-6 gap-y-1">
-            <span className="text-[12px] font-semibold uppercase tracking-[0.12em] text-bv-muted">{t("specialist")}</span>
-            {SPECIALIST_SLUGS.map((s) => (
+            <span className="text-[12px] font-semibold uppercase tracking-[0.12em] text-bv-muted">{nav.specialistLabel}</span>
+            {nav.specialistServices.map((s) => (
               <Link key={s} href={serviceHref(s)} className={`flex min-h-11 items-center rounded-sm text-[15px] font-medium text-bv-ink hover:text-bv-accent ${focusRing}`}>
                 {title(s)}
               </Link>
             ))}
           </div>
           <Link href="/services" className={`group flex min-h-11 items-center gap-1.5 rounded-sm text-[15px] font-semibold text-bv-accent ${focusRing}`}>
-            <span className="link-draw">{t("allServices")}</span> <span aria-hidden="true" className="arrow-nudge">→</span>
+            <span className="link-draw">{nav.allServicesLabel}</span> <span aria-hidden="true" className="arrow-nudge">→</span>
           </Link>
         </div>
       </div>
@@ -301,15 +296,15 @@ export default function Header() {
           <nav aria-label={locale === "ru" ? "Основная навигация" : "Main navigation"} className="min-h-0 flex-1 overflow-y-auto px-4 py-4 sm:px-8">
             <details className="menu-item-in group border-b border-bv-line" style={{ ["--i" as string]: 0 } as React.CSSProperties}>
               <summary className={`flex min-h-[56px] cursor-pointer list-none items-center justify-between text-[20px] font-medium text-bv-ink [&::-webkit-details-marker]:hidden ${focusRing}`}>
-                {t("services")}
+                {nav.servicesLabel}
                 <span aria-hidden="true" className="text-bv-accent transition-transform duration-300 group-open:rotate-45">+</span>
               </summary>
               <div className="pb-4">
-                {[...NAV_GROUPS.map((g) => ({ label: g.label[lang], slugs: g.slugs })), { label: t("specialist"), slugs: SPECIALIST_SLUGS }].map((g) => (
+                {[...nav.serviceGroups, { label: nav.specialistLabel, services: nav.specialistServices }].map((g) => (
                   <div key={g.label} className="mt-3">
                     <p className="text-[12px] font-semibold uppercase tracking-[0.12em] text-bv-muted">{g.label}</p>
                     <ul className="mt-1">
-                      {g.slugs.map((s) => (
+                      {g.services.map((s) => (
                         <li key={s}>
                           <Link href={serviceHref(s)} className={`flex min-h-11 items-center text-[16px] text-bv-ink ${focusRing}`}>
                             {title(s)}
@@ -320,7 +315,7 @@ export default function Header() {
                   </div>
                 ))}
                 <Link href="/services" className={`mt-3 flex min-h-11 items-center gap-1.5 text-[16px] font-semibold text-bv-accent ${focusRing}`}>
-                  {t("allServices")} <span aria-hidden="true">→</span>
+                  {nav.allServicesLabel} <span aria-hidden="true">→</span>
                 </Link>
               </div>
             </details>
@@ -339,7 +334,7 @@ export default function Header() {
             style={{ ["--i" as string]: primaryItems.length + 1 } as React.CSSProperties}
           >
             <Link href="/contact#project-enquiry" onClick={(e) => onCta(e, () => setMenuOpen(false))} className={`${ctaClass} w-full`}>
-              {tCommon("requestQuote")}
+              {nav.ctaLabel}
             </Link>
           </div>
         </div>

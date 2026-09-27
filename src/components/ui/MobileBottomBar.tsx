@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
-import { company } from "@/data/company";
+import { useContactSettings } from "@/components/cms/SiteSettingsProvider";
+import { whatsappHref } from "@/lib/contact";
 
 export default function MobileBottomBar() {
   const t = useTranslations("BottomBar");
   const tForm = useTranslations("EnquiryForm");
+  const { whatsappNumber } = useContactSettings();
   const router = useRouter();
   const pathname = usePathname();
   const [pastFirstScreen, setPastFirstScreen] = useState(false);
@@ -47,7 +49,7 @@ export default function MobileBottomBar() {
   }, []);
 
   const hidden = !pastFirstScreen || formVisible || keyboardOpen;
-  const waHref = `https://wa.me/${company.whatsappDigits}?text=${encodeURIComponent(tForm("whatsappPrefill", { topic: tForm("whatsappTopicDefault") }))}`;
+  const waHref = whatsappHref(whatsappNumber, tForm("whatsappPrefill", { topic: tForm("whatsappTopicDefault") }));
 
   function discuss(e: React.MouseEvent<HTMLAnchorElement>) {
     const form = document.getElementById("project-enquiry");

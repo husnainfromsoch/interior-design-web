@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
-import { company } from "@/data/company";
+import { getSiteSettings, type SiteSettings } from "@/cms/data";
 import { sc } from "@/lib/spec";
 
 // Spec §15.20 P23 Privacy Notice: single column ≤ 800 px, anchored table of contents,
@@ -20,17 +20,18 @@ const SECTIONS = [
   { key: "Changes", id: "changes", ru: "Изменения" },
 ];
 
-function fill(text: string): string | null {
+// Site Settings are loaded per language, so the EN and RU placeholders take that language's value.
+function fill(text: string, { legal, privacy }: SiteSettings): string | null {
   const values: Record<string, string | null> = {
-    "[LEGAL ENTITY]": company.legal.entityName,
-    "[ЮРИДИЧЕСКОЕ ЛИЦО]": company.legal.entityName,
-    "[CONTACT EMAIL]": company.privacy.contactEmail,
-    "[LEGAL ADDRESS]": company.legal.registeredAddress,
-    "[ЮРИДИЧЕСКИЙ АДРЕС]": company.legal.registeredAddress,
-    "[ACTUAL PROVIDERS AND LOCATIONS]": company.privacy.providers.en,
-    "[ФАКТИЧЕСКИЕ ПОСТАВЩИКИ И ГЕОГРАФИЯ]": company.privacy.providers.ru,
-    "[APPROVED RETENTION SCHEDULE]": company.privacy.retention.en,
-    "[УТВЕРЖДЁННЫЙ ПОРЯДОК ХРАНЕНИЯ]": company.privacy.retention.ru,
+    "[LEGAL ENTITY]": legal.entityName,
+    "[ЮРИДИЧЕСКОЕ ЛИЦО]": legal.entityName,
+    "[CONTACT EMAIL]": privacy.contactEmail,
+    "[LEGAL ADDRESS]": legal.registeredAddress,
+    "[ЮРИДИЧЕСКИЙ АДРЕС]": legal.registeredAddress,
+    "[ACTUAL PROVIDERS AND LOCATIONS]": privacy.providers,
+    "[ФАКТИЧЕСКИЕ ПОСТАВЩИКИ И ГЕОГРАФИЯ]": privacy.providers,
+    "[APPROVED RETENTION SCHEDULE]": privacy.retention,
+    "[УТВЕРЖДЁННЫЙ ПОРЯДОК ХРАНЕНИЯ]": privacy.retention,
   };
   let out = text;
   for (const [token, value] of Object.entries(values)) {
@@ -53,7 +54,8 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
   const { locale } = await params;
   setRequestLocale(locale);
   const ru = locale === "ru";
-  const sections = SECTIONS.map((s) => ({ ...s, title: ru ? s.ru : s.key, body: fill(sc("C-P23", s.key, locale)) })).filter(
+  const settings = await getSiteSettings(locale);
+  const sections = SECTIONS.map((s) => ({ ...s, title: ru ? s.ru : s.key, body: fill(sc("C-P23", s.key, locale), settings) })).filter(
     (s): s is typeof s & { body: string } => s.body !== null
   );
 

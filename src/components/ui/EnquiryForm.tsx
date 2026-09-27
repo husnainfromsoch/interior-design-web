@@ -4,7 +4,8 @@ import { useEffect, useRef, useState, useSyncExternalStore, type FormEvent } fro
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
-import { company, whatsappHref } from "@/data/company";
+import { useContactSettings } from "@/components/cms/SiteSettingsProvider";
+import { whatsappHref } from "@/lib/contact";
 import { PACKAGE_EVENT } from "@/components/spec/PackageCta";
 
 // Enquiry form F1 (spec §14.1, §8.4, §17.3). Six fields, two required. Success is shown
@@ -81,6 +82,7 @@ export default function EnquiryForm({
   framed?: boolean;
 }) {
   const t = useTranslations("EnquiryForm");
+  const contact = useContactSettings();
   const tContact = useTranslations("ContactPage");
   const locale = useLocale();
   const [status, setStatus] = useState<Status>("idle");
@@ -367,7 +369,7 @@ export default function EnquiryForm({
                   {status === "submitting" ? t("sending") : t("submit")}
                 </button>
                 <a
-                  href={whatsappHref(prefill)}
+                  href={whatsappHref(contact.whatsappNumber, prefill)}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackEvent("whatsapp_click", { placement: "form" })}
@@ -438,10 +440,10 @@ export default function EnquiryForm({
                 <dt className="text-[13px] text-bv-muted">{t("phoneLabel")}</dt>
                 <dd className="m-0 mt-1">
                   <a
-                    href={`tel:${company.phoneE164}`}
+                    href={`tel:${contact.phoneE164}`}
                     className="inline-flex min-h-11 items-center text-[16px] font-semibold text-bv-ink transition-colors duration-200 hover:text-bv-accent"
                   >
-                    {company.phoneDisplay}
+                    {contact.phoneDisplay}
                   </a>
                 </dd>
               </div>
@@ -449,10 +451,10 @@ export default function EnquiryForm({
                 <dt className="text-[13px] text-bv-muted">{t("emailLabel")}</dt>
                 <dd className="m-0 mt-1">
                   <a
-                    href={`mailto:${company.email}`}
+                    href={`mailto:${contact.email}`}
                     className="inline-flex min-h-11 items-center break-all text-[16px] font-semibold text-bv-ink transition-colors duration-200 hover:text-bv-accent"
                   >
-                    {company.email}
+                    {contact.email}
                   </a>
                 </dd>
               </div>

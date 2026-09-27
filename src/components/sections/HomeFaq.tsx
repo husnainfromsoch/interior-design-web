@@ -2,8 +2,8 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { ArrowRight } from "lucide-react";
 import TextBlockAnimation from "@/components/ui/TextBlockAnimation";
 import { Eyebrow } from "@/components/spec/blocks";
-import { company, whatsappHref } from "@/data/company";
-import { sc } from "@/lib/spec";
+import { getSiteSettings } from "@/cms/data";
+import { whatsappHref } from "@/lib/contact";
 
 const questions = ["existingDesign", "individualWork", "location", "budget", "remote", "afterEnquiry", "payment"] as const;
 
@@ -12,16 +12,17 @@ export default async function HomeFaq() {
   const tFooter = await getTranslations("Footer");
   const tForm = await getTranslations("EnquiryForm");
   const locale = await getLocale();
+  const { contact } = await getSiteSettings(locale);
 
   const contacts = [
-    { label: tFooter("phoneLabel"), value: company.phoneDisplay, href: `tel:${company.phoneE164}` },
+    { label: tFooter("phoneLabel"), value: contact.phoneDisplay, href: `tel:${contact.phoneE164}` },
     {
       label: tFooter("whatsappLabel"),
-      value: company.phoneDisplay,
-      href: whatsappHref(tForm("whatsappPrefill", { topic: tForm("whatsappTopicDefault") })),
+      value: contact.phoneDisplay,
+      href: whatsappHref(contact.whatsappNumber, tForm("whatsappPrefill", { topic: tForm("whatsappTopicDefault") })),
       external: true,
     },
-    { label: tFooter("emailLabel"), value: company.email, href: `mailto:${company.email}` },
+    { label: tFooter("emailLabel"), value: contact.email, href: `mailto:${contact.email}` },
   ];
 
   return (
@@ -68,7 +69,7 @@ export default async function HomeFaq() {
                     </div>
                   ))}
                 </dl>
-                <p className="mt-4 text-[14px] leading-[1.6] text-bv-muted">{sc("C-FOOTER", "Working hours", locale)}</p>
+                <p className="mt-4 text-[14px] leading-[1.6] text-bv-muted">{contact.workingHours}</p>
               </div>
             </div>
           </div>

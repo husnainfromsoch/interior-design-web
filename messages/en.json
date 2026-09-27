@@ -37,14 +37,6 @@
     "pageSuffix": "Page {n}"
   },
   "Nav": {
-    "projects": "Projects",
-    "services": "Services",
-    "about": "About",
-    "contact": "Contact",
-    "requestQuote": "Discuss Your Project",
-    "process": "Our Process",
-    "allServices": "All Services",
-    "specialist": "Specialist Services",
     "menuOpen": "Menu",
     "menuClose": "Close",
     "skip": "Skip to main content",
@@ -68,17 +60,6 @@
     "visitsText": "Meetings at your property or another agreed location. Production visits by appointment.",
     "warranty": "Warranty",
     "cookies": "Cookie Settings"
-  },
-  "Common": {
-    "getQuote": "Discuss Your Project",
-    "requestQuote": "Discuss Your Project",
-    "whatsappUs": "Chat on WhatsApp",
-    "learnMore": "Learn More",
-    "viewAll": "View All Projects",
-    "statusCompleted": "Completed",
-    "statusConcept": "Design Concept",
-    "explore": "Explore More",
-    "otherServices": "Other services you may need"
   },
   "Hero": {
     "eyebrow": "BELLVERO GROUP",

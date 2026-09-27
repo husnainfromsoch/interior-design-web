@@ -37,14 +37,6 @@
     "pageSuffix": "страница {n}"
   },
   "Nav": {
-    "projects": "Проекты",
-    "services": "Услуги",
-    "about": "О компании",
-    "contact": "Контакты",
-    "requestQuote": "Обсудить проект",
-    "process": "Как мы работаем",
-    "allServices": "Все услуги",
-    "specialist": "Специализированные услуги",
     "menuOpen": "Меню",
     "menuClose": "Закрыть",
     "skip": "Перейти к основному содержанию",
@@ -68,17 +60,6 @@
     "visitsText": "Встречи на вашем объекте или в другом согласованном месте. Посещение производства: по договорённости.",
     "warranty": "Гарантия",
     "cookies": "Настройки cookie"
-  },
-  "Common": {
-    "getQuote": "Обсудить проект",
-    "requestQuote": "Обсудить проект",
-    "whatsappUs": "Написать в WhatsApp",
-    "learnMore": "Подробнее",
-    "viewAll": "Все проекты",
-    "statusCompleted": "Реализовано",
-    "statusConcept": "Концепция дизайна",
-    "explore": "Другие услуги",
-    "otherServices": "Другие услуги, которые могут вам понадобиться."
   },
   "Hero": {
     "eyebrow": "BELLVERO GROUP",

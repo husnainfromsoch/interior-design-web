@@ -28,6 +28,13 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   // No X-Powered-By header at all (withPayload would otherwise send "Next.js, Payload").
   poweredByHeader: false,
+  env: {
+    // Scopes the cached CMS data (src/cms/data.ts) to one build/deployment. The data cache
+    // outlives builds (.next/cache locally, the shared Data Cache on Vercel), so without
+    // this a new deployment could render content cached by an older one, or by a deployment
+    // on another database branch (Preview vs Production). Publishing still revalidates by tag.
+    CMS_CACHE_SCOPE: process.env.VERCEL_DEPLOYMENT_ID ?? `build-${Date.now().toString(36)}`,
+  },
   images: {
     remotePatterns: [
       {

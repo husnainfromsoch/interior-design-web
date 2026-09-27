@@ -49,12 +49,3 @@ export const SERVICE_PAGES: ServicePage[] = [
 export const getServicePage = (slug: string) => SERVICE_PAGES.find((s) => s.slug === slug);
 export const serviceTitle = (slug: ServiceSlug, locale: string) => getServicePage(slug)!.title[locale === "ru" ? "ru" : "en"];
 export const serviceHref = (slug: ServiceSlug) => `/services/${slug}`;
-
-/** Header dropdown groups (spec §7.1), with their C-P01-H02 / §6 labels. */
-export const NAV_GROUPS: { id: Exclude<NavGroup, "specialist">; label: { en: string; ru: string }; slugs: ServiceSlug[] }[] = [
-  { id: "design", label: { en: "Interior & Landscape Design", ru: "Дизайн интерьера и ландшафта" }, slugs: ["interior-design", "landscape-design"] },
-  { id: "renovation", label: { en: "Villa & Apartment Renovation", ru: "Ремонт вилл и квартир" }, slugs: ["villa-renovation", "apartment-renovation"] },
-  { id: "commercial", label: { en: "Commercial Fit-Out", ru: "Коммерческая отделка" }, slugs: ["commercial-fit-out"] },
-  { id: "joinery", label: { en: "Bespoke Joinery & Furniture", ru: "Столярные изделия и мебель" }, slugs: ["bespoke-joinery", "custom-kitchens", "wardrobes"] },
-];
-export const SPECIALIST_SLUGS: ServiceSlug[] = ["approvals", "mep-hvac", "materials-procurement"];

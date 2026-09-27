@@ -85,8 +85,14 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: ('false' | 'none' | 'null') | false | null | ('en' | 'ru') | ('en' | 'ru')[];
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    'site-settings': SiteSetting;
+    navigation: Navigation;
+  };
+  globalsSelect: {
+    'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
+    navigation: NavigationSelect<false> | NavigationSelect<true>;
+  };
   locale: 'en' | 'ru';
   widgets: {
     collections: CollectionsWidget;
@@ -122,7 +128,7 @@ export interface UserAuthOperations {
 export interface User {
   id: number;
   name?: string | null;
-  role: 'admin' | 'editor';
+  role: 'admin' | 'editor' | 'developer';
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -276,6 +282,262 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings".
+ */
+export interface SiteSetting {
+  id: number;
+  /**
+   * Shown in the footer, on /contact, in the enquiry form, the Home FAQ card and the mobile contact bar.
+   */
+  contact: {
+    /**
+     * Exactly as visitors should read it, e.g. +971 58 809 9223.
+     */
+    phoneDisplay: string;
+    /**
+     * Same number in international format without spaces, e.g. +971588099223. Used for tap-to-call.
+     */
+    phoneE164: string;
+    /**
+     * Digits only with country code, e.g. 971588099223.
+     */
+    whatsappNumber: string;
+    email: string;
+    workingHours: string;
+    /**
+     * Where meetings take place. The site has no public office address.
+     */
+    visitsLine: string;
+  };
+  /**
+   * The company line (footer, /contact) and the 'Who you are contracting with' block (/about) appear only when name, licence number and issuing authority are all filled in.
+   */
+  legal?: {
+    entityName?: string | null;
+    licenceNumber?: string | null;
+    issuingAuthority?: string | null;
+    activities?: string | null;
+    registeredAddress?: string | null;
+  };
+  /**
+   * Filled into the privacy notice (/privacy). A sentence that needs an empty value is left out.
+   */
+  privacy?: {
+    contactEmail?: string | null;
+    providers?: string | null;
+    retention?: string | null;
+  };
+  _status?: ('draft' | 'published') | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navigation".
+ */
+export interface Navigation {
+  id: number;
+  header: {
+    /**
+     * The first menu item; it links to /services and opens the services panel.
+     */
+    servicesLabel: string;
+    /**
+     * Up to four columns, each with a heading and its services.
+     */
+    serviceGroups?:
+      | {
+          label: string;
+          services: (
+            | 'interior-design'
+            | 'landscape-design'
+            | 'villa-renovation'
+            | 'apartment-renovation'
+            | 'commercial-fit-out'
+            | 'bespoke-joinery'
+            | 'custom-kitchens'
+            | 'wardrobes'
+            | 'approvals'
+            | 'mep-hvac'
+            | 'materials-procurement'
+          )[];
+          id?: string | null;
+        }[]
+      | null;
+    specialistLabel: string;
+    specialistServices: (
+      | 'interior-design'
+      | 'landscape-design'
+      | 'villa-renovation'
+      | 'apartment-renovation'
+      | 'commercial-fit-out'
+      | 'bespoke-joinery'
+      | 'custom-kitchens'
+      | 'wardrobes'
+      | 'approvals'
+      | 'mep-hvac'
+      | 'materials-procurement'
+    )[];
+    allServicesLabel: string;
+    links?:
+      | {
+          label: string;
+          route:
+            | '/'
+            | '/services'
+            | '/projects'
+            | '/process'
+            | '/about'
+            | '/insights'
+            | '/contact'
+            | '/warranty'
+            | '/privacy'
+            | '/cookies'
+            | '/services/interior-design'
+            | '/services/landscape-design'
+            | '/services/villa-renovation'
+            | '/services/apartment-renovation'
+            | '/services/commercial-fit-out'
+            | '/services/bespoke-joinery'
+            | '/services/custom-kitchens'
+            | '/services/wardrobes'
+            | '/services/approvals'
+            | '/services/mep-hvac'
+            | '/services/materials-procurement'
+            | '/projects/coastal-villa-concept'
+            | '/projects/garden-villa-concept'
+            | '/projects/tower-residence-concept'
+            | '/projects/business-district-office-concept';
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Opens the enquiry form (on the current page if it has one, otherwise on /contact).
+     */
+    ctaLabel: string;
+  };
+  footer: {
+    exploreHeading: string;
+    exploreLinks?:
+      | {
+          label: string;
+          route:
+            | '/'
+            | '/services'
+            | '/projects'
+            | '/process'
+            | '/about'
+            | '/insights'
+            | '/contact'
+            | '/warranty'
+            | '/privacy'
+            | '/cookies'
+            | '/services/interior-design'
+            | '/services/landscape-design'
+            | '/services/villa-renovation'
+            | '/services/apartment-renovation'
+            | '/services/commercial-fit-out'
+            | '/services/bespoke-joinery'
+            | '/services/custom-kitchens'
+            | '/services/wardrobes'
+            | '/services/approvals'
+            | '/services/mep-hvac'
+            | '/services/materials-procurement'
+            | '/projects/coastal-villa-concept'
+            | '/projects/garden-villa-concept'
+            | '/projects/tower-residence-concept'
+            | '/projects/business-district-office-concept';
+          id?: string | null;
+        }[]
+      | null;
+  };
+  _status?: ('draft' | 'published') | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings_select".
+ */
+export interface SiteSettingsSelect<T extends boolean = true> {
+  contact?:
+    | T
+    | {
+        phoneDisplay?: T;
+        phoneE164?: T;
+        whatsappNumber?: T;
+        email?: T;
+        workingHours?: T;
+        visitsLine?: T;
+      };
+  legal?:
+    | T
+    | {
+        entityName?: T;
+        licenceNumber?: T;
+        issuingAuthority?: T;
+        activities?: T;
+        registeredAddress?: T;
+      };
+  privacy?:
+    | T
+    | {
+        contactEmail?: T;
+        providers?: T;
+        retention?: T;
+      };
+  _status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navigation_select".
+ */
+export interface NavigationSelect<T extends boolean = true> {
+  header?:
+    | T
+    | {
+        servicesLabel?: T;
+        serviceGroups?:
+          | T
+          | {
+              label?: T;
+              services?: T;
+              id?: T;
+            };
+        specialistLabel?: T;
+        specialistServices?: T;
+        allServicesLabel?: T;
+        links?:
+          | T
+          | {
+              label?: T;
+              route?: T;
+              id?: T;
+            };
+        ctaLabel?: T;
+      };
+  footer?:
+    | T
+    | {
+        exploreHeading?: T;
+        exploreLinks?:
+          | T
+          | {
+              label?: T;
+              route?: T;
+              id?: T;
+            };
+      };
+  _status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

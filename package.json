@@ -11,7 +11,8 @@
     "payload": "payload",
     "generate:importmap": "payload generate:importmap",
     "generate:types": "payload generate:types",
-    "vercel-build": "node scripts/cms-migrate.mjs && next build"
+    "vercel-build": "node scripts/cms-migrate.mjs && node scripts/cms-seed.mjs && next build",
+    "cms:seed": "payload run src/cms/seed/run.ts"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
