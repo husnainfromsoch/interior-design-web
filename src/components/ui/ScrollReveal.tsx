@@ -3,8 +3,8 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const REVEAL_SELECTOR = ".reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-line, .reveal-clip";
-
+// Changes Sheet D8: one fade-in per section, once. Marks each .bv-fade section as it
+// enters the viewport; the CSS (globals.css) only hides sections when scripting is on.
 export default function ScrollReveal() {
   const pathname = usePathname();
 
@@ -22,11 +22,8 @@ export default function ScrollReveal() {
     );
 
     const observe = () => {
-      document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
-        if (!el.classList.contains("is-visible")) io.observe(el);
-      });
+      document.querySelectorAll(".bv-fade:not(.is-visible)").forEach((el) => io.observe(el));
     };
-
     observe();
 
     const mo = new MutationObserver(observe);

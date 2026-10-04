@@ -33,7 +33,7 @@ export default function CopyLinkButton({
     <button
       type="button"
       onClick={copy}
-      className="text-[13px] text-bv-muted underline underline-offset-4 transition-colors hover:text-bv-ink"
+      className="t-caption text-bv-muted underline underline-offset-4 transition-colors hover:text-bv-ink"
     >
       <span aria-live="polite">{copied ? copiedLabel : label}</span>
     </button>

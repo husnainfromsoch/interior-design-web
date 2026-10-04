@@ -18,7 +18,19 @@ Premium interior design marketing site for the UAE market, built on Next.js (App
 - `src/data/` — static content/data (nav.ts, services.ts, projects.ts, insights.ts, caseStudies.ts)
 - `public/visuals/`, `public/service images/` — image/visual assets
 
-## Source of truth — FINAL spec
+## Source of truth — Final Changes Sheet v3.0 (03.10.2026, owner-approved)
+
+**`Bellvero_Final_Changes_Sheet.md` (what to change) and `Bellvero_Final_Copy_EN_RU.md` (all texts) now override everything below.** Anything the sheet does not list stays as built. Where this file's older sections disagree with the sheet, the sheet wins.
+
+- **Copy:** `node scripts/extract-final-copy.mjs` generates `src/data/final/copy.json`; server code reads it through `src/lib/final.ts` (`doc`, `block`, `g`, `meta`, `linkHref` = sheet G8 link map). `npx tsx scripts/check-final-copy.ts` verifies every link label and block. The copy is published verbatim, so it is NOT run through `no-dash.mjs` (a few RU sentences keep "—"; owner to confirm).
+- **Pages:** service pages P02–P13, P22, P23 render from the copy through `src/components/final/DocPage.tsx` (hero, facts strip, sections, cases, FAQ, final CTA + form, related). P11 keeps its structure in `ApprovalsPage.tsx`. Home, Projects, Process, About, Contact read block-format copy in their `page.tsx`.
+- **Design (sheet section 1):** only the nine type styles `.t-h1-xl .t-h1 .t-h2 .t-h3 .t-body .t-small .t-eyebrow .t-button .t-caption .t-number` in `globals.css`; Cormorant 500 for H1–H3, Manrope for the rest; `rounded-lg` = 0 px, `rounded-sm` = 2 px, no `rounded-full`; one fade per section (`.bv-fade`), no sliders, no decorative icons, no blur. Breakpoints: `sm` 640, `lg` 1024. The 2026-09-25 radius amendment, the type size trial, the motion layer and the interaction layer below are all withdrawn.
+- **Images (D10):** `getMedia` returns null until a slot has an approved file in `APPROVED` (`src/data/media.ts`); blocks then render text-only. No temporary or third-party images.
+- **Header/footer navigation comes from the copy** (`src/components/final/navCopy.ts`), not from the CMS Navigation global, which is currently unused.
+- **Not built yet:** the CMS collections of sheet section 5. Their values live in `src/data/siteContent.ts` (all empty except the WhatsApp link), so the dependent blocks are hidden as required.
+- Local `next build` cannot prerender without `PAYLOAD_SECRET` and the database.
+
+## Earlier source of truth (superseded where the sheet differs)
 
 **`Bellvero_Insights_Technical_Specification_EN.md` (repo root, v1.0, 22.09.2026) is the FINAL specification.** Everything is built and verified against it. Do not re-derive copy, image prompts, layout sizes or article text: look them up there and use them verbatim. When code and spec disagree, the code is wrong.
 

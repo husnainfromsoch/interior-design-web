@@ -5,11 +5,11 @@ export { TOPICS, topicName, type Topic, type TopicSlug } from "@/data/insightsTo
 import type { TopicSlug } from "@/data/insightsTopics";
 
 export const AUTHOR = {
-  name: "Sayyed Osaf",
+  name: { en: "Haidar Al Gilani", ru: "Хайдар Аль-Гилани" },
   role: { en: "Co-Founder & Chief Engineer", ru: "Сооснователь и главный инженер" },
   bio: {
-    en: "Sayyed Osaf leads the technical direction of Bellvero Group. Before co-founding the family business, he held chief engineer positions with UAE contracting companies on large residential, commercial and public buildings in Dubai and Abu Dhabi. He reviews every Insights article for technical accuracy.",
-    ru: "Sayyed Osaf руководит техническим направлением Bellvero Group. До основания семейного бизнеса он занимал должность главного инженера в подрядных компаниях ОАЭ на крупных жилых, коммерческих и общественных объектах Дубая и Абу-Даби. Он проверяет каждую статью раздела на техническую точность.",
+    en: "Haidar Al Gilani leads the engineering decisions at Bellvero Group. He has worked in UAE construction since 2008, first as an engineer at Al Sahel Contracting and, from 2015 to 2021, as chief engineer at Commodore Contracting. He reviews every Insights article for technical accuracy.",
+    ru: "Хайдар Аль-Гилани руководит инженерными решениями Bellvero Group. В строительстве ОАЭ с 2008 года: сначала инженер в Al Sahel Contracting, с 2015 по 2021 год главный инженер в Commodore Contracting. Проверяет каждую статью раздела на техническую точность.",
   },
   photo: null as string | null,
   profileLink: "/about#leadership",
@@ -69,13 +69,13 @@ export const ARTICLES: Article[] = [
         "Layout changes, structural work, extensions, external changes and changes to services usually require approval. Finishes alone usually do not.",
         "A community or building management may require notification even where no authority permit applies.",
         "The route should be confirmed before design work begins, because approval requirements shape the design itself.",
-        "No one can honestly guarantee an approval by a fixed date.",
+        "Approval dates depend on the approving parties and on how complete the application is.",
       ],
-      body: `## Approval in Dubai is not one process
+      body: `## Approval in Dubai depends on the property
 
-Owners often ask us a simple question: "Do I need a permit for my renovation?" The honest first answer is another question: where is the villa?
+Owners often ask us a simple question: "Do I need a permit for my renovation?" The first answer is another question: where is the villa?
 
-In Dubai, approval is not a single procedure that every property follows. Which authority issues the permit, which drawing format it accepts, and whether a community No Objection Certificate (NOC) is needed first are decided mainly by the location of the property. The type of work matters too, but it comes second. Two identical renovations in two different communities can follow two different routes.
+In Dubai, each property follows its own approval route. Which authority issues the permit, which drawing format it accepts, and whether a community No Objection Certificate (NOC) is needed first are decided mainly by the location of the property. The type of work matters too, but it comes second. Two identical renovations in two different communities can follow two different routes.
 
 That is why identifying the correct route is the first thing we do on any villa project, and we do it before design work begins.
 
@@ -92,9 +92,9 @@ In practice, most villa and apartment projects in Dubai and Abu Dhabi fall into 
 
 The second row is where most villa owners are. In a master community, the developer or community management has its own guidelines for what a villa may look like from the outside, and sometimes for how works must be carried out. Their NOC is usually the first step, and the authority permit follows.
 
-This table is a map, not a ruling. The exact route for a specific villa is confirmed by checking the community, the plot and the proposed works together.
+This table is a general map. The exact route for a specific villa is confirmed by checking the community, the plot and the proposed works together.
 
-## Why this is settled before the design, not after
+## Why the route is settled before design
 
 It is tempting to design first and "sort out the permits" later. On a villa, that order is expensive.
 
@@ -102,11 +102,11 @@ Approval requirements shape the design itself. External changes, structural open
 
 Drawing format matters as much as content. Authorities do not share a single submission format, and a set prepared for one authority can be rejected by another without its content being assessed. Establishing the route first is what prevents this.
 
-> The cheapest moment to meet an approval requirement is before the first line of the design is drawn. | Sayyed Osaf
+> The cheapest moment to meet an approval requirement is before the first line of the design is drawn. | Haidar Al Gilani
 
 ## What usually requires approval
 
-The following is a general guide. It is based on how requirements are commonly applied, not on your property, and it is always checked case by case.
+The following is a general guide. It is based on how requirements are commonly applied and is always checked for your property.
 
 **Usually requires approval:**
 
@@ -119,7 +119,7 @@ The following is a general guide. It is based on how requirements are commonly a
 - changes to electrical load or distribution
 - modifying air-conditioning ducting and equipment
 
-**Usually does not, but is still checked:**
+**Usually needs only a check:**
 
 - painting
 - replacing floor and wall finishes
@@ -137,9 +137,9 @@ When a client asks us to [handle approvals](/services/approvals), the work follo
 3. **Coordinate the submissions** and respond to comments.
 4. **Track the status** and keep the client informed.
 
-Approvals are coordinated by our engineering lead. Our service fee, authority charges and any deposits are always shown as separate items in the proposal, so the client can see which costs are ours and which are not.
+Approvals are coordinated by our team, with engineering decisions led by our chief engineer. Our service fee, authority charges and any deposits are shown as separate items in the proposal, so you see each cost clearly.
 
-What we do not do is promise a date. Decisions and review periods depend on the approving parties and on how complete the application is. A contractor who guarantees an approval date is promising something that is not in their control.
+Approval dates depend on the approving parties and on how complete the application is. We keep you informed of the status at each stage.
 
 ## What to prepare before the first conversation
 
@@ -150,7 +150,7 @@ You do not need a complete document pack to start. For a first discussion, it he
 3. A description of the changes you are considering, in your own words.
 4. Any approvals already obtained for earlier works.
 
-After reviewing the case, we confirm which further documents are needed. We never ask for ownership documents through a public website form.
+After reviewing the case, we confirm which further documents are needed. We request ownership documents later, in direct conversation.
 
 ## The practical takeaway
 
@@ -175,13 +175,13 @@ If you are planning a [villa renovation](/services/villa-renovation) in Dubai, s
         "Изменение планировки, работы с конструкциями, пристройки, изменения фасада и инженерных систем обычно требуют согласования. Только отделка: обычно нет.",
         "Управляющая компания сообщества или здания может требовать уведомления даже там, где разрешение органа не нужно.",
         "Маршрут нужно подтвердить до начала проектирования: требования согласований влияют на сам дизайн.",
-        "Никто не может честно гарантировать получение разрешения к определённой дате.",
+        "Сроки согласования зависят от согласующих органов и полноты пакета документов.",
       ],
-      body: `## Согласование в Дубае не сводится к одной процедуре
+      body: `## Согласование в Дубае зависит от объекта
 
-Владельцы вилл часто задают нам простой вопрос: «Нужно ли разрешение на мой ремонт?» Честный первый ответ звучит как встречный вопрос: где находится вилла?
+Владельцы вилл часто задают нам простой вопрос: «Нужно ли разрешение на мой ремонт?» Первый ответ звучит как встречный вопрос: где находится вилла?
 
-В Дубае согласование: не единая процедура для всех объектов. Какой орган выдаёт разрешение, в каком формате он принимает чертежи и нужен ли сначала NOC (No Objection Certificate) от сообщества, определяется прежде всего расположением объекта. Вид работ тоже важен, но он вторичен. Два одинаковых ремонта в двух разных сообществах могут идти по двум разным маршрутам.
+В Дубае у каждого объекта свой маршрут согласования. Какой орган выдаёт разрешение, в каком формате он принимает чертежи и нужен ли сначала NOC (No Objection Certificate) от сообщества, определяется прежде всего расположением объекта. Вид работ тоже важен, но он вторичен. Два одинаковых ремонта в двух разных сообществах могут идти по двум разным маршрутам.
 
 Поэтому определение правильного маршрута: первое, что мы делаем на любом проекте виллы, и делаем это до начала проектирования.
 
@@ -198,9 +198,9 @@ If you are planning a [villa renovation](/services/villa-renovation) in Dubai, s
 
 Большинство владельцев вилл находятся во второй строке. В мастер-сообществе у девелопера или управляющей компании есть собственный регламент того, как вилла может выглядеть снаружи, а иногда и того, как должны вестись работы. Их NOC обычно становится первым шагом, а разрешение органа следует за ним.
 
-Эта таблица: карта, а не заключение. Точный маршрут для конкретной виллы подтверждается проверкой сообщества, участка и планируемых работ вместе.
+Эта таблица — общая карта. Точный маршрут для конкретной виллы подтверждается проверкой сообщества, участка и планируемых работ вместе.
 
-## Почему это решается до дизайна, а не после
+## Почему маршрут определяется до дизайна
 
 Хочется сначала сделать дизайн, а «разрешения решить потом». Для виллы такой порядок обходится дорого.
 
@@ -208,11 +208,11 @@ If you are planning a [villa renovation](/services/villa-renovation) in Dubai, s
 
 Формат чертежей важен не меньше содержания. У разных органов разные требования к подаче, и комплект, подготовленный для одного, может быть отклонён другим без рассмотрения по существу. Именно поэтому маршрут определяется первым.
 
-> Дешевле всего выполнить требование согласования до того, как проведена первая линия проекта. | Sayyed Osaf
+> Дешевле всего выполнить требование согласования до того, как проведена первая линия проекта. | Хайдар Аль-Гилани
 
 ## Какие работы обычно требуют согласования
 
-Ниже: общий ориентир. Он основан на том, как требования обычно применяются, а не на вашем объекте, и всегда проверяется в каждом конкретном случае.
+Ниже: общий ориентир. Он основан на том, как требования обычно применяются, и всегда проверяется для вашего объекта.
 
 **Обычно требуют согласования:**
 
@@ -225,7 +225,7 @@ If you are planning a [villa renovation](/services/villa-renovation) in Dubai, s
 - изменение электрической нагрузки и распределения
 - изменение воздуховодов и оборудования кондиционирования
 
-**Обычно не требуют, но проверяются:**
+**Обычно достаточно проверки:**
 
 - покраска
 - замена напольных и настенных покрытий
@@ -243,9 +243,9 @@ If you are planning a [villa renovation](/services/villa-renovation) in Dubai, s
 3. **Подаём документы** и отрабатываем замечания.
 4. **Отслеживаем статус** и информируем клиента.
 
-Согласования координирует руководитель нашего инженерного направления. Стоимость наших услуг, сборы органов и возможные депозиты всегда указываются в предложении отдельными строками, чтобы клиент видел, какие расходы наши, а какие нет.
+Согласования ведёт наша команда, а инженерными решениями руководит главный инженер. Стоимость наших услуг, сборы органов и депозиты указываются в предложении по отдельности, чтобы каждая статья расходов была видна.
 
-Чего мы не делаем: не обещаем дату. Решение и сроки рассмотрения зависят от согласующих сторон и от полноты заявки. Подрядчик, который гарантирует дату получения разрешения, обещает то, что от него не зависит.
+Сроки согласования зависят от согласующих органов и полноты пакета документов. Мы сообщаем вам статус на каждом этапе.
 
 ## Что подготовить к первому разговору
 
@@ -256,7 +256,7 @@ If you are planning a [villa renovation](/services/villa-renovation) in Dubai, s
 3. Описание изменений, которые вы рассматриваете, своими словами.
 4. Разрешения, уже полученные на прежние работы.
 
-После изучения задачи мы уточняем, какие ещё документы понадобятся. Документы о праве собственности через форму на сайте мы не запрашиваем.
+После изучения задачи мы подтверждаем, какие ещё документы нужны. Документы о праве собственности запрашиваем позже, в личном общении.
 
 ## Практический вывод
 
@@ -286,20 +286,20 @@ If you are planning a [villa renovation](/services/villa-renovation) in Dubai, s
       metaDescription:
         "Why quotations for the same villa can differ so much: scope, hidden works, specification, joinery and approvals, and how to get a quotation you can compare.",
       standfirst:
-        "Two quotations for the same villa can be far apart, and neither is necessarily wrong. This article explains what actually moves the cost of a renovation, which parts you never see after handover, and how to get a quotation that can be compared line by line.",
+        "Two quotations for the same villa can be far apart, and both can be correct. This article explains what actually moves the cost of a renovation, which parts stay hidden after handover, and how to get a quotation that can be compared line by line.",
       excerpt: "Scope, hidden works, specification level, joinery and approvals: what really moves the cost of a villa renovation.",
       keyPoints: [
-        "The cost of a renovation is set mostly by scope and specification, not by floor area alone.",
+        "The cost of a renovation is set mostly by scope and specification, with floor area playing a smaller part.",
         "Works hidden after handover (waterproofing, services, substrates) decide much of the cost and all of the durability.",
         "A complete design and specification before the quotation is the most reliable way to keep the budget stable.",
-        "Quotations can only be compared when they describe the same scope, the same specification and the same exclusions.",
+        "Quotations can only be compared when they describe the same scope and the same specification.",
         "Additional work should be quoted and approved before it starts.",
       ],
-      body: `## Why "how much per square metre?" is the wrong first question
+      body: `## Why the price per square metre comes later
 
-It is the question almost everyone asks first, and it is understandable: a single number feels like control. The difficulty is that a renovation is not bought by the square metre. It is bought by scope and specification. The same 400 m² villa can be refreshed with new paint and finishes, or opened up, re-plumbed, rewired and fitted with new joinery throughout. Both are "renovations", and the difference between them is far larger than any difference in contractors' rates.
+It is the question almost everyone asks first, and it is understandable: a single number feels like control. The difficulty is that a renovation is priced by scope and specification. The same 400 m² villa can be refreshed with new paint and finishes, or opened up, re-plumbed, rewired and fitted with new joinery throughout. Both are "renovations", and the difference between them is far larger than any difference in contractors' rates.
 
-So instead of a rate, this article looks at what actually moves the cost, in the order in which it usually matters.
+So this article looks at what actually moves the cost, in the order in which it usually matters.
 
 ## 1. What is touched: scope
 
@@ -312,7 +312,7 @@ The largest single factor is how deeply the works go into the building.
 
 Each step down this list usually brings the next with it. Moving a bathroom means moving drainage; moving a kitchen means new electrical circuits and extraction. It also changes the approvals picture, which we cover in our guide to [villa renovation approvals](/insights/villa-renovation-approvals-dubai).
 
-## 2. The work you do not see
+## 2. Hidden work
 
 After handover, a client sees stone, oak and plaster. What they do not see is often what the budget was spent on.
 
@@ -321,15 +321,15 @@ After handover, a client sees stone, oak and plaster. What they do not see is of
 - **Services** inside walls and ceilings: cabling, pipework, ducting.
 - **Protection** of the parts of the house that are not being renovated.
 
-This is also where quotations differ most quietly. One quotation may include a full waterproofing system with tests, another a single coat. On paper they are both "waterproofing". Three years later, they are not the same bathroom.
+This is also where quotations differ most quietly. One quotation may include a full waterproofing system with tests, another a single coat. On paper they are both "waterproofing". Three years later, the difference shows.
 
-> The part of a renovation that nobody photographs is the part that decides how long everything else lasts. | Sayyed Osaf
+> The part of a renovation that nobody photographs is the part that decides how long everything else lasts. | Haidar Al Gilani
 
 ## 3. Specification level
 
 The same layout can be specified at very different levels. A kitchen wall can be finished in paint or in stone; a floor in porcelain or in limestone; a door in a standard leaf or a full-height concealed one. Hardware, sanitaryware, lighting and glass follow the same logic.
 
-Specification is where the client has the most control, and where a design pays for itself: when every finish is chosen and written down before the quotation, the price describes what will actually be installed, instead of an allowance that is revised later.
+Specification is where the client has the most control, and where a design pays for itself: when every finish is chosen and written down before the quotation, the price describes what will actually be installed.
 
 ## 4. Bespoke joinery
 
@@ -341,30 +341,30 @@ Kitchens, wardrobes, vanities and built-in storage are often a large part of a [
 - the worktops and any stone or glass elements
 - the complexity of installation
 
-Because we manufacture cabinetry in our own production, joinery is quoted from the approved drawings and after technical measurement, not from a catalogue estimate.
+Because we make furniture in our own workshop, joinery is quoted from the approved drawings and after technical measurement.
 
 ## 5. Design and documentation
 
-A renovation without complete drawings is priced on assumptions, and assumptions are where budgets move. The design is not an extra cost on top of the renovation; it is what turns the renovation into a defined price.
+A renovation without complete drawings is priced on assumptions, and assumptions are where budgets move. The design is what turns the renovation into a defined price.
 
-Our design fees are published: **Full Interior Design from AED 250/m² excluding VAT (AED 262.50/m² including VAT)**, and **Interior Design & Procurement from AED 310/m² excluding VAT (AED 325.50/m² including VAT)**, which adds material and furniture sourcing, supplier coordination and order tracking. What is included in each package is set out on our [interior design page](/services/interior-design#fees).
+What is included in each design format is set out on our [interior design page](/services/interior-design).
 
 ## 6. Approvals and site conditions
 
-Approval requirements, community rules on working hours and access, whether the family is living in the house during works, and how materials reach the site all affect the programme, and therefore the cost. These items are identified during the site visit and written into the scope, rather than discovered later.
+Approval requirements, community rules on working hours and access, whether the family is living in the house during works, and how materials reach the site all affect the programme, and therefore the cost. These items are identified during the site visit and written into the scope from the start.
 
 ## How to get a quotation you can compare
 
 Two quotations can only be compared when they describe the same thing. Before comparing prices, check that each one:
 
-1. Lists the **scope** room by room, not as one lump sum.
+1. Lists the **scope** room by room.
 2. States the **specification** of finishes, fixtures and joinery, or clearly marks allowances.
-3. Lists **exclusions**: what is not included, such as authority fees, furniture or appliances.
+3. Shows authority fees, furniture and appliances as separate lines.
 4. Explains **how additional work is handled**. With us, additional works are quoted and approved before they start.
 5. Sets out the **payment schedule**. Ours is agreed before work begins and recorded in the contract: it sets out the initial payment, the payments that follow and the conditions for each. Manufacturing and material purchases may be scheduled as separate payments.
 6. States the **warranty**. Ours is 36 months for renovation workmanship and 48 months for our bespoke cabinetry, each from documented handover of the relevant works.
 
-Callout: Important: A lower quotation that leaves out waterproofing detail, services or protection is not cheaper; it is describing a different project.
+Callout: Important: A lower quotation that leaves out waterproofing detail, services or protection describes a different project.
 
 ## The practical takeaway
 
@@ -376,20 +376,20 @@ Decide the scope first, fix the specification second, and ask for a price third.
       metaDescription:
         "Почему сметы на одну и ту же виллу так отличаются: объём работ, скрытые работы, уровень отделки, мебель и согласования, и как получить сравнимую смету.",
       standfirst:
-        "Две сметы на одну и ту же виллу могут сильно различаться, и ни одна не обязательно ошибочна. Разбираем, что на самом деле влияет на стоимость ремонта, какие работы не видны после сдачи и как получить смету, которую можно сравнить построчно.",
+        "Две сметы на одну и ту же виллу могут сильно различаться, и обе могут быть верными. Разбираем, что на самом деле влияет на стоимость ремонта, какие части остаются скрытыми после сдачи и как получить смету, которую можно сравнить построчно.",
       excerpt: "Объём работ, скрытые работы, уровень отделки, мебель и согласования: что на самом деле определяет стоимость ремонта виллы.",
       keyPoints: [
-        "Стоимость ремонта определяется прежде всего составом работ и уровнем отделки, а не только площадью.",
+        "Стоимость ремонта зависит прежде всего от объёма работ и спецификации; площадь влияет меньше.",
         "Работы, скрытые после сдачи (гидроизоляция, коммуникации, основания), определяют значительную часть стоимости и всю долговечность.",
         "Полный дизайн-проект и спецификация до расчёта сметы: самый надёжный способ удержать бюджет.",
-        "Сметы можно сравнивать, только если в них одинаковый состав работ, одинаковая спецификация и одинаковые исключения.",
+        "Сметы можно сравнивать, только если в них одинаковый состав работ и одинаковая спецификация.",
         "Дополнительные работы должны рассчитываться и согласовываться до их начала.",
       ],
-      body: `## Почему «сколько стоит квадратный метр?» не тот первый вопрос
+      body: `## Почему цена за квадратный метр обсуждается позже
 
-Этот вопрос почти все задают первым, и это понятно: одна цифра создаёт ощущение контроля. Сложность в том, что ремонт покупается не квадратными метрами, а составом работ и уровнем отделки. Одну и ту же виллу площадью 400 м² можно освежить покраской и новой отделкой, а можно полностью перепланировать, заменить сантехнику, электрику и поставить новую мебель по всему дому. Оба варианта: «ремонт», и разница между ними намного больше любой разницы в расценках подрядчиков.
+Этот вопрос почти все задают первым, и это понятно: одна цифра создаёт ощущение контроля. Сложность в том, что ремонт оценивается по составу работ и спецификации. Одну и ту же виллу площадью 400 м² можно освежить покраской и новой отделкой, а можно полностью перепланировать, заменить сантехнику, электрику и поставить новую мебель по всему дому. Оба варианта: «ремонт», и разница между ними намного больше любой разницы в расценках подрядчиков.
 
-Поэтому вместо расценки разберём, что на самом деле влияет на стоимость, в том порядке, в котором это обычно важно.
+Поэтому разберём, что на самом деле влияет на стоимость, в том порядке, в котором это обычно важно.
 
 ## 1. Что затрагивается: состав работ
 
@@ -402,7 +402,7 @@ Decide the scope first, fix the specification second, and ask for a price third.
 
 Каждый шаг вниз по этому списку обычно тянет за собой следующий. Перенос ванной означает перенос канализации; перенос кухни: новые электрические линии и вытяжку. Меняется и картина согласований, о которой мы пишем в статье о [согласовании ремонта виллы](/insights/villa-renovation-approvals-dubai).
 
-## 2. Работы, которых не видно
+## 2. Скрытые работы
 
 После сдачи клиент видит камень, дуб и штукатурку. Чего он не видит, так это того, на что часто ушла значительная часть бюджета.
 
@@ -411,15 +411,15 @@ Decide the scope first, fix the specification second, and ask for a price third.
 - **Коммуникации** в стенах и потолках: кабели, трубы, воздуховоды.
 - **Защита** тех частей дома, которые не ремонтируются.
 
-Именно здесь сметы различаются незаметнее всего. В одной смете может быть полная система гидроизоляции с испытаниями, в другой: один слой. На бумаге и то и другое: «гидроизоляция». Через три года это уже разные ванные.
+Именно здесь сметы различаются незаметнее всего. В одной смете может быть полная система гидроизоляции с испытаниями, в другой: один слой. На бумаге и то и другое: «гидроизоляция». Через три года разница видна.
 
-> Та часть ремонта, которую никто не фотографирует, определяет, сколько прослужит всё остальное. | Sayyed Osaf
+> Та часть ремонта, которую никто не фотографирует, определяет, сколько прослужит всё остальное. | Хайдар Аль-Гилани
 
 ## 3. Уровень отделки
 
 Одну и ту же планировку можно выполнить на очень разном уровне. Стену кухни можно покрасить или отделать камнем; пол, керамогранитом или известняком; дверь, стандартным полотном или скрытой дверью в потолок. Фурнитура, сантехника, освещение и стекло подчиняются той же логике.
 
-Уровень отделки: это то, что клиент контролирует больше всего, и то, где дизайн-проект окупает себя: если каждая отделка выбрана и записана до расчёта сметы, цена описывает то, что действительно будет установлено, а не условную сумму, которую потом пересматривают.
+Уровень отделки: это то, что клиент контролирует больше всего, и то, где дизайн-проект окупает себя: если каждая отделка выбрана и записана до расчёта сметы, цена описывает то, что действительно будет установлено.
 
 ## 4. Мебель на заказ
 
@@ -431,30 +431,30 @@ Decide the scope first, fix the specification second, and ask for a price third.
 - столешниц и элементов из камня или стекла
 - сложности монтажа
 
-Поскольку корпусную мебель мы изготавливаем на собственном производстве, её стоимость рассчитывается по утверждённым чертежам и после технического замера, а не по каталожной оценке.
+Поскольку мебель мы изготавливаем в собственной мастерской, её стоимость рассчитывается по утверждённым чертежам и после технического замера.
 
 ## 5. Дизайн и документация
 
-Ремонт без полного комплекта чертежей считается на допущениях, а именно на допущениях бюджет и «плывёт». Дизайн-проект: не дополнительная трата сверх ремонта, а то, что превращает ремонт в определённую цену.
+Ремонт без полного комплекта чертежей считается на допущениях, а именно на допущениях бюджет и «плывёт». Именно дизайн-проект делает стоимость ремонта определённой.
 
-Наши цены на дизайн опубликованы: **Полный дизайн-проект: от 250 AED/м² без VAT (262.50 AED/м² с VAT)** и **Дизайн и комплектация: от 310 AED/м² без VAT (325.50 AED/м² с VAT)**, куда дополнительно входят подбор материалов и мебели, работа с поставщиками и отслеживание заказов. Что входит в каждый пакет, указано на [странице дизайна интерьера](/services/interior-design#fees).
+Что входит в каждый формат дизайн-проекта, указано на [странице дизайна интерьера](/services/interior-design).
 
 ## 6. Согласования и условия объекта
 
-Требования согласований, правила сообщества по времени работ и доступу, живёт ли семья в доме во время ремонта, как материалы попадают на объект: всё это влияет на график, а значит, и на стоимость. Эти пункты выявляются на выезде и записываются в состав работ, а не обнаруживаются потом.
+Требования согласований, правила сообщества по времени работ и доступу, живёт ли семья в доме во время ремонта, как материалы попадают на объект: всё это влияет на график, а значит, и на стоимость. Эти пункты выявляются на выезде и записываются в состав работ с самого начала.
 
 ## Как получить смету, которую можно сравнить
 
 Две сметы можно сравнивать, только если они описывают одно и то же. Прежде чем сравнивать цены, проверьте, что каждая из них:
 
-1. Раскрывает **состав работ** по помещениям, а не одной суммой.
+1. Раскрывает **состав работ** по помещениям.
 2. Указывает **спецификацию** отделки, приборов и мебели или явно помечает условные суммы.
-3. Перечисляет **исключения**: что не входит, например сборы органов, мебель или техника.
+3. Называет сборы органов, мебель и технику отдельно.
 4. Объясняет, **как оформляются дополнительные работы**. У нас дополнительные работы рассчитываются и согласовываются до начала.
 5. Описывает **график оплаты**. Наш график согласовывается до начала работ и фиксируется в договоре: в нём указываются аванс, последующие платежи и условия их внесения. Для изготовления мебели и закупки материалов могут предусматриваться отдельные платежи.
 6. Указывает **гарантию**. У нас: 36 месяцев на ремонтные работы и 48 месяцев на нашу корпусную мебель, в каждом случае с документально оформленной передачи соответствующих работ.
 
-Врезка «Важно»: смета, в которой меньше деталей по гидроизоляции, коммуникациям или защите, не дешевле: она описывает другой проект.
+Врезка «Важно»: Более низкая смета без детальной гидроизоляции, инженерных систем или защиты описывает другой проект.
 
 ## Практический вывод
 
@@ -483,7 +483,7 @@ Decide the scope first, fix the specification second, and ask for a price third.
       keyPoints: [
         "You can bring your own designer's project: we review your drawings and existing approvals, agree the implementation scope and coordinate the works.",
         "The first step is a technical review of the drawings against the property and the approvals, before any price is given.",
-        "Gaps in the drawings are listed openly and resolved before works, not improvised on site.",
+        "Gaps in the drawings are listed openly and resolved before works start.",
         "Roles are agreed at the start: the design stays your designer's; delivery is ours.",
         "Bespoke joinery can be manufactured from your designer's drawings after technical measurement and approved manufacturing drawings.",
       ],
@@ -491,7 +491,7 @@ Decide the scope first, fix the specification second, and ask for a price third.
 
 Some clients come to us at the very beginning, with a property and an idea. Many others arrive later: they have already worked with an interior designer, the drawings are finished, and sometimes the approvals are in hand. What they need is a team to build it.
 
-This is [one of the routes we offer](/process#build-from-your-design) from the start, not an exception. We review your drawings and existing approvals, agree the implementation scope and coordinate the works. The design remains your designer's. Our job is to deliver it faithfully and to raise, early and in writing, anything that would stop it being delivered well.
+This is [one of the routes we offer](/process#build-from-your-design) from the start. We review your drawings and existing approvals, agree the implementation scope and coordinate the works. The design remains your designer's. Our job is to deliver it faithfully and to raise, early and in writing, anything that would stop it being delivered well.
 
 ## What we review first
 
@@ -505,19 +505,19 @@ Before we give a price, we review the documents. A design that looks complete in
 
 **4. Existing approvals.** If approvals have been obtained, we check that the approved drawings match the design we are asked to build. If they have not, we confirm which route applies, as explained in our guide to [villa renovation approvals](/insights/villa-renovation-approvals-dubai).
 
-> A good design deserves to be built as drawn. The way to do that is to find the questions before the site does. | Sayyed Osaf
+> A good design deserves to be built as drawn. The way to do that is to find the questions before the site does. | Haidar Al Gilani
 
 ## When the drawings have gaps
 
 Almost every design set has some. A detail left open, a finish marked "to be confirmed", a joinery item shown only in elevation. None of this is a problem if it is found early.
 
-After the review we send a written list of the points that need an answer: what is missing, what conflicts, and what we recommend. Each point is resolved in one of three ways: your designer completes it, you decide it with us, or it is excluded from the scope until it is decided. Nothing is improvised on site without the client's approval.
+After the review we send a written list of the points that need an answer: what is missing, what conflicts, and what we recommend. Each point is resolved in one of three ways: your designer completes it, you decide it with us, or it is held over until it is decided. Nothing is improvised on site without the client's approval.
 
-Callout: Important: If a detail is not drawn, it is not priced. Asking for a quotation before the gaps are closed usually means asking for a quotation that will change.
+Callout: Important: A detail is priced once it is drawn. A quotation requested before the gaps are closed is likely to change.
 
 ## How the scope is agreed
 
-Once the drawings are reviewed, we agree the implementation scope with you in writing. It lists the works room by room, the specification that applies to each, what is excluded, and who is responsible for what. This document is the basis of the quotation and, later, of the contract.
+Once the drawings are reviewed, we agree the implementation scope with you in writing. It lists the works room by room, the specification that applies to each and who is responsible for what. This document is the basis of the quotation and, later, of the contract.
 
 Additional work that arises during the project is quoted and approved before it starts. The payment schedule is agreed before work begins and recorded in the contract.
 
@@ -525,7 +525,7 @@ Additional work that arises during the project is quoted and approved before it 
 
 The relationship works best when roles are clear from the first day.
 
-- **Your designer** owns the design intent: finishes, proportions, the look of the space. Design changes come from the designer or from you, never from the site.
+- **Your designer** owns the design intent: finishes, proportions, the look of the space. Design changes come from the designer or from you.
 - **We** own delivery: site works, procurement where agreed, manufacturing, programme, quality and safety on site.
 - **Your project manager** is the single point of contact for progress, and shares photos, videos and written updates in a dedicated project group. Your designer can be included in that group if you wish.
 
@@ -533,7 +533,7 @@ When a question comes up on site, it is recorded, sent to the person who owns th
 
 ## Joinery from your designer's drawings
 
-Bespoke furniture is often the most detailed part of a designer's project, and the part where the gap between a drawing and a finished item is largest. Because we have our own production for cabinetry, glass and stone work, we can manufacture [joinery](/services/bespoke-joinery) directly from your designer's drawings. The process is:
+Bespoke furniture is often the most detailed part of a designer's project, and the part where the gap between a drawing and a finished item is largest. Because we have our own workshop for furniture, stone, glass and metal, we can manufacture [joinery](/services/bespoke-joinery) directly from your designer's drawings. The process is:
 
 1. **Review** of the joinery drawings and specifications.
 2. **Technical measurement** on site, after the agreement is signed, once walls and ceilings are ready for it.
@@ -568,7 +568,7 @@ A finished design is a strong starting point. The step that protects it is a tec
       keyPoints: [
         "Можно прийти с проектом своего дизайнера: мы изучаем чертежи и имеющиеся разрешения, согласовываем состав реализации и организуем работы.",
         "Первый шаг: техническая проверка чертежей на соответствие объекту и разрешениям, до расчёта стоимости.",
-        "Пробелы в чертежах перечисляются открыто и закрываются до начала работ, а не решаются на объекте на ходу.",
+        "Пробелы в чертежах перечисляются открыто и закрываются до начала работ.",
         "Роли распределяются в начале: дизайн остаётся за вашим дизайнером, реализация: за нами.",
         "Мебель на заказ можно изготовить по чертежам вашего дизайнера после технического замера и утверждения производственных чертежей.",
       ],
@@ -576,7 +576,7 @@ A finished design is a strong starting point. The step that protects it is a tec
 
 Одни клиенты приходят к нам в самом начале: с объектом и идеей. Многие другие приходят позже: они уже поработали с дизайнером интерьера, чертежи готовы, а иногда уже получены и разрешения. Им нужна команда, которая всё это реализует.
 
-Это [один из маршрутов, которые мы предлагаем](/process#build-from-your-design) изначально, а не исключение. Мы изучаем чертежи и имеющиеся разрешения, согласовываем состав реализации и организуем работы. Дизайн остаётся за вашим дизайнером. Наша задача: точно его реализовать и заранее, письменно, поднять всё, что может этому помешать.
+Это [один из маршрутов, которые мы предлагаем](/process#build-from-your-design) с самого начала. Мы изучаем чертежи и имеющиеся разрешения, согласовываем состав реализации и организуем работы. Дизайн остаётся за вашим дизайнером. Наша задача: точно его реализовать и заранее, письменно, поднять всё, что может этому помешать.
 
 ## Что мы проверяем в первую очередь
 
@@ -590,19 +590,19 @@ A finished design is a strong starting point. The step that protects it is a tec
 
 **4. Имеющиеся разрешения.** Если разрешения получены, мы проверяем, что согласованные чертежи совпадают с проектом, который нас просят реализовать. Если нет, подтверждаем применимый маршрут, как описано в статье о [согласовании ремонта виллы](/insights/villa-renovation-approvals-dubai).
 
-> Хороший дизайн заслуживает того, чтобы его построили так, как он нарисован. Для этого вопросы нужно найти раньше, чем их найдёт объект. | Sayyed Osaf
+> Хороший дизайн заслуживает того, чтобы его построили так, как он нарисован. Для этого вопросы нужно найти раньше, чем их найдёт объект. | Хайдар Аль-Гилани
 
 ## Если в чертежах есть пробелы
 
 Они есть почти в каждом комплекте. Незакрытый узел, отделка с пометкой «уточнить», мебель, показанная только на развёртке. Всё это не проблема, если найдено вовремя.
 
-После проверки мы отправляем письменный список вопросов: чего не хватает, что противоречит друг другу и что мы рекомендуем. Каждый пункт закрывается одним из трёх способов: его дорабатывает ваш дизайнер, вы решаете его вместе с нами или он исключается из состава работ до принятия решения. Ничего не решается на объекте на ходу без согласия клиента.
+После проверки мы отправляем письменный список вопросов: чего не хватает, что противоречит друг другу и что мы рекомендуем. Каждый пункт закрывается одним из трёх способов: его дорабатывает ваш дизайнер, вы решаете его вместе с нами или откладывается до принятия решения. Ничего не решается на объекте на ходу без согласия клиента.
 
-Врезка «Важно»: если узел не прорисован, он не посчитан. Запросить смету до закрытия пробелов обычно означает получить смету, которая изменится.
+Врезка «Важно»: Деталь получает цену, когда она есть на чертеже. Смета, запрошенная до закрытия пробелов, скорее всего изменится.
 
 ## Как согласуется состав работ
 
-После проверки чертежей мы письменно согласуем с вами состав реализации. В нём перечислены работы по помещениям, спецификация для каждого из них, исключения и зоны ответственности. Этот документ становится основой сметы, а затем и договора.
+После проверки чертежей мы письменно согласуем с вами состав реализации. В нём перечислены работы по помещениям, спецификация для каждого из них и зоны ответственности. Этот документ становится основой сметы, а затем и договора.
 
 Дополнительные работы, возникшие в ходе проекта, рассчитываются и согласовываются до их начала. График оплаты согласовывается до начала работ и фиксируется в договоре.
 
@@ -610,7 +610,7 @@ A finished design is a strong starting point. The step that protects it is a tec
 
 Всё работает лучше всего, когда роли понятны с первого дня.
 
-- **Ваш дизайнер** отвечает за дизайнерский замысел: отделку, пропорции, облик пространства. Изменения в дизайн вносит дизайнер или вы, но никогда не объект.
+- **Ваш дизайнер** отвечает за дизайнерский замысел: отделку, пропорции, облик пространства. Изменения в дизайн вносит дизайнер или вы.
 - **Мы** отвечаем за реализацию: работы на объекте, комплектацию в согласованном объёме, производство, график, качество и безопасность на объекте.
 - **Ваш проджект-менеджер**: единое контактное лицо по ходу работ. Он присылает фото, видео и письменные отчёты в отдельную группу проекта. По вашему желанию в неё можно добавить и дизайнера.
 
@@ -618,7 +618,7 @@ A finished design is a strong starting point. The step that protects it is a tec
 
 ## Мебель по чертежам вашего дизайнера
 
-Мебель на заказ часто самая детальная часть дизайн-проекта, и та, где разрыв между чертежом и готовым изделием больше всего. Поскольку у нас собственное производство корпусной мебели, изделий из стекла и камня, мы можем изготовить [мебель](/services/bespoke-joinery) напрямую по чертежам вашего дизайнера. Порядок такой:
+Мебель на заказ часто самая детальная часть дизайн-проекта, и та, где разрыв между чертежом и готовым изделием больше всего. Поскольку у нас собственная мастерская для мебели, камня, стекла и металла, мы можем изготовить [мебель](/services/bespoke-joinery) напрямую по чертежам вашего дизайнера. Порядок такой:
 
 1. **Изучение** чертежей и спецификаций мебели.
 2. **Технический замер** на объекте после подписания договора, когда стены и потолки к нему готовы.
@@ -707,6 +707,26 @@ const FORM_SERVICE: Record<string, string> = {
   "process-build-from-your-design": "notSure",
 };
 
+// Related-service card texts stay as built (the earlier spec's hero lines), except the
+// Bespoke Joinery card, which the Final Changes Sheet replaces (I3).
+const CARD_TEXT_CODE: Record<string, string> = {
+  "interior-design": "C-P03-D01",
+  "landscape-design": "C-P04-L01",
+  "villa-renovation": "C-P05-V01",
+  "apartment-renovation": "C-P06-A01",
+  "commercial-fit-out": "C-P07-C01",
+  "bespoke-joinery": "C-P08-J01",
+  "custom-kitchens": "C-P09-K01",
+  wardrobes: "C-P10-W01",
+  approvals: "C-P11-N01",
+  "mep-hvac": "C-P12-E01",
+  "materials-procurement": "C-P13-M01",
+};
+const JOINERY_CARD = {
+  en: "Kitchens, wardrobes and custom furniture from our own workshop, with stone, glass and metal made to the same drawings.",
+  ru: "Кухни, гардеробные и мебель на заказ с собственного производства, с камнем, стеклом и металлом по тем же чертежам.",
+};
+
 export function formServiceFor(article?: Article) {
   return (article && FORM_SERVICE[article.relatedServiceSlugs[0]]) || "notSure";
 }
@@ -717,10 +737,11 @@ const PROCESS_SERVICE = {
 };
 
 export function getRelatedServices(article: Article, locale: string) {
-  const services = SERVICE_PAGES.map((s) => ({
+  const lang = locale === "ru" ? "ru" : "en";
+  const services = SERVICE_PAGES.filter((s) => CARD_TEXT_CODE[s.slug]).map((s) => ({
     slug: s.slug,
-    title: s.title[locale === "ru" ? "ru" : "en"],
-    description: sc(s.heroCode, "body", locale),
+    title: s.title[lang],
+    description: s.slug === "bespoke-joinery" ? JOINERY_CARD[lang] : sc(CARD_TEXT_CODE[s.slug], "body", locale),
     href: `/services/${s.slug}`,
   }));
   return article.relatedServiceSlugs

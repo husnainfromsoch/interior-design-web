@@ -88,7 +88,7 @@ export default function Lightbox({
 
   if (!item) return null;
   const btn =
-    "flex h-11 min-w-11 items-center justify-center rounded-sm border border-bv-white/30 px-3 text-[14px] font-medium text-bv-white transition-colors hover:bg-bv-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-white";
+    "flex h-11 min-w-11 items-center justify-center rounded-sm border border-bv-white/30 px-3 t-small text-bv-white transition-colors hover:bg-bv-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-white";
 
   return (
     <div
@@ -99,7 +99,7 @@ export default function Lightbox({
       className="fixed inset-0 z-[70] flex flex-col bg-bv-ink/95 px-4 pb-[max(16px,env(safe-area-inset-bottom))] pt-4 sm:px-8"
     >
       <div className="flex items-center justify-between gap-4 text-bv-white">
-        <p className="text-[14px] tabular-nums" aria-live="polite">
+        <p className="t-small tabular-nums" aria-live="polite">
           {labels.counter.replace("{n}", String(index + 1)).replace("{total}", String(total))}
         </p>
         <div className="flex gap-2">
@@ -132,7 +132,7 @@ export default function Lightbox({
           }
         >
           {failed[item.id] ? (
-            <div className="flex h-full items-center justify-center bg-bv-surface text-[15px] text-bv-muted">{labels.unavailable}</div>
+            <div className="flex h-full items-center justify-center bg-bv-surface t-small text-bv-muted">{labels.unavailable}</div>
           ) : (
             <div className="relative h-full w-full origin-center transition-transform duration-200" style={{ transform: `scale(${zoom})` }}>
               <Image
@@ -146,10 +146,7 @@ export default function Lightbox({
             </div>
           )}
         </div>
-        <figcaption className="mt-3 flex flex-col gap-1 text-bv-white">
-          {item.caption && <span className="text-[14px]">{item.caption}</span>}
-          <span className="text-[12px] tracking-[0.04em] text-bv-white/80">{item.disclosure}</span>
-        </figcaption>
+        <figcaption className="t-caption mt-3 text-bv-white">{item.caption}</figcaption>
       </figure>
 
       {total > 1 && (

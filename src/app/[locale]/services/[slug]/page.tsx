@@ -1,38 +1,97 @@
 import type { Metadata } from "next";
-import type { ComponentType } from "react";
+import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { SERVICE_PAGES, getServicePage, type ServiceSlug } from "@/data/servicePages";
+import { getMediaList } from "@/data/media";
+import { meta } from "@/lib/final";
 import { sc } from "@/lib/spec";
-import type { ServicePageProps } from "@/components/service-pages/common";
-import P03InteriorDesign from "@/components/service-pages/P03InteriorDesign";
-import P04LandscapeDesign from "@/components/service-pages/P04LandscapeDesign";
-import P05VillaRenovation from "@/components/service-pages/P05VillaRenovation";
-import P06ApartmentRenovation from "@/components/service-pages/P06ApartmentRenovation";
-import P07CommercialFitOut from "@/components/service-pages/P07CommercialFitOut";
-import P08BespokeJoinery from "@/components/service-pages/P08BespokeJoinery";
-import P09CustomKitchens from "@/components/service-pages/P09CustomKitchens";
-import P10Wardrobes from "@/components/service-pages/P10Wardrobes";
-import P11Approvals from "@/components/service-pages/P11Approvals";
-import P12MepHvac from "@/components/service-pages/P12MepHvac";
-import P13MaterialsProcurement from "@/components/service-pages/P13MaterialsProcurement";
+import { pageMetadata } from "@/lib/seo";
+import DocPage, { ROW, type DocPageProps } from "@/components/final/DocPage";
+import ApprovalsPage from "@/components/final/ApprovalsPage";
+import FromInsights from "@/components/sections/FromInsights";
+import SampleViewer from "@/components/spec/SampleViewer";
+import { lightboxLabels } from "@/components/spec/labels";
+import { H2, Intro, MediaRow, ProjectCard, WarrantyStrip } from "@/components/spec/blocks";
 
-// P03–P13 (spec §15.3–15.13). Each page is composed in its own file in the spec's
-// section order; copy is read verbatim from the spec.
-const PAGES: Record<ServiceSlug, ComponentType<ServicePageProps>> = {
-  "interior-design": P03InteriorDesign,
-  "landscape-design": P04LandscapeDesign,
-  "villa-renovation": P05VillaRenovation,
-  "apartment-renovation": P06ApartmentRenovation,
-  "commercial-fit-out": P07CommercialFitOut,
-  "bespoke-joinery": P08BespokeJoinery,
-  "custom-kitchens": P09CustomKitchens,
-  wardrobes: P10Wardrobes,
-  approvals: P11Approvals,
-  "mep-hvac": P12MepHvac,
-  "materials-procurement": P13MaterialsProcurement,
-};
+// P03–P13 and P23 (Final Changes Sheet, sections 3 and 4). Every page is rendered from the
+// final copy by DocPage in the order of the copy; the blocks the sheet keeps "as built"
+// (sample drawing set, warranty badge, concept card, palette images) are placed here.
+// P11 Approvals keeps its own structure (ApprovalsPage).
+
+type Extras = Pick<DocPageProps, "inside" | "beforeFaq">;
+
+/** A kept concept card under its existing heading, placed directly above the FAQ. */
+function ConceptBlock({ heading, intro, children }: { heading: string; intro?: string; children: ReactNode }) {
+  return (
+    <section className={ROW}>
+      <H2>{heading}</H2>
+      {intro && <Intro>{intro}</Intro>}
+      <div className="mt-8 grid grid-rows-[auto_auto_auto] lg:mt-10">{children}</div>
+    </section>
+  );
+}
+
+function extras(slug: ServiceSlug, locale: string): Extras {
+  const c = (code: string, label: string) => sc(code, label, locale);
+  switch (slug) {
+    case "interior-design":
+      // "View a Sample Drawing Set" stays, after "What the design package contains" (3rd section).
+      return {
+        inside: {
+          3: (
+            <SampleViewer
+              items={getMediaList(["BV-IMG-18", "BV-IMG-19", "BV-IMG-20", "BV-IMG-21", "BV-IMG-22", "BV-IMG-23"], locale)}
+              buttonLabel={c("C-P03-D03a", "button")}
+              note={c("C-P03-D03a", "note")}
+              labels={lightboxLabels(locale)}
+            />
+          ),
+        },
+      };
+    case "villa-renovation":
+      return { beforeFaq: <WarrantyStrip kind="renovation" locale={locale} /> };
+    case "apartment-renovation":
+      return {
+        beforeFaq: (
+          <>
+            <WarrantyStrip kind="renovation" locale={locale} />
+            <ConceptBlock heading={c("C-P06-A02", "H2")}>
+              <ProjectCard slug="tower-residence-concept" locale={locale} wide />
+            </ConceptBlock>
+          </>
+        ),
+      };
+    case "commercial-fit-out":
+      return {
+        beforeFaq: (
+          <ConceptBlock heading={c("C-P07-C02", "H2")} intro={c("C-P07-C02", "body")}>
+            <ProjectCard slug="business-district-office-concept" locale={locale} wide />
+          </ConceptBlock>
+        ),
+      };
+    case "bespoke-joinery":
+    case "custom-kitchens":
+    case "wardrobes":
+      return { beforeFaq: <WarrantyStrip kind="joinery" locale={locale} /> };
+    case "materials-procurement": {
+      // Material palette images stay, directly above the FAQ; hidden while there are none (D10).
+      const palettes = ["BV-IMG-62", "BV-IMG-63", "BV-IMG-64"];
+      if (getMediaList(palettes, locale).length === 0) return {};
+      return {
+        beforeFaq: (
+          <section className={ROW}>
+            <H2>{c("C-P13-M05", "H2")}</H2>
+            <MediaRow assets={palettes} locale={locale} ratio="4:5" />
+          </section>
+        ),
+      };
+    }
+    default:
+      return {};
+  }
+}
 
 export const dynamicParams = false;
 
@@ -44,10 +103,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale, slug } = await params;
   const page = getServicePage(slug);
   if (!page) return {};
-  return {
-    title: `${page.title[locale === "ru" ? "ru" : "en"]} | Bellvero Group`,
-    description: sc(page.heroCode, "body", locale),
-  };
+  return pageMetadata(meta(page.page, locale), `/services/${page.slug}`, locale);
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
@@ -55,6 +111,15 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
   setRequestLocale(locale);
   const page = getServicePage(slug);
   if (!page) notFound();
-  const Page = PAGES[page.slug];
-  return <Page locale={locale} />;
+  if (page.slug === "approvals") return <ApprovalsPage locale={locale} />;
+  return (
+    <DocPage
+      page={page.page}
+      locale={locale}
+      heroImage={page.heroImage}
+      formService={page.formService}
+      afterFaq={<FromInsights serviceSlug={page.slug} />}
+      {...extras(page.slug, locale)}
+    />
+  );
 }

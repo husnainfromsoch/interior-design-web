@@ -10,7 +10,7 @@ import { OPEN_CONSENT_EVENT, consentSnapshot, readConsent, subscribeConsent, wri
 // Marketing (both off until chosen). Not a modal: the page stays usable behind it.
 
 const button =
-  "inline-flex h-[52px] items-center sm:flex-1 justify-center rounded-sm border border-bv-ink bg-bv-ink px-5 text-[14px] font-semibold text-bv-white transition-colors hover:bg-bv-accent hover:border-bv-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink";
+  "inline-flex h-[52px] items-center sm:flex-1 justify-center rounded-sm border border-bv-ink bg-bv-ink px-5 t-button text-bv-white transition-colors hover:bg-bv-accent hover:border-bv-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink";
 
 export default function ConsentBanner() {
   const t = useTranslations("CookiesPage");
@@ -52,10 +52,10 @@ export default function ConsentBanner() {
       <div className="mx-auto max-h-[70svh] w-full max-w-[1320px] overflow-y-auto lg:px-[28px]">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
           <div className="max-w-[640px]">
-            <h2 id={titleId} className="font-bv-heading text-[24px] font-medium leading-[1.2] text-bv-ink">
+            <h2 id={titleId} className="t-h3 text-bv-ink">
               {t("choicesHeading")}
             </h2>
-            <p className="mt-2 text-[15px] leading-[1.6] text-bv-ink">{t("choicesBody")}</p>
+            <p className="mt-2 t-small text-bv-ink">{t("choicesBody")}</p>
           </div>
           <div className="flex w-full flex-col gap-3 sm:flex-row lg:w-auto lg:min-w-[560px]">
             <button type="button" className={button} onClick={() => save({ analytics: true, marketing: true })}>
@@ -79,9 +79,9 @@ export default function ConsentBanner() {
                 { id: "marketing", checked: marketing, disabled: false, set: () => setMarketing((v) => !v) },
               ].map((r) => (
                 <li key={r.id} className="flex min-h-[52px] items-center justify-between gap-6">
-                  <label htmlFor={`cb-${r.id}`} className="text-[15px] font-medium text-bv-ink">
+                  <label htmlFor={`cb-${r.id}`} className="t-small text-bv-ink">
                     {t(`${r.id}Title`)}
-                    {r.disabled && <span className="ml-2 text-[13px] font-normal text-bv-muted">{t("alwaysActive")}</span>}
+                    {r.disabled && <span className="ml-2 t-caption text-bv-muted">{t("alwaysActive")}</span>}
                   </label>
                   <input
                     id={`cb-${r.id}`}
@@ -90,7 +90,7 @@ export default function ConsentBanner() {
                     checked={r.checked}
                     disabled={r.disabled}
                     onChange={r.set}
-                    className="h-6 w-11 cursor-pointer appearance-none rounded-full bg-bv-field-border/50 transition-colors checked:bg-bv-accent disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink"
+                    className="h-6 w-11 cursor-pointer appearance-none rounded-sm bg-bv-field-border/50 transition-colors checked:bg-bv-accent disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink"
                   />
                 </li>
               ))}

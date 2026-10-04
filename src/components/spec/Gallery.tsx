@@ -50,10 +50,7 @@ export default function Gallery({
                 >
                   <Image src={m.src} alt="" fill sizes={isWide ? "100vw" : three ? "(min-width: 768px) 33vw, 100vw" : "(min-width: 768px) 50vw, 100vw"} className="object-cover img-zoom" />
                 </button>
-                <figcaption className="mt-2 flex flex-col gap-1">
-                  {m.caption && <span className="text-[14px] leading-[1.5] text-bv-ink">{m.caption}</span>}
-                  <span className="text-[11px] leading-[1.4] tracking-[0.04em] text-bv-muted lg:text-[12px]">{m.disclosure}</span>
-                </figcaption>
+                <figcaption className="t-caption mt-2">{m.caption}</figcaption>
               </figure>
             </li>
           );

@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
-import { Body, H2, MediaFigure, ProjectCards, RiseWords, Section, TextLink } from "@/components/spec/blocks";
+import { Body, H2, MediaFigure, ProjectCards, Section, TextLink } from "@/components/spec/blocks";
+import { formCopy } from "@/components/final/formCopy";
 import Gallery from "@/components/spec/Gallery";
 import { lightboxLabels } from "@/components/spec/labels";
 import EnquiryForm from "@/components/ui/EnquiryForm";
@@ -12,8 +13,9 @@ import { getMedia, getMediaList } from "@/data/media";
 import { serviceHref, serviceTitle, type ServiceSlug } from "@/data/servicePages";
 import { items, sc, scMaybe } from "@/lib/spec";
 
-// Spec §15.15 concept project template, P15–P18: CS01–CS09. No areas, budgets,
-// durations, client names, addresses, dates, status words or before/after blocks.
+// Concept project template, P15–P18: CS01–CS09 (texts as built; Changes Sheet P15–P18).
+// Images are AI images with the caption "AI-generated image"; an image without an AI
+// file is hidden. No areas, budgets, durations, client names, addresses or dates.
 
 const WIDE: Record<string, string> = {
   "coastal-villa-concept": "BV-IMG-70",
@@ -47,6 +49,8 @@ export default async function ConceptProjectPage({ params }: { params: Promise<{
   const t = await getTranslations({ locale, namespace: "SpecUi" });
   const code = (block: string) => `C-${concept.page}-${block}`;
   const title = sc(code("CS02"), "H1", locale);
+  // Changes Sheet P15–P18 #2: Coastal Villa RU overview wording.
+  const overview = sc(code("CS03"), "overview", locale).replace("в рамках одного согласованного объёма", "по одному согласованному составу работ");
   const cover = getMedia(concept.cover, locale);
   const plan = getMedia(concept.plan, locale);
   const mood = getMedia(concept.mood, locale);
@@ -60,7 +64,7 @@ export default async function ConceptProjectPage({ params }: { params: Promise<{
         <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-8 lg:px-[60px]">
           {/* CS01 */}
           <nav aria-label="Breadcrumb">
-            <ol className="flex flex-wrap items-center gap-2 text-[14px] text-bv-muted">
+            <ol className="t-small flex flex-wrap items-center gap-2 text-bv-muted">
               <li>
                 <Link href="/projects" className="underline-offset-4 hover:text-bv-ink hover:underline">
                   {sc("UI", "breadcrumb.projects", locale)}
@@ -73,10 +77,8 @@ export default async function ConceptProjectPage({ params }: { params: Promise<{
             </ol>
           </nav>
           {/* CS02: concept disclosure directly beneath the cover, above the fold on mobile */}
-          <h1 className="mt-6 font-bv-heading text-[38px] font-medium leading-[1.08] text-bv-ink md:text-[52px] lg:text-[64px]">
-            <RiseWords text={title} start={100} />
-          </h1>
-          <p className="mt-4 text-[15px] leading-[1.5] text-bv-muted">{sc(code("CS02"), "scope line", locale)}</p>
+          <h1 className="t-h1 mt-6">{title}</h1>
+          <p className="t-small mt-4 text-bv-muted">{sc(code("CS02"), "scope line", locale)}</p>
           {cover && <MediaFigure asset={cover} priority ratio="16:9" className="mt-8" sizes="100vw" />}
         </div>
       </section>
@@ -85,16 +87,13 @@ export default async function ConceptProjectPage({ params }: { params: Promise<{
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
           <div>
             <H2>{t("overview")}</H2>
-            <Body className="mt-6">{sc(code("CS03"), "overview", locale)}</Body>
+            <Body className="mt-6">{overview}</Body>
           </div>
           <div>
             <H2>{t("scopeIllustrated")}</H2>
-            <ul className="mt-6 space-y-3">
+            <ul className="t-body mt-6 list-disc space-y-2 pl-5 text-bv-ink marker:text-bv-accent">
               {items(sc(code("CS04"), "scope", locale)).map((it) => (
-                <li key={it} className="flex gap-3 text-[16px] leading-[1.65] text-bv-ink lg:text-[17px]">
-                  <span aria-hidden="true" className="mt-[11px] h-1.5 w-1.5 flex-none rounded-full bg-bv-accent" />
-                  {it}
-                </li>
+                <li key={it}>{it}</li>
               ))}
             </ul>
           </div>
@@ -143,10 +142,10 @@ export default async function ConceptProjectPage({ params }: { params: Promise<{
 
       {/* CS09: project context passed to the form */}
       <EnquiryForm
+        copy={formCopy(locale)}
         heading={sc("UI", "cta.similar_project", locale)}
         defaultService={concept.service}
         project={conceptTitle(concept, locale)}
-        topic={conceptTitle(concept, locale)}
         leadSource={concept.page}
       />
     </>

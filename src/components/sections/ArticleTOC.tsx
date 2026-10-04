@@ -33,7 +33,7 @@ export default function ArticleTOC({
 
   return (
     <nav aria-label={label} className="sticky top-[120px]">
-      <span className="block font-bv-body text-[13px] font-semibold uppercase tracking-[0.08em] text-bv-ink">
+      <span className="block t-eyebrow text-bv-ink">
         {label}
       </span>
       <ul className="mt-4 space-y-3">
@@ -44,7 +44,7 @@ export default function ArticleTOC({
               <a
                 href={`#${h.id}`}
                 aria-current={isActive ? "true" : undefined}
-                className={`block border-l-2 pl-3 text-[14px] leading-[1.4] transition-colors duration-200 ${
+                className={`t-small block border-l-2 pl-3 transition-colors duration-200 ${
                   isActive ? "border-bv-accent text-bv-ink" : "border-transparent text-bv-muted hover:text-bv-ink"
                 }`}
               >
@@ -69,13 +69,13 @@ export function ArticleTOCMobile({
 
   return (
     <details className="mb-8 border-y border-bv-line py-4 min-[1200px]:hidden">
-      <summary className="cursor-pointer font-bv-body text-[13px] font-semibold uppercase tracking-[0.08em] text-bv-ink">
+      <summary className="cursor-pointer t-eyebrow text-bv-ink">
         {label}
       </summary>
       <ul className="mt-4 space-y-3">
         {headings.map((h) => (
           <li key={h.id}>
-            <a href={`#${h.id}`} className="block text-[14px] text-bv-muted hover:text-bv-ink">
+            <a href={`#${h.id}`} className="block t-small text-bv-muted hover:text-bv-ink">
               {h.text}
             </a>
           </li>

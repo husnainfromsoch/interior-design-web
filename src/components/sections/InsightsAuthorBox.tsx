@@ -19,17 +19,17 @@ export default function InsightsAuthorBox({
       <span className="sr-only">{srLabel}</span>
       <div className="flex items-start gap-4">
         {AUTHOR.photo && (
-          <div className="relative h-24 w-24 flex-none overflow-hidden rounded-full">
-            <Image src={AUTHOR.photo} alt={AUTHOR.name} fill sizes="96px" className="object-cover" />
+          <div className="relative h-24 w-24 flex-none overflow-hidden rounded-sm">
+            <Image src={AUTHOR.photo} alt={AUTHOR.name[locale === "ru" ? "ru" : "en"]} fill sizes="96px" className="object-cover" />
           </div>
         )}
         <div>
-          <h3 className="font-bv-heading text-[26px] font-medium leading-[1.18] text-bv-ink sm:text-[28px] min-[1200px]:text-[30px]">{AUTHOR.name}</h3>
-          <p className="mt-1 font-bv-body text-[15px] font-medium text-bv-accent">{role}</p>
-          <p className="mt-3 text-[16px] leading-[1.65] text-bv-ink/80">{bio}</p>
+          <h3 className="t-h3 text-bv-ink">{AUTHOR.name[locale === "ru" ? "ru" : "en"]}</h3>
+          <p className="mt-1 t-small text-bv-accent">{role}</p>
+          <p className="mt-3 t-body text-bv-ink/80">{bio}</p>
           <Link
             href={AUTHOR.profileLink}
-            className="mt-4 inline-flex items-center gap-2 text-[15px] font-semibold text-bv-ink underline underline-offset-4 decoration-bv-accent transition-colors duration-200 hover:text-bv-accent"
+            className="mt-4 inline-flex items-center gap-2 t-small text-bv-ink underline underline-offset-4 decoration-bv-accent transition-colors duration-200 hover:text-bv-accent"
           >
             {linkLabel}
           </Link>

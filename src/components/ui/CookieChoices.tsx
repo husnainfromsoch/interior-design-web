@@ -8,7 +8,7 @@ import { consentSnapshot, readConsent, subscribeConsent, writeConsent } from "@/
 // dialog; changing it takes effect immediately.
 
 const buttonClass =
-  "inline-flex h-[52px] items-center sm:flex-1 justify-center rounded-sm border border-bv-ink bg-bv-ink px-6 text-[14px] font-semibold tracking-[0.02em] text-bv-white transition-colors hover:border-bv-accent hover:bg-bv-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink";
+  "inline-flex h-[52px] items-center sm:flex-1 justify-center rounded-sm border border-bv-ink bg-bv-ink px-6 t-button text-bv-white transition-colors hover:border-bv-accent hover:bg-bv-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink";
 
 export default function CookieChoices() {
   const t = useTranslations("CookiesPage");
@@ -33,15 +33,15 @@ export default function CookieChoices() {
 
   return (
     <div className="rounded-lg bg-bv-surface p-6 sm:p-9">
-      <h2 className="font-bv-heading text-[26px] font-medium leading-[1.18] text-bv-ink lg:text-[30px]">{t("choicesHeading")}</h2>
-      <p className="mt-3 text-[16px] leading-[1.65] text-bv-ink lg:text-[17px]">{t("choicesBody")}</p>
+      <h2 className="t-h3 text-bv-ink">{t("choicesHeading")}</h2>
+      <p className="mt-3 t-body text-bv-ink">{t("choicesBody")}</p>
 
       <ul className="mt-6 divide-y divide-bv-line border-y border-bv-line">
         {rows.map((r) => (
           <li key={r.id} className="flex min-h-[56px] items-center justify-between gap-6 py-2">
-            <label htmlFor={`consent-${r.id}`} className="text-[16px] font-medium text-bv-ink">
+            <label htmlFor={`consent-${r.id}`} className="t-body text-bv-ink">
               {t(`${r.id}Title`)}
-              {r.disabled && <span className="ml-2 text-[14px] font-normal text-bv-muted">{t("alwaysActive")}</span>}
+              {r.disabled && <span className="ml-2 t-small text-bv-muted">{t("alwaysActive")}</span>}
             </label>
             <input
               id={`consent-${r.id}`}
@@ -50,7 +50,7 @@ export default function CookieChoices() {
               checked={r.checked}
               disabled={r.disabled}
               onChange={r.onChange}
-              className="h-6 w-11 cursor-pointer appearance-none rounded-full bg-bv-field-border/50 transition-colors checked:bg-bv-accent disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink"
+              className="h-6 w-11 cursor-pointer appearance-none rounded-sm bg-bv-field-border/50 transition-colors checked:bg-bv-accent disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink"
             />
           </li>
         ))}
@@ -68,7 +68,7 @@ export default function CookieChoices() {
         </button>
       </div>
 
-      <p role="status" aria-live="polite" className="mt-4 min-h-[1.5rem] text-[14px] text-bv-success">
+      <p role="status" aria-live="polite" className="mt-4 min-h-[1.5rem] t-small text-bv-success">
         {saved ? t("saved") : ""}
       </p>
     </div>

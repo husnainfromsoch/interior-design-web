@@ -15,17 +15,19 @@ const list = (v?: string) =>
     .map((s) => s.trim())
     .filter(Boolean);
 
+// Service names as in the form's service list (copy file, Global › Enquiry form F1).
 const SERVICE_LABELS: Record<string, string> = {
-  design: "Design",
-  landscape: "Landscape",
-  villa: "Villa",
-  apartment: "Apartment",
-  commercial: "Commercial",
+  design: "Interior Design",
+  landscape: "Landscaping & Pools",
+  villa: "Villa Renovation",
+  apartment: "Apartment Renovation",
+  commercial: "Commercial Fit-Out",
   kitchens: "Kitchens",
   wardrobes: "Wardrobes",
   joinery: "Joinery",
-  approvals: "Approvals",
+  metal: "Metal & Aluminium",
   mep: "MEP",
+  approvals: "Approvals",
   procurement: "Procurement",
   notSure: "Not sure yet",
 };
@@ -45,6 +47,7 @@ export function formatEnquiry(r: EnquiryRecord) {
     `Reference: ${r.enquiryId}`,
     "",
     r.message ? `Project details:\n${r.message}` : "Project details: -",
+    r.files?.length ? `\nPlan or photos:\n${r.files.join("\n")}` : null,
   ];
   return lines.filter((l) => l !== null).join("\n");
 }
@@ -113,7 +116,11 @@ export async function notifyEnquiry(record: EnquiryRecord) {
   const text = formatEnquiry(record);
   const [telegram, email] = await Promise.all([
     sendTelegram(text),
-    sendEmail(`New enquiry: ${record.name} (${record.service ?? "service not selected"})`, text),
+    // Changes Sheet G5: subject "Website enquiry: {Service} ({EN or RU})"; empty service → "Not specified".
+    sendEmail(
+      `Website enquiry: ${record.service ? (SERVICE_LABELS[record.service] ?? record.service) : "Not specified"} (${record.locale.toUpperCase()})`,
+      text
+    ),
   ]);
   if (telegram === null && email === null) {
     await alert("no notification channel configured", record.enquiryId);

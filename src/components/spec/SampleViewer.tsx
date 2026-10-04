@@ -31,11 +31,11 @@ export default function SampleViewer({
           setOpen(0);
           trackEvent("sample_package_open", { source_page: window.location.pathname });
         }}
-        className="inline-flex h-[52px] items-center rounded-sm border border-bv-ink px-6 text-[14px] font-semibold tracking-[0.02em] text-bv-ink transition-colors hover:bg-bv-ink hover:text-bv-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink"
+        className="inline-flex h-[52px] items-center rounded-sm border border-bv-ink px-6 t-button text-bv-ink transition-colors hover:bg-bv-ink hover:text-bv-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink"
       >
         {buttonLabel}
       </button>
-      <p className="mt-4 max-w-[72ch] text-[15px] leading-[1.6] text-bv-muted">{note}</p>
+      <p className="mt-4 max-w-[72ch] t-small text-bv-muted">{note}</p>
       {open !== null && (
         <Lightbox
           items={items}

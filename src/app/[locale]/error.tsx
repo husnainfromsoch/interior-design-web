@@ -15,19 +15,19 @@ export default function LocaleError({
 
   return (
     <div className="flex min-h-[70vh] flex-col items-center justify-center gap-6 bg-bv-background px-6 text-center">
-      <p className="text-xs font-semibold uppercase tracking-[0.28em] text-bv-accent">
+      <p className="t-eyebrow text-bv-accent">
         Something went wrong
       </p>
-      <h1 className="text-[38px] sm:text-[52px] lg:text-[64px] max-w-lg font-bv-heading leading-tight text-bv-ink ">
+      <h1 className="t-h1 max-w-lg text-bv-ink ">
         This page hit a snag while loading.
       </h1>
-      <p className="max-w-md text-bv-muted">
+      <p className="t-body max-w-md text-bv-muted">
         Please try again, your connection and place in the site are unaffected.
       </p>
       <button
         type="button"
         onClick={reset}
-        className="inline-flex items-center gap-2 rounded-sm border border-bv-accent bg-bv-accent px-[28px] py-[14px] text-sm font-semibold tracking-wide text-bv-background  transition-all duration-200 ease-out hover:border-bv-accent-hover hover:bg-bv-accent-hover active:translate-y-0"
+        className="t-button inline-flex h-[52px] items-center rounded-sm bg-bv-accent px-7 text-bv-white transition-colors duration-200 hover:bg-bv-accent-hover"
       >
         Try again
       </button>

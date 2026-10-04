@@ -26,7 +26,7 @@ function renderLink(text: string, href: string, key: number) {
     return (
       <a key={key} href={href} rel="noopener" className={cls}>
         {text}
-        <span aria-hidden="true" className="ml-0.5 text-[0.8em]">↗</span>
+        <span aria-hidden="true" className="ml-0.5">↗</span>
       </a>
     );
   }
@@ -172,7 +172,7 @@ export default function ArticleBody({
               <h2
                 key={i}
                 id={block.id}
-                className="scroll-mt-32 font-bv-heading text-[28px] font-medium leading-[1.2] text-bv-ink mt-16 mb-5 sm:text-[32px] lg:text-[36px]"
+                className="scroll-mt-32 t-h2 text-bv-ink mt-16 mb-5"
               >
                 {block.text}
               </h2>
@@ -182,14 +182,14 @@ export default function ArticleBody({
               <h3
                 key={i}
                 id={block.id}
-                className="scroll-mt-32 font-bv-body text-[21px] font-semibold leading-[1.3] text-bv-ink mt-10 mb-3"
+                className="scroll-mt-32 t-body text-bv-ink mt-10 mb-3"
               >
                 {block.text}
               </h3>
             );
           case "p":
             return (
-              <p key={i} className="text-[17px] leading-[1.7] text-bv-ink/85 mb-6 sm:text-[18px]">
+              <p key={i} className="t-body text-bv-ink/85 mb-6">
                 {inlineFormat(block.text)}
               </p>
             );
@@ -197,27 +197,27 @@ export default function ArticleBody({
             return (
               <blockquote
                 key={i}
-                className="my-10 border-y border-bv-line py-6 font-bv-heading text-[26px] leading-[1.35] text-bv-ink sm:text-[30px]"
+                className="my-10 border-y border-bv-line py-6 t-h3 text-bv-ink"
               >
                 <p>{block.text}</p>
                 {block.cite && (
-                  <footer className="mt-4 font-bv-body text-[14px] leading-[1.5] text-bv-muted">{block.cite}</footer>
+                  <footer className="mt-4 t-small text-bv-muted">{block.cite}</footer>
                 )}
               </blockquote>
             );
           case "callout":
             return (
               <div key={i} className="my-8 border-l-[3px] border-bv-accent py-5 pl-6">
-                <span className="block font-bv-body text-[13px] font-semibold uppercase tracking-[0.08em] text-bv-accent">
+                <span className="block t-eyebrow text-bv-accent">
                   {labels.important}
                 </span>
-                <p className="mt-2 text-[16px] leading-[1.65] text-bv-ink/85">{inlineFormat(block.text)}</p>
+                <p className="mt-2 t-body text-bv-ink/85">{inlineFormat(block.text)}</p>
               </div>
             );
           case "table":
             return (
               <div key={i} className="mb-8 overflow-x-auto rounded-lg border border-bv-line">
-                <table className="w-full min-w-[560px] border-collapse text-left font-bv-body text-[15px] text-bv-ink/85">
+                <table className="w-full min-w-[560px] border-collapse text-left t-small text-bv-ink/85">
                   <thead>
                     <tr className="bg-bv-surface">
                       {block.header.map((h, j) => (
@@ -247,9 +247,9 @@ export default function ArticleBody({
                 <div className="relative aspect-[3/2] w-full overflow-hidden rounded-lg">
                   <Image src={block.src} alt={block.alt} fill sizes="(min-width: 1080px) 1080px, 100vw" className="object-cover" loading="lazy" />
                 </div>
-                <figcaption className="mt-2 text-[13px] leading-[1.5] text-bv-muted">
+                <figcaption className="mt-2 t-caption text-bv-muted">
                   {block.caption && <span className="block">{block.caption}</span>}
-                  <span className="block text-[12px] text-bv-muted/80">{labels.aiDisclosure}</span>
+                  <span className="block t-caption text-bv-muted/80">{labels.aiDisclosure}</span>
                 </figcaption>
               </figure>
             );
@@ -257,7 +257,7 @@ export default function ArticleBody({
             return (
               <ul key={i} className="mb-6 space-y-3 pl-6">
                 {block.items.map((item, j) => (
-                  <li key={j} className="list-disc text-[17px] leading-[1.7] text-bv-ink/85 marker:text-bv-accent">
+                  <li key={j} className="list-disc t-body text-bv-ink/85 marker:text-bv-accent">
                     {inlineFormat(item)}
                   </li>
                 ))}
@@ -267,10 +267,10 @@ export default function ArticleBody({
             return (
               <ol key={i} className="mb-6 list-none space-y-3 pl-0">
                 {block.items.map((item, j) => (
-                  <li key={j} className="flex gap-4 text-[17px] leading-[1.7] text-bv-ink/85">
+                  <li key={j} className="flex gap-4 t-body text-bv-ink/85">
                     <span
                       aria-hidden="true"
-                      className="mt-[5px] flex h-[22px] w-[22px] flex-none items-center justify-center bg-bv-accent text-[12px] font-semibold leading-none text-bv-white"
+                      className="mt-[5px] flex h-[22px] w-[22px] flex-none items-center justify-center bg-bv-accent t-button text-bv-white"
                     >
                       {j + 1}
                     </span>

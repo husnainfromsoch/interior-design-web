@@ -16,7 +16,7 @@ export default function InsightsTopicFilter({
   navLabel: string;
 }) {
   const item = (isActive: boolean) =>
-    `inline-block whitespace-nowrap border-b-2 pb-[6px] font-bv-body text-[15px] font-medium text-bv-ink transition-colors duration-200 ${
+    `t-small inline-block whitespace-nowrap border-b-2 pb-[6px] text-bv-ink transition-colors duration-200 ${
       isActive ? "border-bv-accent" : "border-transparent hover:border-bv-line"
     }`;
 

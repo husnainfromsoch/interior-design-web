@@ -1,147 +1,90 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { PenTool, Hammer, Boxes, Users, Wallet } from "lucide-react";
+import { setRequestLocale } from "next-intl/server";
 import EnquiryForm from "@/components/ui/EnquiryForm";
-import ProcessHero from "@/components/sections/ProcessHero";
-import ProcessStagesTimeline from "@/components/sections/ProcessStagesTimeline";
+import HashRedirect from "@/components/ui/HashRedirect";
+import { formCopy } from "@/components/final/formCopy";
+import { Body, H2, H3, Note, Section, SplitHero, Steps, TextLink } from "@/components/spec/blocks";
+import { block, dots, linkHref, meta, numbered, val } from "@/lib/final";
+import { pageMetadata } from "@/lib/seo";
+
+// P19 Our Process (Final Changes Sheet, P19): PR01–PR07 in the order of the copy.
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "ProcessPage" });
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return pageMetadata(meta("P19", locale), "/process", locale);
 }
-
-const routes = [
-  { id: "design-only", key: "designOnly", Icon: PenTool },
-  { id: "build-from-your-design", key: "build", Icon: Hammer },
-  { id: "bespoke-joinery", key: "joinery", Icon: Boxes },
-] as const;
 
 export default async function ProcessPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("ProcessPage");
-  const stages = t.raw("stages") as { title: string; body: string }[];
-
+  const b = (id: string) => block("P19", id, locale);
+  const hero = b("PR01");
+  const stages = b("PR02");
+  const ways = b("PR03");
+  const everything = b("PR03b");
+  const decisions = b("PR04");
 
   return (
     <>
-      <ProcessHero
-        eyebrow={t("eyebrow")}
-        title={t("title")}
-        intro={t("intro")}
-        stats={[]}
-        images={[
-          "/visuals/PHOTO-2025-04-15-11-32-01.jpg",
-          "/visuals/PHOTO-2025-04-15-12-00-05.jpg",
-          "/visuals/PHOTO-2025-04-15-12-08-11.jpg",
-        ]}
-        imageAlt={t("heroImageAlt")}
-      />
+      <SplitHero title={val(hero[0])} body={<p>{val(hero[1])}</p>} />
 
-      <ProcessStagesTimeline heading={t("stagesHeading")} stages={stages} />
+      {/* PR02 Ten Stages */}
+      <Section surface>
+        <H2>{val(stages[0])}</H2>
+        <Steps steps={stages.slice(1, 11).map((line) => numbered(line))} />
+        <Note>{val(stages[11])}</Note>
+      </Section>
 
-      <section className="bg-bv-ink pb-14 md:pb-[72px] lg:pb-[104px]">
-        <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-8 lg:px-[60px]">
-          <p className="max-w-3xl text-[14px] leading-[1.65] text-bv-white/50">{t("overlapNote")}</p>
+      {/* PR03 Four Ways to Work With Us: 4 columns, 2 × 2 on tablet, 1 on mobile */}
+      <Section>
+        <H2>{val(ways[0])}</H2>
+        <div className="mt-8 grid grid-rows-[auto_auto_1fr] gap-x-8 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4">
+          {ways.slice(1, 5).map((line) => {
+            const { n, title, body, anchor } = numbered(line);
+            return (
+              <article key={n} id={anchor} className="row-span-3 grid grid-rows-subgrid gap-y-3 border-t border-bv-line py-6" style={{ scrollMarginTop: "var(--header-h)" }}>
+                <span className="t-number text-bv-accent">{n}</span>
+                <H3>{title}</H3>
+                <p className="t-body text-bv-muted">{body}</p>
+              </article>
+            );
+          })}
         </div>
-      </section>
+        <HashRedirect from="bespoke-joinery" to="individual-services" />
 
-      <section className="bg-bv-surface py-14 md:py-[72px] lg:py-[104px]">
-        <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-8 lg:px-[60px]">
-          <div className="reveal max-w-2xl">
-            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[32px] font-medium leading-[1.12] text-bv-ink sm:text-[40px] lg:text-[48px]">
-              {t("routesHeading")}
-            </h2>
-          </div>
-
-          <div className="mt-10 border-t border-bv-line lg:mt-14">
-            {routes.map((r, i) => (
-              <div
-                key={r.id}
-                id={r.id}
-                style={{ scrollMarginTop: "104px", ["--reveal-delay" as string]: `${i * 90}ms` }}
-                className="reveal group relative flex flex-col gap-4 border-b border-bv-line py-8 transition-colors duration-500 sm:flex-row sm:items-start sm:gap-10 sm:py-10"
-              >
-                <div className="flex flex-none items-center gap-5 sm:w-[220px]">
-                  <span className="font-bv-heading text-[15px] leading-none text-bv-accent/60">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-bv-field-border/60 text-bv-ink transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:border-bv-accent group-hover:bg-bv-accent group-hover:text-bv-white">
-                    <r.Icon className="h-5 w-5" strokeWidth={1.6} />
-                  </span>
-                  <h3 className="font-bv-heading text-[22px] font-medium leading-[1.2] text-bv-ink transition-colors duration-300 group-hover:text-bv-accent sm:hidden">
-                    {t(`${r.key}Title`)}
-                  </h3>
-                </div>
-
-                <div className="min-w-0 flex-1">
-                  <h3 className="hidden font-bv-heading text-[24px] font-medium leading-[1.2] text-bv-ink transition-colors duration-300 group-hover:text-bv-accent sm:block sm:text-[26px]">
-                    {t(`${r.key}Title`)}
-                  </h3>
-                  <p className="mt-2 max-w-xl text-[16px] leading-[1.6] text-bv-muted sm:mt-3">
-                    {t(`${r.key}Body`)}
-                  </p>
-                </div>
-
-                <span
-                  aria-hidden="true"
-                  className="hidden flex-none translate-x-1 self-center text-bv-line transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0 group-hover:text-bv-accent sm:block"
-                >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-5 w-5">
-                    <path d="M7 17 17 7M9 7h8v8" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-              </div>
+        {/* PR03b Everything we do: link row */}
+        <div className="mt-10 border-t border-bv-line pt-8">
+          <H3>{val(everything[0])}</H3>
+          <ul className="mt-3 flex flex-wrap gap-x-8">
+            {dots(val(everything[1])).map((label) => (
+              <li key={label}>
+                <TextLink href={linkHref(label)} arrow={false}>
+                  {label}
+                </TextLink>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
-      </section>
+      </Section>
 
-      <section className="bg-bv-background py-14 md:py-[72px] lg:py-[104px]">
-        <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-8 lg:px-[60px]">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="reveal-left lg:col-span-6">
-              <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bv-heading text-[32px] font-medium leading-[1.12] text-bv-ink sm:text-[40px] lg:text-[44px]">
-                {t("decisionsHeading")}
-              </h2>
-              <p className="mt-6 max-w-xl text-[17px] leading-[1.65] text-bv-muted">{t("decisionsBody")}</p>
-            </div>
-
-            <div className="reveal-right lg:col-span-6" style={{ "--reveal-delay": "100ms" } as React.CSSProperties}>
-              <div className="flex flex-col gap-6 border-l-2 border-bv-accent/30 pl-7">
-                <div className="flex items-start gap-4">
-                  <span className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-bv-accent/10 text-bv-accent">
-                    <Users className="h-5 w-5" strokeWidth={1.6} />
-                  </span>
-                  <div>
-                    <h3 className="font-bv-heading text-[19px] font-medium leading-[1.25] text-bv-ink">
-                      {t("decisionsRoleHeading")}
-                    </h3>
-                    <p className="mt-1.5 max-w-md text-[15px] leading-[1.6] text-bv-muted">
-                      {t("decisionsRoleBody")}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <span className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-bv-accent/10 text-bv-accent">
-                    <Wallet className="h-5 w-5" strokeWidth={1.6} />
-                  </span>
-                  <div>
-                    <h3 className="font-bv-heading text-[19px] font-medium leading-[1.25] text-bv-ink">
-                      {t("paymentHeading")}
-                    </h3>
-                    <p className="mt-1.5 max-w-md text-[15px] leading-[1.6] text-bv-muted">{t("paymentBody")}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* PR04 Decisions You Can Follow, with PR05 and PR06 beneath */}
+      <Section surface>
+        <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
+          <H2 className="lg:col-span-5">{val(decisions[0])}</H2>
+          <Body className="lg:col-span-7">{val(decisions[1])}</Body>
         </div>
-      </section>
+        <div className="mt-10 grid gap-x-12 sm:grid-cols-2 lg:mt-14">
+          {[b("PR05"), b("PR06")].map((lines) => (
+            <div key={lines[0]} className="border-t border-bv-line py-6">
+              <H3>{val(lines[0])}</H3>
+              <p className="t-body mt-3 text-bv-ink">{val(lines[1])}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
 
-      <EnquiryForm />
+      {/* PR07 */}
+      <EnquiryForm copy={formCopy(locale)} leadSource="P19" />
     </>
   );
 }

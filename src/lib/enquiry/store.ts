@@ -19,6 +19,8 @@ export type EnquiryRecord = {
   service: string | null;
   location: string | null;
   message: string | null;
+  /** Links to the "Plan or photos" files in file storage */
+  files: string[] | null;
   project: string | null;
   sourcePage: string | null;
   referrer: string | null;

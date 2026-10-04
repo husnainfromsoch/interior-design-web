@@ -17,3 +17,15 @@ export function localeAlternates(path: string, locale: string) {
     },
   };
 }
+
+/**
+ * Page metadata from the final copy's meta table (Changes Sheet G10): the title is used as
+ * written, with no suffix added by a template, plus canonical and hreflang (G9).
+ */
+export function pageMetadata(meta: { title: string; description: string }, path: string, locale: string) {
+  return {
+    title: { absolute: meta.title },
+    description: meta.description,
+    alternates: localeAlternates(path, locale),
+  };
+}

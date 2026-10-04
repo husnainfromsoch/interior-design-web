@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { localeAlternates, localeUrl, SITE_URL } from "@/lib/seo";
 import EnquiryForm from "@/components/ui/EnquiryForm";
+import { formCopy } from "@/components/final/formCopy";
 import InsightsHero from "@/components/sections/InsightsHero";
 import InsightsTopicFilter from "@/components/sections/InsightsTopicFilter";
 import { InsightsCard, InsightsFeaturedCard } from "@/components/sections/InsightsCard";
@@ -97,7 +98,7 @@ export default async function InsightsPage({
       dateLabel: formatDate(article.publishedAt, locale),
       readingLabel: t("minRead", { n: readingTime(content.body) }),
       aiLabel: t("aiDisclosure"),
-      authorLabel: AUTHOR.name,
+      authorLabel: AUTHOR.name[locale === "ru" ? "ru" : "en"],
     };
   }
 
@@ -150,8 +151,8 @@ export default async function InsightsPage({
             </div>
           ) : (
             <div className="py-12">
-              <p className="text-[17px] text-bv-ink">{t("emptyState")}</p>
-              <Link href="/insights" className="mt-4 inline-block text-[15px] font-semibold text-bv-ink underline underline-offset-4 decoration-bv-accent">
+              <p className="t-body text-bv-ink">{t("emptyState")}</p>
+              <Link href="/insights" className="mt-4 inline-block t-small text-bv-ink underline underline-offset-4 decoration-bv-accent">
                 {t("viewAll")} →
               </Link>
             </div>
@@ -160,21 +161,21 @@ export default async function InsightsPage({
           {totalPages > 1 && (
             <nav aria-label={t("navLabel")} className="mt-16 flex items-center justify-center gap-6">
               {page > 1 ? (
-                <Link href={{ pathname: "/insights", query: { ...(activeTopic ? { topic: activeTopic } : {}), page: page - 1 } }} className="text-[15px] font-medium text-bv-ink hover:text-bv-accent">
+                <Link href={{ pathname: "/insights", query: { ...(activeTopic ? { topic: activeTopic } : {}), page: page - 1 } }} className="t-small text-bv-ink hover:text-bv-accent">
                   {t("prev")}
                 </Link>
               ) : (
-                <span className="text-[15px] font-medium text-bv-muted/40">{t("prev")}</span>
+                <span className="t-small text-bv-muted/40">{t("prev")}</span>
               )}
 
               <div className="flex items-center gap-3">
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) =>
                   n === page ? (
-                    <span key={n} aria-current="page" aria-label={t("pageSr", { n })} className="text-[15px] font-semibold text-bv-ink">
+                    <span key={n} aria-current="page" aria-label={t("pageSr", { n })} className="t-small text-bv-ink">
                       {n}
                     </span>
                   ) : (
-                    <Link key={n} href={{ pathname: "/insights", query: { ...(activeTopic ? { topic: activeTopic } : {}), page: n } }} aria-label={t("pageSr", { n })} className="text-[15px] text-bv-muted hover:text-bv-ink">
+                    <Link key={n} href={{ pathname: "/insights", query: { ...(activeTopic ? { topic: activeTopic } : {}), page: n } }} aria-label={t("pageSr", { n })} className="t-small text-bv-muted hover:text-bv-ink">
                       {n}
                     </Link>
                   )
@@ -182,18 +183,18 @@ export default async function InsightsPage({
               </div>
 
               {page < totalPages ? (
-                <Link href={{ pathname: "/insights", query: { ...(activeTopic ? { topic: activeTopic } : {}), page: page + 1 } }} className="text-[15px] font-medium text-bv-ink hover:text-bv-accent">
+                <Link href={{ pathname: "/insights", query: { ...(activeTopic ? { topic: activeTopic } : {}), page: page + 1 } }} className="t-small text-bv-ink hover:text-bv-accent">
                   {t("next")}
                 </Link>
               ) : (
-                <span className="text-[15px] font-medium text-bv-muted/40">{t("next")}</span>
+                <span className="t-small text-bv-muted/40">{t("next")}</span>
               )}
             </nav>
           )}
         </div>
       </section>
 
-      <EnquiryForm defaultService="notSure" leadSource="insights" />
+      <EnquiryForm copy={formCopy(locale)} defaultService="notSure" leadSource="insights" />
     </>
   );
 }

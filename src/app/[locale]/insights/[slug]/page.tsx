@@ -8,6 +8,7 @@ import ArticleFaq from "@/components/sections/ArticleFaq";
 import ArticleTracker from "@/components/sections/ArticleTracker";
 import CopyLinkButton from "@/components/sections/CopyLinkButton";
 import EnquiryForm from "@/components/ui/EnquiryForm";
+import { formCopy } from "@/components/final/formCopy";
 import ArticleBody, { articleHeadings } from "@/components/sections/ArticleBody";
 import ArticleTOC, { ArticleTOCMobile } from "@/components/sections/ArticleTOC";
 import InsightsAuthorBox from "@/components/sections/InsightsAuthorBox";
@@ -102,7 +103,7 @@ export default async function InsightArticlePage({
         mainEntityOfPage: pageUrl,
         author: {
           "@type": "Person",
-          name: AUTHOR.name,
+          name: AUTHOR.name[locale === "ru" ? "ru" : "en"],
           jobTitle: AUTHOR.role.en,
           worksFor: { "@type": "Organization", name: "Bellvero Group" },
           url: `${localeUrl("/about", locale)}#leadership`,
@@ -135,7 +136,7 @@ export default async function InsightArticlePage({
       <ArticleTracker articleId={article.id} locale={locale} />
       <div className="bg-bv-background px-4 pt-8 sm:px-10 lg:px-16 lg:pt-10">
         <div className="mx-auto max-w-[1320px]">
-          <nav aria-label="Breadcrumb" className="text-[13px] text-bv-muted">
+          <nav aria-label="Breadcrumb" className="t-caption text-bv-muted">
             <Link href="/" className="hover:text-bv-ink">
               {t("breadcrumbHome")}
             </Link>
@@ -150,32 +151,26 @@ export default async function InsightArticlePage({
           </nav>
 
           <div className="mt-8 max-w-[880px]">
-            <span className="font-bv-body text-[13px] font-semibold uppercase tracking-[0.08em] text-bv-accent">
+            <span className="t-eyebrow text-bv-accent">
               {topicName(article.topic, locale)}
             </span>
-            <h1
-              className={`mt-4 font-bv-heading font-medium leading-[1.1] text-bv-ink ${
-                content.title.length > 70
-                  ? "text-[34px] sm:text-[44px] lg:text-[52px]"
-                  : "text-[38px] sm:text-[52px] lg:text-[64px]"
-              }`}
-            >
+            <h1 className="t-h1 mt-4">
               {content.title}
             </h1>
-            <p className="mt-6 text-[18px] leading-[1.6] text-bv-ink sm:text-[19px] lg:text-[20px]">{content.standfirst}</p>
+            <p className="mt-6 t-body text-bv-ink">{content.standfirst}</p>
 
             <div className="mt-6 flex items-center gap-4">
               {AUTHOR.photo && (
-                <div className="relative h-12 w-12 flex-none overflow-hidden rounded-full">
-                  <Image src={AUTHOR.photo} alt={AUTHOR.name} fill sizes="48px" className="object-cover" />
+                <div className="relative h-12 w-12 flex-none overflow-hidden rounded-sm">
+                  <Image src={AUTHOR.photo} alt={AUTHOR.name[locale === "ru" ? "ru" : "en"]} fill sizes="48px" className="object-cover" />
                 </div>
               )}
               <div>
-                <Link href="#author" className="font-bv-body text-[15px] font-semibold text-bv-ink hover:text-bv-accent">
-                  {AUTHOR.name}
+                <Link href="#author" className="t-small text-bv-ink hover:text-bv-accent">
+                  {AUTHOR.name[locale === "ru" ? "ru" : "en"]}
                 </Link>
-                <p className="text-[14px] text-bv-muted">{authorRole}</p>
-                <p className="mt-0.5 text-[13px] text-bv-muted">
+                <p className="t-small text-bv-muted">{authorRole}</p>
+                <p className="mt-0.5 t-caption text-bv-muted">
                   {t("published", { date: formatDate(article.publishedAt, locale) })} ·{" "}
                   {t("lastReviewed", { date: formatDate(article.lastReviewedAt, locale) })} ·{" "}
                   {t("minRead", { n: readingTime(content.body) })}
@@ -193,7 +188,7 @@ export default async function InsightArticlePage({
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg sm:aspect-[16/9]">
             <Image src={article.cover} alt={coverAlt} fill priority sizes="(min-width: 1320px) 1320px, 100vw" className="object-cover" fetchPriority="high" />
           </div>
-          <figcaption className="mt-2 text-[11px] text-bv-muted sm:text-[12px]">{t("aiDisclosure")}</figcaption>
+          <figcaption className="mt-2 t-caption text-bv-muted">{t("aiDisclosure")}</figcaption>
         </figure>
       </div>
 
@@ -207,13 +202,13 @@ export default async function InsightArticlePage({
 
           <div className="mx-auto w-full max-w-[720px] min-[1200px]:col-span-6 min-[1200px]:col-start-5 min-[1200px]:mx-0">
             <div className="max-w-[720px] rounded-lg bg-bv-surface px-6 py-6 sm:p-8">
-              <span className="font-bv-body text-[14px] font-semibold uppercase tracking-[0.08em] text-bv-ink">
+              <span className="t-eyebrow text-bv-ink">
                 {t("inShort")}
               </span>
               <ul className="mt-4 space-y-3">
                 {content.keyPoints.map((point, i) => (
-                  <li key={i} className="flex gap-3 text-[16px] leading-[1.6] text-bv-ink/85">
-                    <span aria-hidden className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-bv-accent" />
+                  <li key={i} className="flex gap-3 t-body text-bv-ink/85">
+                    <span aria-hidden className="mt-2 h-1.5 w-1.5 flex-none rounded-sm bg-bv-accent" />
                     {point}
                   </li>
                 ))}
@@ -231,11 +226,11 @@ export default async function InsightArticlePage({
             {content.faq && content.faq.length > 0 && <ArticleFaq items={content.faq} label={t("faqHeading")} />}
 
             <div className="max-w-[720px] mt-10 border-t border-bv-line pt-6">
-              <p className="text-[13px] text-bv-muted">
-                {t("reviewedBy", { author: AUTHOR.name, date: formatDate(article.lastReviewedAt, locale) })}
+              <p className="t-caption text-bv-muted">
+                {t("reviewedBy", { author: AUTHOR.name[locale === "ru" ? "ru" : "en"], date: formatDate(article.lastReviewedAt, locale) })}
               </p>
               {article.regulatory && (
-                <p className="mt-3 text-[13px] leading-[1.6] text-bv-muted">{t("regulatoryDisclaimer")}</p>
+                <p className="mt-3 t-caption text-bv-muted">{t("regulatoryDisclaimer")}</p>
               )}
             </div>
 
@@ -245,14 +240,14 @@ export default async function InsightArticlePage({
 
             {relatedServices.length > 0 && (
               <div className="max-w-[720px] mt-12">
-                <h2 className="font-bv-heading text-[28px] font-medium leading-[1.2] text-bv-ink sm:text-[32px] lg:text-[36px] mb-5">{t("relatedServices")}</h2>
+                <h2 className="t-h2 text-bv-ink mb-5">{t("relatedServices")}</h2>
                 <ul className="space-y-4">
                   {relatedServices.map((service) => (
                     <li key={service.slug}>
-                      <Link href={service.href} data-track-service={service.slug} className="text-[17px] font-semibold text-bv-ink underline underline-offset-4 decoration-bv-accent hover:text-bv-accent">
+                      <Link href={service.href} data-track-service={service.slug} className="t-body text-bv-ink underline underline-offset-4 decoration-bv-accent hover:text-bv-accent">
                         {service.title}
                       </Link>
-                      <p className="mt-1 text-[15px] text-bv-muted">{service.description}</p>
+                      <p className="mt-1 t-small text-bv-muted">{service.description}</p>
                     </li>
                   ))}
                 </ul>
@@ -263,7 +258,7 @@ export default async function InsightArticlePage({
 
         {relatedArticles.length > 0 && (
           <div className="mx-auto mt-20 max-w-[1320px]">
-            <h2 className="font-bv-heading text-[28px] font-medium leading-[1.2] text-bv-ink sm:text-[32px] lg:text-[36px] mb-8">{t("moreInsights")}</h2>
+            <h2 className="t-h2 text-bv-ink mb-8">{t("moreInsights")}</h2>
             <div className="grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
               {relatedArticles.map((related) => {
                 const relatedContent = locale === "ru" ? related.ru : related.en;
@@ -291,6 +286,7 @@ export default async function InsightArticlePage({
       </div>
 
       <EnquiryForm
+        copy={formCopy(locale)}
         defaultService={formServiceFor(article)}
         leadSource={article.id}
         heading={t("formHeading")}

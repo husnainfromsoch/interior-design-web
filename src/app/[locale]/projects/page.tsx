@@ -1,44 +1,40 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
-import { CtaBand, Intro, ProjectCards, RiseWords, Section } from "@/components/spec/blocks";
+import EnquiryForm from "@/components/ui/EnquiryForm";
+import { CompletedProjects } from "@/components/final/shared";
+import { formCopy } from "@/components/final/formCopy";
+import { H2, Intro, PrimaryButton, ProjectCards, Section, SplitHero } from "@/components/spec/blocks";
 import { CONCEPTS_IN_CARD_ORDER } from "@/data/concepts";
-import { sc } from "@/lib/spec";
+import { block, meta, val } from "@/lib/final";
+import { pageMetadata } from "@/lib/seo";
 
-// Spec §15.14 P14 Concept Projects: G01 intro (no hero image), G02 two-column grid of
-// four cards, G03 CTA to the form on /contact.
+// P14 Projects (Final Changes Sheet, P14): PJ01 hero, PJ02 completed projects (hidden
+// until one is published with photos), PJ03 concept projects.
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title: `${sc("C-P14-G01", "H1", locale)} | Bellvero Group`,
-    description: sc("C-P14-G01", "intro", locale),
-  };
+  return pageMetadata(meta("P14", locale), "/projects", locale);
 }
 
 export default async function ProjectsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const hero = block("P14", "PJ01", locale);
+  const concepts = block("P14", "PJ03", locale);
 
   return (
     <>
-      <section className="bg-bv-background pb-4 pt-10 lg:pt-16">
-        <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-8 lg:px-[60px]">
-          <h1 className="font-bv-heading text-[38px] font-medium leading-[1.08] text-bv-ink md:text-[52px] lg:text-[64px]">
-            <RiseWords text={sc("C-P14-G01", "H1", locale)} start={100} />
-          </h1>
-          <Intro>{sc("C-P14-G01", "intro", locale)}</Intro>
-        </div>
-      </section>
-
+      <SplitHero title={val(hero[0])} body={<p>{val(hero[1])}</p>} />
+      <CompletedProjects page="P14" id="PJ02" locale={locale} />
       <Section>
-        <div className="-mt-8 lg:-mt-10">
-          <ProjectCards slugs={CONCEPTS_IN_CARD_ORDER.map((c) => c.slug)} locale={locale} />
+        <H2>{val(concepts[0])}</H2>
+        <Intro>{val(concepts[1])}</Intro>
+        <ProjectCards slugs={CONCEPTS_IN_CARD_ORDER.map((c) => c.slug)} locale={locale} />
+        <div className="mt-10">
+          <PrimaryButton>{val(concepts[4])}</PrimaryButton>
         </div>
       </Section>
-
-      <Section compact>
-        <CtaBand href="/contact#project-enquiry" text={sc("C-P14-G03", "CTA", locale)} />
-      </Section>
+      <EnquiryForm copy={formCopy(locale)} leadSource="P14" />
     </>
   );
 }

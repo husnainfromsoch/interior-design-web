@@ -62,10 +62,10 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
   return (
     <section className="bv-flow bg-bv-background pb-14 pt-10 md:pb-[72px] lg:pb-[104px] lg:pt-16">
       <div className="mx-auto w-full max-w-[800px] px-4 sm:px-8">
-        <h1 className="font-bv-heading text-[38px] font-medium leading-[1.08] text-bv-ink md:text-[52px] lg:text-[64px]">
+        <h1 className="t-h1 text-bv-ink">
           {ru ? "Обработка персональных данных" : "Privacy Notice"}
         </h1>
-        <p className="mt-4 text-[15px] text-bv-muted">
+        <p className="mt-4 t-small text-bv-muted">
           {ru ? "Дата редакции" : "Last updated"}: {LAST_UPDATED[ru ? "ru" : "en"]}
         </p>
 
@@ -73,7 +73,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           <ol className="grid gap-1 sm:grid-cols-2">
             {sections.map((s) => (
               <li key={s.id}>
-                <a href={`#${s.id}`} className="inline-flex min-h-11 items-center text-[16px] text-bv-ink underline-offset-4 hover:text-bv-accent hover:underline">
+                <a href={`#${s.id}`} className="inline-flex min-h-11 items-center t-body text-bv-ink underline-offset-4 hover:text-bv-accent hover:underline">
                   {s.title}
                 </a>
               </li>
@@ -83,8 +83,8 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
 
         {sections.map((s) => (
           <div key={s.id} id={s.id} className="scroll-mt-[88px] pt-10 lg:scroll-mt-[104px]">
-            <h2 className="font-bv-heading text-[26px] font-medium leading-[1.2] text-bv-ink lg:text-[30px]">{s.title}</h2>
-            <p className="mt-3 text-[16px] leading-[1.7] text-bv-ink lg:text-[17px]">{s.body}</p>
+            <h2 className="t-h3 text-bv-ink">{s.title}</h2>
+            <p className="mt-3 t-body text-bv-ink">{s.body}</p>
           </div>
         ))}
       </div>

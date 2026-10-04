@@ -18,7 +18,7 @@ export default function ArticleFaq({ items, label }: { items: { q: string; a: st
               aria-expanded={isOpen}
               className="flex w-full items-center justify-between gap-6 py-5 text-left"
             >
-              <span className="text-[17px] font-medium text-bv-ink">{item.q}</span>
+              <span className="t-body text-bv-ink">{item.q}</span>
               <span
                 aria-hidden="true"
                 className={`flex h-7 w-7 flex-none items-center justify-center rounded-sm border border-bv-accent/40 text-bv-accent transition-transform duration-300 ${
@@ -32,7 +32,7 @@ export default function ArticleFaq({ items, label }: { items: { q: string; a: st
             </button>
             <div className="grid overflow-hidden transition-all duration-300 ease-out" style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}>
               <div className="overflow-hidden">
-                <p className="pb-5 pr-12 text-[16px] leading-[1.65] text-bv-muted">{item.a}</p>
+                <p className="pb-5 pr-12 t-body text-bv-muted">{item.a}</p>
               </div>
             </div>
           </div>

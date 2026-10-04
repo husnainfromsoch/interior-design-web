@@ -8,11 +8,14 @@ import { notifyEnquiry } from "@/lib/enquiry/notify";
 // the response. A silent loss is the highest-severity defect: when storage is not
 // configured or fails, the visitor gets the error state and keeps their input.
 
-const SERVICES = new Set(["design", "landscape", "villa", "apartment", "commercial", "kitchens", "wardrobes", "joinery", "approvals", "mep", "procurement", "notSure"]);
+const SERVICES = new Set(["design", "landscape", "villa", "apartment", "commercial", "kitchens", "wardrobes", "joinery", "metal", "approvals", "mep", "procurement", "notSure"]);
 const LOCATIONS = new Set(["dubai", "abuDhabi", "other"]);
 const NAME_RE = /^[\p{L}\p{M}' .-]{1,100}$/u;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MIN_FILL_MS = 2500;
+const MAX_FILES = 5;
+// Only links to files uploaded through /api/enquiry/upload (Vercel Blob) are accepted.
+const BLOB_URL_RE = /^https:\/\/[a-z0-9]+\.public\.blob\.vercel-storage\.com\/enquiries\/[^\s]+$/;
 
 const str = (v: unknown, max: number) => (typeof v === "string" ? v.trim().slice(0, max) : "");
 
@@ -70,6 +73,11 @@ export async function POST(request: Request) {
     ? Object.fromEntries(Object.entries(utmRaw).filter(([k]) => k.startsWith("utm_")).map(([k, v]) => [k, str(v, 200)]))
     : null;
 
+  const files = (Array.isArray(body.files) ? body.files : [])
+    .map((f) => str(f, 500))
+    .filter((f) => BLOB_URL_RE.test(f))
+    .slice(0, MAX_FILES);
+
   const record: EnquiryRecord = {
     enquiryId: randomUUID(),
     createdAt: new Date().toISOString(),
@@ -81,6 +89,7 @@ export async function POST(request: Request) {
     service: SERVICES.has(service) ? service : null,
     location: LOCATIONS.has(location) ? location : null,
     message: str(body.message, 2000) || null,
+    files: files.length ? files : null,
     project: str(body.project, 120) || null,
     sourcePage: str(body.sourcePage, 300) || null,
     referrer: str(body.referrer, 500) || null,

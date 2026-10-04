@@ -34,16 +34,16 @@ export function InsightsCard({
           className="img-zoom object-cover"
         />
       </div>
-      <p className="mt-2 text-[11px] text-bv-muted sm:text-[12px]">{data.aiLabel}</p>
+      <p className="mt-2 t-caption text-bv-muted">{data.aiLabel}</p>
 
-      <span className="mt-4 font-bv-body text-[13px] font-semibold uppercase tracking-[0.08em] text-bv-accent">
+      <span className="mt-4 t-eyebrow text-bv-accent">
         {data.topicLabel}
       </span>
-      <h3 className="mt-2 font-bv-heading text-[26px] font-medium leading-[1.15] text-bv-ink sm:text-[28px] lg:text-[30px]">
+      <h3 className="mt-2 t-h3 text-bv-ink">
         {data.title}
       </h3>
-      <p className="mt-3 line-clamp-2 text-[16px] leading-[1.6] text-bv-muted">{data.excerpt}</p>
-      <p className="mt-auto pt-4 text-[13px] text-bv-muted">
+      <p className="mt-3 line-clamp-2 t-body text-bv-muted">{data.excerpt}</p>
+      <p className="mt-auto pt-4 t-caption text-bv-muted">
         {data.dateLabel} · {data.readingLabel}
       </p>
     </Link>
@@ -73,22 +73,22 @@ export function InsightsFeaturedCard({
             className="img-zoom object-cover"
           />
         </div>
-        <p className="mt-2 text-[11px] text-bv-muted sm:text-[12px]">{data.aiLabel}</p>
+        <p className="mt-2 t-caption text-bv-muted">{data.aiLabel}</p>
       </div>
       <div className="lg:col-span-5">
         <span className="sr-only">{label}</span>
-        <span className="font-bv-body text-[13px] font-semibold uppercase tracking-[0.08em] text-bv-accent">
+        <span className="t-eyebrow text-bv-accent">
           {data.topicLabel}
         </span>
-        <h2 className="mt-4 font-bv-heading text-[32px] font-medium leading-[1.1] text-bv-ink sm:text-[40px] lg:text-[48px]">
+        <h2 className="mt-4 t-h2 text-bv-ink">
           {data.title}
         </h2>
-        <p className="mt-5 line-clamp-3 text-[18px] leading-[1.6] text-bv-ink/85">{data.excerpt}</p>
-        <p className="mt-5 text-[13px] text-bv-muted">
+        <p className="mt-5 line-clamp-3 t-body text-bv-ink/85">{data.excerpt}</p>
+        <p className="mt-5 t-caption text-bv-muted">
           {data.authorLabel ? `${data.authorLabel} · ` : ""}
           {data.dateLabel} · {data.readingLabel}
         </p>
-        <span aria-hidden="true" className="mt-6 inline-block font-bv-body text-[15px] font-semibold text-bv-ink">
+        <span aria-hidden="true" className="mt-6 inline-block t-small text-bv-ink">
           {readMoreLabel} →
         </span>
       </div>
