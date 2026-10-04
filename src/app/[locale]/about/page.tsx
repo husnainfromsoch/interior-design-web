@@ -4,7 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import EnquiryForm from "@/components/ui/EnquiryForm";
 import { CompletedProjectCards, imageCaption } from "@/components/final/shared";
 import { formCopy } from "@/components/final/formCopy";
-import { Body, H2, H3, Intro, PrimaryButton, ProjectCards, Section, SplitHero, TextLink } from "@/components/spec/blocks";
+import { Body, H2, H3, ImageSlot, Intro, PrimaryButton, ProjectCards, Section, SplitHero, TextLink } from "@/components/spec/blocks";
 import { getSiteSettings } from "@/cms/data";
 import { FOUNDER_PHOTOS, TEAM_PHOTOS, type SiteImage } from "@/data/siteContent";
 import { block, dots, linkHref, meta, val } from "@/lib/final";
@@ -31,7 +31,10 @@ function Profile({ lines, photo, locale }: { lines: string[]; photo?: SiteImage;
           <figcaption className="t-caption mt-2">{imageCaption(photo, locale)}</figcaption>
         </figure>
       ) : (
-        <span />
+        // Staging only: optional portrait slot (real photos only, never AI portraits)
+        <div>
+          <ImageSlot label={`${name} portrait`} ratio="4:5" className="max-w-[360px]" />
+        </div>
       )}
       <H3>{name}</H3>
       <p className="t-small text-bv-muted">{role}</p>

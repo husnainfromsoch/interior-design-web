@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { SERVICE_PAGES, getServicePage, type ServiceSlug } from "@/data/servicePages";
-import { getMediaList } from "@/data/media";
+import { getMediaList, getMediaSlots } from "@/data/media";
 import { meta } from "@/lib/final";
 import { sc } from "@/lib/spec";
 import { pageMetadata } from "@/lib/seo";
@@ -78,7 +78,7 @@ function extras(slug: ServiceSlug, locale: string): Extras {
     case "materials-procurement": {
       // Material palette images stay, directly above the FAQ; hidden while there are none (D10).
       const palettes = ["BV-IMG-62", "BV-IMG-63", "BV-IMG-64"];
-      if (getMediaList(palettes, locale).length === 0) return {};
+      if (getMediaSlots(palettes, locale).length === 0) return {};
       return {
         beforeFaq: (
           <section className={ROW}>

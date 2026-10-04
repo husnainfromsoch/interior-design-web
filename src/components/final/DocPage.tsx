@@ -1,7 +1,7 @@
 import { Fragment, type ReactNode } from "react";
 import EnquiryForm from "@/components/ui/EnquiryForm";
-import { Faq, FactsStrip, H2, H3, MediaFigure, PrimaryButton, RelatedLinks, Rich, Section, SplitHero } from "@/components/spec/blocks";
-import { getMedia } from "@/data/media";
+import { Faq, FactsStrip, H2, H3, ImageSlot, MediaFigure, PrimaryButton, RelatedLinks, Rich, Section, SplitHero } from "@/components/spec/blocks";
+import { getMedia, SHOW_PLACEHOLDERS } from "@/data/media";
 import { doc, linkHref, type Doc, type DocBlock, type DocSection } from "@/lib/final";
 import { formCopy } from "./formCopy";
 
@@ -117,9 +117,11 @@ export function CaseSection({ section, heading }: { section: DocSection; heading
   return (
     <section className={ROW}>
       <H2>{heading ?? section.heading}</H2>
-      <div className={`mt-8 grid grid-rows-[auto_auto_auto_auto] gap-x-8 gap-y-8 lg:mt-10 ${cases.length > 1 ? "lg:grid-cols-2" : ""}`}>
+      <div className={`mt-8 grid gap-x-8 gap-y-8 lg:mt-10 ${cases.length > 1 ? "lg:grid-cols-2" : ""}`}>
         {cases.map((c) => (
-          <article key={c.title} className="row-span-4 grid grid-rows-subgrid gap-y-4 rounded-lg bg-bv-surface p-6 sm:p-8 lg:p-10">
+          <article key={c.title} className={`${SHOW_PLACEHOLDERS ? "row-span-5" : "row-span-4"} grid grid-rows-subgrid gap-y-4 rounded-lg bg-bv-surface p-6 sm:p-8 lg:p-10`}>
+            {/* Company photo slot: hidden in production until a photo is uploaded */}
+            <ImageSlot label="Company photo" ratio="4:3" />
             <H3>{c.title}</H3>
             {c.rows.map((r) => (
               <div key={r.label} className="border-t border-bv-line pt-4">
@@ -178,11 +180,19 @@ export default async function DocPage({
   const [imageA, imageB] = (inlineImages ?? []).map((id) => (id ? getMedia(id, locale) : null));
   const final = d.sections.find((s) => isFinalCta(s, d));
 
-  const inlineImage = (asset: ReturnType<typeof getMedia>) =>
-    asset && (
+  // Up to two inline images per page (Changes Sheet section 3). Without an assigned slot
+  // the position still shows as a placeholder on staging.
+  const inlineImage = (asset: ReturnType<typeof getMedia>, name: string) =>
+    asset ? (
       <div className="pb-10 sm:pb-12 lg:pb-16">
         <MediaFigure asset={asset} ratio="16:9" sizes="(min-width: 1320px) 1200px, 100vw" />
       </div>
+    ) : (
+      SHOW_PLACEHOLDERS && (
+        <div className="pb-10 sm:pb-12 lg:pb-16">
+          <ImageSlot label={`${page} ${name}`} ratio="16:9" />
+        </div>
+      )
     );
 
   return (
@@ -194,6 +204,7 @@ export default async function DocPage({
           cta={button ? { label: button } : undefined}
           underButton={d.underButton}
           media={heroImage ? getMedia(heroImage, locale) : null}
+          slot={heroImage ? undefined : `${page} hero`}
         />
       )}
       <FactsStrip facts={d.facts} />
@@ -222,7 +233,7 @@ export default async function DocPage({
             if (isCases(s)) {
               return (
                 <Fragment key={n}>
-                  {inlineImage(imageB)}
+                  {inlineImage(imageB, "inline image 2")}
                   <CaseSection section={s} />
                   {extra}
                 </Fragment>
@@ -231,7 +242,7 @@ export default async function DocPage({
             return (
               <Fragment key={n}>
                 <TextSection section={s}>{inside?.[n]}</TextSection>
-                {n === 3 && inlineImage(imageA)}
+                {n === 3 && inlineImage(imageA, "inline image 1")}
                 {extra}
               </Fragment>
             );

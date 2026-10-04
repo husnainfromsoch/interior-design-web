@@ -9,7 +9,7 @@ import Gallery from "@/components/spec/Gallery";
 import { lightboxLabels } from "@/components/spec/labels";
 import EnquiryForm from "@/components/ui/EnquiryForm";
 import { CONCEPTS, conceptTitle, getConcept } from "@/data/concepts";
-import { getMedia, getMediaList } from "@/data/media";
+import { getMedia, getMediaList, getMediaSlots } from "@/data/media";
 import { serviceHref, serviceTitle, type ServiceSlug } from "@/data/servicePages";
 import { items, sc, scMaybe } from "@/lib/spec";
 
@@ -55,6 +55,8 @@ export default async function ConceptProjectPage({ params }: { params: Promise<{
   const plan = getMedia(concept.plan, locale);
   const mood = getMedia(concept.mood, locale);
   const gallery = getMediaList(concept.gallery, locale);
+  // Staging only: gallery slots without a file show as placeholders.
+  const gallerySlots = gallery.length === 0 ? getMediaSlots(concept.gallery, locale) : [];
   const planCaption = scMaybe(code("CS05"), "caption", locale);
   const moodCaption = scMaybe(code("CS06"), "caption", locale);
 
@@ -124,6 +126,17 @@ export default async function ConceptProjectPage({ params }: { params: Promise<{
         <Section surface>
           <H2>{sc("C-P15-CS07", "H2", locale)}</H2>
           <Gallery items={gallery} wide={[WIDE[concept.slug]]} labels={lightboxLabels(locale)} />
+        </Section>
+      )}
+
+      {gallerySlots.length > 0 && (
+        <Section surface>
+          <H2>{sc("C-P15-CS07", "H2", locale)}</H2>
+          <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:mt-10">
+            {gallerySlots.map((m) => (
+              <MediaFigure key={m.id} asset={m} ratio={m.id === WIDE[concept.slug] ? "21:9" : "4:3"} className={m.id === WIDE[concept.slug] ? "sm:col-span-2" : undefined} />
+            ))}
+          </div>
         </Section>
       )}
 

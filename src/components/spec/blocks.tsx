@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Fragment, type ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { cssRatio, getMedia, type MediaAsset } from "@/data/media";
+import { cssRatio, getMedia, SHOW_PLACEHOLDERS, type MediaAsset } from "@/data/media";
 import { conceptScope, conceptTitle, getConcept, type ConceptSlug } from "@/data/concepts";
 import { linkText } from "@/lib/spec";
 import { g, runs } from "@/lib/final";
@@ -124,6 +124,26 @@ export function FactsStrip({ facts }: { facts: string[] }) {
 }
 
 /**
+ * Staging-only image slot: a box in the slot's ratio with a watermark (logo mark, slot
+ * name and ratio). Renders nothing in production (see SHOW_PLACEHOLDERS).
+ */
+export function ImageSlot({ label, ratio, className, dark }: { label: string; ratio: string; className?: string; dark?: boolean }) {
+  if (!SHOW_PLACEHOLDERS) return null;
+  return (
+    <div
+      className={cx("flex w-full flex-col items-center justify-center gap-3 border border-dashed", dark ? "border-bv-background/40" : "border-bv-field-border/60 bg-bv-line/40", className)}
+      style={{ aspectRatio: cssRatio(ratio) }}
+      data-image-slot={label}
+    >
+      {!dark && <Image src="/logos/mark-dark.png" alt="" width={205} height={205} className="h-12 w-12 opacity-25" />}
+      <span className={cx("t-caption px-3 text-center", dark && "text-bv-background")}>
+        {label} · {ratio}
+      </span>
+    </div>
+  );
+}
+
+/**
  * Image with its caption (D10). The caption is the asset's own visible text
  * ("AI-generated image" or "Bellvero Group project, {community}"); `alt` stays separate.
  * No asset → nothing is rendered, so the block falls back to its text-only version.
@@ -144,6 +164,7 @@ export function MediaFigure({
   className?: string;
 }) {
   if (!asset) return null;
+  if (asset.placeholder) return <ImageSlot label={asset.id} ratio={ratio ?? asset.ratio} className={className} />;
   const fitContain = contain ?? asset.isDrawing;
   return (
     <figure className={cx("m-0", className)}>
@@ -234,6 +255,7 @@ export function SplitHero({
   media,
   contain,
   xl,
+  slot,
 }: {
   eyebrow?: string;
   title: string;
@@ -244,11 +266,14 @@ export function SplitHero({
   contain?: boolean;
   /** Home and About use the larger H1 size set. */
   xl?: boolean;
+  /** Name of the hero image slot when it has no media ID; shown as a placeholder on staging. */
+  slot?: string;
 }) {
+  const hasImage = Boolean(media) || (Boolean(slot) && SHOW_PLACEHOLDERS);
   return (
     <section className="bv-flow bg-bv-background pb-14 pt-10 sm:pb-[72px] lg:pb-[104px] lg:pt-16">
-      <div className={cx("mx-auto grid w-full max-w-[1320px] items-center gap-8 px-4 sm:px-8 lg:gap-12 lg:px-[60px]", media && "lg:grid-cols-2")}>
-        <div className={cx(!media && "max-w-[960px]")}>
+      <div className={cx("mx-auto grid w-full max-w-[1320px] items-center gap-8 px-4 sm:px-8 lg:gap-12 lg:px-[60px]", hasImage && "lg:grid-cols-2")}>
+        <div className={cx(!hasImage && "max-w-[960px]")}>
           {eyebrow && <Eyebrow className="mb-4">{eyebrow}</Eyebrow>}
           <h1 className={xl ? "t-h1-xl" : "t-h1"}>{title}</h1>
           {body && <div className="t-body mt-6 max-w-[760px] space-y-4 text-bv-muted">{body}</div>}
@@ -260,6 +285,7 @@ export function SplitHero({
           {underButton && <p className="t-caption mt-3 max-w-[560px]">{underButton}</p>}
         </div>
         {media && <MediaFigure asset={media} priority ratio="8:5" contain={contain} sizes="(min-width: 1024px) 50vw, 100vw" />}
+        {slot && !media && <ImageSlot label={slot} ratio="8:5" />}
       </div>
     </section>
   );
@@ -440,7 +466,9 @@ export function ProjectCard({ slug, locale, wide }: { slug: ConceptSlug; locale:
   return (
     <article className="row-span-3 grid grid-rows-subgrid gap-0 border-t border-bv-line pt-5">
       <Link href={`/projects/${concept.slug}`} className="group row-span-2 grid grid-rows-subgrid">
-        {media ? (
+        {media?.placeholder ? (
+          <ImageSlot label={media.id} ratio={wide ? "8:5" : "4:3"} className="mb-5" />
+        ) : media ? (
           <div className="relative mb-5 w-full overflow-hidden rounded-lg bg-bv-surface" style={{ aspectRatio: wide ? "8 / 5" : "4 / 3" }}>
             <Image src={media.src} alt={media.alt} fill sizes={wide ? "100vw" : "(min-width: 640px) 50vw, 100vw"} className="img-zoom object-cover" />
           </div>
@@ -454,7 +482,7 @@ export function ProjectCard({ slug, locale, wide }: { slug: ConceptSlug; locale:
       </Link>
       <div>
         <p className="t-body mt-2 text-bv-muted">{conceptScope(concept, locale)}</p>
-        {media && <p className="t-caption mt-2">{g("captions", "Concept project card", locale)}</p>}
+        {media && !media.placeholder && <p className="t-caption mt-2">{g("captions", "Concept project card", locale)}</p>}
       </div>
     </article>
   );

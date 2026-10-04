@@ -29,8 +29,17 @@ const CAPTION = {
   company: { en: "Bellvero Group project, {community}", ru: "Проект Bellvero Group, {community}" },
 };
 
+/**
+ * Image-slot placeholders (owner request 2026-10-05): on local and staging builds an empty
+ * slot shows a box in the slot's ratio with a watermark, so reviewers see where images go.
+ * Never in production: the Changes Sheet (D10, G12) forbids placeholders on the public site.
+ */
+export const SHOW_PLACEHOLDERS = process.env.NODE_ENV !== "production" || process.env.NEXT_PUBLIC_STAGING === "1";
+
 export type MediaAsset = {
   id: string;
+  /** True for a staging placeholder: no file yet, render the watermark box. */
+  placeholder?: boolean;
   src: string;
   alt: string;
   /** Visible caption: "AI-generated image" or "Bellvero Group project, {community}". */
@@ -42,7 +51,11 @@ export type MediaAsset = {
 export function getMedia(id: string, locale: string): MediaAsset | null {
   const card = CARDS[id];
   const approved = APPROVED[id];
-  if (!card || !approved) return null;
+  if (!card) return null;
+  if (!approved) {
+    if (!SHOW_PLACEHOLDERS) return null;
+    return { id, placeholder: true, src: "", alt: "", caption: "", isDrawing: card.assetType === "ai_drawing_illustration", ratio: card.ratio ?? "4:3" };
+  }
   const lang = locale === "ru" ? "ru" : "en";
   return {
     id,
@@ -54,8 +67,12 @@ export function getMedia(id: string, locale: string): MediaAsset | null {
   };
 }
 
-/** Resolve several slots; slots without an image are dropped so blocks close up. */
+/** Resolve several slots to real images only (galleries, viewers); empty slots are dropped. */
 export const getMediaList = (ids: string[], locale: string) =>
+  ids.map((id) => getMedia(id, locale)).filter((m): m is MediaAsset => m !== null && !m.placeholder);
+
+/** Resolve several slots including staging placeholders (image rows and grids). */
+export const getMediaSlots = (ids: string[], locale: string) =>
   ids.map((id) => getMedia(id, locale)).filter((m): m is MediaAsset => m !== null);
 
 /** "16:9" → "16 / 9" for CSS aspect-ratio. */
