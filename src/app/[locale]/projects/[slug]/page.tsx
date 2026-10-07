@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
-import { Body, H2, MediaFigure, ProjectCards, Section, TextLink } from "@/components/spec/blocks";
+import { Body, H2, MediaFigure, ProjectCards, RiseWords, Section, TextLink } from "@/components/spec/blocks";
 import { formCopy } from "@/components/final/formCopy";
 import Gallery from "@/components/spec/Gallery";
 import { lightboxLabels } from "@/components/spec/labels";
@@ -79,7 +79,9 @@ export default async function ConceptProjectPage({ params }: { params: Promise<{
             </ol>
           </nav>
           {/* CS02: concept disclosure directly beneath the cover, above the fold on mobile */}
-          <h1 className="t-h1 mt-6">{title}</h1>
+          <h1 className="t-h1 mt-6">
+            <RiseWords text={title} start={100} />
+          </h1>
           <p className="t-small mt-4 text-bv-muted">{sc(code("CS02"), "scope line", locale)}</p>
           {cover && <MediaFigure asset={cover} priority ratio="16:9" className="mt-8" sizes="100vw" />}
         </div>
@@ -123,7 +125,7 @@ export default async function ConceptProjectPage({ params }: { params: Promise<{
       )}
 
       {gallery.length > 0 && (
-        <Section surface>
+        <Section surface className="overflow-x-clip">
           <H2>{sc("C-P15-CS07", "H2", locale)}</H2>
           <Gallery items={gallery} wide={[WIDE[concept.slug]]} labels={lightboxLabels(locale)} />
         </Section>

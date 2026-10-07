@@ -24,13 +24,13 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
 
   return (
     <>
-      <SplitHero title={val(hero[0])} body={<p>{val(hero[1])}</p>} />
+      <SplitHero title={val(hero[0])} body={<p>{val(hero[1])}</p>} slot="P14 hero" locale={locale} />
       <CompletedProjects page="P14" id="PJ02" locale={locale} />
       <Section>
         <H2>{val(concepts[0])}</H2>
         <Intro>{val(concepts[1])}</Intro>
         <ProjectCards slugs={CONCEPTS_IN_CARD_ORDER.map((c) => c.slug)} locale={locale} />
-        <div className="mt-10">
+        <div className="reveal mt-10">
           <PrimaryButton>{val(concepts[4])}</PrimaryButton>
         </div>
       </Section>

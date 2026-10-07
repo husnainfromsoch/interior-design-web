@@ -65,8 +65,8 @@ export default function MobileBottomBar({ labels, whatsappPrefill }: { labels: {
   return (
     <div
       aria-hidden={hidden}
-      className={`fixed inset-x-0 bottom-0 z-30 border-t border-bv-line bg-bv-background px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 lg:hidden ${
-        hidden ? "pointer-events-none invisible" : ""
+      className={`fixed inset-x-0 bottom-0 z-30 border-t border-bv-line bg-bv-background/95 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none min-[1100px]:hidden ${
+        hidden ? "pointer-events-none translate-y-full" : "translate-y-0"
       }`}
     >
       <div className="mx-auto flex max-w-[560px] gap-3">
@@ -74,7 +74,7 @@ export default function MobileBottomBar({ labels, whatsappPrefill }: { labels: {
           href="#project-enquiry"
           onClick={discuss}
           tabIndex={hidden ? -1 : 0}
-          className="t-button inline-flex h-[48px] flex-1 items-center justify-center rounded-sm bg-bv-accent px-4 text-bv-white active:bg-bv-accent-hover"
+          className="press t-button inline-flex h-[48px] flex-1 items-center justify-center rounded-sm bg-bv-accent px-4 text-bv-white active:bg-bv-accent-hover"
         >
           {labels.discuss}
         </a>
@@ -84,7 +84,7 @@ export default function MobileBottomBar({ labels, whatsappPrefill }: { labels: {
           rel="noopener noreferrer"
           onClick={() => trackEvent("whatsapp_click", { placement: "bottom_bar" })}
           tabIndex={hidden ? -1 : 0}
-          className="t-button inline-flex h-[48px] flex-1 items-center justify-center rounded-sm bg-bv-ink px-4 text-bv-white"
+          className="press t-button inline-flex h-[48px] flex-1 items-center justify-center rounded-sm bg-bv-ink px-4 text-bv-white active:bg-bv-ink/85"
         >
           {labels.whatsapp}
         </a>

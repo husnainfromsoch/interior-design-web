@@ -154,14 +154,18 @@ export default async function InsightArticlePage({
             <span className="t-eyebrow text-bv-accent">
               {topicName(article.topic, locale)}
             </span>
-            <h1 className="t-h1 mt-4">
+            <h1
+              className={`mt-4 font-bv-heading font-medium leading-[1.1] text-bv-ink ${
+                content.title.length > 70 ? "text-[34px] sm:text-[44px] lg:text-[52px]" : "text-[38px] sm:text-[52px] lg:text-[64px]"
+              }`}
+            >
               {content.title}
             </h1>
-            <p className="mt-6 t-body text-bv-ink">{content.standfirst}</p>
+            <p className="mt-6 text-[18px] leading-[1.6] text-bv-ink sm:text-[19px] lg:text-[20px]">{content.standfirst}</p>
 
             <div className="mt-6 flex items-center gap-4">
               {AUTHOR.photo && (
-                <div className="relative h-12 w-12 flex-none overflow-hidden rounded-sm">
+                <div className="relative h-12 w-12 flex-none overflow-hidden rounded-full">
                   <Image src={AUTHOR.photo} alt={AUTHOR.name[locale === "ru" ? "ru" : "en"]} fill sizes="48px" className="object-cover" />
                 </div>
               )}
@@ -208,7 +212,7 @@ export default async function InsightArticlePage({
               <ul className="mt-4 space-y-3">
                 {content.keyPoints.map((point, i) => (
                   <li key={i} className="flex gap-3 t-body text-bv-ink/85">
-                    <span aria-hidden className="mt-2 h-1.5 w-1.5 flex-none rounded-sm bg-bv-accent" />
+                    <span aria-hidden className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-bv-accent" />
                     {point}
                   </li>
                 ))}

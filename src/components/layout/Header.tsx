@@ -8,19 +8,26 @@ import type { HeaderNav } from "@/components/final/navCopy";
 import SocialIcons from "@/components/ui/SocialIcons";
 import { trackEvent } from "@/lib/analytics";
 
-// Header (Final Changes Sheet G1, G2). Desktop ≥ 1024 px: logo left · navigation centred
-// on the page · "Discuss Your Project" right · EN / RU at the far right edge; sticky, and
-// the sticky header keeps the button and EN / RU. The Services dropdown opens on hover
-// and on click / Enter, closes on Esc. Below 1024 px: logo · EN / RU · Menu, with a
-// full-screen menu (focus trap, scroll lock); the mobile bottom bar provides the button.
+// Header. Navigation labels and the Services menu come from the final copy
+// (src/components/final/navCopy.ts); the look is the pre-sheet design. Desktop ≥ 1100 px: 88 px, sticky, #F7F4EE with a 1 px bottom line;
+// wordmark · Services Projects Our Process About Contact · EN / RU · primary CTA.
+// The Services disclosure opens on click and keyboard (never hover alone), Escape
+// closes it and returns focus. Mobile < 1100 px: 72 px, language switcher and Menu
+// button, full-screen panel with focus trap, scroll lock and a pinned CTA.
+
+const focusRing = "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink";
 
 function Wordmark({ label, compact }: { label: string; compact?: boolean }) {
   return (
-    <Link href="/" aria-label={label} className="flex h-11 flex-none items-center gap-3">
+    <Link
+      href="/"
+      aria-label={label}
+      className={`flex items-center gap-3 h-11 flex-none ${focusRing} rounded-sm`}
+    >
       <Image src="/logos/mark-dark.png" alt="" width={205} height={205} priority className={compact ? "h-9 w-9" : "h-11 w-11"} />
       <span className="flex flex-col leading-none text-bv-ink">
-        <span className="t-small uppercase tracking-[0.14em]">Bellvero</span>
-        <span className="t-eyebrow mt-1 text-bv-muted">Group</span>
+        <span className={`font-bv-body font-medium uppercase tracking-[0.14em] ${compact ? "text-[15px]" : "text-[17px]"}`}>Bellvero</span>
+        <span className="mt-1 font-bv-body text-[10px] font-medium uppercase tracking-[0.22em] text-bv-muted">Group</span>
       </span>
     </Link>
   );
@@ -39,7 +46,7 @@ function useCta() {
   }, []);
 }
 
-function LanguageSwitch() {
+function LanguageSwitch({ className }: { className?: string }) {
   const locale = useLocale();
   const pathname = usePathname();
   const t = useTranslations("Nav");
@@ -47,25 +54,23 @@ function LanguageSwitch() {
   const other = locale === "en" ? "ru" : "en";
   const href = getPathname({ href: pathname, locale: other });
   return (
-    <div className="t-small flex items-center">
-      <span aria-current="true" className="flex h-11 min-w-9 items-center justify-center text-bv-ink">
+    <div className={`flex items-center gap-1 text-[14px] font-medium ${className ?? ""}`}>
+      <span aria-current="true" className="flex h-11 items-center justify-center rounded-sm px-1.5 text-bv-ink min-[360px]:min-w-11 min-[360px]:px-0">
         {locale.toUpperCase()}
       </span>
-      <span aria-hidden="true" className="text-bv-line">
-        /
-      </span>
+      <span aria-hidden="true" className="text-bv-line max-[359px]:hidden">/</span>
       <a
         href={href}
         hrefLang={other}
         lang={other}
         aria-label={t("langSwitch").split(" / ")[0]}
         onClick={(e) => {
-          // Keep the current page and its #anchor; never send the visitor home.
+          // Keep the current page and its #anchor (spec §7.1); never send the visitor home.
           e.preventDefault();
           trackEvent("language_switch", { to: other });
           router.replace(`${pathname}${window.location.search}${window.location.hash}`, { locale: other });
         }}
-        className="flex h-11 min-w-9 items-center justify-center text-bv-muted transition-colors duration-200 hover:text-bv-ink"
+        className={`flex h-11 min-w-11 items-center justify-center rounded-sm text-bv-muted transition-colors hover:text-bv-ink ${focusRing}`}
       >
         {other.toUpperCase()}
       </a>
@@ -81,11 +86,9 @@ export default function Header({ nav }: { nav: HeaderNav }) {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const servicesBtn = useRef<HTMLButtonElement>(null);
-  const servicesItem = useRef<HTMLLIElement>(null);
   const servicesPanel = useRef<HTMLDivElement>(null);
   const menuBtn = useRef<HTMLButtonElement>(null);
   const menuPanel = useRef<HTMLDivElement>(null);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const panelId = useId();
   const menuId = useId();
 
@@ -97,17 +100,7 @@ export default function Header({ nav }: { nav: HeaderNav }) {
     setMenuOpen(false);
   }
 
-  // Hover: open at once, close after a short delay so the pointer can cross to the panel.
-  const hoverOpen = () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    setServicesOpen(true);
-  };
-  const hoverClose = () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setServicesOpen(false), 150);
-  };
-
-  // Services dropdown: Escape and outside click close it.
+  // Services disclosure: Escape and outside click close it.
   useEffect(() => {
     if (!servicesOpen) return;
     const onKey = (e: KeyboardEvent) => {
@@ -118,7 +111,7 @@ export default function Header({ nav }: { nav: HeaderNav }) {
     };
     const onPointer = (e: PointerEvent) => {
       const target = e.target as Node;
-      if (!servicesPanel.current?.contains(target) && !servicesItem.current?.contains(target)) setServicesOpen(false);
+      if (!servicesPanel.current?.contains(target) && !servicesBtn.current?.contains(target)) setServicesOpen(false);
     };
     document.addEventListener("keydown", onKey);
     document.addEventListener("pointerdown", onPointer);
@@ -161,24 +154,30 @@ export default function Header({ nav }: { nav: HeaderNav }) {
     };
   }, [menuOpen]);
 
+  const primaryItems = nav.links;
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
   const navLink = (active: boolean) =>
-    `t-small flex h-11 items-center whitespace-nowrap transition-colors duration-200 ${active ? "text-bv-accent" : "text-bv-ink hover:text-bv-accent"}`;
-  const ctaClass = "t-button inline-flex h-[48px] items-center justify-center whitespace-nowrap rounded-sm bg-bv-accent px-5 text-bv-white transition-colors duration-200 hover:bg-bv-accent-hover";
+    `nav-underline flex h-11 items-center whitespace-nowrap rounded-sm px-1 text-[14px] font-medium leading-5 transition-colors ${
+      active ? "text-bv-accent" : "text-bv-ink hover:text-bv-accent"
+    } ${focusRing}`;
+  const ctaClass = `press btn-shine inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-sm bg-bv-accent px-5 text-[14px] font-semibold tracking-[0.02em] text-bv-white duration-200 hover:bg-bv-accent-hover ${focusRing}`;
 
   return (
     <header className="sticky top-0 z-40 border-b border-bv-line bg-bv-background">
-      <a href="#main-content" className="t-button sr-only z-50 rounded-sm bg-bv-ink px-4 py-3 text-bv-white focus:not-sr-only focus:absolute focus:left-4 focus:top-4">
+      <a
+        href="#main-content"
+        className="sr-only z-50 rounded-sm bg-bv-ink px-4 py-3 text-[14px] font-semibold text-bv-white focus:not-sr-only focus:absolute focus:left-4 focus:top-4"
+      >
         {t("skip")}
       </a>
 
-      {/* Desktop: the 1fr / auto / 1fr grid keeps the navigation centred on the page */}
-      <div className="mx-auto hidden h-[88px] w-full max-w-[1320px] grid-cols-[1fr_auto_1fr] items-center gap-4 px-8 lg:grid xl:px-[60px]">
+      {/* Desktop */}
+      <div className="mx-auto hidden h-[88px] w-full max-w-[1320px] items-center justify-between gap-4 px-[40px] min-[1100px]:flex xl:gap-6 xl:px-[60px]">
         <Wordmark label={t("logo")} />
         <nav aria-label={nav.mainLabel}>
-          <ul className="flex items-center gap-5 xl:gap-8">
-            <li ref={servicesItem} className="flex items-center" onMouseEnter={hoverOpen} onMouseLeave={hoverClose}>
-              <Link href="/services" className={navLink(isActive("/services") || servicesOpen)}>
+          <ul className="flex items-center gap-4 xl:gap-6">
+            <li className="flex items-center">
+              <Link href="/services" className={navLink(isActive("/services"))} data-active={servicesOpen || undefined}>
                 {nav.servicesLabel}
               </Link>
               <button
@@ -188,14 +187,14 @@ export default function Header({ nav }: { nav: HeaderNav }) {
                 aria-controls={panelId}
                 aria-label={`${nav.servicesLabel}: ${nav.allServices.label}`}
                 onClick={() => setServicesOpen((o) => !o)}
-                className="flex h-11 w-7 items-center justify-center text-bv-ink hover:text-bv-accent"
+                className={`flex h-11 w-8 items-center justify-center rounded-sm text-bv-ink hover:text-bv-accent ${focusRing}`}
               >
-                <svg viewBox="0 0 12 12" className={`h-3 w-3 ${servicesOpen ? "rotate-180" : ""}`} aria-hidden="true">
+                <svg viewBox="0 0 12 12" className={`h-3 w-3 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${servicesOpen ? "rotate-180" : ""}`} aria-hidden="true">
                   <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.5" />
                 </svg>
               </button>
             </li>
-            {nav.links.map((item) => (
+            {primaryItems.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className={navLink(isActive(item.href))} aria-current={isActive(item.href) ? "page" : undefined}>
                   {item.label}
@@ -204,31 +203,29 @@ export default function Header({ nav }: { nav: HeaderNav }) {
             ))}
           </ul>
         </nav>
-        <div className="flex items-center justify-end gap-4">
-          <Link href="/contact#project-enquiry" onClick={(e) => onCta(e)} className={ctaClass}>
+        <div className="flex items-center gap-4">
+          <LanguageSwitch />
+          <Link href="/contact#project-enquiry" onClick={(e) => onCta(e)} className={ctaClass} data-magnetic>
             {nav.ctaLabel}
           </Link>
-          <LanguageSwitch />
         </div>
       </div>
 
-      {/* Services dropdown: 4 groups + "All Services" */}
+      {/* Services panel */}
       <div
         ref={servicesPanel}
         id={panelId}
         data-open={servicesOpen}
-        onMouseEnter={hoverOpen}
-        onMouseLeave={hoverClose}
-        className="dropdown-panel absolute inset-x-0 top-full hidden border-b border-bv-line bg-bv-background lg:block"
+        className="dropdown-panel absolute inset-x-0 top-full hidden border-b border-bv-line bg-bv-background min-[1100px]:block"
       >
-        <div className="mx-auto grid w-full max-w-[1320px] grid-cols-4 gap-8 px-8 py-10 xl:px-[60px]">
-          {nav.serviceGroups.map((g) => (
-            <div key={g.label}>
-              <p className="t-eyebrow text-bv-muted">{g.label}</p>
-              <ul className="mt-3">
+        <div className="mx-auto grid w-full max-w-[1320px] grid-cols-4 gap-8 px-[40px] py-10 xl:px-[60px]">
+          {nav.serviceGroups.map((g, gi) => (
+            <div key={gi} className="stagger-item" style={{ ["--i" as string]: gi } as React.CSSProperties}>
+              <p className="text-[12px] font-semibold uppercase tracking-[0.12em] text-bv-muted">{g.label}</p>
+              <ul className="mt-3 space-y-1">
                 {g.services.map((s) => (
                   <li key={s.href}>
-                    <Link href={s.href} className="t-small flex min-h-11 items-center text-bv-ink transition-colors duration-200 hover:text-bv-accent">
+                    <Link href={s.href} className={`flex min-h-11 items-center rounded-sm text-[15px] font-medium text-bv-ink transition-[color,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:translate-x-1 hover:text-bv-accent ${focusRing}`}>
                       {s.label}
                     </Link>
                   </li>
@@ -237,17 +234,20 @@ export default function Header({ nav }: { nav: HeaderNav }) {
             </div>
           ))}
         </div>
-        <div className="mx-auto w-full max-w-[1320px] border-t border-bv-line px-8 py-4 xl:px-[60px]">
-          <Link href={nav.allServices.href} className="t-small inline-flex min-h-11 items-center gap-2 text-bv-accent transition-colors duration-200 hover:text-bv-accent-hover">
-            {nav.allServices.label} <span aria-hidden="true">→</span>
+        <div
+          className="stagger-item mx-auto flex w-full max-w-[1320px] flex-wrap items-center justify-end gap-6 border-t border-bv-line px-[40px] py-4 xl:px-[60px]"
+          style={{ ["--i" as string]: nav.serviceGroups.length } as React.CSSProperties}
+        >
+          <Link href={nav.allServices.href} className={`group flex min-h-11 items-center gap-1.5 rounded-sm text-[15px] font-semibold text-bv-accent ${focusRing}`}>
+            <span className="link-draw">{nav.allServices.label}</span> <span aria-hidden="true" className="arrow-nudge">→</span>
           </Link>
         </div>
       </div>
 
-      {/* Tablet and mobile */}
-      <div className="flex h-[72px] items-center justify-between gap-3 px-4 sm:px-8 lg:hidden">
+      {/* Mobile */}
+      <div className="flex h-[72px] items-center justify-between gap-3 px-4 sm:px-8 lg:px-[60px] min-[1100px]:hidden">
         <Wordmark label={t("logo")} compact />
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           <LanguageSwitch />
           <button
             ref={menuBtn}
@@ -255,7 +255,7 @@ export default function Header({ nav }: { nav: HeaderNav }) {
             aria-expanded={menuOpen}
             aria-controls={menuId}
             onClick={() => setMenuOpen(true)}
-            className="t-button flex h-11 items-center justify-center rounded-sm border border-bv-line px-4 text-bv-ink transition-colors duration-200 hover:border-bv-ink"
+            className={`press flex h-11 min-w-11 items-center justify-center rounded-sm border border-bv-line px-3 text-[14px] min-[360px]:px-4 font-semibold text-bv-ink duration-200 hover:border-bv-ink ${focusRing}`}
           >
             {t("menuOpen")}
           </button>
@@ -263,35 +263,39 @@ export default function Header({ nav }: { nav: HeaderNav }) {
       </div>
 
       {menuOpen && (
-        <div ref={menuPanel} id={menuId} role="dialog" aria-modal="true" aria-label={t("menuOpen")} className="fixed inset-0 z-50 flex flex-col bg-bv-background lg:hidden">
+        <div
+          ref={menuPanel}
+          id={menuId}
+          role="dialog"
+          aria-modal="true"
+          aria-label={t("menuOpen")}
+          className="menu-enter fixed inset-0 z-50 flex flex-col bg-bv-background min-[1100px]:hidden"
+        >
           <div className="flex h-[72px] flex-none items-center justify-between border-b border-bv-line px-4 sm:px-8">
             <Wordmark label={t("logo")} compact />
             <button
               type="button"
               data-autofocus
               onClick={() => setMenuOpen(false)}
-              className="t-button flex h-11 items-center justify-center rounded-sm border border-bv-line px-4 text-bv-ink"
+              className={`press flex h-11 min-w-11 items-center justify-center rounded-sm border border-bv-line px-4 text-[14px] font-semibold text-bv-ink duration-200 ${focusRing}`}
             >
               {t("menuClose")}
             </button>
           </div>
           <nav aria-label={nav.mainLabel} className="min-h-0 flex-1 overflow-y-auto px-4 py-4 sm:px-8">
-            <details className="group border-b border-bv-line">
-              <summary className="t-h3 flex min-h-[56px] cursor-pointer list-none items-center justify-between [&::-webkit-details-marker]:hidden">
+            <details className="menu-item-in group border-b border-bv-line" style={{ ["--i" as string]: 0 } as React.CSSProperties}>
+              <summary className={`flex min-h-[56px] cursor-pointer list-none items-center justify-between text-[20px] font-medium text-bv-ink [&::-webkit-details-marker]:hidden ${focusRing}`}>
                 {nav.servicesLabel}
-                <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 text-bv-accent" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M5 12h14" />
-                  <path d="M12 5v14" className="group-open:hidden" />
-                </svg>
+                <span aria-hidden="true" className="text-bv-accent transition-transform duration-300 group-open:rotate-45">+</span>
               </summary>
               <div className="pb-4">
                 {nav.serviceGroups.map((g) => (
                   <div key={g.label} className="mt-3">
-                    <p className="t-eyebrow text-bv-muted">{g.label}</p>
+                    <p className="text-[12px] font-semibold uppercase tracking-[0.12em] text-bv-muted">{g.label}</p>
                     <ul className="mt-1">
                       {g.services.map((s) => (
                         <li key={s.href}>
-                          <Link href={s.href} className="t-body flex min-h-11 items-center text-bv-ink">
+                          <Link href={s.href} className={`flex min-h-11 items-center text-[16px] text-bv-ink ${focusRing}`}>
                             {s.label}
                           </Link>
                         </li>
@@ -299,15 +303,15 @@ export default function Header({ nav }: { nav: HeaderNav }) {
                     </ul>
                   </div>
                 ))}
-                <Link href={nav.allServices.href} className="t-small mt-3 flex min-h-11 items-center gap-2 text-bv-accent">
+                <Link href={nav.allServices.href} className={`mt-3 flex min-h-11 items-center gap-1.5 text-[16px] font-semibold text-bv-accent ${focusRing}`}>
                   {nav.allServices.label} <span aria-hidden="true">→</span>
                 </Link>
               </div>
             </details>
             <ul>
-              {nav.links.map((item) => (
-                <li key={item.href} className="border-b border-bv-line">
-                  <Link href={item.href} className="t-h3 flex min-h-[56px] items-center">
+              {primaryItems.map((item, i) => (
+                <li key={item.href} className="menu-item-in border-b border-bv-line" style={{ ["--i" as string]: i + 1 } as React.CSSProperties}>
+                  <Link href={item.href} className={`flex min-h-[56px] items-center text-[20px] font-medium text-bv-ink ${focusRing}`}>
                     {item.label}
                   </Link>
                 </li>
@@ -315,7 +319,10 @@ export default function Header({ nav }: { nav: HeaderNav }) {
             </ul>
             <SocialIcons className="-ml-3 mt-4" />
           </nav>
-          <div className="flex-none border-t border-bv-line px-4 pb-[max(16px,env(safe-area-inset-bottom))] pt-4 sm:px-8">
+          <div
+            className="menu-item-in flex-none border-t border-bv-line px-4 pb-[max(16px,env(safe-area-inset-bottom))] pt-4 sm:px-8"
+            style={{ ["--i" as string]: primaryItems.length + 1 } as React.CSSProperties}
+          >
             <Link href="/contact#project-enquiry" onClick={(e) => onCta(e, () => setMenuOpen(false))} className={`${ctaClass} w-full`}>
               {nav.ctaLabel}
             </Link>

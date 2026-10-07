@@ -19,7 +19,7 @@ export default function InsightsAuthorBox({
       <span className="sr-only">{srLabel}</span>
       <div className="flex items-start gap-4">
         {AUTHOR.photo && (
-          <div className="relative h-24 w-24 flex-none overflow-hidden rounded-sm">
+          <div className="relative h-24 w-24 flex-none overflow-hidden rounded-full">
             <Image src={AUTHOR.photo} alt={AUTHOR.name[locale === "ru" ? "ru" : "en"]} fill sizes="96px" className="object-cover" />
           </div>
         )}

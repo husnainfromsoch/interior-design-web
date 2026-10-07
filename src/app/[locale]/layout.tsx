@@ -9,6 +9,10 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileBottomBar from "@/components/ui/MobileBottomBar";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import ScrollProgress from "@/components/ui/ScrollProgress";
+import PageFade from "@/components/ui/PageFade";
+import SmoothScroll from "@/components/ui/SmoothScroll";
+import Magnetic from "@/components/ui/Magnetic";
 import DetailsA11y from "@/components/ui/DetailsA11y";
 import ConsentBanner from "@/components/ui/ConsentBanner";
 import Analytics from "@/components/ui/Analytics";
@@ -18,12 +22,13 @@ import { getSiteSettings } from "@/cms/data";
 import { headerNav } from "@/components/final/navCopy";
 import { dots, g, globalTable, meta } from "@/lib/final";
 
-// Changes Sheet D1: two families only. Cormorant Garamond 500 for H1–H3, Manrope for
-// everything else. Latin + Cyrillic so RU copy never falls back to a system font.
+// Two families only: Cormorant Garamond for headings, Manrope for everything else.
+// Latin + Cyrillic so RU copy never falls back to a system font.
 const bvHeading = Cormorant_Garamond({
   variable: "--font-bv-heading",
   subsets: ["latin", "cyrillic"],
-  weight: ["500"],
+  // 600: type-weight bump (see "Type size trial" in globals.css).
+  weight: ["500", "600"],
 });
 
 const bvBody = Manrope({
@@ -72,6 +77,10 @@ export default async function LocaleLayout({
             <Footer />
             <MobileBottomBar labels={{ discuss, whatsapp }} whatsappPrefill={g("f1", "WhatsApp prefilled text", locale)} />
             <ScrollReveal />
+            <ScrollProgress />
+            <PageFade />
+            <SmoothScroll />
+            <Magnetic />
             <DetailsA11y />
             <ConsentBanner />
             <Analytics />

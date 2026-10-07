@@ -1,4 +1,5 @@
 import { dots, g } from "@/lib/final";
+import { tempImage } from "@/data/media";
 import type { FormCopy } from "@/components/ui/EnquiryForm";
 
 // Enquiry form F1 texts from the final copy (Global › Enquiry form F1). Built on the
@@ -65,6 +66,7 @@ export function formCopy(locale: string): FormCopy {
     errorFileType: f("Error: file type"),
     errorFileSize: f("Error: file size"),
     errorSending: f("Error: sending"),
+    image: tempImage("F1", locale),
     nextSteps: f("What happens next")
       .split(/\s(?=0\d\s)/)
       .map((s) => s.replace(/^0\d\s/, "")),

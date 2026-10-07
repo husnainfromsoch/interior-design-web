@@ -1,3 +1,5 @@
+import { RiseWords } from "@/components/spec/blocks";
+
 export default function PageIntro({
   eyebrow,
   title,
@@ -14,9 +16,13 @@ export default function PageIntro({
     <section className="bv-flow bg-bv-background pb-12 pt-10 lg:pb-16 lg:pt-16">
       <div className={narrow ? "mx-auto w-full max-w-[800px] px-4 sm:px-8" : "mx-auto w-full max-w-[1320px] px-4 sm:px-8 lg:px-[60px]"}>
         <div className="max-w-[760px]">
-          <p className="t-eyebrow text-bv-accent">{eyebrow}</p>
-          <h1 className="t-h1 mt-4">{title}</h1>
-          <p className="t-body mt-6 text-bv-muted">{intro}</p>
+          <p className="hero-in t-eyebrow text-bv-accent">{eyebrow}</p>
+          <h1 className="t-h1 mt-4">
+            <RiseWords text={title} start={100} />
+          </h1>
+          <p className="hero-in t-body mt-6 text-bv-muted" style={{ animationDelay: "0.45s" }}>
+            {intro}
+          </p>
         </div>
       </div>
     </section>

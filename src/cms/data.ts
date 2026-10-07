@@ -20,7 +20,25 @@ type Locale = "en" | "ru";
 const SCOPE = process.env.CMS_CACHE_SCOPE ?? "unscoped";
 const asLocale = (locale: string): Locale => (locale === "ru" ? "ru" : "en");
 
+// Local dev without PAYLOAD_SECRET (no database): serve the seed values instead of crashing.
+// Never used in production, where fail-closed still applies.
+const useSeed = process.env.NODE_ENV === "development" && !process.env.PAYLOAD_SECRET;
+const pickLocale = (v: unknown, locale: Locale): unknown => {
+  if (Array.isArray(v)) return v.map((x) => pickLocale(x, locale));
+  if (v && typeof v === "object") {
+    const o = v as Record<string, unknown>;
+    const keys = Object.keys(o);
+    if (keys.length === 2 && "en" in o && "ru" in o) return o[locale];
+    return Object.fromEntries(keys.map((k) => [k, pickLocale(o[k], locale)]));
+  }
+  return v;
+};
+
 async function loadGlobal<T>(slug: "site-settings" | "navigation", locale: Locale) {
+  if (useSeed) {
+    const { SEED } = await import("./seed/data");
+    return pickLocale(slug === "site-settings" ? SEED.siteSettings : SEED.navigation, locale) as T;
+  }
   const payload = await getPayload({ config });
   return (await payload.findGlobal({ slug, locale, draft: false, depth: 0, overrideAccess: true })) as T;
 }

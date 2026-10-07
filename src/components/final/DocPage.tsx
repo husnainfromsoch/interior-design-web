@@ -1,20 +1,20 @@
 import { Fragment, type ReactNode } from "react";
 import EnquiryForm from "@/components/ui/EnquiryForm";
 import { Faq, FactsStrip, H2, H3, ImageSlot, MediaFigure, PrimaryButton, RelatedLinks, Rich, Section, SplitHero } from "@/components/spec/blocks";
-import { getMedia, SHOW_PLACEHOLDERS } from "@/data/media";
+import { getMedia } from "@/data/media";
 import { doc, linkHref, type Doc, type DocBlock, type DocSection } from "@/lib/final";
 import { formCopy } from "./formCopy";
 
-// Service page layout (Final Changes Sheet, section 3). Every page built from the final
-// copy uses the same parts in the order of the copy: hero, facts strip, sections,
-// "From our projects" case cards, FAQ accordion, final CTA followed by form F1, and the
-// related services row. Page rows in section 4 of the sheet add blocks through `after`
-// and `beforeFaq`.
+// Service page layout. Every page built from the final copy uses the same parts in the
+// order of the copy: hero, facts strip, sections, "From our projects" case cards, FAQ
+// accordion, final CTA followed by form F1, and the related services row. Page-specific
+// blocks are added through `after`, `inside` and `beforeFaq`. The look is the pre-sheet
+// design (owner decision 2026-10-07): reveals, heading sweep, rounded surfaces.
 
 const RELATED_HEADING = { en: "Related services", ru: "Связанные услуги" };
 
-/** One row of the page column: a thin line above (not on the first row), one fade-in. */
-export const ROW = "bv-fade border-t border-bv-line py-10 first:border-t-0 sm:py-12 lg:py-16";
+/** One row of the page column: a thin line above (not on the first row). */
+export const ROW = "border-t border-bv-line py-12 first:border-t-0 md:py-16 lg:py-20";
 
 const isFaq = (s: DocSection) => s.blocks.length > 0 && s.blocks.every((b) => b.t === "faq");
 const isCases = (s: DocSection) => s.blocks.some((b) => b.t === "case");
@@ -23,7 +23,7 @@ const isFinalCta = (s: DocSection, d: Doc) => s === d.sections.at(-1) && s.block
 /** Table that turns into labelled blocks on mobile (no horizontal scroll at 375 px). */
 function DocTable({ head, rows }: { head: string[]; rows: string[][] }) {
   return (
-    <table className="w-full border-collapse border-t border-bv-line text-left">
+    <table className="reveal w-full border-collapse border-t border-bv-line text-left">
       <thead className="hidden sm:table-header-group">
         <tr>
           {head.map((h) => (
@@ -53,7 +53,7 @@ export function Block({ block }: { block: DocBlock }) {
   switch (block.t) {
     case "p":
       return (
-        <p className="t-body text-bv-ink">
+        <p className="reveal t-body text-bv-ink">
           <Rich text={block.text} />
         </p>
       );
@@ -61,7 +61,7 @@ export function Block({ block }: { block: DocBlock }) {
       return (
         <ul className="t-body list-disc space-y-2 pl-5 text-bv-ink marker:text-bv-accent">
           {block.items.map((it, i) => (
-            <li key={i}>
+            <li key={i} className="reveal" style={{ ["--reveal-delay" as string]: `${Math.min(i, 8) * 50}ms` }}>
               <Rich text={it} />
             </li>
           ))}
@@ -72,7 +72,11 @@ export function Block({ block }: { block: DocBlock }) {
       return (
         <ol className="border-t border-bv-line">
           {block.items.map((it, i) => (
-            <li key={i} className="grid grid-cols-[48px_1fr] items-baseline gap-x-4 border-b border-bv-line py-4 sm:grid-cols-[64px_1fr]">
+            <li
+              key={i}
+              className="reveal row-hover grid grid-cols-[48px_1fr] items-baseline gap-x-4 border-b border-bv-line py-4 sm:grid-cols-[64px_1fr]"
+              style={{ ["--reveal-delay" as string]: `${Math.min(i, 8) * 70}ms` }}
+            >
               <span className="t-number text-bv-accent">{String(i + 1).padStart(2, "0")}</span>
               <span className="t-body text-bv-ink">
                 <Rich text={it} />
@@ -85,7 +89,7 @@ export function Block({ block }: { block: DocBlock }) {
       return <DocTable head={block.head} rows={block.rows} />;
     case "button":
       return (
-        <div className="pt-2">
+        <div className="reveal pt-2">
           <PrimaryButton>{block.text}</PrimaryButton>
         </div>
       );
@@ -94,13 +98,17 @@ export function Block({ block }: { block: DocBlock }) {
   }
 }
 
-/** One "####" section: H2 on the left, body in a column of at most 760 px, a thin line above. */
+/** One "####" section: H2 on the left (sticky on desktop), body in a column of at most 760 px, a thin line above. */
 export function TextSection({ section, heading, children }: { section: DocSection; heading?: string; children?: ReactNode }) {
   return (
     <section className={ROW}>
       <div className="grid gap-6 lg:grid-cols-12 lg:gap-12">
-        <H2 className="lg:col-span-5">{heading ?? section.heading}</H2>
-        <div className="max-w-[760px] space-y-5 lg:col-span-7">
+        <div className="lg:col-span-5">
+          <div className="lg:sticky lg:top-[128px]">
+            <H2>{heading ?? section.heading}</H2>
+          </div>
+        </div>
+        <div className="max-w-[760px] space-y-5 lg:col-span-7 lg:pt-2">
           {section.blocks.map((b, i) => (
             <Block key={i} block={b} />
           ))}
@@ -111,17 +119,20 @@ export function TextSection({ section, heading, children }: { section: DocSectio
   );
 }
 
-/** "From our projects": case cards shown as text; the photo slot stays hidden until a company photo is uploaded. */
+/** "From our projects": case cards shown as text until the company's own photos are uploaded. */
 export function CaseSection({ section, heading }: { section: DocSection; heading?: string }) {
   const cases = section.blocks.filter((b): b is Extract<DocBlock, { t: "case" }> => b.t === "case");
   return (
     <section className={ROW}>
       <H2>{heading ?? section.heading}</H2>
       <div className={`mt-8 grid gap-x-8 gap-y-8 lg:mt-10 ${cases.length > 1 ? "lg:grid-cols-2" : ""}`}>
-        {cases.map((c) => (
-          <article key={c.title} className={`${SHOW_PLACEHOLDERS ? "row-span-5" : "row-span-4"} grid grid-rows-subgrid gap-y-4 rounded-lg bg-bv-surface p-6 sm:p-8 lg:p-10`}>
-            {/* Company photo slot: hidden in production until a photo is uploaded */}
-            <ImageSlot label="Company photo" ratio="4:3" />
+        {cases.map((c, i) => (
+          <article
+            key={c.title}
+            className="reveal relative row-span-4 grid grid-rows-subgrid gap-y-4 overflow-hidden rounded-lg bg-bv-surface p-6 sm:p-8 lg:p-10"
+            style={{ ["--reveal-delay" as string]: `${(i % 2) * 120}ms` }}
+          >
+            <span aria-hidden="true" className="reveal-line absolute left-0 top-0 h-[3px] w-full bg-bv-accent" style={{ ["--reveal-delay" as string]: "250ms" }} />
             <H3>{c.title}</H3>
             {c.rows.map((r) => (
               <div key={r.label} className="border-t border-bv-line pt-4">
@@ -156,6 +167,8 @@ export type DocPageProps = {
   afterFaq?: ReactNode;
   /** Up to two inline image slots: after the 3rd section and directly before "From our projects" */
   inlineImages?: [string?, string?];
+  /** Legal and policy pages: text-only hero and no inline image positions */
+  plain?: boolean;
   /** F1 service value preselected in the form */
   formService?: string;
   leadSource?: string;
@@ -171,6 +184,7 @@ export default async function DocPage({
   beforeFaq,
   afterFaq,
   inlineImages,
+  plain,
   formService,
   leadSource,
 }: DocPageProps) {
@@ -180,20 +194,18 @@ export default async function DocPage({
   const [imageA, imageB] = (inlineImages ?? []).map((id) => (id ? getMedia(id, locale) : null));
   const final = d.sections.find((s) => isFinalCta(s, d));
 
-  // Up to two inline images per page (Changes Sheet section 3). Without an assigned slot
-  // the position still shows as a placeholder on staging.
+  // Up to two inline images per page. A position without an assigned slot shows a
+  // temporary photo until the final image is supplied.
   const inlineImage = (asset: ReturnType<typeof getMedia>, name: string) =>
-    asset ? (
-      <div className="pb-10 sm:pb-12 lg:pb-16">
+    plain ? null : (
+    <div className="pb-12 md:pb-16 lg:pb-20">
+      {asset ? (
         <MediaFigure asset={asset} ratio="16:9" sizes="(min-width: 1320px) 1200px, 100vw" />
-      </div>
-    ) : (
-      SHOW_PLACEHOLDERS && (
-        <div className="pb-10 sm:pb-12 lg:pb-16">
-          <ImageSlot label={`${page} ${name}`} ratio="16:9" />
-        </div>
-      )
-    );
+      ) : (
+        <ImageSlot label={`${page} ${name}`} ratio="16:9" locale={locale} />
+      )}
+    </div>
+  );
 
   return (
     <>
@@ -204,7 +216,8 @@ export default async function DocPage({
           cta={button ? { label: button } : undefined}
           underButton={d.underButton}
           media={heroImage ? getMedia(heroImage, locale) : null}
-          slot={heroImage ? undefined : `${page} hero`}
+          slot={heroImage || plain ? undefined : `${page} hero`}
+          locale={locale}
         />
       )}
       <FactsStrip facts={d.facts} />
@@ -254,7 +267,7 @@ export default async function DocPage({
       {final && (
         <Section surface>
           <H2>{final.heading}</H2>
-          <div className="mt-6 max-w-[760px] space-y-5">
+          <div className="mt-6 max-w-[760px] space-y-5 [&_p]:text-[18px] lg:[&_p]:text-[20px]">
             {final.blocks.map((b, i) => (
               <Block key={i} block={b} />
             ))}

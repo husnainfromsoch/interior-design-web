@@ -50,7 +50,7 @@ export default function CookieChoices() {
               checked={r.checked}
               disabled={r.disabled}
               onChange={r.onChange}
-              className="h-6 w-11 cursor-pointer appearance-none rounded-sm bg-bv-field-border/50 transition-colors checked:bg-bv-accent disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink"
+              className="h-6 w-11 cursor-pointer appearance-none rounded-full bg-bv-field-border/50 transition-colors checked:bg-bv-accent disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink"
             />
           </li>
         ))}

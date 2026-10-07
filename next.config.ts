@@ -35,6 +35,14 @@ const nextConfig: NextConfig = {
     // on another database branch (Preview vs Production). Publishing still revalidates by tag.
     CMS_CACHE_SCOPE: process.env.VERCEL_DEPLOYMENT_ID ?? `build-${Date.now().toString(36)}`,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
+  },
   async redirects() {
     return legacy.flatMap(([from, to]) => [
       { source: from, destination: to, permanent: true },

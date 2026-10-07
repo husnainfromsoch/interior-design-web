@@ -93,7 +93,7 @@ export default async function ApprovalsPage({ locale }: { locale: string }) {
         </Intro>
         <dl className="mt-8 border-t border-bv-line lg:mt-10">
           {rows.map((r) => (
-            <div key={r.title} className="grid gap-2 border-b border-bv-line py-5 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-8">
+            <div key={r.title} className="reveal grid gap-2 border-b border-bv-line py-5 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-8">
               <dt className="t-h3">{r.title}</dt>
               <dd className="t-body m-0 text-bv-muted">{r.body}</dd>
             </div>
@@ -122,7 +122,7 @@ export default async function ApprovalsPage({ locale }: { locale: string }) {
             [col1Title, col1Rest.join(": ")],
             [CHECK_LABEL[lang], col2Body],
           ].map(([title, body]) => (
-            <div key={title} className="border-t border-bv-line pt-5">
+            <div key={title} className="reveal border-t border-bv-line pt-5">
               <H3>{title}</H3>
               <p className="t-body mt-2 text-bv-muted">{body}</p>
             </div>

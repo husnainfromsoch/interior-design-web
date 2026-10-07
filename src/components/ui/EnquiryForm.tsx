@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
+import { ArrowUpRight } from "lucide-react";
 import { upload } from "@vercel/blob/client";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
@@ -42,6 +44,8 @@ export type FormCopy = {
   errorFileSize: string;
   errorSending: string;
   nextSteps: string[];
+  /** Photo beside the form on desktop: temporary, with its visible label, until a final image is supplied */
+  image: { src: string; caption: string };
 };
 
 type Status = "idle" | "submitting" | "success" | "error" | "rateLimited";
@@ -52,7 +56,16 @@ const FILE_TYPES = ["application/pdf", "image/jpeg", "image/png"];
 
 const fieldClass =
   "t-body mt-2 h-[52px] w-full rounded-sm border border-bv-field-border bg-bv-white px-4 text-bv-ink transition-colors duration-200 placeholder:text-bv-muted aria-[invalid=true]:border-bv-error";
-const buttonBase = "t-button inline-flex h-[52px] w-full items-center justify-center gap-2 rounded-sm px-6 transition-colors duration-200 sm:w-auto sm:min-w-[200px]";
+const buttonBase =
+  "press btn-shine t-button inline-flex h-[52px] w-full items-center justify-center gap-2 rounded-sm px-6 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink sm:w-auto sm:min-w-[200px]";
+
+// Contact index beside the form: the footer's hairline rows, in ink on the surface panel.
+const contactRow =
+  "group flex min-h-[64px] items-center justify-between gap-6 border-b border-bv-ink/15 py-2 text-bv-ink transition-colors duration-200 hover:text-bv-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bv-ink";
+const contactRowText = "font-bv-heading text-[clamp(22px,2vw,28px)] leading-none";
+const contactArrow = (
+  <ArrowUpRight aria-hidden="true" strokeWidth={1.4} className="arrow-lift h-5 w-5 flex-none text-bv-ink/45 transition-colors group-hover:text-bv-accent" />
+);
 
 function makeIdempotencyKey() {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) return crypto.randomUUID();
@@ -241,8 +254,13 @@ export default function EnquiryForm({
 
   const formOrSuccess =
     status === "success" ? (
-      <div role="status" className="bg-bv-background p-6 sm:p-8 lg:p-10">
-        <p className="t-body text-bv-success">{copy.success}</p>
+      <div role="status" className="success-in rounded-lg bg-bv-background p-6 sm:p-8 lg:p-10">
+        <div className="flex items-start gap-4">
+          <svg viewBox="0 0 24 24" aria-hidden="true" className="check-draw mt-0.5 h-7 w-7 flex-none text-bv-success">
+            <path d="M4 12.5l5 5L20 6.5" pathLength={1} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <p className="max-w-[560px] text-[18px] leading-[1.65] text-bv-success">{copy.success}</p>
+        </div>
         <a
           href={waHref}
           target="_blank"
@@ -254,7 +272,14 @@ export default function EnquiryForm({
         </a>
       </div>
     ) : (
-      <form onSubmit={handleSubmit} onFocus={onFirstFocus} className="bg-bv-background p-6 sm:p-8 lg:p-10" noValidate aria-busy={status === "submitting"}>
+      <form
+        onSubmit={handleSubmit}
+        onFocus={onFirstFocus}
+        className="reveal sm:rounded-lg sm:bg-bv-background sm:p-8 lg:p-10"
+        style={{ ["--reveal-delay" as string]: "120ms" } as React.CSSProperties}
+        noValidate
+        aria-busy={status === "submitting"}
+      >
         <div className="flex flex-col gap-5">
           <div className="grid gap-5 sm:grid-cols-2">
             <div>
@@ -382,7 +407,7 @@ export default function EnquiryForm({
           </div>
 
           <div className="flex flex-col gap-3 sm:flex-row">
-            <button type="submit" disabled={status === "submitting"} className={`${buttonBase} bg-bv-accent text-bv-white hover:bg-bv-accent-hover disabled:opacity-60`}>
+            <button type="submit" disabled={status === "submitting"} data-magnetic className={`${buttonBase} bg-bv-accent text-bv-white hover:bg-bv-accent-hover disabled:opacity-60`}>
               {status === "submitting" && (
                 <svg viewBox="0 0 24 24" aria-hidden="true" className="spin h-4 w-4">
                   <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeOpacity="0.3" strokeWidth="2" />
@@ -413,20 +438,30 @@ export default function EnquiryForm({
     );
 
   const next = !hideNext && (
-    <ol className="border-t border-bv-line">
+    <ol className="grid gap-0 border-l border-bv-line">
       {copy.nextSteps.map((step, i) => (
-        <li key={i} className="grid grid-cols-[48px_1fr] items-baseline border-b border-bv-line py-3">
-          <span className="t-number text-bv-accent">{String(i + 1).padStart(2, "0")}</span>
-          <span className="t-body text-bv-ink">{step}</span>
+        <li
+          key={i}
+          className="reveal relative grid grid-cols-[40px_1fr] items-baseline py-2.5 pl-5"
+          style={{ ["--reveal-delay" as string]: `${200 + i * 110}ms` } as React.CSSProperties}
+        >
+          <span aria-hidden="true" className="absolute -left-px top-3 h-5 w-px bg-bv-accent" />
+          <span className="font-bv-heading text-[20px] leading-none text-bv-accent tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+          <span className="text-[15px] leading-[1.55] text-bv-ink">{step}</span>
         </li>
       ))}
     </ol>
   );
 
   return (
-    <section ref={rootRef} id={id} className="bv-flow bg-bv-surface py-14 sm:py-[72px] lg:py-[104px]" style={{ scrollMarginTop: "var(--header-h)" }}>
-      <div className="mx-auto grid w-full max-w-[1320px] gap-10 px-4 sm:px-8 lg:grid-cols-12 lg:gap-12 lg:px-[60px]">
-        <div className="lg:col-span-5">
+    <section ref={rootRef} id={id} className="bv-flow bg-bv-background py-14 md:py-[72px] lg:py-[104px]" style={{ scrollMarginTop: "var(--header-h)" }}>
+      {/* Same container as every Section, so the panel edges line up with the content above. */}
+      <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-8 lg:px-[60px]">
+      <div className="relative grid w-full gap-10 overflow-hidden rounded-lg bg-bv-surface px-6 py-8 sm:px-10 sm:py-12 lg:grid-cols-12 lg:gap-12 lg:p-12 xl:p-14">
+        {/* The form is far taller than the texts beside it, so on desktop the left column is
+            composed top to bottom: texts at the top, a photo taking the height that is left,
+            the contact index standing on the bottom edge. */}
+        <div className="reveal relative flex flex-col lg:col-span-5">
           {!noHeading && (
             <>
               <h2 className="t-h2">{heading ?? copy.heading}</h2>
@@ -434,16 +469,29 @@ export default function EnquiryForm({
             </>
           )}
           {next && <div className={noHeading ? "" : "mt-10"}>{next}</div>}
-          <p className={`t-small flex flex-wrap gap-x-6 gap-y-1 text-bv-ink ${next || !noHeading ? "mt-8" : ""}`}>
-            <a href={`tel:${contact.phoneE164}`} className="inline-flex min-h-11 items-center transition-colors duration-200 hover:text-bv-accent">
-              {contact.phoneDisplay}
-            </a>
-            <a href={`mailto:${contact.email}`} className="inline-flex min-h-11 items-center transition-colors duration-200 hover:text-bv-accent">
-              {contact.email}
-            </a>
-          </p>
+          <figure className={`m-0 hidden min-h-0 flex-1 flex-col lg:flex ${next || !noHeading ? "mt-10" : ""}`}>
+            <div className="relative min-h-[220px] flex-1 overflow-hidden rounded-lg bg-bv-line/40">
+              <Image src={copy.image.src} alt="" fill sizes="(min-width: 1024px) 40vw, 1px" className="object-cover" />
+            </div>
+            <figcaption className="mt-2 text-[12px] leading-[1.4] tracking-[0.04em] text-bv-muted">{copy.image.caption}</figcaption>
+          </figure>
+          <ul className={`enquiry-rows border-t border-bv-ink/15 lg:mt-8 ${next || !noHeading ? "mt-10" : ""}`}>
+            <li>
+              <a href={`tel:${contact.phoneE164}`} className={contactRow}>
+                <span className={contactRowText}>{contact.phoneDisplay}</span>
+                {contactArrow}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${contact.email}`} className={contactRow}>
+                <span className={`break-all ${contactRowText}`}>{contact.email}</span>
+                {contactArrow}
+              </a>
+            </li>
+          </ul>
         </div>
-        <div className="lg:col-span-7">{formOrSuccess}</div>
+        <div className="relative lg:col-span-7">{formOrSuccess}</div>
+      </div>
       </div>
     </section>
   );
