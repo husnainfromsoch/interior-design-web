@@ -2,6 +2,7 @@
 // src/data/servicePages.ts, messages/*.json Nav/Common/Insights, spec copy C-FOOTER) so the
 // site renders exactly as before. Used only by the create-only seed (src/cms/seed/run.ts);
 // kept as the backup/reference of those values. Localized values are { en, ru }.
+// Contact values follow the final copy P21 K02 verbatim (Bellvero_Final_Copy_EN_RU.md).
 
 export const SEED = {
   "siteSettings": {
@@ -11,12 +12,12 @@ export const SEED = {
       "whatsappNumber": "971588099223",
       "email": "info@bellverogroup.com",
       "workingHours": {
-        "en": "Monday–Friday, 9:00–18:00 (UAE time)",
-        "ru": "Понедельник–пятница, 9:00–18:00, время ОАЭ"
+        "en": "Monday–Friday, 9:00–18:00, UAE time",
+        "ru": "понедельник–пятница, 9:00–18:00 по времени ОАЭ"
       },
       "visitsLine": {
-        "en": "Meetings at your property or another agreed location. Production visits by appointment.",
-        "ru": "Встречи на вашем объекте или в другом согласованном месте. Посещение производства: по договорённости."
+        "en": "Meetings at your property or another agreed location. Workshop visits by appointment.",
+        "ru": "На вашем объекте или в другом согласованном месте. Посещение мастерской по договорённости."
       }
     },
     "legal": {

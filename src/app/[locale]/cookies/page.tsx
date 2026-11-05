@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import PageIntro from "@/components/ui/PageIntro";
 import CookieChoices from "@/components/ui/CookieChoices";
+import { localeAlternates } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "CookiesPage" });
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return { title: t("metaTitle"), description: t("metaDescription"), alternates: localeAlternates("/cookies", locale) };
 }
 
 const tools = ["necessary", "analytics", "marketing"] as const;

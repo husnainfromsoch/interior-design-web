@@ -1,4 +1,4 @@
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://bellvero.com").replace(/\/$/, "");
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://bellvero.ae").replace(/\/$/, "");
 
 /** Absolute URL for a locale-neutral path ("/insights"); English has no prefix. */
 export function localeUrl(path: string, locale: string) {

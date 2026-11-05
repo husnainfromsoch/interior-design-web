@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getSiteSettings, type SiteSettings } from "@/cms/data";
 import { sc } from "@/lib/spec";
+import { localeAlternates } from "@/lib/seo";
 
 // Spec §15.20 P23 Privacy Notice: single column ≤ 800 px, anchored table of contents,
 // no hero image. Copy is C-P23 verbatim. A section whose square-bracket values the
@@ -47,6 +48,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: `${locale === "ru" ? "Обработка персональных данных" : "Privacy Notice"} | Bellvero Group`,
     description: sc("C-P23", "Information you provide", locale),
+    alternates: localeAlternates("/privacy", locale),
   };
 }
 

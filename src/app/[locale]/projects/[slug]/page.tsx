@@ -12,6 +12,7 @@ import { CONCEPTS, conceptTitle, getConcept } from "@/data/concepts";
 import { getMedia, getMediaList, getMediaSlots } from "@/data/media";
 import { serviceHref, serviceTitle, type ServiceSlug } from "@/data/servicePages";
 import { items, sc, scMaybe } from "@/lib/spec";
+import { localeAlternates } from "@/lib/seo";
 
 // Concept project template, P15–P18: CS01–CS09 (texts as built; Changes Sheet P15–P18).
 // Images are AI images with the caption "AI-generated image"; an image without an AI
@@ -37,6 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: `${sc(`C-${concept.page}-CS02`, "H1", locale)} | Bellvero Group`,
     description: sc(`C-${concept.page}-CS03`, "overview", locale),
+    alternates: localeAlternates(`/projects/${slug}`, locale),
   };
 }
 
